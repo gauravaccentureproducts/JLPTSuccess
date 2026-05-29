@@ -1,8 +1,8 @@
-import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{esc as a,wireExpandCollapseControls as ee}from"./learn.js";import{currentLocale as A,t as o}from"./i18n.js";import{assetUrl as te}from"./router.js";let v=null,C=null;async function ae(){return v||C||(C=fetch("data/audio_manifest.json").then(n=>n.ok?n.json():null).then(n=>(n&&Array.isArray(n.items)?v=new Set(n.items.map(e=>e.path)):v=new Set,v)).catch(()=>(v=new Set,v)),C)}function ne(n){return v?v.has(n):!1}function se(n){const e=A();if(e&&e!=="en"){const s=n[`explanation_${e}`];if(typeof s=="string"&&s.trim())return s}return n.explanation_en||""}function B(n){const e=A();if(e&&e!=="en"){const s=n[`meaning_${e}`];if(typeof s=="string"&&s.trim())return s}return n.meaning_en||""}function re(n){const e=A();if(e&&e!=="en"&&n.l1_notes&&typeof n.l1_notes=="object"){const s=n.l1_notes[e];if(typeof s=="string"&&s.trim())return s}return null}const S=[["Sentence Basics",["Copula and Basic Sentence Structure","Particles","Demonstratives","Question Words"]],["Verbs",["Verbs - Tense and Politeness (\u307E\u3059-form)","Verbs - Plain (Dictionary) Form and Negation","Te-form and Related Patterns","Existence and Possession","Desiderative and Volitional","Giving and Receiving (basic)","Additional Upper N5 / Borderline Patterns - Permission and Obligation","Additional Upper N5 / Borderline Patterns - Experience and Advice","Additional Upper N5 / Borderline Patterns - Compound and Listed Actions","Additional Upper N5 / Borderline Patterns - Excess","Additional Upper N5 / Borderline Patterns - Intention","Additional Upper N5 / Borderline Patterns - Way of Doing","Additional Upper N5 / Borderline Patterns - Prohibitive (Casual)"]],["Adjectives and Comparison",["Adjectives","Comparison and Preference"]],["Time, Counters, Connectives",["Counters and Quantity","Time Expressions","Conjunctions and Connectives","Asking and Stating with \u304B\u3089 / \u306E\u3067 (basic causation)","Existence-of-Plans and Frequency"]],["Set Phrases and Discourse",["Nominalization and Modification","Common Set Patterns","Functional Expressions (Non-Grammar, Common Usage)","Other Core Patterns","Honorific / Polite Vocabulary at N5 (functional)","Additional Upper N5 / Borderline Patterns - Explanation and Emphasis","Additional Upper N5 / Borderline Patterns - Quotation (Casual)","Additional Upper N5 / Borderline Patterns - Sentence-Final Exclamation"]]],T={"n5-135":"Verbs","n5-144":"Verbs","n5-153":"Verbs","n5-154":"Verbs","n5-162":"Verbs","n5-163":"Verbs"};function U(n){if(typeof n=="object"&&n&&n.id in T)return T[n.id];const e=typeof n=="string"?n:n?.category||"";for(const[s,p]of S)if(p.includes(e))return s;return"Set Phrases and Discourse"}function oe(n){const e=new Map;for(const[p]of S)e.set(p,[]);for(const p of n){const g=U(p);e.has(g)&&e.get(g).push(p)}const s=[];for(const[,p]of e)p.sort((g,y)=>(g.patternOrder??0)-(y.patternOrder??0)),s.push(...p);return s}let P="";function ie(n,e){return e?[n.pattern,n.meaning_en,n.meaning_ja||"",n.notes||"",(n.examples||[]).map(p=>p.ja).join(" ")].join(" ").toLowerCase().includes(e):!0}function q(n,e){const s=new Map;for(const[r]of S)s.set(r,[]);const p=P.trim().toLowerCase(),g=e.patterns.filter(r=>ie(r,p));for(const r of g){const i=U(r);s.get(i).push(r)}const y=r=>r.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");let l=`
+import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{esc as a,wireExpandCollapseControls as ee}from"./learn.js";import{currentLocale as A,t as r}from"./i18n.js";import{assetUrl as te}from"./router.js";let v=null,C=null;async function ae(){return v||C||(C=fetch("data/audio_manifest.json").then(n=>n.ok?n.json():null).then(n=>(n&&Array.isArray(n.items)?v=new Set(n.items.map(e=>e.path)):v=new Set,v)).catch(()=>(v=new Set,v)),C)}function ne(n){return v?v.has(n):!1}function se(n){const e=A();if(e&&e!=="en"){const s=n[`explanation_${e}`];if(typeof s=="string"&&s.trim())return s}return n.explanation_en||""}function B(n){const e=A();if(e&&e!=="en"){const s=n[`meaning_${e}`];if(typeof s=="string"&&s.trim())return s}return n.meaning_en||""}function re(n){const e=A();if(e&&e!=="en"&&n.l1_notes&&typeof n.l1_notes=="object"){const s=n.l1_notes[e];if(typeof s=="string"&&s.trim())return s}return null}const S=[["Sentence Basics",["Copula and Basic Sentence Structure","Particles","Demonstratives","Question Words"]],["Verbs",["Verbs - Tense and Politeness (\u307E\u3059-form)","Verbs - Plain (Dictionary) Form and Negation","Te-form and Related Patterns","Existence and Possession","Desiderative and Volitional","Giving and Receiving (basic)","Additional Upper N5 / Borderline Patterns - Permission and Obligation","Additional Upper N5 / Borderline Patterns - Experience and Advice","Additional Upper N5 / Borderline Patterns - Compound and Listed Actions","Additional Upper N5 / Borderline Patterns - Excess","Additional Upper N5 / Borderline Patterns - Intention","Additional Upper N5 / Borderline Patterns - Way of Doing","Additional Upper N5 / Borderline Patterns - Prohibitive (Casual)"]],["Adjectives and Comparison",["Adjectives","Comparison and Preference"]],["Time, Counters, Connectives",["Counters and Quantity","Time Expressions","Conjunctions and Connectives","Asking and Stating with \u304B\u3089 / \u306E\u3067 (basic causation)","Existence-of-Plans and Frequency"]],["Set Phrases and Discourse",["Nominalization and Modification","Common Set Patterns","Functional Expressions (Non-Grammar, Common Usage)","Other Core Patterns","Honorific / Polite Vocabulary at N5 (functional)","Additional Upper N5 / Borderline Patterns - Explanation and Emphasis","Additional Upper N5 / Borderline Patterns - Quotation (Casual)","Additional Upper N5 / Borderline Patterns - Sentence-Final Exclamation"]]],T={"n5-135":"Verbs","n5-144":"Verbs","n5-153":"Verbs","n5-154":"Verbs","n5-162":"Verbs","n5-163":"Verbs"};function U(n){if(typeof n=="object"&&n&&n.id in T)return T[n.id];const e=typeof n=="string"?n:n?.category||"";for(const[s,p]of S)if(p.includes(e))return s;return"Set Phrases and Discourse"}function oe(n){const e=new Map;for(const[p]of S)e.set(p,[]);for(const p of n){const g=U(p);e.has(g)&&e.get(g).push(p)}const s=[];for(const[,p]of e)p.sort((g,y)=>(g.patternOrder??0)-(y.patternOrder??0)),s.push(...p);return s}let P="";function ie(n,e){return e?[n.pattern,n.meaning_en,n.meaning_ja||"",n.notes||"",(n.examples||[]).map(p=>p.ja).join(" ")].join(" ").toLowerCase().includes(e):!0}function q(n,e){const s=new Map;for(const[o]of S)s.set(o,[]);const p=P.trim().toLowerCase(),g=e.patterns.filter(o=>ie(o,p));for(const o of g){const i=U(o);s.get(i).push(o)}const y=o=>o.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");let l=`
     <a class="back-link" href="#/learn">\u2190 Back to Learn</a>
     <h2>Grammar</h2>
     <p class="page-lede">${e.patterns.length} patterns in ${s.size} sections.</p>
-  `;for(const[r,i]of s){if(i.length===0)continue;i.sort((c,f)=>(c.patternOrder??0)-(f.patternOrder??0));const u=!!p;l+=`<details class="toc-category" id="cat-${y(r)}"${u?" open":""}>`,l+=`<summary><h3>${a(r)} <span class="cat-count muted small">(${i.length})</span></h3></summary>`,l+='<div class="grammar-grid">';for(const c of i){const f=(()=>{const w=(c.examples||[]).filter(j=>j&&j.ja);return w[0]?w[0].ja:""})(),x=(()=>{const w=A&&A();if(w&&w!=="en"){const j=c[`meaning_${w}`];if(typeof j=="string"&&j.trim())return j}return c.meaning_en||""})();l+=`
+  `;for(const[o,i]of s){if(i.length===0)continue;i.sort((c,f)=>(c.patternOrder??0)-(f.patternOrder??0));const u=!!p;l+=`<details class="toc-category" id="cat-${y(o)}"${u?" open":""}>`,l+=`<summary><h3>${a(o)} <span class="cat-count muted small">(${i.length})</span></h3></summary>`,l+='<div class="grammar-grid">';for(const c of i){const f=(()=>{const w=(c.examples||[]).filter(j=>j&&j.ja);return w[0]?w[0].ja:""})(),x=(()=>{const w=A&&A();if(w&&w!=="en"){const j=c[`meaning_${w}`];if(typeof j=="string"&&j.trim())return j}return c.meaning_en||""})();l+=`
         <a class="grammar-card" href="#/learn/${encodeURIComponent(c.id)}">
           <span class="grammar-pattern" lang="ja">${a(c.pattern)}</span>
           <span class="grammar-card-print-meaning">${a(x)}</span>
@@ -27,9 +27,9 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
         \u{1F5A8} Print cheat sheet
       </button>
     </div>
-  `,n.innerHTML=l,ee(n,"details.toc-category"),n.querySelector(".toc-print-cheatsheet")?.addEventListener("click",()=>{const r=Array.from(n.querySelectorAll("details.toc-category")),i=r.map(c=>c.open);r.forEach(c=>{c.open=!0}),document.body.classList.add("is-printing-cheatsheet");const u=()=>{r.forEach((c,f)=>{c.open=i[f]}),document.body.classList.remove("is-printing-cheatsheet"),window.removeEventListener("afterprint",u)};window.addEventListener("afterprint",u),window.print()});const $=document.getElementById("grammar-filter-q");if($){let r=!1;$.addEventListener("compositionstart",()=>{r=!0}),$.addEventListener("compositionend",()=>{r=!1,P=$.value,q(n,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const u=i.value;i.setSelectionRange(u.length,u.length)}}),$.addEventListener("input",()=>{if(r)return;P=$.value,q(n,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const u=i.value;i.setSelectionRange(u.length,u.length)}})}}const I={noun:"Noun",noun_subject:"Noun (subject)",noun_location:"Noun (location)",noun_time:"Noun (time)",noun_quantity:"Noun (quantity)",noun_or_adj:"Noun or adjective",na_adjective:"\u306A-adjective",i_adjective:"\u3044-adjective",verb:"Verb",verb_stem:"Verb stem (\u307E\u3059-base)",verb_stem_i:"Verb i-stem",verb_root:"Verb root",verb_dictionary:"Verb (dictionary form)",verb_plain:"Verb (plain form)",verb_te:"Verb (\u3066-form)",verb_ta:"Verb (\u305F-form)",verb_nai:"Verb (\u306A\u3044-form)",verb_mashita:"Verb (\u307E\u3057\u305F form)",verb_te_imasu_neg:"Verb (\u3066-\u3044\u307E\u305B\u3093)",verb_or_adj_stem:"Verb or adjective stem",pronoun:"Pronoun",question_word:"Question word",before_noun:"Before a noun",adverbial:"Adverbial position",sentence_end:"Sentence end",sentence_pattern:"Full sentence",clause:"Clause",clause_start:"Clause-initial",clause_end:"Clause-final",plain_clause:"Plain-form clause",plain_or_polite_clause:"Plain or polite clause",quoted_clause:"Quoted clause",quantity:"Quantity expression",number:"Number",set_phrase:"Set phrase",standalone:"Standalone",dialogue:"Dialogue line",after_name:"After a name"};function le(n){return I[n]?I[n]:String(n).replace(/_/g," ").replace(/^./,e=>e.toUpperCase())}function ce(n){const e=n.form_rules?.attaches_to??[],s=n.form_rules?.conjugations??[];if(!e.length&&!s.length)return"";const p=`
+  `,n.innerHTML=l,ee(n,"details.toc-category"),n.querySelector(".toc-print-cheatsheet")?.addEventListener("click",()=>{const o=Array.from(n.querySelectorAll("details.toc-category")),i=o.map(c=>c.open);o.forEach(c=>{c.open=!0}),document.body.classList.add("is-printing-cheatsheet");const u=()=>{o.forEach((c,f)=>{c.open=i[f]}),document.body.classList.remove("is-printing-cheatsheet"),window.removeEventListener("afterprint",u)};window.addEventListener("afterprint",u),window.print()});const $=document.getElementById("grammar-filter-q");if($){let o=!1;$.addEventListener("compositionstart",()=>{o=!0}),$.addEventListener("compositionend",()=>{o=!1,P=$.value,q(n,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const u=i.value;i.setSelectionRange(u.length,u.length)}}),$.addEventListener("input",()=>{if(o)return;P=$.value,q(n,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const u=i.value;i.setSelectionRange(u.length,u.length)}})}}const I={noun:"Noun",noun_subject:"Noun (subject)",noun_location:"Noun (location)",noun_time:"Noun (time)",noun_quantity:"Noun (quantity)",noun_or_adj:"Noun or adjective",na_adjective:"\u306A-adjective",i_adjective:"\u3044-adjective",verb:"Verb",verb_stem:"Verb stem (\u307E\u3059-base)",verb_stem_i:"Verb i-stem",verb_root:"Verb root",verb_dictionary:"Verb (dictionary form)",verb_plain:"Verb (plain form)",verb_te:"Verb (\u3066-form)",verb_ta:"Verb (\u305F-form)",verb_nai:"Verb (\u306A\u3044-form)",verb_mashita:"Verb (\u307E\u3057\u305F form)",verb_te_imasu_neg:"Verb (\u3066-\u3044\u307E\u305B\u3093)",verb_or_adj_stem:"Verb or adjective stem",pronoun:"Pronoun",question_word:"Question word",before_noun:"Before a noun",adverbial:"Adverbial position",sentence_end:"Sentence end",sentence_pattern:"Full sentence",clause:"Clause",clause_start:"Clause-initial",clause_end:"Clause-final",plain_clause:"Plain-form clause",plain_or_polite_clause:"Plain or polite clause",quoted_clause:"Quoted clause",quantity:"Quantity expression",number:"Number",set_phrase:"Set phrase",standalone:"Standalone",dialogue:"Dialogue line",after_name:"After a name"};function le(n){return I[n]?I[n]:String(n).replace(/_/g," ").replace(/^./,e=>e.toUpperCase())}function ce(n){const e=n.form_rules?.attaches_to??[],s=n.form_rules?.conjugations??[];if(!e.length&&!s.length)return"";const p=`
     <div class="pattern-usage-header">
-      <h3 class="section-title">${a(o("grammar_detail.how_to_use"))}</h3>
+      <h3 class="section-title">${a(r("grammar_detail.how_to_use"))}</h3>
       <span class="pattern-usage-chip" lang="ja">\u4F7F\u3044\u65B9</span>
     </div>
   `,g=e.length?`
@@ -57,7 +57,7 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
         `).join("")}
       </tbody>
     </table>
-  `:"";return`<section class="pattern-usage">${p}${g}${y}</section>`}async function de(n,e,s){await ae();const p=e.form_rules?.conjugations??[],g=e.examples??[],y=e.common_mistakes??[],l=V.getPatternEntry(e.id),$=!!l?.isManuallyKnown,r=!!l?.isMastered,i=!!l?.isWeak&&!r,u=Array.isArray(s)?oe(s):[],c=u.findIndex(t=>t.id===e.id),f=c>0?u[c-1]:null,x=c>=0&&c<u.length-1?u[c+1]:null,w=f||x?`
+  `:"";return`<section class="pattern-usage">${p}${g}${y}</section>`}async function de(n,e,s){await ae();const p=e.form_rules?.conjugations??[],g=e.examples??[],y=e.common_mistakes??[],l=V.getPatternEntry(e.id),$=!!l?.isManuallyKnown,o=!!l?.isMastered,i=!!l?.isWeak&&!o,u=Array.isArray(s)?oe(s):[],c=u.findIndex(t=>t.id===e.id),f=c>0?u[c-1]:null,x=c>=0&&c<u.length-1?u[c+1]:null,w=f||x?`
     <div class="pattern-nav">
       ${f?`<a class="pattern-nav-prev" href="#/learn/${encodeURIComponent(f.id)}" title="Previous: ${a(f.pattern)}">&larr; <span class="pattern-nav-name" lang="ja">${a(f.pattern)}</span></a>`:'<span class="pattern-nav-prev pattern-nav-empty" aria-hidden="true"></span>'}
       ${x?`<a class="pattern-nav-next" href="#/learn/${encodeURIComponent(x.id)}" title="Next: ${a(x.pattern)}"><span class="pattern-nav-name" lang="ja">${a(x.pattern)}</span> &rarr;</a>`:'<span class="pattern-nav-next pattern-nav-empty" aria-hidden="true"></span>'}
@@ -81,7 +81,7 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
         <div><span class="right">${h(t.right)}</span></div>
         <span class="why">${a(t.why)}</span>
       </li>
-    `}).join(""),E=Array.isArray(e.wrong_corrected_pair)?e.wrong_corrected_pair:[],R=t=>{if(!t)return"";const d=`grammar_detail.cat_${t}`,m=o(d)!==d?o(d):t;return`<span class="error-category-badge cat-${a(t)}">${a(m)}</span>`},D=o("grammar_detail.wcp_wrong"),F=o("grammar_detail.wcp_correct"),H=E.map(t=>`
+    `}).join(""),E=Array.isArray(e.wrong_corrected_pair)?e.wrong_corrected_pair:[],R=t=>{if(!t)return"";const d=`grammar_detail.cat_${t}`,m=r(d)!==d?r(d):t;return`<span class="error-category-badge cat-${a(t)}">${a(m)}</span>`},D=r("grammar_detail.wcp_wrong"),F=r("grammar_detail.wcp_correct"),H=E.map(t=>`
     <li>
       <div class="wcp-header">${R(t.error_category)}</div>
       <div class="wcp-row wcp-row-wrong">
@@ -98,10 +98,10 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
     </li>
   `).join(""),N=e.politeness_ladder&&typeof e.politeness_ladder=="object"?e.politeness_ladder:null,O=N?`
     <section class="politeness-ladder">
-      <h3 class="section-title">${a(o("grammar_detail.ladder_section"))}</h3>
+      <h3 class="section-title">${a(r("grammar_detail.ladder_section"))}</h3>
       <table class="ladder-table">
         <tbody>
-          ${["casual","polite","humble","respectful"].map(t=>{const d=N[t];if(!d)return"";const m=o(`grammar_detail.ladder_${t}`);return`
+          ${["casual","polite","humble","respectful"].map(t=>{const d=N[t];if(!d)return"";const m=r(`grammar_detail.ladder_${t}`);return`
               <tr class="ladder-row ladder-${t}">
                 <th scope="row">${a(m)}</th>
                 <td lang="ja">${h(d)}</td>
@@ -128,10 +128,10 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
             </li>`}).join("")}
       </ul>
     </section>
-  `:"",W=r?'<span class="status-badge mastered">\u2605 Mastered</span>':i?'<span class="status-badge weak">Needs practice</span>':"",Q=`
+  `:"",W=o?'<span class="status-badge mastered">\u2605 Mastered</span>':i?'<span class="status-badge weak">Needs practice</span>':"",Q=`
     <article class="pattern-detail">
       ${w}
-      <a class="back-link no-print" href="#/learn/grammar">\u2190 ${a(o("grammar_detail.back_to_list"))}</a>
+      <a class="back-link no-print" href="#/learn/grammar">\u2190 ${a(r("grammar_detail.back_to_list"))}</a>
       ${e._alias_of?`<p class="pattern-alias-badge muted small">\u2194 <a href="#/learn/${encodeURIComponent(e._alias_of)}">Also see ${a(e._alias_of)}</a> <span class="muted">(dual-coverage of the same concept; different examples)</span></p>`:""}
       ${e._homonym_of?`<p class="pattern-homonym-badge muted small">\u26A0 <a href="#/learn/${encodeURIComponent(e._homonym_of)}">Same kana, different meaning: ${a(e._homonym_of)}</a></p>`:""}
       <div class="pattern-header">
@@ -141,63 +141,63 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
         </div>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known" ${$?"checked":""}>
-          <span>${a(o("grammar_detail.mark_as_known"))}</span>
+          <span>${a(r("grammar_detail.mark_as_known"))}</span>
           ${W}
         </label>
         <button type="button" id="pattern-print-btn" class="btn-secondary no-print pattern-print-btn"
                 title="Print this lesson note (use 'Save as PDF' in your browser's print dialog).">
-          \u{1F5A8} ${a(o("grammar_detail.print_pdf"))}
+          \u{1F5A8} ${a(r("grammar_detail.print_pdf"))}
         </button>
       </div>
 
       ${ce(e)}
 
       <section>
-        <h3 class="section-title">\u610F\u5473</h3>
+        <h3 class="section-title">${a(r("grammar_detail.meaning"))}</h3>
         <p>${a(B(e))}</p>
         <p>${h(e.meaning_ja)}</p>
         ${e.explanation_ja?`<p class="grammar-explanation-ja">${h(e.explanation_ja)}</p>`:""}
       </section>
 
       <section>
-        <h3 class="section-title">${a(o("grammar_detail.explanation"))}</h3>
+        <h3 class="section-title">${a(r("grammar_detail.explanation"))}</h3>
         <p>${a(se(e))}</p>
       </section>
 
       ${(()=>{const t=e.essay;if(!t||typeof t!="object")return"";const d=t.provenance==="needs_native_review",m=(_,b,k)=>!b&&!k?"":b?`<p><strong>${a(_)}:</strong> ${a(b)}</p>`:`<p><strong>${a(_)}:</strong> <span class="muted small">${a(k)}</span></p>`;return`
           <section class="pattern-essay">
-            <h3 class="section-title">${a(o("grammar_detail.deep_dive"))} ${d?'<span class="essay-stub-badge muted small">stub</span>':""}</h3>
-            ${m(o("grammar_detail.deep_dive_at_a_glance"),t.intro)}
-            ${m(o("grammar_detail.deep_dive_why"),t.why_it_matters,d?"Pending native author.":"")}
-            ${m(o("grammar_detail.deep_dive_pitfalls"),t.common_pitfalls)}
-            ${m(o("grammar_detail.deep_dive_contrasts"),t.contrasts)}
-            ${m(o("grammar_detail.deep_dive_practice"),t.closing_practice_tip,d?"Pending native author.":"")}
+            <h3 class="section-title">${a(r("grammar_detail.deep_dive"))} ${d?'<span class="essay-stub-badge muted small">stub</span>':""}</h3>
+            ${m(r("grammar_detail.deep_dive_at_a_glance"),t.intro)}
+            ${m(r("grammar_detail.deep_dive_why"),t.why_it_matters,d?"Pending native author.":"")}
+            ${m(r("grammar_detail.deep_dive_pitfalls"),t.common_pitfalls)}
+            ${m(r("grammar_detail.deep_dive_contrasts"),t.contrasts)}
+            ${m(r("grammar_detail.deep_dive_practice"),t.closing_practice_tip,d?"Pending native author.":"")}
             ${m("Cultural / usage context",t.cultural_context)}
           </section>
         `})()}
 
       ${(()=>{const t=re(e);return t?`
           <section class="l1-note">
-            <h3 class="section-title">${a(o("grammar_detail.l1_note"))}</h3>
+            <h3 class="section-title">${a(r("grammar_detail.l1_note"))}</h3>
             <p>${a(t)}</p>
           </section>
         `:""})()}
 
       <section>
-        <h3 class="section-title">${a(o("grammar_detail.examples"))} (${g.length})</h3>
+        <h3 class="section-title">${a(r("grammar_detail.examples"))} (${g.length})</h3>
         <ul class="example-list">${j}</ul>
       </section>
 
       ${y.length?`
         <section>
-          <h3 class="section-title">${a(o("grammar_detail.common_mistakes"))}</h3>
+          <h3 class="section-title">${a(r("grammar_detail.common_mistakes"))}</h3>
           <ul class="mistakes-list">${M}</ul>
         </section>
       `:""}
 
       ${E.length?`
         <section class="wrong-corrected-pair">
-          <h3 class="section-title">${a(o("grammar_detail.wcp_section"))} (${E.length})</h3>
+          <h3 class="section-title">${a(r("grammar_detail.wcp_section"))} (${E.length})</h3>
           <ul class="wcp-list">${H}</ul>
         </section>
       `:""}
@@ -208,7 +208,7 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
 
       ${G}
 
-      ${e.notes?`<section><h3 class="section-title">${a(o("grammar_detail.notes"))}</h3><p>${a(e.notes)}</p></section>`:""}
+      ${e.notes?`<section><h3 class="section-title">${a(r("grammar_detail.notes"))}</h3><p>${a(e.notes)}</p></section>`:""}
 
       ${e.cultural_callout?`
         <!-- IMP-WAVE-P2-12 (UI audit fix, 2026-05-11): usage-culture

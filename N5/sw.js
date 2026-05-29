@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.21';  // bumped 2026-05-29: grammar detail 意味 (meaning) section - dropped the "（やさしい にほんご）" qualifier from the heading (now just "意味") and now shows the English (locale-aware) meaning first, then the Japanese meaning. SPA-only change in js/learn-grammar.js; cache-bust so existing PWA users get it (JS is CACHE-FIRST).
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.22';  // bumped 2026-05-29: grammar detail meaning-section heading is now the localized t('grammar_detail.meaning') ("Meaning" / "अर्थ"), uniform with the other section titles (was the lone Japanese "意味"). SPA-only change in js/learn-grammar.js + locales/en.json + locales/hi.json; cache-bust so existing PWA users get it (JS is CACHE-FIRST).
 
 const PRECACHE = [
   './',

@@ -97,6 +97,30 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.22 - 2026-05-29 (grammar detail: meaning heading -&gt; localized &quot;Meaning&quot;, uniform with other titles)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Grammar pattern page</strong> - the meaning section heading is now the localized</li>
+</ul>
+<p><code>grammar_detail.meaning</code> key (&quot;Meaning&quot; / Hindi &quot;अर्थ&quot;), so it matches the other section titles (How to use / Explanation / Deep dive / ...), which are all localized <code>t()</code> keys uppercased by CSS. Previously it was the lone hardcoded Japanese label &quot;意味&quot;.</p>
+<h3>Scope</h3>
+<ul>
+<li><code>js/learn-grammar.js</code> heading -&gt; <code>t(&#x27;grammar_detail.meaning&#x27;)</code> (+ rebuilt</li>
+</ul>
+<p><code>js/min/learn-grammar.js</code>); new key added to <code>locales/en.json</code> + <code>locales/hi.json</code> (JA-108 locale parity).</p>
+<ul>
+<li>Cache version 1.17.21 -&gt; 1.17.22 in the three JA-68-synced places.</li>
+</ul>
+<h3>Verified</h3>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all invariants green (incl. JA-108</li>
+</ul>
+<p>locale-key parity, JA-68 cache sync, JA-113, JA-170).</p>
+<h3>Note</h3>
+<ul>
+<li>The grammar static MIRRORS render the meaning section via a SEPARATE</li>
+</ul>
+<p>builder (<code>tools/build_static_mirrors.py</code>) that has its own layout; bringing the mirrors in line with the SPA (this + the prior reorder/En-first) is the deferred mirror-pipeline migration, not this SPA change.</p>
 <h2>v1.17.21 - 2026-05-29 (grammar detail: meaning section - English first, drop the &quot;easy Japanese&quot; qualifier)</h2>
 <h3>Changed</h3>
 <ul>

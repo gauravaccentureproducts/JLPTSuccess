@@ -2,6 +2,35 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.22 - 2026-05-29 (grammar detail: meaning heading -> localized "Meaning", uniform with other titles)
+
+### Changed
+
+- **Grammar pattern page** - the meaning section heading is now the localized
+  `grammar_detail.meaning` key ("Meaning" / Hindi "अर्थ"), so it matches the
+  other section titles (How to use / Explanation / Deep dive / ...), which are
+  all localized `t()` keys uppercased by CSS. Previously it was the lone
+  hardcoded Japanese label "意味".
+
+### Scope
+
+- `js/learn-grammar.js` heading -> `t('grammar_detail.meaning')` (+ rebuilt
+  `js/min/learn-grammar.js`); new key added to `locales/en.json` +
+  `locales/hi.json` (JA-108 locale parity).
+- Cache version 1.17.21 -> 1.17.22 in the three JA-68-synced places.
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all invariants green (incl. JA-108
+  locale-key parity, JA-68 cache sync, JA-113, JA-170).
+
+### Note
+
+- The grammar static MIRRORS render the meaning section via a SEPARATE
+  builder (`tools/build_static_mirrors.py`) that has its own layout; bringing
+  the mirrors in line with the SPA (this + the prior reorder/En-first) is the
+  deferred mirror-pipeline migration, not this SPA change.
+
 ## v1.17.21 - 2026-05-29 (grammar detail: meaning section - English first, drop the "easy Japanese" qualifier)
 
 ### Changed
