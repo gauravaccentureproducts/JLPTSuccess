@@ -89,7 +89,7 @@ JLPTSuccess/
 
 ### 3.3 Cross-app navigation
 
-- Top-left brand link "JLPT N5" → goes one level up to `../` (the JLPTSuccess level picker).
+- Top-left brand lockup is **two separate links** (split 2026-05-30; was a single link to the picker): the **ladder mark** → `/JLPTSuccess/` (the JLPTSuccess level picker), and the **"N5" wordmark** → `/JLPTSuccess/N5/` (the N5 home). `.brand h1` is a flex row so they read as one lockup.
 - The level picker offers N5 (active), N4 (visible-but-disabled, work-blocked), N3/N2/N1 (coming-soon disabled).
 - In-app hash routes like `#/levels`, `#/n5`, `#/n4` redirect via `parseRoute()` to `../` (the unified picker handles all level switching).
 

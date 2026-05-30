@@ -55,6 +55,8 @@ HEADER_HTML = '''<header class="app-header" role="banner">
 <rect x="1" y="48" width="22" height="9" rx="4.5"/>
 </g>
 </svg>
+</a>
+<a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home">
 <span class="brand-wordmark">N5</span>
 </a>
 </h1>
@@ -92,7 +94,7 @@ FOOTER_HTML = '''<footer class="app-footer" role="contentinfo">
 
 # Stylesheet link to add when missing. Uses absolute URL so depth doesn't
 # matter. ?v= cache-buster matches the current frontend release.
-CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.9">'
+CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.30">'
 
 # Marker tags. Skip insertion if the file already has these.
 HEADER_MARKER = 'class="app-header"'

@@ -365,14 +365,14 @@ GitHub Issues: https://github.com/gauravaccentureproducts/JLPTSuccess/issues
 # injects into the per-entity mirrors (those run over index.html only, so the
 # *.html summary pages were never branded). Absolute URLs + no JS so it stays
 # crawler-readable at any depth.
-SUMMARY_CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css">'
+SUMMARY_CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.30">'
 SUMMARY_BRAND_HEADER = """<header class="app-header" role="banner">
 <div class="brand"><h1><a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
 <svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false"><g fill="currentColor">
 <rect x="1" y="0" width="98" height="9" rx="4.5"/><rect x="1" y="12" width="84" height="9" rx="4.5"/>
 <rect x="1" y="24" width="64" height="9" rx="4.5"/><rect x="1" y="36" width="44" height="9" rx="4.5"/>
-<rect x="1" y="48" width="22" height="9" rx="4.5"/></g></svg>
-<span class="brand-wordmark">N5</span></a></h1></div>
+<rect x="1" y="48" width="22" height="9" rx="4.5"/></g></svg></a>
+<a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home"><span class="brand-wordmark">N5</span></a></h1></div>
 <nav class="primary-nav" aria-label="Primary">
 <a href="/JLPTSuccess/N5/learn/grammar/">Grammar</a>
 <a href="/JLPTSuccess/N5/learn/vocab/">Vocabulary</a>

@@ -2,7 +2,18 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
-## v1.17.29 - 2026-05-30 (footer menu on every static page + plainer summary pages)
+## v1.17.30 - 2026-05-30 (brand logo: mark and "N5" are now separate links)
+
+### Changed
+
+- **The header brand lockup is now two links** instead of one. The **ladder
+  mark** goes to the level picker (`/JLPTSuccess/`), and the **"N5" wordmark**
+  goes to the N5 home (`/JLPTSuccess/N5/`). Previously the whole lockup went to
+  the level picker, so there was no one-click way back to the N5 home from a
+  deep page. Applied across the app **and** all ~1,410 static mirrors + summary
+  pages + the sitemap view, so it works from anywhere. (`.brand h1` is now a
+  flex row so the two links sit side-by-side as one lockup; the site stylesheet
+  cache key was bumped so the layout reaches returning visitors immediately.)
 
 ### Changed
 

@@ -77,6 +77,8 @@
 <rect x="1" y="48" width="22" height="9" rx="4.5"/>
 </g>
 </svg>
+</a>
+<a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home">
 <span class="brand-wordmark">N5</span>
 </a>
 </h1>
@@ -97,7 +99,12 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
-<h2>v1.17.29 - 2026-05-30 (footer menu on every static page + plainer summary pages)</h2>
+<h2>v1.17.30 - 2026-05-30 (brand logo: mark and &quot;N5&quot; are now separate links)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>The header brand lockup is now two links</strong> instead of one. The **ladder</li>
+</ul>
+<p>mark<strong> goes to the level picker (<code>/JLPTSuccess/</code>), and the </strong>&quot;N5&quot; wordmark<strong> goes to the N5 home (<code>/JLPTSuccess/N5/</code>). Previously the whole lockup went to the level picker, so there was no one-click way back to the N5 home from a deep page. Applied across the app </strong>and** all ~1,410 static mirrors + summary pages + the sitemap view, so it works from anywhere. (<code>.brand h1</code> is now a flex row so the two links sit side-by-side as one lockup; the site stylesheet cache key was bumped so the layout reaches returning visitors immediately.)</p>
 <h3>Changed</h3>
 <ul>
 <li><strong>Site footer menu</strong> (What&#x27;s new · Privacy · Notices · N5 syllabus overview ·</li>
