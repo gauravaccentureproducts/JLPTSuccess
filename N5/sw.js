@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.28';  // bumped 2026-05-30: added 'N5 syllabus overview' link to the N5 app footer (relocated from the JLPTSuccess landing page) + branded the static summary pages and sitemap.xml; cache-bust so the SW refetches the updated index.html shell.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.29';  // bumped 2026-05-30: injected the site footer menu into all static mirrors (1410 pages) so they match the SPA + removed developer jargon (static index / SPA / JSON) from the summary pages; cache-bust so the SW refetches the updated static pages.
 
 const PRECACHE = [
   './',

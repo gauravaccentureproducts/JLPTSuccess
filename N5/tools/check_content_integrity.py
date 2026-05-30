@@ -1573,6 +1573,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-169", "js/learn.js renderHub() hardcoded count fallbacks (grammar/vocab/kanji/reading/listening) match data/version.json.counts (user-caught hub-drift lock, 2026-05-26)", lambda: _check_ja_169_learn_hub_count_sync()),
     ("JA-170", "every static SEO mirror (injector domain: all N5/ index.html except the SPA shell/review-packets/node_modules/N4) carries the global app-header; blocks the build_static_mirrors-run-alone header-strip regression (2026-05-29)", lambda: _check_ja_170_mirror_app_header_present()),
     ("JA-171", "object-request grammar example labels (<physical-object>-request/-order) name an object present in translation_en - blocks copy-paste form-label leaks like n5-149 'water-request' on a pen sentence (2026-05-29)", lambda: _check_ja_171_object_request_label_content_match()),
+    ("JA-172", "every static SEO mirror carries the site app-footer (footer menu) - companion to JA-170 (header); blocks the build_static_mirrors-run-alone footer-strip regression (2026-05-30)", lambda: _check_ja_172_mirror_app_footer_present()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8862,6 +8863,41 @@ def _check_ja_170_mirror_app_header_present() -> list[str]:
         if marker not in txt:
             failures.append(
                 "JA-170 static mirror missing app-header (regenerate via "
+                "tools/inject_app_header_into_mirrors_2026_05_27.py): " + rel
+            )
+    return failures
+
+
+def _check_ja_172_mirror_app_footer_present() -> list[str]:
+    """Every static SEO mirror carries the site app-footer (2026-05-30).
+
+    Companion to JA-170 (header). Step 2 of the mirror pipeline,
+    inject_app_header_into_mirrors_2026_05_27.py, now injects the site app-footer
+    (the footer menu) in addition to the header, so a deep-linked mirror is
+    consistent with the SPA (footer menu present, not just a header). Running
+    build_static_mirrors.py ALONE emits footer-less mirrors; this invariant
+    blocks that regression class. Same domain as JA-170: all index.html under
+    N5/ EXCEPT the SPA shell (N5/index.html), review packets, node_modules, N4.
+    """
+    marker = 'class="app-footer"'
+    failures: list[str] = []
+    for p in ROOT.rglob("index.html"):
+        if p == ROOT / "index.html":
+            continue
+        s = p.as_posix()
+        if "_review_packet" in s or "node_modules" in s:
+            continue
+        rel = p.relative_to(ROOT).as_posix()
+        if rel.startswith("N4/") or "/N4/" in rel:
+            continue
+        try:
+            txt = p.read_text(encoding="utf-8", errors="ignore")
+        except OSError as exc:
+            failures.append(f"JA-172 cannot read mirror {rel}: {exc}")
+            continue
+        if marker not in txt:
+            failures.append(
+                "JA-172 static mirror missing app-footer (regenerate via "
                 "tools/inject_app_header_into_mirrors_2026_05_27.py): " + rel
             )
     return failures

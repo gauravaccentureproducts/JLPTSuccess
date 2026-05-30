@@ -97,6 +97,16 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.29 - 2026-05-30 (footer menu on every static page + plainer summary pages)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Site footer menu</strong> (What&#x27;s new · Privacy · Notices · N5 syllabus overview ·</li>
+</ul>
+<p>Feedback · Help translate) now appears on <strong>every static page</strong> — the ~1,410 per-entity mirrors (grammar / vocab / kanji / reading / listening / papers), the index pages (e.g. <code>/N5/home/</code>), and the 7 summary pages. Previously these pages had the brand header but no footer, so they felt inconsistent with the app. Injected by the same step that adds the header; guarded by new CI invariant <strong>JA-172</strong> (companion to JA-170, which guards the header).</p>
+<ul>
+<li><strong>Summary pages</strong> (<code>home.html</code>, etc.) had developer jargon removed — dropped</li>
+</ul>
+<p>the &quot;Browse&quot; links (&quot;static index&quot;, &quot;Interactive SPA route&quot;, &quot;Raw JSON corpus&quot;) and the &quot;crawler-readable overview&quot; banner, which meant nothing to a language learner. Per-module summary pages now show a plain &quot;Open …&quot; link; the home summary keeps its Modules cards. Navigation is otherwise the header nav.</p>
 <h2>v1.17.28 - 2026-05-30 (branded the crawler/SEO surfaces + tidied footer links)</h2>
 <h3>Changed</h3>
 <ul>
@@ -5871,5 +5881,16 @@ Grammar explanations:  0/178 (none - schema only, awaiting native reviewers)
 </footer>
 </main>
 <script type="module" src="../js/min/app.js?v=1.17.0"></script>
+<footer class="app-footer" role="contentinfo">
+<nav class="footer-nav" aria-label="Footer">
+<a href="/JLPTSuccess/N5/changelog/">What's new</a>
+<a href="/JLPTSuccess/N5/privacy/">Privacy</a>
+<a href="/JLPTSuccess/N5/notices/">Notices</a>
+<a href="/JLPTSuccess/N5/home.html">N5 syllabus overview</a>
+<a href="/JLPTSuccess/N5/feedback/">Feedback</a>
+<a href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/N5/docs/TRANSLATING.md" target="_blank" rel="noopener">Help translate</a>
+</nav>
+<small class="footer-disclaimer">JLPT® and the Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and JEES. This independent study site is not affiliated with, endorsed by, or sponsored by them.</small>
+</footer>
 </body>
 </html>

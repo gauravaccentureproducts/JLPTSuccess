@@ -385,11 +385,29 @@ SUMMARY_BRAND_HEADER = """<header class="app-header" role="banner">
 </nav>
 </header>"""
 
+# Same site footer the inject script adds to the per-entity mirrors, so the
+# summary pages carry the identical footer menu. Keep in sync with FOOTER_HTML
+# in tools/inject_app_header_into_mirrors_2026_05_27.py.
+SUMMARY_PAGE_FOOTER = """<footer class="app-footer" role="contentinfo">
+<nav class="footer-nav" aria-label="Footer">
+<a href="/JLPTSuccess/N5/changelog/">What's new</a>
+<a href="/JLPTSuccess/N5/privacy/">Privacy</a>
+<a href="/JLPTSuccess/N5/notices/">Notices</a>
+<a href="/JLPTSuccess/N5/home.html">N5 syllabus overview</a>
+<a href="/JLPTSuccess/N5/feedback/">Feedback</a>
+<a href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/N5/docs/TRANSLATING.md" target="_blank" rel="noopener">Help translate</a>
+</nav>
+<small class="footer-disclaimer">JLPT® and the Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and JEES. This independent study site is not affiliated with, endorsed by, or sponsored by them.</small>
+</footer>"""
+
 
 def render_summary_page(slug, title, desc, count_field, count, hash_route, dir_route, body_extra=""):
     """Render one of the 7 LLM-005 summary pages."""
     spa_url = f"{BASE_URL}/N5/#{hash_route}"
     dir_url = f"{BASE_URL}/N5/{dir_route}/"
+    # Plain-language call-to-action for the per-module pages. home.html has the
+    # Modules cards instead, so it gets no CTA.
+    cta = "" if body_extra else f'<p class="cta"><a href="{dir_url}">Open {title} →</a></p>'
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -404,30 +422,19 @@ def render_summary_page(slug, title, desc, count_field, count, hash_route, dir_r
 <meta property="og:description" content="{desc}">
 <meta property="og:site_name" content="JLPT N5 Tutor">
 {SUMMARY_CSS_LINK}
-<style>:root{{--green:#14452a;--green-soft:#1a5c38;--bg:#fff;--bg-soft:#f6f8f6;--text:#1a1a1a;--muted:#555;--border:#ddd}}*{{box-sizing:border-box}}html,body{{background:var(--bg);color:var(--text)}}body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;line-height:1.6;margin:0}}.page{{max-width:760px;margin:0 auto;padding:1rem}}.page a{{color:var(--green)}}.page a:hover{{color:var(--green-soft)}}h1.page-title{{font-size:1.6em;margin:.5rem 0}}.page h2{{font-size:1.18em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:1.6rem}}.meta-banner{{background:var(--bg-soft);border-left:3px solid var(--green);padding:.75rem 1rem;font-size:.92em;margin-bottom:1.5rem}}.count{{font-size:2em;color:var(--green);font-weight:600}}.muted{{color:var(--muted);font-size:.92em}}.page-footer{{max-width:760px;margin:2.5rem auto 0;padding:1rem 1rem 2.5rem;border-top:1px solid var(--border);font-size:.85em;color:var(--muted)}}.page-footer a{{color:var(--green)}}@media (prefers-color-scheme:dark){{:root{{--bg:#1a1d1b;--bg-soft:#232826;--text:#e7eae8;--muted:#a5aba8;--border:#383d3a}}}}</style>
+<style>:root{{--green:#14452a;--green-soft:#1a5c38;--bg:#fff;--bg-soft:#f6f8f6;--text:#1a1a1a;--muted:#555;--border:#ddd}}*{{box-sizing:border-box}}html,body{{background:var(--bg);color:var(--text)}}body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;line-height:1.6;margin:0}}.page{{max-width:760px;margin:0 auto;padding:1rem}}.page a{{color:var(--green)}}.page a:hover{{color:var(--green-soft)}}h1.page-title{{font-size:1.6em;margin:.5rem 0}}.page h2{{font-size:1.18em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:1.6rem}}.count{{font-size:2em;color:var(--green);font-weight:600}}.muted{{color:var(--muted);font-size:.92em}}.cta{{margin:1.6rem 0;font-size:1.05em}}@media (prefers-color-scheme:dark){{:root{{--bg:#1a1d1b;--bg-soft:#232826;--text:#e7eae8;--muted:#a5aba8;--border:#383d3a}}}}</style>
 </head>
 <body>
 {SUMMARY_BRAND_HEADER}
 <div class="page">
-<div class="meta-banner"><strong>Static syllabus summary</strong> — crawler-readable overview.<br>
-  Interactive app at <a href="{spa_url}">{spa_url}</a>.<br>
-  Full per-entity index at <a href="{dir_url}">{dir_url}</a>.</div>
 <h1 class="page-title">{title}</h1>
 <p class="muted">JLPT N5 module summary</p>
 <p class="count">{count}</p>
 <p>{desc}</p>
 {body_extra}
-<h2>Browse</h2>
-<ul>
-<li><a href="{dir_url}">Per-entity static index</a> ({count} items, server-rendered HTML, no JS required)</li>
-<li><a href="{spa_url}">Interactive SPA route</a> (requires JavaScript)</li>
-<li><a href="/JLPTSuccess/N5/data/{count_field}.json">Raw JSON corpus</a></li>
-</ul>
+{cta}
 </div>
-<footer class="page-footer">
-<p>↩ <a href="/JLPTSuccess/N5/home.html">N5 syllabus overview</a> · <a href="{spa_url}">Interactive app</a> · <a href="/JLPTSuccess/">All levels</a></p>
-<p>JLPT® and the Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and JEES. This independent study site is not affiliated with, endorsed by, or sponsored by them.</p>
-</footer>
+{SUMMARY_PAGE_FOOTER}
 </body>
 </html>
 """

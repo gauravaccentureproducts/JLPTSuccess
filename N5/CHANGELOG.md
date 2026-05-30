@@ -2,6 +2,23 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.29 - 2026-05-30 (footer menu on every static page + plainer summary pages)
+
+### Changed
+
+- **Site footer menu** (What's new · Privacy · Notices · N5 syllabus overview ·
+  Feedback · Help translate) now appears on **every static page** — the ~1,410
+  per-entity mirrors (grammar / vocab / kanji / reading / listening / papers),
+  the index pages (e.g. `/N5/home/`), and the 7 summary pages. Previously these
+  pages had the brand header but no footer, so they felt inconsistent with the
+  app. Injected by the same step that adds the header; guarded by new CI
+  invariant **JA-172** (companion to JA-170, which guards the header).
+- **Summary pages** (`home.html`, etc.) had developer jargon removed — dropped
+  the "Browse" links ("static index", "Interactive SPA route", "Raw JSON
+  corpus") and the "crawler-readable overview" banner, which meant nothing to a
+  language learner. Per-module summary pages now show a plain "Open …" link; the
+  home summary keeps its Modules cards. Navigation is otherwise the header nav.
+
 ## v1.17.28 - 2026-05-30 (branded the crawler/SEO surfaces + tidied footer links)
 
 ### Changed

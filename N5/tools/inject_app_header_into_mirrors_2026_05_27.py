@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Inject the global app-header (brand + primary nav) into every static
-SEO mirror that lacks it.
+"""Inject the global app-header (brand + primary nav) AND the site app-footer
+(footer menu) into every static SEO mirror that lacks them.
 
-STATUS (2026-05-29): PERMANENT, load-bearing component despite the dated
+STATUS (2026-05-30): PERMANENT, load-bearing component despite the dated
 filename. This is REQUIRED step 2 of the static-mirror pipeline: run it after
-tools/build_static_mirrors.py (which emits header-less mirrors) or every
-mirror renders header-less ("looks broken" on deep-link). The builder's
-docstring documents the two-step sequence and JA-170 in
-check_content_integrity.py guards the result. Do NOT archive or delete this
-during tools/ debris triage. Safe to run standalone (idempotent).
+tools/build_static_mirrors.py (which emits header- and footer-less mirrors) or
+every mirror renders without the site chrome ("looks broken" / inconsistent on
+deep-link). The builder's docstring documents the two-step sequence; JA-170
+(header presence) and JA-172 (footer presence) in check_content_integrity.py
+guard the result. Do NOT archive or delete this during tools/ debris triage.
+Safe to run standalone (idempotent; injects header and footer independently).
 
 Why
 ---
@@ -71,19 +72,43 @@ HEADER_HTML = '''<header class="app-header" role="banner">
 </header>
 '''
 
+# Static site footer (the brand footer menu). Added 2026-05-30 so every mirror
+# carries the same footer as the SPA, not just the header. Absolute URLs +
+# static-mirror targets (no #/ routes) so it works with no JS at any depth. A
+# mirror may also keep its own small per-page footer (breadcrumb/license); this
+# app-footer is the site-wide menu.
+FOOTER_HTML = '''<footer class="app-footer" role="contentinfo">
+<nav class="footer-nav" aria-label="Footer">
+<a href="/JLPTSuccess/N5/changelog/">What's new</a>
+<a href="/JLPTSuccess/N5/privacy/">Privacy</a>
+<a href="/JLPTSuccess/N5/notices/">Notices</a>
+<a href="/JLPTSuccess/N5/home.html">N5 syllabus overview</a>
+<a href="/JLPTSuccess/N5/feedback/">Feedback</a>
+<a href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/N5/docs/TRANSLATING.md" target="_blank" rel="noopener">Help translate</a>
+</nav>
+<small class="footer-disclaimer">JLPT® and the Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and JEES. This independent study site is not affiliated with, endorsed by, or sponsored by them.</small>
+</footer>
+'''
+
 # Stylesheet link to add when missing. Uses absolute URL so depth doesn't
 # matter. ?v= cache-buster matches the current frontend release.
 CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.9">'
 
 # Marker tags. Skip insertion if the file already has these.
 HEADER_MARKER = 'class="app-header"'
+FOOTER_MARKER = 'class="app-footer"'
 MAIN_CSS_MARKER = 'main.min.css'
 
 
-def inject_into(html: str) -> tuple[str, bool, bool]:
-    """Return (new_html, header_injected, css_injected)."""
+def inject_into(html: str) -> tuple[str, bool, bool, bool]:
+    """Return (new_html, header_injected, css_injected, footer_injected).
+
+    Each element is injected independently and idempotently, so a mirror that
+    already has the header (from an earlier run) still gets the footer added.
+    """
     header_injected = False
     css_injected = False
+    footer_injected = False
 
     # 1. Inject CSS link if absent. Put it inside <head> just before </head>.
     if MAIN_CSS_MARKER not in html:
@@ -104,15 +129,25 @@ def inject_into(html: str) -> tuple[str, bool, bool]:
                 html = html[:insert_at] + '\n' + HEADER_HTML + html[insert_at:]
                 header_injected = True
 
-    return html, header_injected, css_injected
+    # 3. Inject the site footer just before </body>. The page may already carry
+    # its own small per-page footer (breadcrumb/license); this app-footer is the
+    # site-wide menu, matching the SPA. Use the LAST </body> defensively.
+    if FOOTER_MARKER not in html:
+        idx = html.rfind('</body>')
+        if idx >= 0:
+            html = html[:idx] + FOOTER_HTML + html[idx:]
+            footer_injected = True
+
+    return html, header_injected, css_injected, footer_injected
 
 
 def main():
     repo_root = Path(__file__).resolve().parent.parent  # N5/
     stats = {
         'total': 0,
-        'skipped_already_has_header': 0,
-        'injected': 0,
+        'unchanged': 0,
+        'header_added': 0,
+        'footer_added': 0,
         'css_added': 0,
         'errors': 0,
     }
@@ -133,21 +168,25 @@ def main():
         stats['total'] += 1
         try:
             txt = p.read_text(encoding='utf-8', errors='ignore')
-            if HEADER_MARKER in txt:
-                stats['skipped_already_has_header'] += 1
-                continue
-            new_txt, header_added, css_added = inject_into(txt)
-            if header_added:
+            # Do NOT skip files that already have the header - they may still
+            # lack the footer. inject_into is idempotent per element.
+            new_txt, header_added, css_added, footer_added = inject_into(txt)
+            if header_added or css_added or footer_added:
                 p.write_text(new_txt, encoding='utf-8', newline='\n')
-                stats['injected'] += 1
+                if header_added:
+                    stats['header_added'] += 1
+                if footer_added:
+                    stats['footer_added'] += 1
                 if css_added:
                     stats['css_added'] += 1
+            else:
+                stats['unchanged'] += 1
         except Exception as e:
             stats['errors'] += 1
             print(f'ERROR {rel}: {e}')
 
     print('=' * 60)
-    print('Header injection complete')
+    print('Header + footer injection complete')
     print('=' * 60)
     for k, v in stats.items():
         print(f'  {k}: {v}')
