@@ -73,14 +73,22 @@ const COVERAGE_MAP = {
   'changelog.js':            ['p0-smoke.spec.js'],
   'levels.js':               ['p0-smoke.spec.js'],
   'search.js':               ['p0-smoke.spec.js'],
+  // IMP-6 first-wave additions (2026-05-27):
+  'audio-player.js':         ['audio-player.spec.js'],
+  'print-paper.js':          ['print-paper.spec.js'],
+  'pwa.js':                  ['pwa.spec.js'],
+  'feedback.js':             ['feedback.spec.js'],
 };
 
 // HIGH-risk uncovered modules (call out for IMP-6 priority).
+// IMP-6 first wave shipped 2026-05-27 — all 4 first-wave HIGH-RISK
+// modules now covered. List kept as documentation; will repopulate
+// if new HIGH-risk uncovered surfaces appear in future audits.
 const HIGH_RISK_UNCOVERED = new Set([
-  'print-paper.js',   // BUG-226/227/228 PDF export
-  'audio-player.js',  // BUG-025/026/027 audio playback
-  'pwa.js',           // service worker / cache strategy
-  'feedback.js',      // IMP-2 production feedback loop
+  // print-paper.js   ✓ covered by print-paper.spec.js (2026-05-27)
+  // audio-player.js  ✓ covered by audio-player.spec.js (2026-05-27)
+  // pwa.js           ✓ covered by pwa.spec.js (2026-05-27)
+  // feedback.js      ✓ covered by feedback.spec.js (2026-05-27)
 ]);
 
 
@@ -127,15 +135,13 @@ test.describe('coverage-inventory — IMP-6 honest-accounting gate', () => {
     // Modules currently unaccounted (snapshot baseline).
     // When a NEW one slips in beyond this list, this assertion catches it.
     const BASELINE_UNACCOUNTED = new Set([
-      'audio-player.js',
+      // IMP-6 first wave (2026-05-27) removed: audio-player.js,
+      // print-paper.js, pwa.js, feedback.js — now in COVERAGE_MAP.
       'authentic.js',
       'exam-day.js',
-      'feedback.js',
       'kanji-popover.js',
       'listening-story.js',
       'listening-transcript.js',
-      'print-paper.js',
-      'pwa.js',
       'strategy-modal.js',
     ]);
 
@@ -150,19 +156,23 @@ test.describe('coverage-inventory — IMP-6 honest-accounting gate', () => {
     expect(newGaps, `New feature modules added without test or whitelist: ${newGaps.join(', ')}`).toEqual([]);
   });
 
-  test('HIGH-risk uncovered modules: documented gap (IMP-6 priority items)', () => {
-    // This test is documentation-only — always passes — but the console
-    // log keeps the priority list visible in every test run.
-    console.log(`\n  HIGH-RISK uncovered modules (IMP-6 first-wave targets):`);
-    for (const f of HIGH_RISK_UNCOVERED) {
-      console.log(`    - ${f}`);
+  test('HIGH-risk uncovered modules: documented gap (IMP-6 first wave shipped)', () => {
+    // First wave (2026-05-27) covered all 4 HIGH-RISK modules with
+    // dedicated spec files. This test now passes-by-default; will
+    // re-populate HIGH_RISK_UNCOVERED if future audits surface new
+    // bug-class evidence pointing at uncovered modules.
+    if (HIGH_RISK_UNCOVERED.size > 0) {
+      console.log(`\n  HIGH-RISK uncovered modules (current):`);
+      for (const f of HIGH_RISK_UNCOVERED) console.log(`    - ${f}`);
+    } else {
+      console.log(`\n  HIGH-RISK uncovered modules: NONE (first wave shipped 2026-05-27).`);
+      console.log(`  Coverage history:`);
+      console.log(`    print-paper.js   ✓ tests/print-paper.spec.js`);
+      console.log(`    audio-player.js  ✓ tests/audio-player.spec.js`);
+      console.log(`    pwa.js           ✓ tests/pwa.spec.js`);
+      console.log(`    feedback.js      ✓ tests/feedback.spec.js`);
     }
-    console.log(`\n  Recent UI bugs traceable to these surfaces:`);
-    console.log(`    - print-paper.js   → BUG-226/227/228 (3 PDF-export defects in 2 weeks)`);
-    console.log(`    - audio-player.js  → BUG-025/026/027 (3 audio defects)`);
-    console.log(`    - pwa.js           → cache strategy never tested`);
-    console.log(`    - feedback.js      → IMP-2 once added`);
-    expect(HIGH_RISK_UNCOVERED.size).toBeGreaterThanOrEqual(1);
+    expect(HIGH_RISK_UNCOVERED.size).toBeGreaterThanOrEqual(0);
   });
 
 });
