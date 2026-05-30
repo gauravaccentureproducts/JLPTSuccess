@@ -97,6 +97,31 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.24 - 2026-05-29 (fix: grammar deep-links to the static-mirror path resolve to the pattern, not the hub)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>Deep-links / crawler hits / bookmarks to a grammar mirror URL</strong></li>
+</ul>
+<p>(<code>/N5/learn/grammar/&lt;id&gt;/</code>) used to boot the SPA onto the <strong>Learn hub</strong> instead of the pattern, because the SPA&#x27;s own detail route is <code>/learn/&lt;id&gt;</code> and the router treated the extra <code>grammar/</code> segment as an unknown sub-section. The learn dispatcher now also accepts the mirror path form (<code>params &quot;grammar/&lt;id&gt;&quot;</code>) and resolves it to the pattern detail. (Vocab mirror URLs <code>/learn/vocab/&lt;form&gt;/</code> already worked; kanji / reading / listening mirror paths already match their SPA routes.)</p>
+<h3>Scope</h3>
+<ul>
+<li>One additive branch in <code>js/learn.js renderLearn</code> (strip a leading</li>
+</ul>
+<p><code>grammar/</code> before the pattern-ID lookup). Rebuilt the JS bundle. No other route behavior changed - existing <code>/learn/&lt;id&gt;</code>, <code>/learn/grammar</code>, <code>/learn/vocab/&lt;form&gt;</code>, and hub routes are byte-identical in behavior.</p>
+<ul>
+<li>Cache 1.17.23 -&gt; 1.17.24 in the three JA-68-synced places.</li>
+</ul>
+<h3>Verified</h3>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all 172 invariants green.</li>
+<li>Live render: <code>/learn/grammar/&lt;id&gt;/</code> now resolves to the pattern detail;</li>
+</ul>
+<p><code>/learn/grammar</code> still shows the list; <code>/learn/&lt;id&gt;</code> still shows the detail (zero-regression check across route forms).</p>
+<h3>Note</h3>
+<ul>
+<li>First of the deferred mirror-migration fixes (closes the highest-severity</li>
+</ul>
+<p>item - the deep-link-lands-on-hub bug). The remaining pieces (porting the SPA grammar layout into the mirror builder so the static content matches, + version-derive + orphan/sitemap cleanup) are the larger follow-on.</p>
 <h2>v1.17.23 - 2026-05-29 (fix: full-bleed app-header - green bar now spans the full viewport)</h2>
 <h3>Fixed</h3>
 <ul>

@@ -2,6 +2,41 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.24 - 2026-05-29 (fix: grammar deep-links to the static-mirror path resolve to the pattern, not the hub)
+
+### Fixed
+
+- **Deep-links / crawler hits / bookmarks to a grammar mirror URL**
+  (`/N5/learn/grammar/<id>/`) used to boot the SPA onto the **Learn hub**
+  instead of the pattern, because the SPA's own detail route is
+  `/learn/<id>` and the router treated the extra `grammar/` segment as an
+  unknown sub-section. The learn dispatcher now also accepts the mirror
+  path form (`params "grammar/<id>"`) and resolves it to the pattern detail.
+  (Vocab mirror URLs `/learn/vocab/<form>/` already worked; kanji / reading
+  / listening mirror paths already match their SPA routes.)
+
+### Scope
+
+- One additive branch in `js/learn.js renderLearn` (strip a leading
+  `grammar/` before the pattern-ID lookup). Rebuilt the JS bundle. No other
+  route behavior changed - existing `/learn/<id>`, `/learn/grammar`,
+  `/learn/vocab/<form>`, and hub routes are byte-identical in behavior.
+- Cache 1.17.23 -> 1.17.24 in the three JA-68-synced places.
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all 172 invariants green.
+- Live render: `/learn/grammar/<id>/` now resolves to the pattern detail;
+  `/learn/grammar` still shows the list; `/learn/<id>` still shows the detail
+  (zero-regression check across route forms).
+
+### Note
+
+- First of the deferred mirror-migration fixes (closes the highest-severity
+  item - the deep-link-lands-on-hub bug). The remaining pieces (porting the
+  SPA grammar layout into the mirror builder so the static content matches,
+  + version-derive + orphan/sitemap cleanup) are the larger follow-on.
+
 ## v1.17.23 - 2026-05-29 (fix: full-bleed app-header - green bar now spans the full viewport)
 
 ### Fixed

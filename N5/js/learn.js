@@ -71,12 +71,18 @@ export async function renderLearn(container, params) {
     const form = decodeURIComponent(slug.slice('vocab/'.length));
     return renderVocabularyDetail(container, data, grammar, form);
   }
-  // Otherwise treat as a grammar pattern ID.
+  // Otherwise treat as a grammar pattern ID. Accept BOTH the SPA's own
+  // detail route (/learn/<id> -> slug "<id>") AND the static-mirror path
+  // form (/learn/grammar/<id>/ -> slug "grammar/<id>") so a deep-link or
+  // crawler hit on the indexed mirror URL resolves to the pattern instead
+  // of falling through to the hub (was the deep-link-lands-on-hub bug).
+  // Pattern IDs never contain "grammar/", so stripping it is unambiguous.
+  const patternId = slug.startsWith('grammar/') ? slug.slice('grammar/'.length) : slug;
   const [{ renderGrammarPatternDetail }, data] = await Promise.all([
     import('./learn-grammar.js'),
     loadGrammar(),
   ]);
-  const pattern = data.patterns.find(p => p.id === slug);
+  const pattern = data.patterns.find(p => p.id === patternId);
   if (pattern) return renderGrammarPatternDetail(container, pattern, data.patterns);
   // Unknown slug - fall back to hub.
   return renderHub(container);
