@@ -2,6 +2,31 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.28 - 2026-05-30 (branded the crawler/SEO surfaces + tidied footer links)
+
+### Changed
+
+- **Static summary pages** (`home.html`, `grammar.html`, `vocabulary.html`,
+  `kanji.html`, `reading.html`, `listening.html`, `test.html`) now carry the
+  site's brand chrome — the green app-header (mark + "N5" + primary nav) and a
+  matching footer, styled by the site stylesheet. They previously rendered as a
+  bare, off-brand document. Still no-JS and crawler-readable. (The header was
+  baked into the page generator; the header-injection tool only processes
+  `index.html`, so these `*.html` pages had been missed.)
+- **`sitemap.xml`** now renders as a branded, readable table in the browser via
+  a new XSL stylesheet (`sitemap.xsl`). Search engines ignore the stylesheet and
+  read the raw XML, so crawling/SEO is unchanged.
+
+### Moved / removed
+
+- **"N5 syllabus overview"** footer link moved off the JLPTSuccess landing page
+  into the **N5 footer** (it points at the N5 static summary, so it belongs with
+  N5, not the top-level level-picker).
+- The landing page's "crawler / no-JS readable" links row (which also carried a
+  raw **`llms.txt`** link that didn't make sense to human visitors) was removed
+  entirely. The `llms.txt` file itself stays for crawlers and is still
+  referenced from `robots.txt`; the sitemap stays discoverable via `robots.txt`.
+
 ## v1.17.27 - 2026-05-30 (grammar detail: MEANING section is English-only)
 
 ### Changed

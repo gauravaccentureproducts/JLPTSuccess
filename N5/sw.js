@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.27';  // bumped 2026-05-30: grammar-detail MEANING section now shows only the English meaning - dropped the meaning_ja line (was showing a leaked i-adjective note on n5-149) and the explanation_ja line (duplicated example sentences); examples remain in the EXAMPLES section, English explanation in the EXPLANATION section. Renderer-only change in js/learn-grammar.js (+ re-minified js/min/learn-grammar.js); cache-bust so the SW refetches the updated JS (cache-first).
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.28';  // bumped 2026-05-30: added 'N5 syllabus overview' link to the N5 app footer (relocated from the JLPTSuccess landing page) + branded the static summary pages and sitemap.xml; cache-bust so the SW refetches the updated index.html shell.
 
 const PRECACHE = [
   './',

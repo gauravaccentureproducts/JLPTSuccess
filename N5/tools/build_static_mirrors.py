@@ -1796,7 +1796,10 @@ def write_sitemap(sitemap_urls: list[str]) -> bool:
             urls.add(m.group(1))
 
     urls = sorted(urls)
+    # Browser-only branded view via sitemap.xsl (crawlers ignore the PI). Kept in
+    # sync with tools/build_llm_surfaces_2026_05_18.py, the other sitemap writer.
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         lines.append(f"  <url><loc>{_esc(u)}</loc></url>")

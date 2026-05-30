@@ -360,6 +360,32 @@ GitHub Issues: https://github.com/gauravaccentureproducts/JLPTSuccess/issues
 # ---------------------------------------------------------------------------
 # Stage 4: 7 LLM-005 thin summary pages
 # ---------------------------------------------------------------------------
+# Brand chrome so the static summary pages match the rest of the site. The
+# header mirrors the one tools/inject_app_header_into_mirrors_2026_05_27.py
+# injects into the per-entity mirrors (those run over index.html only, so the
+# *.html summary pages were never branded). Absolute URLs + no JS so it stays
+# crawler-readable at any depth.
+SUMMARY_CSS_LINK = '<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css">'
+SUMMARY_BRAND_HEADER = """<header class="app-header" role="banner">
+<div class="brand"><h1><a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
+<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false"><g fill="currentColor">
+<rect x="1" y="0" width="98" height="9" rx="4.5"/><rect x="1" y="12" width="84" height="9" rx="4.5"/>
+<rect x="1" y="24" width="64" height="9" rx="4.5"/><rect x="1" y="36" width="44" height="9" rx="4.5"/>
+<rect x="1" y="48" width="22" height="9" rx="4.5"/></g></svg>
+<span class="brand-wordmark">N5</span></a></h1></div>
+<nav class="primary-nav" aria-label="Primary">
+<a href="/JLPTSuccess/N5/learn/grammar/">Grammar</a>
+<a href="/JLPTSuccess/N5/learn/vocab/">Vocabulary</a>
+<a href="/JLPTSuccess/N5/kanji/">Kanji</a>
+<a href="/JLPTSuccess/N5/reading/">Reading</a>
+<a href="/JLPTSuccess/N5/listening/">Listening</a>
+<a href="/JLPTSuccess/N5/test/">Test</a>
+<a href="/JLPTSuccess/N5/missed/">Missed</a>
+<a href="/JLPTSuccess/N5/summary/">Progress</a>
+</nav>
+</header>"""
+
+
 def render_summary_page(slug, title, desc, count_field, count, hash_route, dir_route, body_extra=""):
     """Render one of the 7 LLM-005 summary pages."""
     spa_url = f"{BASE_URL}/N5/#{hash_route}"
@@ -377,13 +403,16 @@ def render_summary_page(slug, title, desc, count_field, count, hash_route, dir_r
 <meta property="og:title" content="{title} — JLPT N5">
 <meta property="og:description" content="{desc}">
 <meta property="og:site_name" content="JLPT N5 Tutor">
-<style>body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;max-width:760px;margin:0 auto;padding:1rem;line-height:1.6;color:#1a1a1a;background:#fff}}a{{color:#14452a}}h1{{font-size:1.6em;margin:.5rem 0}}h2{{font-size:1.18em;border-bottom:1px solid #ddd;padding-bottom:.3em;margin-top:1.6rem}}.meta-banner{{background:#f6f8f6;border-left:3px solid #14452a;padding:.75rem 1rem;font-size:.92em;margin-bottom:1.5rem}}.count{{font-size:2em;color:#14452a;font-weight:600}}.muted{{color:#555;font-size:.92em}}</style>
+{SUMMARY_CSS_LINK}
+<style>:root{{--green:#14452a;--green-soft:#1a5c38;--bg:#fff;--bg-soft:#f6f8f6;--text:#1a1a1a;--muted:#555;--border:#ddd}}*{{box-sizing:border-box}}html,body{{background:var(--bg);color:var(--text)}}body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;line-height:1.6;margin:0}}.page{{max-width:760px;margin:0 auto;padding:1rem}}.page a{{color:var(--green)}}.page a:hover{{color:var(--green-soft)}}h1.page-title{{font-size:1.6em;margin:.5rem 0}}.page h2{{font-size:1.18em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:1.6rem}}.meta-banner{{background:var(--bg-soft);border-left:3px solid var(--green);padding:.75rem 1rem;font-size:.92em;margin-bottom:1.5rem}}.count{{font-size:2em;color:var(--green);font-weight:600}}.muted{{color:var(--muted);font-size:.92em}}.page-footer{{max-width:760px;margin:2.5rem auto 0;padding:1rem 1rem 2.5rem;border-top:1px solid var(--border);font-size:.85em;color:var(--muted)}}.page-footer a{{color:var(--green)}}@media (prefers-color-scheme:dark){{:root{{--bg:#1a1d1b;--bg-soft:#232826;--text:#e7eae8;--muted:#a5aba8;--border:#383d3a}}}}</style>
 </head>
 <body>
+{SUMMARY_BRAND_HEADER}
+<div class="page">
 <div class="meta-banner"><strong>Static syllabus summary</strong> — crawler-readable overview.<br>
   Interactive app at <a href="{spa_url}">{spa_url}</a>.<br>
   Full per-entity index at <a href="{dir_url}">{dir_url}</a>.</div>
-<h1>{title}</h1>
+<h1 class="page-title">{title}</h1>
 <p class="muted">JLPT N5 module summary</p>
 <p class="count">{count}</p>
 <p>{desc}</p>
@@ -394,8 +423,11 @@ def render_summary_page(slug, title, desc, count_field, count, hash_route, dir_r
 <li><a href="{spa_url}">Interactive SPA route</a> (requires JavaScript)</li>
 <li><a href="/JLPTSuccess/N5/data/{count_field}.json">Raw JSON corpus</a></li>
 </ul>
-<hr>
-<p class="muted">↩ <a href="home.html">N5 home</a> · <a href="/JLPTSuccess/">JLPTSuccess root</a></p>
+</div>
+<footer class="page-footer">
+<p>↩ <a href="/JLPTSuccess/N5/home.html">N5 syllabus overview</a> · <a href="{spa_url}">Interactive app</a> · <a href="/JLPTSuccess/">All levels</a></p>
+<p>JLPT® and the Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and JEES. This independent study site is not affiliated with, endorsed by, or sponsored by them.</p>
+</footer>
 </body>
 </html>
 """
@@ -492,6 +524,10 @@ def stage_sitemap(data):
     urls = sorted(set(urls))
 
     parts = ['<?xml version="1.0" encoding="UTF-8"?>\n']
+    # Browser-only presentation: a same-origin XSL stylesheet renders the
+    # sitemap as a branded, readable table. Search-engine crawlers ignore the
+    # stylesheet PI and parse the raw <urlset>, so SEO is unaffected.
+    parts.append('<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>\n')
     parts.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for url in urls:
         parts.append(f'  <url><loc>{url}</loc></url>\n')
@@ -572,36 +608,27 @@ def stage_noscript_update(data):
 # Stage 7: Root level-picker dual-link update (LLM-005)
 # ---------------------------------------------------------------------------
 def stage_root_picker():
-    """Update /JLPTSuccess/index.html to add 'View static syllabus summary' alongside 'Open interactive app' for the N5 card."""
+    """The root level-picker landing page intentionally carries NO crawler-link
+    row. (Removed 2026-05-30 per user request: the 'N5 syllabus overview ·
+    sitemap.xml · llms.txt' row read as belonging to a different site on the
+    human landing page.) The N5 syllabus-overview link now lives in the N5
+    footer instead; the sitemap stays discoverable via robots.txt. This stage
+    strips the legacy block if an older build left it behind, and adds nothing."""
     fp = os.path.join(REPO_ROOT, "index.html")
     if not os.path.exists(fp):
         print(f"  root index.html not found at {fp}; skipping")
         return False
     src = open(fp, "r", encoding="utf-8").read()
-    # Look for the N5 card link and add a dual-link if not already present
-    if "static syllabus summary" in src.lower() or "home.html" in src:
-        print(f"  root index.html already has static-summary link")
-        return True
-    # Conservative: search for the N5 anchor href="/N5/" or "N5/" and add a second link
     import re
-    # Simplest approach: append a footer note pointing at /N5/home.html
-    if 'href="/JLPTSuccess/N5/home.html"' in src or 'href="N5/home.html"' in src:
-        print(f"  root index.html already linked to N5/home.html")
-        return True
-    # Find existing "Open interactive app" anchor (if any) and add a sibling
-    # Otherwise, inject a small footer note before </body>
-    addition = """
-<!-- LLM-005 (BUG-105): static-summary link for crawlers / LLM access -->
-<p style="margin:1em 0;font-size:.92em;color:#555;text-align:center;">
-  Static syllabus summary (crawler / no-JS readable):
-  <a href="N5/home.html">N5 syllabus overview</a> ·
-  <a href="N5/sitemap.xml">sitemap.xml</a> ·
-  <a href="llms.txt">llms.txt</a>
-</p>
-"""
-    new_src = re.sub(r'</body>', addition + '</body>', src, count=1)
-    write_atomically(fp, new_src)
-    print(f"  root index.html: added static-summary footer link")
+    # Idempotent cleanup: drop the legacy LLM-005 crawler-links block if present.
+    new_src = re.sub(
+        r'\n*<!-- LLM-005 \(BUG-105\): static-summary link for crawlers / LLM access -->.*?</p>\n*',
+        '\n', src, count=1, flags=re.DOTALL)
+    if new_src != src:
+        write_atomically(fp, new_src)
+        print(f"  root index.html: removed legacy crawler-links row")
+    else:
+        print(f"  root index.html: no crawler-links row (ok)")
     return True
 
 # ---------------------------------------------------------------------------

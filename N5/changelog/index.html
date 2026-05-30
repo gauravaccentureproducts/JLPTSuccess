@@ -97,6 +97,25 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.28 - 2026-05-30 (branded the crawler/SEO surfaces + tidied footer links)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Static summary pages</strong> (<code>home.html</code>, <code>grammar.html</code>, <code>vocabulary.html</code>,</li>
+</ul>
+<p><code>kanji.html</code>, <code>reading.html</code>, <code>listening.html</code>, <code>test.html</code>) now carry the site&#x27;s brand chrome — the green app-header (mark + &quot;N5&quot; + primary nav) and a matching footer, styled by the site stylesheet. They previously rendered as a bare, off-brand document. Still no-JS and crawler-readable. (The header was baked into the page generator; the header-injection tool only processes <code>index.html</code>, so these <code>*.html</code> pages had been missed.)</p>
+<ul>
+<li><strong><code>sitemap.xml</code></strong> now renders as a branded, readable table in the browser via</li>
+</ul>
+<p>a new XSL stylesheet (<code>sitemap.xsl</code>). Search engines ignore the stylesheet and read the raw XML, so crawling/SEO is unchanged.</p>
+<h3>Moved / removed</h3>
+<ul>
+<li><strong>&quot;N5 syllabus overview&quot;</strong> footer link moved off the JLPTSuccess landing page</li>
+</ul>
+<p>into the <strong>N5 footer</strong> (it points at the N5 static summary, so it belongs with N5, not the top-level level-picker).</p>
+<ul>
+<li>The landing page&#x27;s &quot;crawler / no-JS readable&quot; links row (which also carried a</li>
+</ul>
+<p>raw <strong><code>llms.txt</code></strong> link that didn&#x27;t make sense to human visitors) was removed entirely. The <code>llms.txt</code> file itself stays for crawlers and is still referenced from <code>robots.txt</code>; the sitemap stays discoverable via <code>robots.txt</code>.</p>
 <h2>v1.17.27 - 2026-05-30 (grammar detail: MEANING section is English-only)</h2>
 <h3>Changed</h3>
 <ul>
