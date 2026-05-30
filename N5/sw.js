@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.22';  // bumped 2026-05-29: grammar detail meaning-section heading is now the localized t('grammar_detail.meaning') ("Meaning" / "अर्थ"), uniform with the other section titles (was the lone Japanese "意味"). SPA-only change in js/learn-grammar.js + locales/en.json + locales/hi.json; cache-bust so existing PWA users get it (JS is CACHE-FIRST).
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.23';  // bumped 2026-05-29: fixed the global app-header so its green bar is full-bleed (spans the viewport) with content inset to --container-wide; previously max-width:--container-wide + margin:0 auto capped the bar and left white gutters on screens wider than ~1120px ("header on half the page" report). css/main.css .app-header; cache-bust so users get the rebuilt CSS.
 
 const PRECACHE = [
   './',

@@ -2,6 +2,31 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.23 - 2026-05-29 (fix: full-bleed app-header - green bar now spans the full viewport)
+
+### Fixed
+
+- **Global app-header** - on screens wider than ~1120px the green header bar
+  was capped and centered, leaving white gutters ("header shown only on half
+  the page"). The `max-width` + `margin: 0 auto` were on the header element
+  that carries the green background, so the bar itself was capped. The bar is
+  now full-bleed (spans the viewport); its content (brand / nav / icons) stays
+  inset to the `--container-wide` column, aligned with the page body.
+
+### Scope
+
+- One rule in `css/main.css` (`.app-header`): dropped `max-width` + `margin`,
+  switched padding to `0 max(var(--space-5), calc((100% - var(--container-wide)) / 2))`.
+  Rebuilt `css/main.min.css`. No HTML/JS change.
+- Applies everywhere `main.css` loads - the SPA **and** the static mirrors.
+- Cache 1.17.22 -> 1.17.23 in the three JA-68-synced places.
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all 172 invariants green.
+- Live render checked at desktop + mobile widths (full-bleed bar, content
+  aligned, no horizontal scroll, nav intact).
+
 ## v1.17.22 - 2026-05-29 (grammar detail: meaning heading -> localized "Meaning", uniform with other titles)
 
 ### Changed

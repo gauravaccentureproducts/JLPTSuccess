@@ -417,10 +417,14 @@ body {
   align-items: center;
   gap: var(--space-6);
   height: 56px;
-  padding: 0 var(--space-5);
+  /* Full-bleed bar: the green header background spans the full viewport, while
+     its content (brand / nav / icons) is inset to the --container-wide column
+     so it stays aligned with the page body below. Previously this element had
+     max-width:var(--container-wide) + margin:0 auto, which capped the green
+     background ITSELF and left white gutters on viewports wider than
+     --container-wide (the "header only on half the page" report). */
+  padding: 0 max(var(--space-5), calc((100% - var(--container-wide)) / 2));
   background: var(--header-bg);
-  max-width: var(--container-wide);
-  margin: 0 auto;
 }
 .brand {
   display: flex;

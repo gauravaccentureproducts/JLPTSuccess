@@ -97,6 +97,27 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.23 - 2026-05-29 (fix: full-bleed app-header - green bar now spans the full viewport)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>Global app-header</strong> - on screens wider than ~1120px the green header bar</li>
+</ul>
+<p>was capped and centered, leaving white gutters (&quot;header shown only on half the page&quot;). The <code>max-width</code> + <code>margin: 0 auto</code> were on the header element that carries the green background, so the bar itself was capped. The bar is now full-bleed (spans the viewport); its content (brand / nav / icons) stays inset to the <code>--container-wide</code> column, aligned with the page body.</p>
+<h3>Scope</h3>
+<ul>
+<li>One rule in <code>css/main.css</code> (<code>.app-header</code>): dropped <code>max-width</code> + <code>margin</code>,</li>
+</ul>
+<p>switched padding to <code>0 max(var(--space-5), calc((100% - var(--container-wide)) / 2))</code>. Rebuilt <code>css/main.min.css</code>. No HTML/JS change.</p>
+<ul>
+<li>Applies everywhere <code>main.css</code> loads - the SPA <strong>and</strong> the static mirrors.</li>
+<li>Cache 1.17.22 -&gt; 1.17.23 in the three JA-68-synced places.</li>
+</ul>
+<h3>Verified</h3>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all 172 invariants green.</li>
+<li>Live render checked at desktop + mobile widths (full-bleed bar, content</li>
+</ul>
+<p>aligned, no horizontal scroll, nav intact).</p>
 <h2>v1.17.22 - 2026-05-29 (grammar detail: meaning heading -&gt; localized &quot;Meaning&quot;, uniform with other titles)</h2>
 <h3>Changed</h3>
 <ul>
