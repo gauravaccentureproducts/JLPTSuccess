@@ -97,6 +97,20 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.27 - 2026-05-30 (grammar detail: MEANING section is English-only)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Grammar pattern detail, MEANING section</strong> now shows only the English meaning.</li>
+</ul>
+<p>Previously it also rendered the Japanese meaning (<code>meaning_ja</code>) and a Japanese explanation line (<code>explanation_ja</code>) directly under it. Two problems with that: the Japanese line was sometimes off-topic (e.g. 〜をください showed a leaked i-adjective conjugation note), and the third line duplicated example sentences that already appear in the EXAMPLES section.</p>
+<ul>
+<li>The English explanation still has its own EXPLANATION section, and example</li>
+</ul>
+<p>sentences still live in EXAMPLES, so nothing is lost - the MEANING box is just the gloss now. Japanese-meaning search still works (the field is retained for the pattern search filter; only the on-screen render was removed).</p>
+<ul>
+<li>Renderer-only change (<code>js/learn-grammar.js</code>, re-minified <code>js/min/learn-grammar.js</code>);</li>
+</ul>
+<p>no data changed. Cache bumped to v1.17.27 so the new JS reaches users.</p>
 <h2>v1.17.26 - 2026-05-29 (fix: wrong category chip on a grammar example + new guard JA-171)</h2>
 <h3>Fixed</h3>
 <ul>

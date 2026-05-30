@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.17.2"
+    "version": "v1.17.3"
   },
   "files": [
     {
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9445385,
+    "total_bytes": 9445383,
     "counts": {
       "grammar": 178,
       "vocab": 995,

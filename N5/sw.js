@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.26';  // bumped 2026-05-29: data fix - n5-149 grammar example "ペンを ください" (Please give me a pen) had the wrong category chip form:"water-request"; corrected to "pen-request". Cache-bust so the SW refetches the updated data/grammar.json (cache-first). New CI guard JA-171 blocks this object-request-label-leak class.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.27';  // bumped 2026-05-30: grammar-detail MEANING section now shows only the English meaning - dropped the meaning_ja line (was showing a leaked i-adjective note on n5-149) and the explanation_ja line (duplicated example sentences); examples remain in the EXAMPLES section, English explanation in the EXPLANATION section. Renderer-only change in js/learn-grammar.js (+ re-minified js/min/learn-grammar.js); cache-bust so the SW refetches the updated JS (cache-first).
 
 const PRECACHE = [
   './',
