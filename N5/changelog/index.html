@@ -97,6 +97,30 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.26 - 2026-05-29 (fix: wrong category chip on a grammar example + new guard JA-171)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>Grammar pattern 〜をください, example &quot;ペンを ください&quot; (Please give me a pen)</strong></li>
+</ul>
+<p>showed the wrong category chip <strong>WATER-REQUEST</strong>. The example&#x27;s <code>form</code> label was <code>water-request</code> (copy-paste leak from a sibling water example) while the sentence is about a pen. Corrected to <code>pen-request</code>.</p>
+<h3>Horizontal scan (whole corpus)</h3>
+<ul>
+<li>Scanned every grammar/vocab/reading/listening example for the same class</li>
+</ul>
+<p>(object-request <code>form</code> labels whose named object contradicts the sentence). <strong>This was the only genuine instance</strong> - the 5 other <code>-request</code>/<code>-order</code> labels flagged (plain-offer, negative-request, speed-request, repeat-request, attention-request) are legitimate <em>grammatical/scenario</em> heads, not physical objects, so they&#x27;re correct (confirmed individually).</p>
+<h3>Guard</h3>
+<ul>
+<li>New CI invariant <strong>JA-171</strong>: for object-request labels (<code>&lt;physical-object&gt;-request/-order</code>),</li>
+</ul>
+<p>the named object must appear in <code>translation_en</code> - blocks future copy-paste form-label leaks. Curated physical-object set; grammatical/scenario heads excluded (false-positive-free). Verified: 0 violations across the corpus.</p>
+<h3>Scope</h3>
+<ul>
+<li><code>data/grammar.json</code> (1 label) + <code>data/index.json</code> (its <code>size_bytes</code>, JA-125)</li>
+</ul>
+<p>+ <code>tools/check_content_integrity.py</code> (JA-171). The static mirrors render only JA + EN (not the <code>form</code> chip), so no mirror change. Cache 1.17.25 -&gt; 1.17.26 so the SW refetches the corrected <code>grammar.json</code> (cache-first).</p>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all 173 invariants green.</li>
+</ul>
 <h2>v1.17.25 - 2026-05-29 (fix: content no longer left-aligned on cold mirror loads / incognito)</h2>
 <h3>Fixed</h3>
 <ul>

@@ -2,6 +2,39 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.26 - 2026-05-29 (fix: wrong category chip on a grammar example + new guard JA-171)
+
+### Fixed
+
+- **Grammar pattern 〜をください, example "ペンを ください" (Please give me a pen)**
+  showed the wrong category chip **WATER-REQUEST**. The example's `form` label
+  was `water-request` (copy-paste leak from a sibling water example) while the
+  sentence is about a pen. Corrected to `pen-request`.
+
+### Horizontal scan (whole corpus)
+
+- Scanned every grammar/vocab/reading/listening example for the same class
+  (object-request `form` labels whose named object contradicts the sentence).
+  **This was the only genuine instance** - the 5 other `-request`/`-order`
+  labels flagged (plain-offer, negative-request, speed-request, repeat-request,
+  attention-request) are legitimate *grammatical/scenario* heads, not physical
+  objects, so they're correct (confirmed individually).
+
+### Guard
+
+- New CI invariant **JA-171**: for object-request labels (`<physical-object>-request/-order`),
+  the named object must appear in `translation_en` - blocks future copy-paste
+  form-label leaks. Curated physical-object set; grammatical/scenario heads
+  excluded (false-positive-free). Verified: 0 violations across the corpus.
+
+### Scope
+
+- `data/grammar.json` (1 label) + `data/index.json` (its `size_bytes`, JA-125)
+  + `tools/check_content_integrity.py` (JA-171). The static mirrors render only
+  JA + EN (not the `form` chip), so no mirror change. Cache 1.17.25 -> 1.17.26
+  so the SW refetches the corrected `grammar.json` (cache-first).
+- `tools/check_content_integrity.py` -> all 173 invariants green.
+
 ## v1.17.25 - 2026-05-29 (fix: content no longer left-aligned on cold mirror loads / incognito)
 
 ### Fixed

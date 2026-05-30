@@ -804,10 +804,10 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-170 at the 2026-05-29 checkpoint — 172 invariants
-total; JA-170 added 2026-05-29 = static-mirror app-header-presence guard,
-see §25.x deferral note and the mirror-pipeline entry in AUDIT-COVERAGE
-Part 60; `tools/check_content_integrity.py` is the authoritative current
+(JA-1 through JA-171 at the 2026-05-29 checkpoint — 173 invariants
+total; JA-170 = static-mirror app-header-presence guard, JA-171 = object-request
+grammar-example-label content match (both 2026-05-29), see AUDIT-COVERAGE
+Parts 60-61; `tools/check_content_integrity.py` is the authoritative current
 set and may carry rows newer than this reference's prose; gaps for
 retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on

@@ -3742,6 +3742,17 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT add new grammar patterns — 178 already exceeds
   Bunpro's N5 deck width; depth on existing patterns is the
   higher-leverage move."
+- "Do NOT ship an example whose scenario/category LABEL (the
+  `form` chip rendered to the learner, e.g. `<object>-request`)
+  names something the sentence does not contain. These labels
+  drift via copy-paste — a new example seeded from a sibling
+  keeps the old label. e.g. n5-149 rendered `water-request` on
+  `ペンを ください` (Please give me a pen); fixed to `pen-request`
+  (2026-05-29). CI JA-171 guards the physical-object-request
+  subset. Conversely, do NOT 'fix' grammatical/scenario-head
+  labels (plain/negative/speed/repeat/attention-request) — those
+  describe the request's manner/context, not a requested object,
+  and are correct."
 - "Do NOT add new vocabulary entries — 1009 already exceeds the
   ~700 official scope; depth on existing entries (collocations,
   pitch-accent, examples, authentic-content) is the leverage."

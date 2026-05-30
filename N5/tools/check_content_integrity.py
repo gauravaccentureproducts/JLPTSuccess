@@ -1572,6 +1572,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     # corpus growth can't drift the displayed numbers silently.
     ("JA-169", "js/learn.js renderHub() hardcoded count fallbacks (grammar/vocab/kanji/reading/listening) match data/version.json.counts (user-caught hub-drift lock, 2026-05-26)", lambda: _check_ja_169_learn_hub_count_sync()),
     ("JA-170", "every static SEO mirror (injector domain: all N5/ index.html except the SPA shell/review-packets/node_modules/N4) carries the global app-header; blocks the build_static_mirrors-run-alone header-strip regression (2026-05-29)", lambda: _check_ja_170_mirror_app_header_present()),
+    ("JA-171", "object-request grammar example labels (<physical-object>-request/-order) name an object present in translation_en - blocks copy-paste form-label leaks like n5-149 'water-request' on a pen sentence (2026-05-29)", lambda: _check_ja_171_object_request_label_content_match()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8783,6 +8784,46 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
         except Exception as e:
             failures.append(f"JA-165: kanji.json parse error: {e}")
 
+    return failures
+
+
+def _check_ja_171_object_request_label_content_match() -> list[str]:
+    """Object-request grammar example labels name an object present in the sentence.
+
+    A grammar example `form` label of shape "<object>-request" / "<object>-order"
+    asserts the example requests/orders that object. If <object> is a concrete
+    PHYSICAL item (curated set below), it MUST appear in the example's
+    translation_en - otherwise the label is copy-paste leakage from a sibling
+    example (user-caught 2026-05-29: n5-149 carried form "water-request" on
+    "ペンを ください / Please give me a pen"). Grammatical / scenario heads
+    (plain, negative, speed, repeat, attention, restaurant, ...) are NOT physical
+    objects and are intentionally NOT checked - they legitimately do not appear in
+    the translation - which keeps this guard false-positive-free.
+    """
+    import re as _re, json as _json
+    PHYS = {
+        "water", "tea", "coffee", "milk", "juice", "beer", "sake", "wine", "soup",
+        "rice", "bread", "cake", "sugar", "salt", "egg", "meat", "fish", "apple",
+        "orange", "banana", "menu", "pen", "pencil", "notebook", "book", "newspaper",
+        "magazine", "ticket", "receipt", "stamp", "key", "bag", "umbrella", "towel",
+    }
+    g = _json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    failures: list[str] = []
+    for p in g.get("patterns", []):
+        for i, e in enumerate(p.get("examples", [])):
+            m = _re.match(r"^([a-z]+)-(request|order)$", e.get("form") or "")
+            if not m:
+                continue
+            obj = m.group(1)
+            if obj not in PHYS:
+                continue
+            tr = (e.get("translation_en") or "").lower()
+            if _re.search(r"\b" + _re.escape(obj) + r"\b", tr) is None:
+                failures.append(
+                    f"JA-171 {p.get('id')} example[{i}] form '{e.get('form')}' names object "
+                    f"'{obj}' absent from translation_en {e.get('translation_en')!r} "
+                    f"(copy-paste form-label leak; relabel to match the sentence)"
+                )
     return failures
 
 

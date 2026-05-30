@@ -1614,6 +1614,18 @@ A52. RIGHT/WRONG FRAMING FOR GRAMMATICALLY-VALID ALTERNATIVES
      gated by a Phase-0 audit pass rather than a binary CI gate,
      since "grammatically correct" requires semantic judgment.
 
+     **Related label-integrity check (form/category chips, 2026-05-29):**
+     Beyond common_mistakes WRONG/RIGHT labels, the grammar example `form`
+     field (the green scenario chip rendered in the SPA, e.g.
+     "<object>-request") can drift from the sentence via copy-paste — a new
+     example seeded from a sibling keeps the old label. Caught by a user:
+     n5-149 rendered "water-request" on "ペンを ください / Please give me a
+     pen" (fixed to "pen-request"). CI JA-171 guards the physical-object
+     subset (object named in the label must appear in translation_en).
+     FALSE-POSITIVE class to NOT touch: grammatical/scenario heads
+     (plain / negative / speed / repeat / attention -request) are not object
+     mismatches — they describe the request's manner/context.
+
 A53. FOLK-LINGUISTIC GRAMMAR TERMINOLOGY IN common_mistakes
      (added 2026-05-16; caught on user-reported BUG-008)
 

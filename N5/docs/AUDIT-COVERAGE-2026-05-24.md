@@ -1083,3 +1083,47 @@ artifacts touched this session were the home + changelog mirrors restored in
 **Surfaced for decision.** The content-mirror routing-format migration is a
 1,372-page change with live SEO/routing impact and is left for an explicit,
 separately-reviewed task rather than folded into this guard-and-document pass.
+
+## Part 61 — Example category-chip ("form") label vs sentence-content mismatch (added 2026-05-29)
+
+**Trigger.** A user spotted a grammar example rendering the category chip
+**WATER-REQUEST** on the sentence "ペンを ください / Please give me a pen"
+(pattern 〜をください, n5-149). The example's `form` field (the green scenario
+chip in the SPA) was `water-request` while the sentence requests a pen - a
+copy-paste leak from a sibling water example whose label was not updated.
+
+**Fix.** `data/grammar.json` n5-149 example #7 `form`: `water-request` ->
+`pen-request`. SPA-only visible (the static mirror's `_render_examples` emits
+only JA + EN, not the `form` chip, so no mirror change). `data/index.json`
+`size_bytes` for grammar.json refreshed (the 2-byte delta tripped JA-125).
+
+**Horizontal scan (corpus-wide, against this pattern's heuristic).** Scanned
+every grammar / vocab / reading / listening example for object-request `form`
+labels (`<head>-request` / `-order`) whose head noun is absent from the
+sentence. The naive "head not in translation" scan over-flags (336/558) because
+most `form` labels are *grammatical / scenario* descriptors (topic-introduction,
+list-fruit, existence-new) where the head legitimately is not in the
+translation. Tightened to object-request shapes, 6 flagged; 5 are legitimate
+grammatical/scenario heads (plain-offer, negative-request, speed-request,
+repeat-request, attention-request) confirmed individually; **only n5-149's
+`water-request` was a genuine object-label↔content mismatch.**
+
+**Guard — JA-171.** For object-request labels `^<obj>-(request|order)$` where
+`<obj>` is in a curated PHYSICAL-object set (water / tea / coffee / menu / pen /
+… - drinks, foods, common request items), `<obj>` must appear (word-boundary) in
+`translation_en`. Grammatical / scenario heads are NOT physical objects and are
+not in the set, so they are not checked - keeping the guard false-positive-free.
+Verified 0 violations across the corpus after the fix.
+
+**Bounded coverage.** JA-171 catches copy-paste leaks for the curated set of
+physical request-objects only; it does not attempt general semantic label↔
+sentence verification (that stays in the manual-review / LLM-audit domain). A
+new request-object scenario adds one word to the curated set.
+
+**False-positive class recorded (for the audit prompt):** a `<word>-request` /
+`<word>-order` label whose head is a GRAMMATICAL or SCENARIO term (plain,
+negative, speed, repeat, attention, restaurant, polite, …) is NOT a mismatch -
+the label describes the request's manner/context, not a requested object.
+
+CI invariants at this checkpoint: 173 (all green). No `js/` behavior or UI
+surface changed beyond the SPA re-reading the corrected `grammar.json`.
