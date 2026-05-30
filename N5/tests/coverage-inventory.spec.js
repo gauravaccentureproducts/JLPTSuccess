@@ -78,6 +78,13 @@ const COVERAGE_MAP = {
   'print-paper.js':          ['print-paper.spec.js'],
   'pwa.js':                  ['pwa.spec.js'],
   'feedback.js':             ['feedback.spec.js'],
+  // IMP-6 second-wave additions (2026-05-27):
+  'authentic.js':            ['authentic.spec.js'],
+  'exam-day.js':             ['exam-day.spec.js'],
+  'kanji-popover.js':        ['kanji-popover.spec.js'],
+  'listening-story.js':      ['listening-story.spec.js'],
+  'listening-transcript.js': ['listening-transcript.spec.js'],
+  'strategy-modal.js':       ['strategy-modal.spec.js'],
 };
 
 // HIGH-risk uncovered modules (call out for IMP-6 priority).
@@ -137,12 +144,11 @@ test.describe('coverage-inventory — IMP-6 honest-accounting gate', () => {
     const BASELINE_UNACCOUNTED = new Set([
       // IMP-6 first wave (2026-05-27) removed: audio-player.js,
       // print-paper.js, pwa.js, feedback.js — now in COVERAGE_MAP.
-      'authentic.js',
-      'exam-day.js',
-      'kanji-popover.js',
-      'listening-story.js',
-      'listening-transcript.js',
-      'strategy-modal.js',
+      // IMP-6 second wave (2026-05-27) removed: authentic.js,
+      // exam-day.js, kanji-popover.js, listening-story.js,
+      // listening-transcript.js, strategy-modal.js — also in COVERAGE_MAP.
+      // BASELINE is now EMPTY. Any new js/<name>.js without test or
+      // whitelist will fail this gate.
     ]);
 
     const newGaps = unaccounted.filter(m => !BASELINE_UNACCOUNTED.has(m));
