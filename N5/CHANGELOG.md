@@ -2,6 +2,35 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.25 - 2026-05-29 (fix: content no longer left-aligned on cold mirror loads / incognito)
+
+### Fixed
+
+- **Page content was left-aligned (jammed to the left edge), not centered, on a
+  hard-refresh / incognito load of any static-mirror page** (grammar / vocab /
+  kanji / reading / listening detail). Root cause: the mirrors carry an inline
+  fallback `body { max-width: 760px; margin: 0 auto }` (for the no-CSS case),
+  but once `main.css` loads its `html, body { margin: 0 }` reset killed the
+  `margin: 0 auto` while leaving the 760px cap - so the body was 760px wide AND
+  left-aligned. (The SPA shell was unaffected, which is why it only showed on
+  cold mirror loads.)
+- Fix: `main.css` body now sets `max-width: none`, overriding the inline cap, so
+  the body is full-width and `main` (`max-width: 880px; margin: 0 auto`) centers
+  the content - identical to the SPA shell.
+
+### Scope
+
+- One rule in `css/main.css` (`body { max-width: none }`); rebuilt
+  `css/main.min.css`. No HTML/JS change. Applies to the SPA **and** every static
+  mirror (shared stylesheet) - no per-page rebuild.
+- Cache 1.17.24 -> 1.17.25 in the three JA-68-synced places.
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all 172 invariants green.
+- Live cold-load (fresh context) render of a mirror page: body full-width,
+  content centered at 880px, no left-alignment - at desktop + mobile widths.
+
 ## v1.17.24 - 2026-05-29 (fix: grammar deep-links to the static-mirror path resolve to the pattern, not the hub)
 
 ### Fixed

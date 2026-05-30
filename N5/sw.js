@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.24';  // bumped 2026-05-29: SPA router now resolves the static-mirror grammar path /learn/grammar/<id>/ (params "grammar/<id>") to the pattern detail instead of falling through to the Learn hub - fixes deep-links / crawler hits / bookmarks to indexed mirror URLs (js/learn.js renderLearn). Cache-bust so users get the rebuilt bundle.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.25';  // bumped 2026-05-29: fixed left-aligned content on cold mirror loads (hard-refresh / incognito). The static mirrors' inline `body{max-width:760px;margin:0 auto}` had its centering margin killed by main.css `html,body{margin:0}`, stranding a 760px body LEFT-ALIGNED. main.css body now forces max-width:none so `main` centers content (880px) as on the SPA shell. css/main.css; cache-bust for the rebuilt CSS.
 
 const PRECACHE = [
   './',

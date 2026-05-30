@@ -275,6 +275,15 @@ html, body {
  * the colored header. */
 body {
   padding-top: 16px;
+  /* The document body is never width-capped; content width is governed by
+   * `main` (max-width: --container-base; margin: 0 auto) + per-component
+   * max-widths. This also OVERRIDES the static mirrors' inline fallback
+   * `body { max-width: 760px }` (meant only for the no-CSS case): once main.css
+   * loads, the `html, body { margin: 0 }` reset above kills that inline
+   * `margin: 0 auto`, which would otherwise strand the 760px body LEFT-ALIGNED
+   * on a cold mirror load (hard-refresh / incognito). Forcing max-width:none
+   * lets `main` center the content (880px), same as on the SPA shell. */
+  max-width: none;
 }
 
 /* 2026-05-21 CLS fix (Lighthouse #/learn/grammar mobile was 0.126):
