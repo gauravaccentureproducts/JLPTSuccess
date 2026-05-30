@@ -13,6 +13,9 @@ Safe shapes covered:
   - cd PATH && git <subcmd> ... && git <subcmd> ... (chained)
   - cd PATH && ... && rm -f <something> && git push ...  (post-commit cleanup)
   - gh pr/issue/repo/release/workflow/run/api/auth ...  (GitHub CLI)
+  - cd "<...JLPT...>" && <read-only verification / inspection pipeline>
+    (echo / curl GET / python parse / grep / head / tail / ...) —
+    project-rooted; relies on the deny-first block for safety (2026-05-30)
   - Any of the above piped to | tail / | head / | grep / | wc
   - Any of the above with 2>&1 stderr redirect
 
@@ -25,6 +28,8 @@ match succeeds; the deny list in settings.local.json still fires:
   - git checkout -- (revert-discard)
   - git filter-branch / filter-repo
   - rm -rf / rm -fr (anything)
+  - curl with -X POST/PUT/DELETE/PATCH, -d/--data*, -T/--upload-file, -F/--form
+    (only read-only curl GET is auto-approved)
   - Anything under C:/Users/.../SS&SC/ (restricted directory)
 
 Non-matching commands silently exit 0; permission system handles them
@@ -79,6 +84,12 @@ def main():
         r'\brm\s+-fr\b',
         r'\brm\s+-r\s',
         r'SS&SC',  # Restricted directory
+        # curl: only read-only GET is auto-approved. Mutating / uploading
+        # requests fall through to the permission system (defense in depth).
+        r'curl\b[^|&;]*\s-X\s*(POST|PUT|DELETE|PATCH)\b',
+        r'curl\b[^|&;]*\s--request\s+(POST|PUT|DELETE|PATCH)\b',
+        r'curl\b[^|&;]*\s(-d|--data|--data-binary|--data-raw|--data-urlencode)\b',
+        r'curl\b[^|&;]*\s(-T|--upload-file|-F|--form)\b',
     ]
     for pat in DENY_PATTERNS:
         if re.search(pat, command):
@@ -105,6 +116,16 @@ def main():
         rf'^cd\s+[^&|;\s]+\s+&&\s+gh\s+{GH_SUBCMDS}\b',
         # File-based commit workflow: cd && git add && git commit -F MSG && (optional rm cleanup) && git push
         rf'^cd\s+(?:"[^"]*"|\'[^\']*\'|[^&|;\s]+)\s+&&\s+git\s+add\s.+\s+&&\s+git\s+commit\b',
+        # Read-only verification / inspection pipelines rooted in a JLPT
+        # project directory: cd "<...JLPT...>" && <echo / curl GET / python
+        # parse / grep / head / tail / ...>. The deny-first block above already
+        # rejects rm -rf, force-push, curl mutations, git checkout --, and the
+        # SS&SC restricted dir, so the remaining project-rooted compound shapes
+        # are safe to auto-approve. Matches the repo's bypassPermissions +
+        # Bash(*) posture and removes residual prompt friction on live-site
+        # verification and corpus-inspection commands (added 2026-05-30).
+        r'^cd\s+"[^"]*JLPT[^"]*"\s+&&\s+',
+        r'^cd\s+\'[^\']*JLPT[^\']*\'\s+&&\s+',
     ]
 
     for pat in SAFE_PATTERNS:
