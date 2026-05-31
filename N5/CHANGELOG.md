@@ -2,6 +2,19 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.34 - 2026-05-31 (grammar pattern detail: drop redundant MEANING section)
+
+### Changed
+
+- **Grammar pattern detail pages** — the **MEANING** section was removed.
+  The pattern's English meaning is already shown as the subtitle directly
+  under the title (e.g. *"What"* under **何（なに・なん）**); a separate
+  MEANING section below HOW TO USE was rendering the exact same string a
+  second time. User-caught duplication on n5-045 (and the same shape on
+  the other 177 grammar patterns). The longer pedagogical content lives
+  in the EXPLANATION section, which is unchanged. SPA-only change; the
+  static SEO mirrors were already rendering only the subtitle.
+
 ## v1.17.33 - 2026-05-31 (hotfix: grammar mirror layout repaired after refresh-script regression)
 
 ### Fixed

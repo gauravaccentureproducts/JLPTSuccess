@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.33';  // bumped 2026-05-31 hotfix after v1.17.32: the refresh-script anchored on the first </h1> in each mirror (the brand wordmark h1) instead of the pattern title h1 inside <main id="app">, gutting <main> and dropping all body content into <header>'s flex row → grammar pages rendered in narrow columns. v1.17.33 wholesale-rebuilds the 178 grammar mirrors from the (correct) builder and re-runs the app-header/footer injector. Refresh script hardened to anchor on <main id="app"> first.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.34';  // bumped 2026-05-31: drop redundant MEANING section from grammar-pattern-detail SPA renderer. The h1 subtitle (`<p class="meaning-en">`) and the MEANING section (`<section><h3>Meaning</h3>`) were both rendering the same localizedMeaning(p) value verbatim, so the page showed "What" twice on every pattern (e.g. n5-045). Subtitle kept (pairs with title); MEANING section removed. SPA-only change; static mirrors already render only the subtitle.
 
 const PRECACHE = [
   './',
