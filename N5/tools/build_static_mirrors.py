@@ -81,7 +81,7 @@ N5_BASE = SITE_BASE + "N5/"
 # SPA cache-buster version — must match the `?v=...` in index.html's
 # script tag so the mirrors load the same minified bundle the SPA root
 # does. Bumped 2026-05-24 with the history-mode migration to v1.17.0.
-SPA_VERSION = "1.17.0"
+SPA_VERSION = "1.17.30"
 
 
 # ----- Common HTML chrome -----
@@ -231,7 +231,7 @@ def _build_page(
                 parts.append(_esc(label))
         breadcrumb_html = " · ".join(parts)
 
-    main_css_path = n5_root + "css/main.min.css"
+    main_css_path = n5_root + f"css/main.min.css?v={SPA_VERSION}"
     spa_js_path = n5_root + f"js/min/app.js?v={SPA_VERSION}"
     spa_boot_script = SPA_BOOT_SCRIPT_TEMPLATE.format(spa_js_path=spa_js_path)
 
