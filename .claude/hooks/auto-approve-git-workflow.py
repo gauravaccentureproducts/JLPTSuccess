@@ -1,169 +1,175 @@
 #!/usr/bin/env python3
 """
-PreToolUse hook — auto-approve standard git/gh workflow commands.
+PreToolUse hook — allow EVERYTHING in this repo EXCEPT delete/remove.
 
-Reads a Claude Code PreToolUse JSON envelope on stdin. If tool_name is
-Bash AND tool_input.command matches a safe git/gh workflow shape, emits
-an 'allow' decision so the user isn't re-prompted for routine workflow
-commands.
+Rewritten 2026-05-30. The prior version enumerated "safe shapes" and DEFERRED
+everything else to a permission prompt — that was whack-a-mole: every new
+command shape (curl chains, `python -c`, pytest, node, ...) produced a fresh
+prompt. This version inverts the posture to match the user's standing grant
+("full autonomous permission EXCEPT delete/remove"):
 
-Safe shapes covered:
-  - git <subcmd> ...                          (standalone)
-  - cd PATH && git <subcmd> ...               (with cd prefix)
-  - cd PATH && git <subcmd> ... && git <subcmd> ... (chained)
-  - cd PATH && ... && rm -f <something> && git push ...  (post-commit cleanup)
-  - gh pr/issue/repo/release/workflow/run/api/auth ...  (GitHub CLI)
-  - cd "<...JLPT...>" && <read-only verification / inspection pipeline>
-    (echo / curl GET / python parse / grep / head / tail / ...) —
-    project-rooted; relies on the deny-first block for safety (2026-05-30)
-  - Any of the above piped to | tail / | head / | grep / | wc
-  - Any of the above with 2>&1 stderr redirect
+    1. transient temp-file cleanup (rm -f *.commit_msg.tmp / *.tmp / .tmp_*) -> ALLOW
+    2. ANY other delete / remove / history-destroy / system-destructive op    -> DENY
+    3. everything else                                                         -> ALLOW
 
-Defense in depth — denied shapes are NOT approved here even if the
-match succeeds; the deny list in settings.local.json still fires:
-  - git push --force / -f / --force-with-lease / --no-verify
-  - git reset --hard
-  - git branch -D
-  - git clean -f / -fd
-  - git checkout -- (revert-discard)
-  - git filter-branch / filter-repo
-  - rm -rf / rm -fr (anything)
-  - curl with -X POST/PUT/DELETE/PATCH, -d/--data*, -T/--upload-file, -F/--form
-    (only read-only curl GET is auto-approved)
-  - Anything under C:/Users/.../SS&SC/ (restricted directory)
+Why a hook and not just settings allow/deny? In Claude Code Desktop,
+defaultMode "bypassPermissions" + a `Bash(*)` allow rule do NOT reliably
+suppress prompts for multi-line / compound commands, but a PreToolUse hook
+that emits an explicit permissionDecision is honored for every command shape.
+A hook "deny" overrides the `Bash(*)` allow, so deletions are reliably blocked.
 
-Non-matching commands silently exit 0; permission system handles them
-normally.
+Fail-safe: when a command contains a delete/remove verb that is NOT a clean
+transient-temp cleanup, we DENY (never silently allow a deletion). The settings
+deny list in settings.local.json remains as a second, independent backstop.
 
-Output format follows Claude Code hook v3 schema:
-  {
-    "hookSpecificOutput": {
-      "hookEventName": "PreToolUse",
-      "permissionDecision": "allow",
-      "permissionDecisionReason": "<why>"
-    }
-  }
+Governs the Bash and PowerShell tools (register via matcher "Bash|PowerShell").
+Non-shell tools, empty input, and parse errors exit 0 silently so the normal
+permission system decides.
 
-Author: Gaurav Srivastava (via Claude). Created 2026-05-27.
+Output (Claude Code hook v3 schema):
+  {"hookSpecificOutput": {"hookEventName": "PreToolUse",
+                          "permissionDecision": "allow"|"deny",
+                          "permissionDecisionReason": "<why>"}}
+
+Limitation: shell-level deletes are caught; arbitrary in-code deletions beyond
+the common shutil/os/pathlib calls below are not regex-detectable.
+
+Author: Gaurav Srivastava (via Claude). Created 2026-05-27; allow-all-except-
+delete rewrite 2026-05-30.
 """
 import json
 import re
 import sys
 
+# --- delete / remove detection --------------------------------------------
+# A segment is a DELETE only when a delete verb is in COMMAND position (start
+# of the segment), so "grep rm ...", "man rm", paths containing 'rm', etc. are
+# NOT mis-flagged. git ref-removal and common in-code deletions are matched
+# anywhere in the segment.
+_DELETE_CMD_RE = re.compile(
+    r'^(?:rm|rmdir|unlink|shred|del|erase|Remove-Item|Clear-Content)\b',
+    re.IGNORECASE)
+_GIT_REMOVE_RE = re.compile(
+    r'\bgit\s+(?:rm\b|branch\s+-D\b|tag\s+-d\b|stash\s+(?:drop|clear)\b)',
+    re.IGNORECASE)
+_PY_DELETE_RE = re.compile(
+    r'(?:shutil\.rmtree|os\.removedirs|os\.remove|os\.unlink|os\.rmdir'
+    r'|\.unlink\(|\.rmdir\()',
+    re.IGNORECASE)
+
+# A token is a transient scratch file Claude itself creates/cleans up.
+_TRANSIENT_TOKEN_RE = re.compile(r'(?:\.commit_msg\.tmp$|\.tmp$|\.tmp_)',
+                                 re.IGNORECASE)
+# Recursive / force-recursive delete flags (never a legit transient cleanup).
+_RECURSIVE_RE = re.compile(r'(?:-[A-Za-z]*[rR]\b|/[sS]\b|-Recurse\b)')
+
+# History-rewriting / system-destructive ops that are not plain file deletes.
+# Includes positional backstops (recursive rm / find -delete / xargs rm) so a
+# wrapped form (sudo/time/...) is still caught even if command-position
+# detection above missed it.
+_DESTRUCTIVE_RE = [re.compile(p, re.IGNORECASE) for p in (
+    r'\brm\s+-[A-Za-z]*[rR]\b',                 # recursive rm anywhere
+    r'\bfind\b[^|&;\n]*-delete\b',
+    r'\bfind\b[^|&;\n]*-exec\s+rm',
+    r'\bxargs\b[^|&;\n]*\brm\b',
+    r'\bgit\s+push\s+[^|&;\n]*(?:--force|--force-with-lease|-f\b|--no-verify)',
+    r'\bgit\s+reset\s+--hard\b',
+    r'\bgit\s+clean\s+-[A-Za-z]*f',
+    r'\bgit\s+filter-(?:branch|repo)\b',
+    r'\bformat\b', r'\bmkfs', r'\bdd\s+if=',
+    r'\bshutdown\b', r'\breboot\b', r'\bdiskpart\b',
+    r'\bStop-Computer\b', r'\bRestart-Computer\b', r'\bFormat-Volume\b',
+    r'\bStop-Process\s+[^|&;\n]*-Force',
+    r'\bnpm\s+uninstall\b', r'\bpip3?\s+uninstall\b',
+    r'(?:\bmv\b|\bcp\b|\bMove-Item\b|\bCopy-Item\b)[^|&;\n]*\.(?:bak|backup)\b',
+)]
+
+
+def _decide(decision, reason):
+    print(json.dumps({"hookSpecificOutput": {
+        "hookEventName": "PreToolUse",
+        "permissionDecision": decision,
+        "permissionDecisionReason": reason,
+    }}))
+    return 0
+
+
+def _segments(command):
+    return re.split(r'(?:&&|\|\||[;|&\n])', command)
+
+
+def _strip_wrappers(seg):
+    s = seg.strip().lstrip('(').strip()
+    # Drop common leading wrappers so "sudo rm", "time rm" still detect.
+    s = re.sub(r'^(?:sudo|time|nice|nohup|command|builtin|exec)\s+', '', s,
+               flags=re.IGNORECASE)
+    return s
+
+
+def _segment_is_delete(seg):
+    s = _strip_wrappers(seg)
+    return bool(_DELETE_CMD_RE.match(s) or _GIT_REMOVE_RE.search(seg)
+                or _PY_DELETE_RE.search(seg))
+
+
+def _is_safe_transient_delete(seg):
+    """True only if seg is a non-recursive rm/del whose every target is a
+    scratch temp file (*.commit_msg.tmp / *.tmp / .tmp_*)."""
+    s = _strip_wrappers(seg)
+    if not re.match(r'^(?:rm|del|erase|Remove-Item)\b', s, re.IGNORECASE):
+        return False
+    if _RECURSIVE_RE.search(s) or _GIT_REMOVE_RE.search(seg) or _PY_DELETE_RE.search(seg):
+        return False
+    targets = [t.strip('"\'') for t in s.split()[1:]
+               if not t.startswith('-') and not t.startswith('/')]
+    return bool(targets) and all(_TRANSIENT_TOKEN_RE.search(t) for t in targets)
+
+
+def _command_has_delete(command):
+    return any(_segment_is_delete(seg) for seg in _segments(command))
+
+
+def _deletes_are_only_transient(command):
+    for seg in _segments(command):
+        if _segment_is_delete(seg) and not _is_safe_transient_delete(seg):
+            return False
+    return True
+
 
 def main():
-    # Read invocation envelope
     try:
         raw = sys.stdin.read()
         if not raw.strip():
             return 0
         invocation = json.loads(raw)
-    except json.JSONDecodeError:
-        return 0  # Malformed input — defer to permission system
     except Exception:
+        return 0  # malformed input — defer to permission system
+
+    if invocation.get('tool_name', '') not in ('Bash', 'PowerShell'):
+        return 0  # only govern shell tools; defer everything else
+    command = (invocation.get('tool_input', {}) or {}).get('command', '') or ''
+    if not command.strip():
         return 0
 
-    tool_name = invocation.get('tool_name', '')
-    if tool_name != 'Bash':
-        return 0  # Only auto-approve Bash; defer all other tools
+    # 1. Restricted directory — never touch.
+    if 'SS&SC' in command:
+        return _decide('deny', 'Restricted directory SS&SC is off-limits.')
 
-    command = invocation.get('tool_input', {}).get('command', '') or ''
-    if not command:
-        return 0
+    # 2. Delete / remove: allow ONLY transient temp-file cleanup; deny the rest.
+    if _command_has_delete(command):
+        if _deletes_are_only_transient(command):
+            return _decide('allow', 'Transient temp-file cleanup (non-destructive).')
+        return _decide('deny', 'Delete/remove blocked by repo policy '
+                               '(full permission granted EXCEPT delete/remove).')
 
-    # DENY-FIRST: never approve destructive operations even if shape matches.
-    DENY_PATTERNS = [
-        r'git push\s+(?:[^&|;]*\s)?(--force|--force-with-lease|-f|--no-verify)\b',
-        r'git reset\s+--hard\b',
-        r'git branch\s+-D\b',
-        r'git clean\s+-f(d|r)?\b',
-        r'git checkout\s+--\s',
-        r'git filter-branch\b',
-        r'git filter-repo\b',
-        r'\brm\s+-rf\b',
-        r'\brm\s+-fr\b',
-        r'\brm\s+-r\s',
-        r'SS&SC',  # Restricted directory
-        # curl: only read-only GET is auto-approved. Mutating / uploading
-        # requests fall through to the permission system (defense in depth).
-        r'curl\b[^|&;]*\s-X\s*(POST|PUT|DELETE|PATCH)\b',
-        r'curl\b[^|&;]*\s--request\s+(POST|PUT|DELETE|PATCH)\b',
-        r'curl\b[^|&;]*\s(-d|--data|--data-binary|--data-raw|--data-urlencode)\b',
-        r'curl\b[^|&;]*\s(-T|--upload-file|-F|--form)\b',
-    ]
-    for pat in DENY_PATTERNS:
-        if re.search(pat, command):
-            return 0  # Deny rule will fire; we don't approve
+    # 3. History-rewriting / system-destructive ops — deny.
+    for rx in _DESTRUCTIVE_RE:
+        if rx.search(command):
+            return _decide('deny',
+                           'Destructive/history-rewriting op blocked by repo policy.')
 
-    # SAFE shapes: any of these starting forms qualify.
-    GIT_SUBCMDS = (r'(?:add|commit|push|fetch|pull|status|diff|log|branch|'
-                   r'stash|tag|merge|rebase|show|remote|config|restore|'
-                   r'checkout|mv|ls-files|rev-parse|blame|cherry-pick|'
-                   r'describe|reflog|worktree|submodule)')
-    GH_SUBCMDS = r'(?:pr|issue|repo|release|workflow|run|api|auth|gist|alias|browse|search)'
-
-    SAFE_PATTERNS = [
-        # Standalone git/gh
-        rf'^git\s+{GIT_SUBCMDS}\b',
-        rf'^gh\s+{GH_SUBCMDS}\b',
-        # cd PATH (quoted) && git ...
-        rf'^cd\s+"[^"]*"\s+&&\s+git\s+{GIT_SUBCMDS}\b',
-        rf'^cd\s+\'[^\']*\'\s+&&\s+git\s+{GIT_SUBCMDS}\b',
-        # cd PATH (unquoted, no & or | in path — common case) && git ...
-        rf'^cd\s+[^&|;\s]+\s+&&\s+git\s+{GIT_SUBCMDS}\b',
-        # cd PATH && gh ...
-        rf'^cd\s+"[^"]*"\s+&&\s+gh\s+{GH_SUBCMDS}\b',
-        rf'^cd\s+[^&|;\s]+\s+&&\s+gh\s+{GH_SUBCMDS}\b',
-        # File-based commit workflow: cd && git add && git commit -F MSG && (optional rm cleanup) && git push
-        rf'^cd\s+(?:"[^"]*"|\'[^\']*\'|[^&|;\s]+)\s+&&\s+git\s+add\s.+\s+&&\s+git\s+commit\b',
-        # Read-only verification / inspection pipelines rooted in a JLPT
-        # project directory: cd "<...JLPT...>" && <echo / curl GET / python
-        # parse / grep / head / tail / ...>. The deny-first block above already
-        # rejects rm -rf, force-push, curl mutations, git checkout --, and the
-        # SS&SC restricted dir, so the remaining project-rooted compound shapes
-        # are safe to auto-approve. Matches the repo's bypassPermissions +
-        # Bash(*) posture and removes residual prompt friction on live-site
-        # verification and corpus-inspection commands (added 2026-05-30).
-        r'^cd\s+"[^"]*JLPT[^"]*"\s+&&\s+',
-        r'^cd\s+\'[^\']*JLPT[^\']*\'\s+&&\s+',
-        # Local dev-server probe patterns (added 2026-05-30):
-        # Starting a Python http.server in background + curl GET + kill cleanup
-        # is a common dev workflow. Read-only by design (deny-first already
-        # blocks curl mutations + rm -rf). Pattern accepts the multi-line
-        # form Claude Code sends as a single bash call.
-        r'^cd\s+"[^"]*"\s+&&\s+python(?:3)?\s+-m\s+http\.server\b',
-        r'^cd\s+[^&|;\s]+\s+&&\s+python(?:3)?\s+-m\s+http\.server\b',
-        # Standalone python http.server (no cd)
-        r'^python(?:3)?\s+-m\s+http\.server\b',
-        # Kill background job (paired with http.server start)
-        r'^kill\s+%\d+\b',
-        r'^kill\s+-\d+\s+%\d+\b',
-        # Read-only verification / inspection / poll pipelines that START with a
-        # read-only verb (echo / curl GET / for-loop / grep / head / tail / ...) -
-        # the live-site verification + status-poll commands that don't begin with
-        # cd/git/gh. Deny-first above blocks the dangerous ops (rm -rf, force-push,
-        # curl mutations, git checkout --, SS&SC), so these are safe to
-        # auto-approve; the user asked to always-allow this class (added 2026-05-30).
-        r'^(?:echo|printf|curl\s+-[sSIL]|for\b|seq\b|grep\b|cat\b|head\b|tail\b|wc\b|sort\b|uniq\b|test\b|diff\b|ls\b|pwd\b|date\b)',
-    ]
-
-    for pat in SAFE_PATTERNS:
-        if re.match(pat, command):
-            output = {
-                "hookSpecificOutput": {
-                    "hookEventName": "PreToolUse",
-                    "permissionDecision": "allow",
-                    "permissionDecisionReason": (
-                        "Auto-approved by .claude/hooks/auto-approve-git-workflow.py "
-                        "(safe git/gh workflow shape; deny rules still apply)."
-                    ),
-                }
-            }
-            print(json.dumps(output))
-            return 0
-
-    # No safe match; defer to permission system silently
-    return 0
+    # 4. Everything else — allow (zero-prompt posture).
+    return _decide('allow', 'Allowed by repo policy (full permission except delete/remove).')
 
 
 if __name__ == '__main__':
