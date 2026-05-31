@@ -2,6 +2,16 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.31 - 2026-05-30 (footer: menu above the version/trademark line)
+
+### Changed
+
+- **App footer reordered** — the footer menu (What's new · Privacy · Notices ·
+  N5 syllabus overview · Feedback · Switch language · Help translate) now sits
+  **above** the version number and the trademark/non-affiliation line, instead
+  of below them. SPA shell only; the static mirrors' footer was already
+  menu-first.
+
 ## v1.17.30 - 2026-05-30 (brand logo: mark and "N5" are now separate links)
 
 ### Changed

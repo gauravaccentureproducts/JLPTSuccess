@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.30';  // bumped 2026-05-30: split the brand lockup into two links across all pages - ladder mark -> /JLPTSuccess/ (level picker), "N5" wordmark -> /JLPTSuccess/N5/ (N5 home); .brand h1 is now a flex row. Cache-bust so the updated CSS + headers reach users.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.31';  // bumped 2026-05-30: reordered the app footer so the menu sits above the version + trademark line (per user request). Cache-bust so the SW refetches the updated index.html shell.
 
 const PRECACHE = [
   './',
