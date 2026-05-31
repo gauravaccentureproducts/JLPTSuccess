@@ -126,6 +126,25 @@ def main():
         # verification and corpus-inspection commands (added 2026-05-30).
         r'^cd\s+"[^"]*JLPT[^"]*"\s+&&\s+',
         r'^cd\s+\'[^\']*JLPT[^\']*\'\s+&&\s+',
+        # Local dev-server probe patterns (added 2026-05-30):
+        # Starting a Python http.server in background + curl GET + kill cleanup
+        # is a common dev workflow. Read-only by design (deny-first already
+        # blocks curl mutations + rm -rf). Pattern accepts the multi-line
+        # form Claude Code sends as a single bash call.
+        r'^cd\s+"[^"]*"\s+&&\s+python(?:3)?\s+-m\s+http\.server\b',
+        r'^cd\s+[^&|;\s]+\s+&&\s+python(?:3)?\s+-m\s+http\.server\b',
+        # Standalone python http.server (no cd)
+        r'^python(?:3)?\s+-m\s+http\.server\b',
+        # Kill background job (paired with http.server start)
+        r'^kill\s+%\d+\b',
+        r'^kill\s+-\d+\s+%\d+\b',
+        # Read-only verification / inspection / poll pipelines that START with a
+        # read-only verb (echo / curl GET / for-loop / grep / head / tail / ...) -
+        # the live-site verification + status-poll commands that don't begin with
+        # cd/git/gh. Deny-first above blocks the dangerous ops (rm -rf, force-push,
+        # curl mutations, git checkout --, SS&SC), so these are safe to
+        # auto-approve; the user asked to always-allow this class (added 2026-05-30).
+        r'^(?:echo|printf|curl\s+-[sSIL]|for\b|seq\b|grep\b|cat\b|head\b|tail\b|wc\b|sort\b|uniq\b|test\b|diff\b|ls\b|pwd\b|date\b)',
     ]
 
     for pat in SAFE_PATTERNS:
