@@ -2522,6 +2522,89 @@ docs/AUDIT-COVERAGE-2026-05-24.md Part 56. Tools:
 `tools/audit_ts_pass_counts_v2_2026_05_24.py` (predicate edits).
 Procedure manual: F.44.33 + F.44.34.
 
+### Phase-0 static-mirror render-path parity block (added 2026-05-31)
+
+Codifies the lesson from BUG-243 (n5-017 HOW TO USE section
+appeared empty when SPA boot was slow or JS disabled; static
+mirror was emitting only `<h2>Attaches to</h2><p>question_word</p>`
+while the SPA renderer was emitting the rich pattern-usage table).
+This is the THIRD repetition of the "builder-alone produces
+stripped content" class — Part 60 caught it on app-header
+(→ JA-170), the 2026-05-30 SW-bump caught it on app-footer
+(→ JA-172), and BUG-243 caught it on the HOW TO USE section
+(→ JA-173).
+
+1. **When a user reports "section X is empty", probe ALL render
+   paths, not just the SPA.** The render-path set has at least
+   three members today: SPA hydration (`renderGrammarPatternDetail`),
+   the static SEO mirror (`tools/build_static_mirrors.py`), and
+   the post-build app-header / app-footer injector
+   (`tools/inject_app_header_into_mirrors_2026_05_27.py`).
+   Stopping at "the SPA is fine" misses the static-mirror
+   regression that paints under noscript / slow-boot / SW-update
+   conditions.
+
+   Phase-0 check:
+   - For any user-reported "empty section" bug, run a
+     three-way probe: (a) Playwright probe of the SPA-hydrated
+     DOM; (b) curl + grep of the static mirror for the
+     section's markers and content; (c) curl + grep for the
+     post-build injector's markers. Report all three.
+   - Expected: any one of the three returning lean / stripped
+     content while the others are rich is a render-path-parity
+     bug, not a user-error.
+
+2. **Bring the mirror to parity with the SPA — don't just bump
+   the cache.** A CACHE_VERSION bump evicts stale caches but
+   does NOT fix the underlying divergence; users hitting the
+   page fresh still see the stripped mirror. The fix is the
+   builder + a JA-NN parity invariant; the bump is the
+   defensive secondary.
+
+   Phase-0 check:
+   - For each fixed render-path-parity bug, confirm: (i) a
+     specific JA-NN invariant was added (e.g., JA-173 for
+     pattern-usage), (ii) the invariant references at least
+     one verbatim content marker that disappears under the
+     bug-class, (iii) CACHE_VERSION was bumped as a defensive
+     secondary, not as the only fix.
+   - Expected: every parity-bug close-out has all three
+     elements.
+
+3. **"builder-alone produces stripped content" is a recurring
+   class.** Until the post-build injectors are folded back into
+   `build_static_mirrors.py`, every post-build injection target
+   needs its own JA-NN parity invariant. The long-term fix
+   (single builder = wholesale rebuild superset) is tracked as
+   a separate refactor.
+
+   Phase-0 check:
+   - Audit: every post-build injection target listed in
+     `tools/inject_*_into_mirrors_*.py` or equivalent has a
+     matching JA-NN parity invariant (header → JA-170,
+     footer → JA-172, HOW TO USE → JA-173, …).
+   - Expected: zero post-build injection targets without an
+     invariant. New post-build injections must add one in the
+     same commit (Rule 5 cross-artifact sync).
+
+Bounded-coverage framing:
+  - JA-173 prevents re-introduction of *the specific bare-token
+    mirror shape* (`<h2>Attaches to</h2><p>{token}</p>` with no
+    `class="pattern-usage"` section) AND missing-conjugation-
+    example drift on patterns with `form_rules.conjugations ≥ 2`.
+    It does NOT constrain SPA-renderer regressions; those are
+    a JA-NN-level work item, not in this cycle.
+  - "Three render paths" — locks today's known set; a future
+    pipeline change (e.g., a new injection target) must extend
+    the Phase-0 check above.
+
+Source: BUG-243 fix 2026-05-31; AUDIT-COVERAGE Part 62; sw.js
+CACHE_VERSION v1.17.31 → v1.17.32; tools:
+`tools/refresh_grammar_howto_in_mirrors.py` (new surgical
+body-rewrite),`tools/build_static_mirrors.py` (renderer enhanced),
+`tools/check_content_integrity.py` (+ JA-173). Procedure
+manual: F.48.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

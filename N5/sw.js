@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.31';  // bumped 2026-05-30: reordered the app footer so the menu sits above the version + trademark line (per user request). Cache-bust so the SW refetches the updated index.html shell.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.32';  // bumped 2026-05-31 for BUG-203: 178 grammar static mirrors now render the rich HOW TO USE / 使い方 section (pattern-usage table + conjugation table) matching the SPA. Previously emitted only "Attaches to: <token>", which looked empty when JS was disabled or SPA boot was slow. Cache-bust so the SW serves the regenerated mirrors instead of stale lean versions.
 
 const PRECACHE = [
   './',

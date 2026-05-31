@@ -1574,6 +1574,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-170", "every static SEO mirror (injector domain: all N5/ index.html except the SPA shell/review-packets/node_modules/N4) carries the global app-header; blocks the build_static_mirrors-run-alone header-strip regression (2026-05-29)", lambda: _check_ja_170_mirror_app_header_present()),
     ("JA-171", "object-request grammar example labels (<physical-object>-request/-order) name an object present in translation_en - blocks copy-paste form-label leaks like n5-149 'water-request' on a pen sentence (2026-05-29)", lambda: _check_ja_171_object_request_label_content_match()),
     ("JA-172", "every static SEO mirror carries the site app-footer (footer menu) - companion to JA-170 (header); blocks the build_static_mirrors-run-alone footer-strip regression (2026-05-30)", lambda: _check_ja_172_mirror_app_footer_present()),
+    ("JA-173", "every grammar pattern's static mirror at learn/<id>/index.html renders the rich HOW TO USE / 使い方 section that matches the SPA - includes pattern-usage section + each form_rules.conjugations[].example token verbatim; blocks the build_static_mirrors-run-alone howto-strip regression that caused BUG-203 (n5-017 HOW TO USE rendered as just 'Attaches to: question_word', 2026-05-31)", lambda: _check_ja_173_grammar_mirror_howto_parity()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8900,6 +8901,93 @@ def _check_ja_172_mirror_app_footer_present() -> list[str]:
                 "JA-172 static mirror missing app-footer (regenerate via "
                 "tools/inject_app_header_into_mirrors_2026_05_27.py): " + rel
             )
+    return failures
+
+
+def _check_ja_173_grammar_mirror_howto_parity() -> list[str]:
+    """Every grammar pattern's static mirror at learn/<id>/index.html renders
+    the rich HOW TO USE / 使い方 section that matches the SPA (BUG-203,
+    2026-05-31).
+
+    Prior to BUG-203 the static mirror rendered only
+    ``<h2>Attaches to</h2><p>{tokens}</p>`` — a single technical token
+    under what the SPA labels HOW TO USE. Users hitting the mirror with
+    JS disabled or before SPA boot saw what looked like an empty section.
+
+    build_static_mirrors.py now emits the same shape the SPA renderer
+    `renderHowToUseTable` does (`<section class="pattern-usage">` + a
+    table mapping attaches_to labels to the pattern + a conjugation
+    table when there are ≥2 conjugations). This invariant blocks
+    regression to the bare-token form:
+
+      * Every pattern whose form_rules has a non-empty attaches_to OR
+        a conjugations array with ≥2 entries must have an emitting
+        mirror containing `pattern-usage` plus each conjugation's
+        `example` substring verbatim.
+      * Mirrors that still carry the legacy bare-token shape
+        (`<h2>Attaches to</h2>` with no `pattern-usage` section) are
+        flagged so a rebuild can repair them.
+
+    Domain: learn/<id>/index.html where <id> is a pattern id (n5-NNN).
+    Other learn/ subtrees (e.g. vocab/, grammar/) are excluded.
+    """
+    import json as _json
+    failures: list[str] = []
+    grammar_fp = ROOT / "data" / "grammar.json"
+    if not grammar_fp.exists():
+        return []
+    try:
+        g = _json.loads(grammar_fp.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        return [f"JA-173 cannot read data/grammar.json: {exc}"]
+    patterns = g.get("patterns", []) or []
+    for p in patterns:
+        pid = p.get("id") or ""
+        if not pid:
+            continue
+        fr = p.get("form_rules") or {}
+        if not isinstance(fr, dict):
+            continue
+        atts = fr.get("attaches_to") or []
+        conjs = fr.get("conjugations") or []
+        need_section = bool(atts) or (isinstance(conjs, list) and len(conjs) >= 2)
+        if not need_section:
+            continue
+        mirror_fp = ROOT / "learn" / pid / "index.html"
+        if not mirror_fp.exists():
+            # Not all corpora have mirrors yet; skip — JA-170/172 cover
+            # presence-of-mirror invariants. JA-173 only enforces
+            # CONTENT parity for mirrors that exist.
+            continue
+        try:
+            txt = mirror_fp.read_text(encoding="utf-8", errors="ignore")
+        except OSError as exc:
+            failures.append(f"JA-173 cannot read mirror learn/{pid}/index.html: {exc}")
+            continue
+        if 'class="pattern-usage"' not in txt:
+            failures.append(
+                f"JA-173 grammar mirror learn/{pid}/index.html missing "
+                f"<section class=\"pattern-usage\"> (bare-token shape - "
+                "regenerate via tools/refresh_grammar_howto_in_mirrors.py)"
+            )
+            continue
+        # Conjugation parity: every conjugation example must appear in
+        # the mirror verbatim. Catches drift where the data corpus has
+        # a new example but the mirror still carries the old one.
+        if isinstance(conjs, list) and len(conjs) >= 2:
+            for c in conjs:
+                if not isinstance(c, dict):
+                    continue
+                example = (c.get("example") or "").strip()
+                if not example:
+                    continue
+                if example not in txt:
+                    failures.append(
+                        f"JA-173 grammar mirror learn/{pid}/index.html "
+                        f"missing conjugation example: {example!r} "
+                        "(regenerate via tools/refresh_grammar_howto_in_mirrors.py)"
+                    )
+                    break  # one finding per mirror is enough
     return failures
 
 

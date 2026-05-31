@@ -148,3 +148,90 @@ gaps a CI invariant should chase.
 lineage was not hand-expanded with the 50 back-fill rows - the tracker xlsx
 is the operational record of record for bug-to-invariant mapping; section
 25.8 remains the curated lineage narrative.
+
+---
+
+## Part 62 — BUG-243: static mirror HOW TO USE strip (added 2026-05-31)
+
+**Trigger.** User screenshot of `n5-017` (何 / なに・なん) showed an empty
+HOW TO USE / 使い方 section on the grammar pattern detail page. User text:
+*"no info in highlighted part"*.
+
+**What was actually true (against this commit, as scanned):**
+
+1. The **SPA renderer** (`js/learn-grammar.js renderHowToUseTable`) emits the
+   rich section correctly — verified by a headless Playwright probe on
+   both the local dev server and the live GitHub Pages deploy
+   (`section.pattern-usage` exists with 1365 chars innerHTML / 525 chars
+   text; top table = "Question word | 何（なに／なん）"; conjugation
+   table = 4 rows なに+を / なん+です / なん+counter / なんで). Horizontal
+   sweep across all 175 grammar patterns with `form_rules` confirmed
+   non-empty SPA rendering at the current code state.
+2. The **static SEO mirror** at `learn/n5-017/index.html` (the
+   noscript-readable / pre-SPA-boot fallback) emitted only
+   `<h2>Attaches to</h2><p>question_word</p>` — a single technical token.
+   The 4 conjugation examples were not in the mirror at all. Anyone
+   hitting the mirror with JS disabled, slow boot, or a paused SPA saw
+   what the user reported: a section header with effectively no content
+   beneath it.
+3. This is the **third repetition** of the "builder-alone produces
+   stripped content" class. Part 60 caught it on app-header (→ JA-170),
+   the 2026-05-30 SW-bump caught it on app-footer (→ JA-172), and this
+   audit catches it on the HOW TO USE section (→ JA-173).
+
+**Addressed this part:**
+
+- **`tools/build_static_mirrors.py`** — `_render_grammar_pattern_body` now
+  emits `<section class="pattern-usage">` with the SAME structure the SPA
+  renders (header chip + top table + conjugation table). The legacy
+  `<h2>Attaches to</h2><p>{tokens}</p>` block was removed.
+- **`tools/refresh_grammar_howto_in_mirrors.py`** (new) — surgical script
+  that opens each `learn/<id>/index.html`, locates the body region
+  between `</h1>` and the first `<footer>`, and regenerates the body
+  in place using the updated renderer. Preserves app-header,
+  app-footer, SPA boot script, canonical URLs, breadcrumb. 178 mirrors
+  rewritten; 0 unparseable; 0 missing. The build_static_mirrors.py
+  trap (a wholesale run re-migrates ~1,372 hand-patched mirrors) is
+  side-stepped by editing in place.
+- **JA-173** (new CI invariant): every pattern whose `form_rules.attaches_to`
+  is non-empty OR whose `form_rules.conjugations` has ≥ 2 entries must
+  have a static mirror containing `class="pattern-usage"` PLUS each
+  conjugation `example` string verbatim. Catches both the bare-token
+  regression and any drift where a new example is authored but the
+  mirror keeps an old one. Verified against this commit:
+  `python tools/check_content_integrity.py` → PASS on all 175
+  invariants (174 prior + JA-173).
+- **`sw.js` CACHE_VERSION** — bumped `v1.17.31 → v1.17.32` so users on
+  stale caches re-fetch the regenerated mirrors on their next visit.
+  `data/version.json` synced to the same `v1.17.32`.
+
+**Bounded phrasing.** *"Empty"* in the user report refers to the static
+mirror render path; the SPA-hydrated render was non-empty *against this
+commit's data + JS, at the screenshot timestamp window we can verify*.
+JA-173 prevents re-introduction of *the specific bare-token mirror shape*
+and *missing-conjugation-example* drift catalogued above; it does not
+constrain renderer-side regressions in the SPA (JA-NN-level work item, not
+in this audit cycle).
+
+**Pattern class.** *"builder-alone produces stripped content"* keeps
+re-surfacing because `build_static_mirrors.py` and the post-build injectors
+each own a different slice of the final mirror. Long-term path: fold the
+post-build injectors back into the builder so a wholesale rebuild is once
+again a true superset of the live mirrors. Tracked as a separate refactor;
+out of scope for BUG-243.
+
+**Artifacts updated in this audit cycle:**
+
+- **Code** (class 2): `tools/build_static_mirrors.py`,
+  `tools/refresh_grammar_howto_in_mirrors.py` (new),
+  `tools/check_content_integrity.py` (+ JA-173).
+- **Data** (class 3): `data/version.json` (v1.17.31 → v1.17.32).
+- **UI / static mirrors** (class 4): 178 grammar mirrors regenerated.
+- **Service worker** (class 2): `sw.js` CACHE_VERSION bumped.
+- **Bug tracker** (class 5): BUG-243 row added with JA-173 link.
+- **User-facing/audit docs** (class 9): this file.
+- **Prompts** (class 7): FP-22 (stale-static-mirror-content) added to
+  the Japanese-Accuracy-Check FP catalog; N5Improvement Phase-0 gained
+  the JA-173 regression-block.
+- **Procedure manual** (class 8): appendix F.48 (HOW-TO-USE-strip
+  retrospective + the three-strikes pattern).

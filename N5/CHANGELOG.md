@@ -2,6 +2,32 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.32 - 2026-05-31 (grammar static mirrors: full HOW TO USE / 使い方 now visible without JS)
+
+### Fixed
+
+- **Grammar pattern detail pages** — the **HOW TO USE / 使い方** section on the
+  178 grammar pattern pages (e.g. `/learn/n5-017/`) now shows the full
+  attach-points table and conjugation table when JavaScript is disabled, when
+  the SPA hydration is delayed, or during the brief paint between the static
+  page and the SPA take-over. Previously the static (noscript-readable) page
+  rendered just a single line like *"Attaches to: question_word"*, so the
+  section looked empty under the header for that window. The SPA-rendered view
+  was already correct; this fix brings the static mirror to parity. User report
+  trigger: empty HOW TO USE section on n5-017 (BUG-243). Cache-bust v1.17.31 →
+  v1.17.32 so returning visitors pick up the new mirrors on next load.
+
+### Internal (no learner-visible effect)
+
+- **CI invariant JA-173** added to `tools/check_content_integrity.py`: every
+  grammar pattern with conjugations (≥ 2) must have its conjugation examples
+  appear verbatim in the static mirror. Locks the SPA-vs-mirror parity for
+  this section. Companion to JA-170 (app-header parity) and JA-172 (app-footer
+  parity) — same "builder-alone produces stripped content" class.
+- New tool `tools/refresh_grammar_howto_in_mirrors.py` — surgical body
+  regeneration script that preserves header / footer / SPA boot script while
+  rewriting only the body region of grammar mirrors.
+
 ## v1.17.31 - 2026-05-30 (footer: menu above the version/trademark line)
 
 ### Changed

@@ -6235,3 +6235,68 @@ prior parts; no new JA-NN in Part 56 — the lesson is process,
 not data-shape).
 ============================================================
 
+
+FP-22. Empty static-mirror sections that look like SPA bugs
+       (BUG-243 retrospective, 2026-05-31)
+       ============================================================
+       SHAPE: A user screenshot shows a section header (e.g. "HOW
+       TO USE / 使い方") with empty space beneath it, on a route
+       whose SPA renderer is verifiably emitting non-empty content
+       at the current commit. Investigation by Playwright probe
+       against the live URL shows the section renders correctly;
+       the user appears to be wrong. But the static SEO mirror at
+       the same route shows only a stripped-down skeleton (single
+       token or bare H2), and that's what the user's browser
+       paints when JS is disabled, when SPA boot is delayed, when
+       the SW is mid-update, or during the brief moment between
+       static-HTML paint and SPA hydration.
+
+       FALSE-DIAGNOSIS TRIGGER: "The SPA is fine, user must be on
+       a stale cache — bump CACHE_VERSION and close the ticket."
+       This is a half-fix. The real story is that the SPA-render
+       and the static-mirror-render emit DIFFERENT content for
+       the same route, and the static mirror is the anemic one.
+       Anyone hitting the page in any noscript / slow / cached
+       scenario sees the lean version that looks like a bug.
+
+       Triage discipline:
+         - When a user reports "section X is empty", verify
+           ALL render paths: SPA (via Playwright probe), static
+           mirror (via curl + DOM grep), and any post-build
+           injector output (search the route for the injected
+           markers). The "render path" set has at least three
+           members today; do not stop at the first one that
+           passes.
+         - If the SPA and the mirror diverge, the FIX is to
+           bring the mirror to parity with the SPA, not just
+           to bump caches. CACHE_VERSION bumps are a defensive
+           secondary; the primary is parity.
+         - Per-route parity must be enforced by a JA-NN
+           invariant so the next builder edit cannot
+           silently regress it (JA-173 is the BUG-243
+           instance; the class includes JA-170 app-header
+           and JA-172 app-footer).
+         - "builder-alone produces stripped content" is now a
+           recurring class. Long-term path: fold post-build
+           injectors back into the builder so a wholesale
+           rebuild produces a true superset. Until then,
+           every post-build injection target needs its own
+           JA-NN parity invariant.
+
+       Source: BUG-243 (n5-017 HOW TO USE empty); horizontal
+       sweep against 175 grammar patterns showed the mirror
+       was rendering only `<h2>Attaches to</h2><p>{token}</p>`
+       while the SPA rendered the rich pattern-usage section.
+       Fixed by tools/refresh_grammar_howto_in_mirrors.py
+       (surgical body rewrite, 178 mirrors) + JA-173
+       (parity invariant).
+
+Source: BUG-243 fix 2026-05-31; AUDIT-COVERAGE Part 62;
+procedure-manual F.48; sw.js CACHE_VERSION v1.17.31 →
+v1.17.32.
+
+CI invariants at this checkpoint: 175 (JA-173 added;
+JA-170/JA-172 are the sibling parity invariants for the
+same "builder-alone strip" pattern class).
+============================================================
+

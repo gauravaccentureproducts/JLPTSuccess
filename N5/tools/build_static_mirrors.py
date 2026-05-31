@@ -394,11 +394,109 @@ def _render_grammar_pattern_body(p: dict) -> tuple[str, str]:
     if explanation_en and explanation_en != meaning_en:
         parts.append(f'<h2>Explanation</h2><p>{_esc(explanation_en)}</p>')
 
+    # HOW TO USE / 使い方 — render the SAME content the SPA renders
+    # (`renderHowToUseTable` in js/learn-grammar.js). The earlier static
+    # mirror rendered only `<h2>Attaches to</h2><p>{tokens}</p>`, which
+    # left users hitting the mirror with JS-disabled / slow-boot seeing a
+    # single technical token like "question_word" under what the SPA
+    # labels "HOW TO USE / 使い方". The richer fallback below pairs each
+    # attaches_to slot with the pattern itself, then (when present)
+    # adds the conjugation table — same shape the SPA emits, just
+    # noscript-ready. BUG-203, JA-172 enforces parity on rebuild.
     fr = p.get("form_rules") or {}
-    if isinstance(fr, dict) and fr:
+    if isinstance(fr, dict):
         atts = fr.get("attaches_to") or []
-        if atts:
-            parts.append(f'<h2>Attaches to</h2><p>{_esc(", ".join(atts))}</p>')
+        conjs = fr.get("conjugations") or []
+        if atts or (isinstance(conjs, list) and len(conjs) >= 2):
+            usage: list[str] = []
+            usage.append('<section class="pattern-usage">')
+            usage.append(
+                '<div class="pattern-usage-header">'
+                '<h2 class="section-title">How to use</h2>'
+                '<span class="pattern-usage-chip" lang="ja">使い方</span>'
+                '</div>'
+            )
+            if atts:
+                # Map slot keys to human-readable labels. Must stay in
+                # sync with ATTACHES_TO_LABEL in js/learn-grammar.js.
+                # When a key is missing, fall back to title-cased key.
+                _LABELS = {
+                    "noun": "Noun",
+                    "noun_subject": "Noun (subject)",
+                    "noun_location": "Noun (location)",
+                    "noun_time": "Noun (time)",
+                    "noun_quantity": "Noun (quantity)",
+                    "noun_or_adj": "Noun or adjective",
+                    "na_adjective": "な-adjective",
+                    "i_adjective": "い-adjective",
+                    "verb": "Verb",
+                    "verb_stem": "Verb stem (ます-base)",
+                    "verb_stem_i": "Verb i-stem",
+                    "verb_root": "Verb root",
+                    "verb_dictionary": "Verb (dictionary form)",
+                    "verb_plain": "Verb (plain form)",
+                    "verb_te": "Verb (て-form)",
+                    "verb_ta": "Verb (た-form)",
+                    "verb_nai": "Verb (ない-form)",
+                    "verb_mashita": "Verb (ました form)",
+                    "verb_te_imasu_neg": "Verb (て-いません)",
+                    "verb_or_adj_stem": "Verb or adjective stem",
+                    "pronoun": "Pronoun",
+                    "question_word": "Question word",
+                    "before_noun": "Before a noun",
+                    "adverbial": "Adverbial position",
+                    "sentence_end": "Sentence end",
+                    "sentence_pattern": "Full sentence",
+                    "clause": "Clause",
+                    "clause_start": "Clause-initial",
+                    "clause_end": "Clause-final",
+                    "plain_clause": "Plain-form clause",
+                    "plain_or_polite_clause": "Plain or polite clause",
+                    "quoted_clause": "Quoted clause",
+                    "quantity": "Quantity expression",
+                    "number": "Number",
+                    "set_phrase": "Set phrase",
+                    "standalone": "Standalone",
+                    "dialogue": "Dialogue line",
+                    "after_name": "After a name",
+                }
+                usage.append(
+                    '<table class="pattern-usage-table" '
+                    f'aria-label="Attach points for {_esc(title)}">'
+                    '<tbody>'
+                )
+                for i, a in enumerate(atts):
+                    label = _LABELS.get(a) or str(a).replace("_", " ").capitalize()
+                    usage.append("<tr>")
+                    usage.append(f'<td class="pattern-usage-pos">{_esc(label)}</td>')
+                    if i == 0:
+                        usage.append(
+                            '<td class="pattern-usage-form" '
+                            f'rowspan="{len(atts)}" lang="ja">{_esc(title)}</td>'
+                        )
+                    usage.append("</tr>")
+                usage.append("</tbody></table>")
+            if isinstance(conjs, list) and len(conjs) >= 2:
+                usage.append(
+                    '<table class="pattern-conjugation-table" '
+                    'aria-label="Conjugation forms">'
+                    '<thead><tr><th scope="col">Form</th>'
+                    '<th scope="col">Example</th></tr></thead><tbody>'
+                )
+                for c in conjs:
+                    if not isinstance(c, dict):
+                        continue
+                    label = c.get("label") or c.get("form") or ""
+                    example = c.get("example") or ""
+                    usage.append(
+                        "<tr>"
+                        f'<td>{_esc(label)}</td>'
+                        f'<td lang="ja">{_esc(example)}</td>'
+                        "</tr>"
+                    )
+                usage.append("</tbody></table>")
+            usage.append("</section>")
+            parts.append("\n".join(usage))
 
     parts.append(_render_examples(p.get("examples") or []))
     parts.append(_render_common_mistakes(p.get("common_mistakes") or []))
