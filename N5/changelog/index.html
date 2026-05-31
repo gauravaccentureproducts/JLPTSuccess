@@ -99,6 +99,12 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.33 - 2026-05-31 (hotfix: grammar mirror layout repaired after refresh-script regression)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>All 178 grammar pattern pages</strong> — layout repaired. The</li>
+</ul>
+<p>refresh-script change in v1.17.32 anchored on the first <code>&lt;/h1&gt;</code> close in each mirror — which turned out to be the <strong>brand wordmark</strong> h1 in the site header, not the <strong>pattern title</strong> h1 inside <code>&lt;main id=&quot;app&quot;&gt;</code>. Result: the new HOW TO USE content was injected INSIDE <code>&lt;header&gt;</code>, the <code>&lt;main id=&quot;app&quot;&gt;</code> opener + meta-banner + pattern title were eaten, and the header&#x27;s flex layout squeezed every section into narrow vertical columns. User-caught seconds after the v1.17.32 push. The 178 mirrors are now wholesale-rebuilt from the (correct) builder + the app-header / app-footer re-injection step, restoring the proper structure. The refresh script <code>tools/refresh_grammar_howto_in_mirrors.py</code> was hardened to anchor on <code>&lt;main id=&quot;app&quot;&gt;</code> first, then the first <code>&lt;/h1&gt;</code> <em>inside</em> main, making the brand-h1 anchor bug unrepresentable.</p>
 <h2>v1.17.32 - 2026-05-31 (grammar static mirrors: full HOW TO USE / 使い方 now visible without JS)</h2>
 <h3>Fixed</h3>
 <ul>

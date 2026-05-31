@@ -51,8 +51,22 @@ LEARN_DIR = ROOT / "learn"
 
 
 # Boundary markers used to identify the body region in an existing mirror.
-# We match the <h1>...</h1> close (end of header) and the <footer ...>
-# open (start of footer). The body is everything between, exclusive.
+#
+# CRITICAL: anchor on the PATTERN TITLE h1 (inside <main id="app">), NOT
+# on the first <h1>. The static mirror has TWO <h1> tags — the brand
+# wordmark h1 inside <header class="app-header"> (first in document
+# order) and the pattern title h1 inside <main id="app"> (second). An
+# earlier version of this script regex'd `</h1>` and matched the brand
+# h1, gutting <main id="app">, the meta-banner, and the pattern title,
+# and planting the new body content INSIDE <header>. Since the header
+# uses display:flex on .brand h1, all the body content became flex
+# items and rendered as narrow vertical columns (user-caught 2026-05-31
+# minutes after the BUG-243 push; root cause logged in F.48 of the
+# procedure manual). The two-anchor pattern below makes the bug
+# unrepresentable: we first locate `<main id="app">`, then the FIRST
+# `</h1>` inside main (the pattern title's close), then the FIRST
+# `<footer>` after that (the inner footer with the breadcrumb).
+_MAIN_OPEN_RE = re.compile(r'<main\s+id="app"[^>]*>', re.MULTILINE)
 _H1_CLOSE_RE = re.compile(r"</h1>\s*", re.MULTILINE)
 _FOOTER_OPEN_RE = re.compile(r"<footer[^>]*>", re.MULTILINE)
 
@@ -66,9 +80,14 @@ def _refresh_one(p: dict, dry_run: bool = False) -> str:
     if not fp.exists():
         return "missing"
     src = fp.read_text(encoding="utf-8")
-    h1m = _H1_CLOSE_RE.search(src)
+    mainm = _MAIN_OPEN_RE.search(src)
+    if not mainm:
+        return "unparseable"
+    # First </h1> *after* <main id="app"> = the pattern title's close.
+    h1m = _H1_CLOSE_RE.search(src, mainm.end())
     if not h1m:
         return "unparseable"
+    # First <footer> *after* the pattern title = the inner breadcrumb footer.
     footm = _FOOTER_OPEN_RE.search(src, h1m.end())
     if not footm:
         return "unparseable"

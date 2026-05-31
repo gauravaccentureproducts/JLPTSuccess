@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.32';  // bumped 2026-05-31 for BUG-203: 178 grammar static mirrors now render the rich HOW TO USE / 使い方 section (pattern-usage table + conjugation table) matching the SPA. Previously emitted only "Attaches to: <token>", which looked empty when JS was disabled or SPA boot was slow. Cache-bust so the SW serves the regenerated mirrors instead of stale lean versions.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.33';  // bumped 2026-05-31 hotfix after v1.17.32: the refresh-script anchored on the first </h1> in each mirror (the brand wordmark h1) instead of the pattern title h1 inside <main id="app">, gutting <main> and dropping all body content into <header>'s flex row → grammar pages rendered in narrow columns. v1.17.33 wholesale-rebuilds the 178 grammar mirrors from the (correct) builder and re-runs the app-header/footer injector. Refresh script hardened to anchor on <main id="app"> first.
 
 const PRECACHE = [
   './',

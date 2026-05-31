@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>N5 Grammar — All Patterns (static index)</title>
-<meta name="description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; interactive version at the SPA route.">
+<meta name="description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; SPA enhances on hydration.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar">
+<link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar">
+<meta property="og:url" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/">
 <meta property="og:title" content="N5 Grammar — All Patterns">
-<meta property="og:description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; interactive version at the SPA route.">
+<meta property="og:description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; SPA enhances on hydration.">
 <meta property="og:site_name" content="JLPT N5 Tutor">
 <meta property="og:image" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/icons/icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N5 Grammar — All Patterns">
-<meta name="twitter:description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; interactive version at the SPA route.">
+<meta name="twitter:description" content="All 178 N5 grammar patterns, organized by category. Static index for non-JS clients; SPA enhances on hydration.">
 <style>
   :root { --green: #14452a; --green-soft: #1a5c38; --bg: #ffffff; --bg-soft: #f6f8f6; --text: #1a1a1a; --muted: #555; --border: #ddd; }
   * { box-sizing: border-box; }
@@ -61,28 +61,14 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
-<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.30">
+<link rel="stylesheet" href="../../css/main.min.css?v=1.17.30">
 </head>
 <body>
 <header class="app-header" role="banner">
 <div class="brand">
 <h1>
-<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level"><svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
+<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
+<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
 <g fill="currentColor">
 <rect x="1" y="0"  width="98" height="9" rx="4.5"/>
 <rect x="1" y="12" width="84" height="9" rx="4.5"/>
@@ -90,7 +76,11 @@
 <rect x="1" y="36" width="44" height="9" rx="4.5"/>
 <rect x="1" y="48" width="22" height="9" rx="4.5"/>
 </g>
-</svg></a><a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home"><span class="brand-wordmark">N5</span></a>
+</svg>
+</a>
+<a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home">
+<span class="brand-wordmark">N5</span>
+</a>
 </h1>
 </div>
 <nav class="primary-nav" aria-label="Primary">
@@ -105,10 +95,8 @@
 </nav>
 </header>
 
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar">Open the interactive version</a> (audio playback, drills, cross-references require JavaScript).
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../../">&larr; JLPT N5 home</a></p>
 <h1>N5 Grammar — All Patterns</h1>
 <p>Static index of all N5 grammar patterns. Each entry links to a read-only mirror; the interactive version (audio, drills, cross-references) is at the SPA route.</p>
 <section class="index-section">
@@ -191,7 +179,7 @@
 <a class="index-card" href="../n5-064/"><span class="label" lang="ja">Verb-ませんか</span> — <span class="gloss">Won&#x27;t you...? (polite invitation)</span></a>
 </section>
 <section class="index-section">
-<h3>Verbs - Plain (Dictionary) Form and Negation</h3>
+<h3>Verbs - Plain Forms (Present/Past, Affirmative/Negative)</h3>
 <a class="index-card" href="../n5-065/"><span class="label" lang="ja">Verb-る / Verb-う</span> — <span class="gloss">Plain (dictionary) form - non-past affirmative, casual / written</span></a>
 <a class="index-card" href="../n5-066/"><span class="label" lang="ja">Verb-ない</span> — <span class="gloss">Plain non-past negative</span></a>
 <a class="index-card" href="../n5-067/"><span class="label" lang="ja">Verb-た</span> — <span class="gloss">Plain past affirmative (た-form)</span></a>
@@ -386,10 +374,12 @@
 <a class="index-card" href="../n5-182/"><span class="label" lang="ja">Verb-plain + な</span> — <span class="gloss">Verb-plain + な - strong/casual prohibition (&quot;don&#x27;t!&quot;)</span></a>
 </section>
 <footer>
-  <p><a href="../../#/home">Home</a> · Grammar</p>
+  <p><a href="../../">Home</a> · Grammar</p>
   <p>Part of <a href="../../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   <p>178 patterns indexed.</p>
 </footer>
+</main>
+<script type="module" src="../../js/min/app.js?v=1.17.30"></script>
 <footer class="app-footer" role="contentinfo">
 <nav class="footer-nav" aria-label="Footer">
 <a href="/JLPTSuccess/N5/changelog/">What's new</a>

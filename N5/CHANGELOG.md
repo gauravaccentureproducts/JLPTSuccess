@@ -2,6 +2,25 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.33 - 2026-05-31 (hotfix: grammar mirror layout repaired after refresh-script regression)
+
+### Fixed
+
+- **All 178 grammar pattern pages** — layout repaired. The
+  refresh-script change in v1.17.32 anchored on the first `</h1>` close
+  in each mirror — which turned out to be the **brand wordmark** h1 in
+  the site header, not the **pattern title** h1 inside `<main id="app">`.
+  Result: the new HOW TO USE content was injected INSIDE `<header>`,
+  the `<main id="app">` opener + meta-banner + pattern title were eaten,
+  and the header's flex layout squeezed every section into narrow
+  vertical columns. User-caught seconds after the v1.17.32 push. The
+  178 mirrors are now wholesale-rebuilt from the (correct) builder
+  + the app-header / app-footer re-injection step, restoring the
+  proper structure. The refresh script
+  `tools/refresh_grammar_howto_in_mirrors.py` was hardened to anchor
+  on `<main id="app">` first, then the first `</h1>` *inside* main,
+  making the brand-h1 anchor bug unrepresentable.
+
 ## v1.17.32 - 2026-05-31 (grammar static mirrors: full HOW TO USE / 使い方 now visible without JS)
 
 ### Fixed
