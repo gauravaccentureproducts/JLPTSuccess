@@ -17,12 +17,19 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8765';
 (async () => {
   const grammar = JSON.parse(fs.readFileSync(path.join('data','grammar.json'), 'utf8'));
   const patterns = grammar.patterns || [];
+  // UI polish 2026-05-31: the section now renders only when either
+  // there are ≥2 attach points OR ≥2 conjugations. Single-attach
+  // patterns with no conjugations intentionally hide the whole HOW
+  // TO USE block to avoid restating the title. Sweep targets the
+  // SAME predicate the renderer uses.
   const targets = patterns.filter(p => {
     const fr = p.form_rules || {};
-    return (fr.attaches_to && fr.attaches_to.length) || (fr.conjugations && fr.conjugations.length);
+    const atts = (fr.attaches_to || []).length;
+    const conjs = (fr.conjugations || []).length;
+    return atts >= 2 || conjs >= 2;
   });
   console.log(`Total patterns: ${patterns.length}`);
-  console.log(`With form_rules.attaches_to OR .conjugations: ${targets.length}`);
+  console.log(`With ≥2 attach points OR ≥2 conjugations: ${targets.length}`);
 
   const browser = await chromium.launch({ headless: true });
   const ctx = await browser.newContext();
@@ -54,7 +61,7 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8765';
       const fr = p.form_rules || {};
       const att = (fr.attaches_to || []).length;
       const conj = (fr.conjugations || []).length;
-      const expectTop = att > 0;
+      const expectTop = att >= 2;
       const expectConj = conj >= 2;
       const ok =
         r.sect &&

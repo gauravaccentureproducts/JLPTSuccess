@@ -99,6 +99,37 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.35 - 2026-05-31 (grammar pattern detail: UI polish pass — subtitle echo, orphans, trivial HOW TO USE table, section chip consistency)</h2>
+<h3>Changed (4 user-flagged UI issues addressed)</h3>
+<ul>
+<li><strong>Subtitle no longer echoes the title.</strong> 64 grammar patterns had a</li>
+</ul>
+<p><code>meaning_en</code> string that started with the pattern itself followed by a separator (e.g. <em>&quot;こんな / そんな / あんな / どんな + Noun - &#x27;this/that kind of&#x27;&quot;</em>). The renderer pairs title with <code>meaning_en</code> as a subtitle, so the page showed <em>&quot;&lt;pattern&gt; ... &lt;pattern&gt; - &lt;real meaning&gt;&quot;</em> — the pattern twice. All 64 entries trimmed to the bit after the separator (now just <em>&quot;This/that kind of&quot;</em>).</p>
+<ul>
+<li><strong>No more orphan words on wrapped title/subtitle lines.</strong> Added</li>
+</ul>
+<p><code>text-wrap: balance</code> to the title and subtitle so wraps like <em>&quot;+ Noun&quot;</em> alone on its own line, or <em>&quot;of&#x27;&quot;</em> dangling on a second line, distribute evenly across the available width.</p>
+<ul>
+<li>**HOW TO USE no longer shows a trivial &quot;Before a noun → &lt;pattern&gt;&quot;</li>
+</ul>
+<p>table** that just restated the title. The top attach-points table is now rendered only when there are ≥2 attach points (where it actually conveys mapping information); the whole HOW TO USE section disappears when a pattern has a single attach point and no conjugations (i.e. when it would have been one info-less row). Pattern-detail pages now show this section only when it carries real content.</p>
+<ul>
+<li><strong>Section heading consistency.</strong> Previously only HOW TO USE carried</li>
+</ul>
+<p>a Japanese chip (使い方). EXPLANATION, DEEP DIVE, EXAMPLES, and COMMON MISTAKES now also carry chips (説明, 詳細, 例文, 注意点) — the bilingual presentation is now uniform across all major sections of the grammar pattern detail page.</p>
+<h3>Internal (no learner-visible effect)</h3>
+<ul>
+<li><code>tools/audit_meaning_en_pattern_echo_2026_05_31.py</code> (new) and</li>
+</ul>
+<p><code>tools/fix_meaning_en_pattern_echo_2026_05_31.py</code> (new) — audit + apply the subtitle dedup.</p>
+<ul>
+<li><code>tools/probe_ui_polish_2026_05_31.js</code> (new) — Playwright probe</li>
+</ul>
+<p>that verifies the section-visibility rules against a representative sample (1 attach + no conj, 2 attaches + no conj, 1 attach + 4 conj, 2 attaches + 3 conj, 3 attaches + 9 conj).</p>
+<ul>
+<li>JA-173 invariant updated to the new visibility rule (section needed</li>
+</ul>
+<p>only when attaches_to ≥ 2 OR conjugations ≥ 2). Static mirrors regenerated to match.</p>
 <h2>v1.17.34 - 2026-05-31 (grammar pattern detail: drop redundant MEANING section)</h2>
 <h3>Changed</h3>
 <ul>

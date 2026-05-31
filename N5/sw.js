@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.34';  // bumped 2026-05-31: drop redundant MEANING section from grammar-pattern-detail SPA renderer. The h1 subtitle (`<p class="meaning-en">`) and the MEANING section (`<section><h3>Meaning</h3>`) were both rendering the same localizedMeaning(p) value verbatim, so the page showed "What" twice on every pattern (e.g. n5-045). Subtitle kept (pairs with title); MEANING section removed. SPA-only change; static mirrors already render only the subtitle.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.35';  // bumped 2026-05-31 — grammar pattern detail UI polish (4 fixes): (1) 64 meaning_en strings dedup'd to stop echoing the pattern in the subtitle; (2) text-wrap:balance on .pattern-name + .meaning-en kills orphan-word wrapping; (3) HOW TO USE top table hidden when attaches_to.length==1 (just re-states the title), whole section hidden when single-attach + no conjugations; (4) JA chips added to EXPLANATION (説明), DEEP DIVE (詳細), EXAMPLES (例文), COMMON MISTAKES (注意点) for visual parity with HOW TO USE (使い方). Mirrors regenerated to match.
 
 const PRECACHE = [
   './',

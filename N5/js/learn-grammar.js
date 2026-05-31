@@ -426,6 +426,19 @@ function renderHowToUseTable(p) {
   const conjugations = p.form_rules?.conjugations ?? [];
   if (!attaches.length && !conjugations.length) return '';
 
+  // Skip the top "attach points → pattern" table when there is exactly
+  // ONE attach point. The row pairs e.g. "Before a noun → こんな / そんな
+  // / あんな / どんな + Noun", which just repeats the pattern title above
+  // the section. With ≥2 attach points the table becomes meaningful (a
+  // rowspan-merged "this pattern attaches to all of {noun, adjective,
+  // verb}" map). UI polish 2026-05-31 per UI-designer audit.
+  const showTopTable = attaches.length >= 2;
+  // The conjugation table needs ≥2 rows to be worth a separate table.
+  const showConjTable = conjugations.length >= 2;
+  // If neither sub-table renders, the section header alone is just
+  // visual noise — return '' so the whole HOW TO USE block disappears.
+  if (!showTopTable && !showConjTable) return '';
+
   const usageHeader = `
     <div class="pattern-usage-header">
       <h3 class="section-title">${esc(t('grammar_detail.how_to_use'))}</h3>
@@ -433,7 +446,7 @@ function renderHowToUseTable(p) {
     </div>
   `;
 
-  const topTable = attaches.length ? `
+  const topTable = showTopTable ? `
     <table class="pattern-usage-table" aria-label="Attach points for ${esc(p.pattern)}">
       <tbody>
         ${attaches.map((a, i) => `
@@ -448,7 +461,7 @@ function renderHowToUseTable(p) {
     </table>
   ` : '';
 
-  const conjTable = conjugations.length >= 2 ? `
+  const conjTable = showConjTable ? `
     <table class="pattern-conjugation-table" aria-label="Conjugation forms">
       <thead>
         <tr><th scope="col">Form</th><th scope="col">Example</th></tr>
@@ -712,7 +725,10 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${renderHowToUseTable(p)}
 
       <section>
-        <h3 class="section-title">${esc(t('grammar_detail.explanation'))}</h3>
+        <div class="pattern-usage-header">
+          <h3 class="section-title">${esc(t('grammar_detail.explanation'))}</h3>
+          <span class="pattern-usage-chip" lang="ja">説明</span>
+        </div>
         <p>${esc(localizedExplanation(p))}</p>
       </section>
 
@@ -735,7 +751,10 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
         };
         return `
           <section class="pattern-essay">
-            <h3 class="section-title">${esc(t('grammar_detail.deep_dive'))} ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+            <div class="pattern-usage-header">
+              <h3 class="section-title">${esc(t('grammar_detail.deep_dive'))} ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+              <span class="pattern-usage-chip" lang="ja">詳細</span>
+            </div>
             ${item(t('grammar_detail.deep_dive_at_a_glance'), essay.intro)}
             ${item(t('grammar_detail.deep_dive_why'), essay.why_it_matters, stub ? 'Pending native author.' : '')}
             ${item(t('grammar_detail.deep_dive_pitfalls'), essay.common_pitfalls)}
@@ -760,13 +779,19 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       })()}
 
       <section>
-        <h3 class="section-title">${esc(t('grammar_detail.examples'))} (${examples.length})</h3>
+        <div class="pattern-usage-header">
+          <h3 class="section-title">${esc(t('grammar_detail.examples'))} (${examples.length})</h3>
+          <span class="pattern-usage-chip" lang="ja">例文</span>
+        </div>
         <ul class="example-list">${exampleItems}</ul>
       </section>
 
       ${mistakes.length ? `
         <section>
-          <h3 class="section-title">${esc(t('grammar_detail.common_mistakes'))}</h3>
+          <div class="pattern-usage-header">
+            <h3 class="section-title">${esc(t('grammar_detail.common_mistakes'))}</h3>
+            <span class="pattern-usage-chip" lang="ja">注意点</span>
+          </div>
           <ul class="mistakes-list">${mistakeItems}</ul>
         </section>
       ` : ''}

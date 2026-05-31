@@ -2,6 +2,48 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.35 - 2026-05-31 (grammar pattern detail: UI polish pass — subtitle echo, orphans, trivial HOW TO USE table, section chip consistency)
+
+### Changed (4 user-flagged UI issues addressed)
+
+- **Subtitle no longer echoes the title.** 64 grammar patterns had a
+  `meaning_en` string that started with the pattern itself followed by
+  a separator (e.g. *"こんな / そんな / あんな / どんな + Noun - 'this/that
+  kind of'"*). The renderer pairs title with `meaning_en` as a
+  subtitle, so the page showed *"<pattern> ... <pattern> - <real
+  meaning>"* — the pattern twice. All 64 entries trimmed to the bit
+  after the separator (now just *"This/that kind of"*).
+- **No more orphan words on wrapped title/subtitle lines.** Added
+  `text-wrap: balance` to the title and subtitle so wraps like
+  *"+ Noun"* alone on its own line, or *"of'"* dangling on a second
+  line, distribute evenly across the available width.
+- **HOW TO USE no longer shows a trivial "Before a noun → <pattern>"
+  table** that just restated the title. The top attach-points table
+  is now rendered only when there are ≥2 attach points (where it
+  actually conveys mapping information); the whole HOW TO USE
+  section disappears when a pattern has a single attach point and no
+  conjugations (i.e. when it would have been one info-less row).
+  Pattern-detail pages now show this section only when it carries
+  real content.
+- **Section heading consistency.** Previously only HOW TO USE carried
+  a Japanese chip (使い方). EXPLANATION, DEEP DIVE, EXAMPLES, and
+  COMMON MISTAKES now also carry chips (説明, 詳細, 例文, 注意点) — the
+  bilingual presentation is now uniform across all major sections of
+  the grammar pattern detail page.
+
+### Internal (no learner-visible effect)
+
+- `tools/audit_meaning_en_pattern_echo_2026_05_31.py` (new) and
+  `tools/fix_meaning_en_pattern_echo_2026_05_31.py` (new) — audit +
+  apply the subtitle dedup.
+- `tools/probe_ui_polish_2026_05_31.js` (new) — Playwright probe
+  that verifies the section-visibility rules against a representative
+  sample (1 attach + no conj, 2 attaches + no conj, 1 attach + 4
+  conj, 2 attaches + 3 conj, 3 attaches + 9 conj).
+- JA-173 invariant updated to the new visibility rule (section needed
+  only when attaches_to ≥ 2 OR conjugations ≥ 2). Static mirrors
+  regenerated to match.
+
 ## v1.17.34 - 2026-05-31 (grammar pattern detail: drop redundant MEANING section)
 
 ### Changed

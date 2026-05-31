@@ -848,11 +848,20 @@ h2 + * + .section-label:first-of-type {
   margin: 0 0 4px;
   color: var(--c-primary);
   line-height: 1.25;
+  /* text-wrap: balance distributes characters across wrapped lines so
+   * the last line doesn't have a single orphan word like "+ Noun" or
+   * a stranded "of'" — adds visual rhythm to multi-line titles like
+   * "こんな / そんな / あんな / どんな + Noun". Falls back silently on
+   * older engines (no orphan-fix, but no breakage). 2026-05-31. */
+  text-wrap: balance;
 }
 .pattern-detail .meaning-en {
   color: var(--c-muted);
   margin: 0 0 16px;
   font-size: 16px;
+  /* Same balance rationale as .pattern-name — eliminates trailing
+   * widow words on the second line of a wrapped subtitle. */
+  text-wrap: balance;
 }
 .pattern-detail section {
   margin: 20px 0;

@@ -407,7 +407,16 @@ def _render_grammar_pattern_body(p: dict) -> tuple[str, str]:
     if isinstance(fr, dict):
         atts = fr.get("attaches_to") or []
         conjs = fr.get("conjugations") or []
-        if atts or (isinstance(conjs, list) and len(conjs) >= 2):
+        # Top "attach points → pattern" table is rendered only when there
+        # are ≥2 attach points. A single attach point just re-states the
+        # title (e.g. "Before a noun → こんな / そんな / あんな / どんな +
+        # Noun") — the SPA renderer hides it for the same reason. Section
+        # itself only renders when at least one of the sub-tables would.
+        # Keep in sync with `renderHowToUseTable` in js/learn-grammar.js;
+        # JA-173 invariant assumes this rule. UI polish 2026-05-31.
+        show_top = isinstance(atts, list) and len(atts) >= 2
+        show_conj = isinstance(conjs, list) and len(conjs) >= 2
+        if show_top or show_conj:
             usage: list[str] = []
             usage.append('<section class="pattern-usage">')
             usage.append(
@@ -416,7 +425,7 @@ def _render_grammar_pattern_body(p: dict) -> tuple[str, str]:
                 '<span class="pattern-usage-chip" lang="ja">使い方</span>'
                 '</div>'
             )
-            if atts:
+            if show_top:
                 # Map slot keys to human-readable labels. Must stay in
                 # sync with ATTACHES_TO_LABEL in js/learn-grammar.js.
                 # When a key is missing, fall back to title-cased key.
@@ -476,7 +485,7 @@ def _render_grammar_pattern_body(p: dict) -> tuple[str, str]:
                         )
                     usage.append("</tr>")
                 usage.append("</tbody></table>")
-            if isinstance(conjs, list) and len(conjs) >= 2:
+            if show_conj:
                 usage.append(
                     '<table class="pattern-conjugation-table" '
                     'aria-label="Conjugation forms">'

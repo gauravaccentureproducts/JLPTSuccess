@@ -8950,7 +8950,15 @@ def _check_ja_173_grammar_mirror_howto_parity() -> list[str]:
             continue
         atts = fr.get("attaches_to") or []
         conjs = fr.get("conjugations") or []
-        need_section = bool(atts) or (isinstance(conjs, list) and len(conjs) >= 2)
+        # Section renders only when either the top attach-points table
+        # (≥2 entries) OR the conjugation table (≥2 entries) would.
+        # Single-attach + no-conjugation patterns intentionally skip the
+        # whole section to avoid restating the title. Keep in sync with
+        # _render_grammar_pattern_body and renderHowToUseTable. UI polish
+        # 2026-05-31.
+        show_top = isinstance(atts, list) and len(atts) >= 2
+        show_conj = isinstance(conjs, list) and len(conjs) >= 2
+        need_section = show_top or show_conj
         if not need_section:
             continue
         mirror_fp = ROOT / "learn" / pid / "index.html"
