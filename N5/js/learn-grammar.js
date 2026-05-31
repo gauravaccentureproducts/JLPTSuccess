@@ -678,12 +678,21 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   // maintainer directive. The p.genki_lesson data is kept in
   // data/grammar.json for internal use but no longer surfaced here.
 
+  // Cross-reference labels (alias / homonym) show the TARGET pattern's
+  // human-readable name (e.g. 何（なに／なん）) instead of the internal id like
+  // "n5-017", so a learner knows the concept before clicking. Falls back to
+  // the id if the target isn't in the loaded set. (BUG-244, 2026-05-31)
+  const xrefLabel = (refId) => {
+    const tgt = Array.isArray(allPatterns) ? allPatterns.find(x => x && x.id === refId) : null;
+    return esc(tgt && tgt.pattern ? tgt.pattern : refId);
+  };
+
   const html = `
     <article class="pattern-detail">
       ${navHtml}
       <a class="back-link no-print" href="#/learn/grammar">← ${esc(t('grammar_detail.back_to_list'))}</a>
-      ${p._alias_of ? `<p class="pattern-alias-badge muted small">↔ <a href="#/learn/${encodeURIComponent(p._alias_of)}">Also see ${esc(p._alias_of)}</a> <span class="muted">(dual-coverage of the same concept; different examples)</span></p>` : ''}
-      ${p._homonym_of ? `<p class="pattern-homonym-badge muted small">⚠ <a href="#/learn/${encodeURIComponent(p._homonym_of)}">Same kana, different meaning: ${esc(p._homonym_of)}</a></p>` : ''}
+      ${p._alias_of ? `<p class="pattern-alias-badge muted small">↔ <a href="#/learn/${encodeURIComponent(p._alias_of)}">Also see ${xrefLabel(p._alias_of)}</a> <span class="muted">(dual-coverage of the same concept; different examples)</span></p>` : ''}
+      ${p._homonym_of ? `<p class="pattern-homonym-badge muted small">⚠ <a href="#/learn/${encodeURIComponent(p._homonym_of)}">Same kana, different meaning: ${xrefLabel(p._homonym_of)}</a></p>` : ''}
       <div class="pattern-header">
         <div>
           <h2 class="pattern-name">${esc(p.pattern)}</h2>
