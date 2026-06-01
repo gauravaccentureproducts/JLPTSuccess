@@ -857,7 +857,12 @@ h2 + * + .section-label:first-of-type {
 }
 .pattern-detail .meaning-en {
   color: var(--c-muted);
-  margin: 0 0 16px;
+  /* 24px bottom = the gap that used to live on .pattern-header,
+   * now relocated here so the subtitle pairs tightly with the title
+   * above and separates cleanly from the first section below.
+   * UI polish 2026-05-31 — subtitle is now a sibling of .pattern-header,
+   * not nested inside its flex title-cell. */
+  margin: 0 0 24px;
   font-size: 16px;
   /* Same balance rationale as .pattern-name — eliminates trailing
    * widow words on the second line of a wrapped subtitle. */
@@ -1907,7 +1912,13 @@ label {
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 24px;
+  /* Tight space below the header row so the subtitle (.meaning-en /
+   * .vocab-gloss-big) — which now lives OUTSIDE this flex container,
+   * as a sibling block spanning the full content width (UI polish
+   * 2026-05-31) — pairs visually with the title. The 24px gap that
+   * used to separate header from the first section now lives on the
+   * subtitle's `margin-bottom` instead. */
+  margin-bottom: 4px;
   /* Don't wrap at the parent level - long titles like
    * "これ／それ／あれ／どれ" used to flex-wrap the Mark-as-known toggle
    * onto a new row, breaking position-consistency with shorter titles
@@ -3667,7 +3678,16 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .vocab-header { padding-bottom: 12px; border-bottom: 1px solid var(--c-border); }
 .vocab-form-big { font-size: 48px; line-height: 1.1; margin: 6px 0; }
 .vocab-reading-big { font-size: 22px; color: var(--c-text-muted, #555); margin: 0 0 6px; }
-.vocab-gloss-big { font-size: 18px; margin: 0; }
+.vocab-gloss-big {
+  font-size: 18px;
+  /* 24px bottom matches grammar's .meaning-en — subtitle sits below
+   * the header flex row and separates cleanly from the first section.
+   * UI polish 2026-05-31 — gloss is now a sibling of .vocab-header,
+   * not nested inside its flex title-cell. */
+  margin: 0 0 24px;
+  color: var(--c-muted);
+  text-wrap: balance;
+}
 .vocab-detail .example-list li { padding: 8px 0; border-bottom: 1px solid var(--c-border); list-style: decimal inside; }
 .vocab-detail .example-ja { font-size: 17px; margin: 4px 0; }
 .vocab-nav { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--c-border); }

@@ -428,13 +428,18 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           <p class="muted small">${esc(entry.section || '')}</p>
           <h2 class="vocab-form-big" lang="ja">${esc(entry.form)}</h2>
           ${entry.reading ? `<p class="vocab-reading-big" lang="ja">${esc(entry.reading)}</p>` : ''}
-          <p class="vocab-gloss-big">${esc(localizedGloss(entry))} ${renderItemBadge(entry, true)}</p>
         </div>
         <label class="known-toggle" title="Manually mark this word as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known-vocab" ${isVocabKnown ? 'checked' : ''}>
           <span>${esc(t('vocab_detail.mark_as_known'))}</span>
         </label>
       </header>
+      <!-- Gloss (English meaning) moved out of .vocab-header so it spans full
+           content width, same change as grammar's .meaning-en. The form +
+           reading remain in the header (they're the visual title cluster);
+           the longer English gloss reads better when not wrap-constrained
+           by the flex title-cell. 2026-05-31. -->
+      <p class="vocab-gloss-big">${esc(localizedGloss(entry))} ${renderItemBadge(entry, true)}</p>
 
       <section>
         <h3 class="section-title">${esc(t('vocab_detail.meaning'))}</h3>

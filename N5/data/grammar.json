@@ -50837,13 +50837,16 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "雨が降りました。そして寒いです。",
-          "right": "OK; そして connects clauses but feels heavy in casual speech.",
-          "why": "そして is a written/formal clause-connector. In conversation Japanese natives often use それで (so / therefore) or just a て-form sentence chain. Overuse of そして in spoken JP marks textbook learner-speech.",
+          "kind": "register_variant",
+          "label_a": "Written / narrative",
+          "form_a": "雨が降りました。そして、寒いです。",
+          "label_b": "Conversational",
+          "form_b": "雨が降って、寒いです。",
+          "why": "そして is a written / formal clause-connector. In conversation, Japanese speakers more often chain clauses with the て-form (or それで). Both forms are correct - they differ in register, not grammar.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Reclassified 2026-05-31 from a wrong/right pair that struck through a grammatical sentence (the *right* field was the note \"OK; ...feels heavy in casual speech\", so no real correction). Now a register_variant: written-そして vs conversational て-form. form_b authored by maintainer; pending native-reviewer confirmation. (BUG-245)"
         },
         {
           "wrong": "あさごはんを たべました。それで、しごとに 行きました。",

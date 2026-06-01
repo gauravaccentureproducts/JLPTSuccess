@@ -2,6 +2,33 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.36 - 2026-05-31 (grammar + vocab detail: subtitle now spans full content width, matching sections below)
+
+### Changed
+
+- **Subtitle alignment fix.** On grammar and vocabulary detail pages the
+  subtitle (English meaning) was nested inside the title's flex row, so
+  it was wrap-constrained to the narrow title-cell width while
+  everything below (HOW TO USE / EXPLANATION / DEEP DIVE / EXAMPLES)
+  ran full-width. Long subtitles like the いつ pattern's *"When - pairs
+  with から / まで / ごろ for richer time questions"* wrapped halfway
+  across the page. The subtitle is now a sibling of the title row,
+  spanning the same width as the sections below it. CSS margins
+  adjusted so the title-subtitle pair still feels visually paired
+  (4px gap above the subtitle, 24px below — the 24px that used to
+  separate the header from the first section is now between the
+  subtitle and the first section).
+- **Vocabulary detail** got the same treatment for `.vocab-gloss-big`:
+  the section / form / reading cluster stays in the header row, but
+  the English gloss now spans the full content width. Form +
+  reading remain as the visual title pair.
+
+Affects 1,279 detail-page routes (178 grammar + 995 vocab + 106 kanji
+all use the same `.pattern-header` shape — kanji's structure is
+different and its readings cluster intentionally stays paired with the
+glyph, so kanji is unchanged). Single source edit per renderer + a
+CSS adjustment fans the fix out to every detail page in each category.
+
 ## v1.17.35 - 2026-05-31 (grammar pattern detail: UI polish pass — subtitle echo, orphans, trivial HOW TO USE table, section chip consistency)
 
 ### Changed (4 user-flagged UI issues addressed)

@@ -707,10 +707,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${p._alias_of ? `<p class="pattern-alias-badge muted small">↔ <a href="#/learn/${encodeURIComponent(p._alias_of)}">Also see ${xrefLabel(p._alias_of)}</a> <span class="muted">(dual-coverage of the same concept; different examples)</span></p>` : ''}
       ${p._homonym_of ? `<p class="pattern-homonym-badge muted small">⚠ <a href="#/learn/${encodeURIComponent(p._homonym_of)}">Same kana, different meaning: ${xrefLabel(p._homonym_of)}</a></p>` : ''}
       <div class="pattern-header">
-        <div>
-          <h2 class="pattern-name">${esc(p.pattern)}</h2>
-          <p class="meaning-en">${esc(localizedMeaning(p))}</p>
-        </div>
+        <h2 class="pattern-name">${esc(p.pattern)}</h2>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known" ${isKnown ? 'checked' : ''}>
           <span>${esc(t('grammar_detail.mark_as_known'))}</span>
@@ -721,6 +718,14 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
           🖨 ${esc(t('grammar_detail.print_pdf'))}
         </button>
       </div>
+      <!-- Subtitle moved out of .pattern-header so it spans the full content
+           width like sibling sections (HOW TO USE / EXPLANATION / DEEP DIVE)
+           below. Previously it was nested inside the flex title-row and got
+           wrap-constrained to the title-cell width, so long subtitles like
+           the いつ pattern's "When - pairs with から / まで / ごろ for richer
+           time questions" wrapped halfway across the page while the sections
+           below ran full-width. 2026-05-31. -->
+      <p class="meaning-en">${esc(localizedMeaning(p))}</p>
 
       ${renderHowToUseTable(p)}
 
