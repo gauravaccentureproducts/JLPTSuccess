@@ -50495,7 +50495,7 @@
         {
           "ja": "あさごはんを たべました。そして、しごとに 行きました。",
           "form": "past",
-          "translation_en": "I ate breakfast. And then, I went to work.",
+          "translation_en": "I ate breakfast. And then I went to work.",
           "vocab_ids": [
             "n5.vocab.16-food-and-drink-genera.あさごはん",
             "n5.vocab.16-food-and-drink-genera.ごはん",
@@ -50528,7 +50528,7 @@
         {
           "ja": "とうきょうへ 行きました。そして、きょうとへも 行きました。",
           "form": "past",
-          "translation_en": "I went to Tokyo. And to Kyoto too.",
+          "translation_en": "I went to Tokyo. And then I went to Kyoto, too.",
           "vocab_ids": [
             "n5.vocab.34-conjunctions.そして",
             "n5.vocab.27-verbs-group-1-verbs.行く",
@@ -50645,7 +50645,7 @@
         },
         {
           "ja": "うちで ごはんを 食べました。そして、ねました。",
-          "translation_en": "I ate at home. Then I slept.",
+          "translation_en": "I ate at home. And then I slept.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.16-food-and-drink-genera.ごはん",
@@ -50678,7 +50678,7 @@
         },
         {
           "ja": "べんきょうしました。そして、しゅくだいを しました。",
-          "translation_en": "I studied. Then I did homework.",
+          "translation_en": "I studied. And then I did my homework.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.24-school-and-study.べんきょう",
@@ -50753,9 +50753,9 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ごはんを たべました。そして、 ねました。",
-          "form": "ate-then-slept",
-          "translation_en": "I ate. And then I slept.",
+          "ja": "てがみを かきました。そして、ポストに 出しました。",
+          "form": "past",
+          "translation_en": "I wrote a letter. And then I mailed it.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.16-food-and-drink-genera.ごはん",
@@ -50905,13 +50905,13 @@
       },
       "minna_chapter_provenance": "auto_extracted",
       "essay": {
-        "intro": "Sentence connector: 'and then.' そして CLAUSE. Used to add a new sentence: あさごはんを 食べました。そして、しごとに 行きました.",
-        "why_it_matters": "Sentence-level connector — different from word-level と (which joins nouns). Spoken JP relies heavily on そして / それから for sequential narration.",
+        "intro": "そして connects two sentences, meaning 'and then' - it adds a following action or fact. Example: あさごはんを たべました。そして、しごとに 行きました。",
+        "why_it_matters": "It is a sentence-level connector, different from word-level と (which joins nouns). In writing, そして is a standard way to add a following sentence; in speech, それから and the て-form are also common.",
         "common_pitfalls": "Using mid-sentence (そして is sentence-initial). Confusing with それから (very similar — そして is generic; それから emphasizes 'after that').",
-        "contrasts": "vs それから (n5-122): nuance — それから = 'after that, then'. そして = 'and (further)'. Often interchangeable.",
+        "contrasts": "vs それから: それから = 'after that, then'; そして = 'and (further, in addition)'. They often overlap.",
         "closing_practice_tip": "Narrate a 3-step sequence using そして between each step. Then re-tell using それから. Same story, slightly different feel.",
         "provenance": "llm_curated",
-        "cultural_context": "そして (and / and then) is the most-used clause connector in written narrative. In speech, それから feels more natural. Don't overuse そして — it can sound list-like / mechanical. Typical contexts: writing, narrative."
+        "cultural_context": "そして is a common written-narrative connector. In conversation, それから or the て-form often feels more natural for linking actions."
       },
       "wrong_corrected_pair": [
         {
@@ -50931,11 +50931,9 @@
       ],
       "politeness_ladder": {
         "casual": "〜、そんで〜。 (very casual contraction)",
-        "polite": "〜。そして、〜。",
-        "humble": "〜。さらに、〜。 (more formal connector)",
-        "respectful": "〜。さらに、〜。"
+        "polite": "〜。そして、〜。"
       },
-      "politeness_ladder_provenance": "llm_curated",
+      "politeness_ladder_provenance": "needs_native_review",
       "authentic_citations": [
         {
           "source": "Genki I L2",
@@ -50949,7 +50947,7 @@
         }
       ],
       "cultural_callout": {
-        "note": "そして (and / and then) is the most-used clause connector in written narrative. In speech, それから feels more natural. Don't overuse そして — it can sound list-like / mechanical.",
+        "note": "In written narrative, そして is a common way to connect sentences. In speech, それから or the て-form often sounds more natural, and repeating そして across many sentences can feel list-like.",
         "contexts": [
           "writing",
           "narrative"
