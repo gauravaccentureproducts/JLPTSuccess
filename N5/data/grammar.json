@@ -5578,7 +5578,7 @@
         {
           "wrong": "これ ほんは おもしろいです。",
           "right": "この ほんは おもしろいです。 / これは おもしろい ほんです。",
-          "why": "これ stands alone - never followed by a noun. For 'this book' use この + noun (see n5-015).",
+          "why": "これ stands alone - never followed by a noun. For 'this book' use この + noun (see この／その／あの／どの ＋ N (noun)).",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -15967,7 +15967,7 @@
         {
           "wrong": "これ ほんを よみました。",
           "right": "この ほんを よみました。",
-          "why": "Same noun-modifier rule as n5-015. この/その/あの require a following noun. これ/それ/あれ stand alone. Mixing forms is the typical mistake.",
+          "why": "Same noun-modifier rule as この／その／あの／どの ＋ N (noun). この/その/あの require a following noun. これ/それ/あれ stand alone. Mixing forms is the typical mistake.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
@@ -32806,7 +32806,7 @@
         {
           "wrong": "この ほんは おもしろくないでした。",
           "right": "この ほんは おもしろくないです。",
-          "why": "い-adjective negative + present polite: drop い, add くない, then です. The form くないでした wrongly stacks past でした on already-negative くない. For past negative, use くなかった (see n5-082).",
+          "why": "い-adjective negative + present polite: drop い, add くない, then です. The form くないでした wrongly stacks past でした on already-negative くない. For past negative, use くなかった (see い-Adjective past negative: 〜くなかったです / 〜くありませんでした).",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
@@ -67591,7 +67591,7 @@
         {
           "wrong": "食べるあとで手を洗います。",
           "right": "食べたあとで手を洗います。",
-          "why": "Verb + あとで requires the た-form (past plain), regardless of the main clause tense. The mirror of n5-162: あと needs past, まえ needs non-past. Beginners swap them.",
+          "why": "Verb + あとで requires the た-form (past plain), regardless of the main clause tense. The mirror of V-plain + まえに: あと needs past, まえ needs non-past. Beginners swap them.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -72160,13 +72160,13 @@
         {
           "form_a": "まいにち べんきょうしないと いけない。",
           "form_b": "まいにち べんきょうしなくては いけない。",
-          "why": "Obligation: V-ない (drop い + くて) + は + いけない → なくては いけない. The form しないと いけない is a SEPARATE construction (ない + と + いけない = 'must do' via different derivation). Both are valid N5 but n5-173 specifically uses なくてはいけない.",
+          "why": "Obligation: V-ない (drop い + くて) + は + いけない → なくては いけない. The form しないと いけない is a SEPARATE construction (ない + と + いけない = 'must do' via different derivation). Both are valid N5 but 〜なくてはいけない specifically uses なくてはいけない.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13",
           "kind": "register_variant",
-          "label_a": "n5-175 pattern (ないといけない)",
-          "label_b": "n5-173 pattern (なくてはいけない)",
+          "label_a": "〜ないといけない pattern (ないといけない)",
+          "label_b": "〜なくてはいけない pattern (なくてはいけない)",
           "bug_007_fix_2026_05_16": true
         },
         {
@@ -72585,7 +72585,7 @@
         {
           "wrong": "しゅくだいを しないと ならない。",
           "right": "しゅくだいを しなくては ならない。",
-          "why": "Obligation 〜なくてはならない: V-ない + くて + は + ならない. Don't substitute と for くては — those are different constructions (n5-175 uses と + いけない).",
+          "why": "Obligation 〜なくてはならない: V-ない + くて + は + ならない. Don't substitute と for くては — those are different constructions (〜ないといけない uses と + いけない).",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
@@ -73059,7 +73059,7 @@
         {
           "wrong": "しゅくだいを しないと なりません。",
           "right": "しゅくだいを しないと いけません。",
-          "why": "〜ないと idiomatically pairs with いけない/いけません (more colloquial), not ならない. (See n5-174.)",
+          "why": "〜ないと idiomatically pairs with いけない/いけません (more colloquial), not ならない. (See 〜なくてはならない.)",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -73076,7 +73076,7 @@
         {
           "wrong": "はやく かえらなくては いけない。",
           "right": "はやく かえらないと いけない。",
-          "why": "Context: using なくては where ないと expected. n5-175 specifically: V-ない + と + いけない. The form 〜なくては (which uses くて) is the n5-173/174 pattern. Different sub-patterns — use the と-form for this specific frame.",
+          "why": "Context: using なくては where ないと expected. 〜ないといけない specifically: V-ない + と + いけない. The form 〜なくては (which uses くて) is the 〜なくてはいけない/174 pattern. Different sub-patterns — use the と-form for this specific frame.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
@@ -76905,7 +76905,7 @@
         {
           "wrong": "なにを たべたいです。",
           "right": "なにか たべたいです。",
-          "why": "Same as n5-183: なに-か with か (indefinite). For 'I want to eat something', use なにか (no を). Adding を would force なに into question-word mode and create an incomplete sentence.",
+          "why": "Same as Question word + か / も compounds: なに-か with か (indefinite). For 'I want to eat something', use なにか (no を). Adding を would force なに into question-word mode and create an incomplete sentence.",
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
