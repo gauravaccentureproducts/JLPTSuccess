@@ -1578,6 +1578,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-174", "grammar.json learner-facing prose (essay/explanation/mistake/wcp/example text) free of raw internal pattern ids n5-NNN; _alias_of/_homonym_of + audio paths excluded (BUG-246 C8 guard, 2026-05-31)", lambda: _check_ja_174_no_raw_pattern_id_in_grammar_prose()),
     ("JA-175", "grammar.json essay.contrasts free of unfilled 'vs ?:' contrast placeholder (BUG-247 C1 guard, 2026-05-31)", lambda: _check_ja_175_no_broken_contrast_placeholder()),
     ("JA-176", "grammar.json: no identical-ja duplicate example sentences within a pattern (BUG-249 C5 guard, 2026-05-31)", lambda: _check_ja_176_no_identical_duplicate_examples()),
+    ("JA-177", "grammar.json wrong/correct pairs: correct/right field must not admit the wrong form is itself correct (no 'already correct'/'IS valid'/'(correct)') (BUG-247 false-negative malformed guard, 2026-05-31)", lambda: _check_ja_177_no_already_correct_admission()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -9794,6 +9795,32 @@ def _check_ja_176_no_identical_duplicate_examples() -> list:
             failures.append("JA-176 %s has identical duplicate example(s): %s" % (p.get("id"), list(dups)[:2]))
     return failures
 
+
+def _check_ja_177_no_already_correct_admission() -> list:
+    """BUG-247 (false-negative malformed guard): a wrong_corrected_pair or a
+    common_mistakes pair must not have its 'correct'/'right' field admit that the
+    'wrong' form is itself correct (e.g. 'already correct', 'IS valid', '(correct)',
+    'both fine'). Such rows strike through a grammatical sentence and mis-teach."""
+    import re as _re
+    failures = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-177 could not read grammar.json: %s" % e]
+    pats = g if isinstance(g, list) else (g.get("patterns") or [])
+    admit = _re.compile(r"already correct|IS valid|are both fine|both correct\)|\(correct\)|both fine", _re.I)
+    for p in pats:
+        if not isinstance(p, dict):
+            continue
+        for m in (p.get("common_mistakes") or []):
+            if m.get("kind") == "register_variant":
+                continue
+            if admit.search(str(m.get("right", ""))):
+                failures.append("JA-177 %s common_mistakes 'right' admits the wrong is correct: %r" % (p.get("id"), str(m.get("right"))[:50]))
+        for m in (p.get("wrong_corrected_pair") or []):
+            if admit.search(str(m.get("correct", ""))):
+                failures.append("JA-177 %s wrong_corrected_pair 'correct' admits the wrong is correct: %r" % (p.get("id"), str(m.get("correct"))[:50]))
+    return failures
 
 
 def main(argv: list[str] | None = None) -> int:
