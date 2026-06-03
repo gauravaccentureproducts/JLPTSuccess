@@ -50857,12 +50857,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "あさごはんを たべました それから しごとに 行きました。",
-          "right": "あさごはんを たべました。そして、しごとに 行きました。",
-          "why": "そして starts a NEW sentence — preceded by a full stop (。) and followed by a comma. Don't just chain it without sentence punctuation. Pattern: Sentence A。 + そして、+ Sentence B.",
+          "wrong": "コーヒー そして パンを かいました。",
+          "right": "コーヒーと パンを かいました。",
+          "why": "そして links sentences or clauses, not nouns. To join nouns like 'coffee and bread', use と. (To link two actions, そして begins a new sentence: 〜。そして、〜。)",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "provenance_note": "Reframed 2026-05-31: previous pair struck a grammatical それから sentence and swapped it for そして, mis-framing a valid connector as an error. Now an unambiguous noun-coordination error (そして cannot coordinate nouns; と does). Pending native confirmation. (BUG-246)"
         }
       ],
       "contrasts": [
