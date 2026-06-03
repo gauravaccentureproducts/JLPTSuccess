@@ -325,9 +325,9 @@
         {
           "wrong": "わたしが がくせいです。",
           "right": "わたしは がくせいです。",
-          "why": "Self-introduction sentences declare the speaker AS THE TOPIC, so they use は (topic marker). が in the same slot would imply 'as for who the student is — it's me' — answer to an unstated 'だれが学生ですか'. For a plain self-intro, は.",
+          "why": "Self-introduction sentences declare the speaker AS THE TOPIC, so they use は (topic marker). が in the same slot would imply 'as for who the student is — it's me' — answer to an unstated 'だれが学生ですか'. For a plain self-intro, は. (Note: 〜が is also correct here under a focus reading - it answers 'who?' / singles one out; 〜は is the neutral topic for a plain statement.)",
           "category": "particle",
-          "provenance": "native_reviewed",
+          "provenance": "needs_native_review",
           "audit_wave": "issue-112-phase3-2026-05-12"
         }
       ],
@@ -774,17 +774,17 @@
         {
           "wrong": "わたしが がくせいです。",
           "right": "わたしは がくせいです。",
-          "why": "は marks the TOPIC (already-known referent — わたし). が marks a new-information SUBJECT. For self-introduction (the referent わたし is automatically known to both speakers), は is required. Swapping to が shifts the sentence into a contrast or response-to-question reading.",
+          "why": "は marks the TOPIC (already-known referent — わたし). が marks a new-information SUBJECT. For self-introduction (the referent わたし is automatically known to both speakers), は is required. Swapping to が shifts the sentence into a contrast or response-to-question reading. (Note: 〜が is also correct here under a focus reading - it answers 'who?' / singles one out; 〜は is the neutral topic for a plain statement.)",
           "category": "particle",
-          "provenance": "native_reviewed",
+          "provenance": "needs_native_review",
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
           "wrong": "私が 学生です。",
           "right": "私は 学生です。",
-          "why": "Context: in self-introduction. は marks topic in introduction; が introduces NEW info or answers a who-question.",
+          "why": "Context: in self-introduction. は marks topic in introduction; が introduces NEW info or answers a who-question. (Note: 〜が is also correct here under a focus reading - it answers 'who?' / singles one out; 〜は is the neutral topic for a plain statement.)",
           "category": "particle",
-          "provenance": "auto_fix_2026_05_24",
+          "provenance": "needs_native_review",
           "audit_wave": "claude_audit_2026_05_24",
           "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
           "review_status": "ai_native_reviewer_2026_05_24",
@@ -844,8 +844,8 @@
         {
           "wrong": "私が 学生です。",
           "correct": "私は 学生です。",
-          "why": "Context: in self-introduction. は marks topic in introduction; が introduces NEW info or answers a who-question.",
-          "provenance": "llm_curated",
+          "why": "Context: in self-introduction. は marks topic in introduction; が introduces NEW info or answers a who-question. (Note: 〜が is also correct here under a focus reading - it answers 'who?' / singles one out; 〜は is the neutral topic for a plain statement.)",
+          "provenance": "needs_native_review",
           "error_category": "particle"
         },
         {
@@ -6529,13 +6529,13 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "どこも しずかです。",
-          "right": "どこも しずかです。 IS valid - but watch the rule: どこも + AFFIRMATIVE = 'everywhere'; どこも/どこにも + NEGATIVE = 'nowhere'.",
-          "why": "Context: with affirmative - meaning 'every place is quiet'. Polarity flip: question word + も + affirmative = 'every', + negative = 'no'. Same rule applies to だれも, なにも, いつも.",
+          "wrong": "これは としょかんです。",
+          "right": "ここは としょかんです。",
+          "why": "ここ/そこ/あそこ/どこ are PLACES; これ/それ/あれ/どれ are THINGS. For 'this place is the library' use ここ, not これ.",
           "category": "particle",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "あそこは としょかんです。",
@@ -7849,11 +7849,12 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "いつごろから べんきょうしますか。",
-          "correct": "いつごろから べんきょうしますか。 (already correct)",
-          "why": "Context: intent: from about when. For \"approximate time\" use いつごろ; for exact use いつ. Different precision levels.",
-          "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "wrong": "いつごろに きますか。",
+          "correct": "いつごろ きますか。",
+          "why": "いつ / いつごろ take no に: いつごろ きますか.",
+          "error_category": "particle",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "authentic_citations": [
@@ -9265,11 +9266,12 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "いくか いかないか きめます。",
-          "correct": "いくか いかないか きめます。 (already correct)",
-          "why": "V-か V-ないか pattern for \"whether or not\" — keep both clauses plain form.",
-          "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "wrong": "いくと いかないと きめます。",
+          "correct": "いくか いかないか きめます。",
+          "why": "For 'whether to do X or not', use 〜か 〜ないか, not 〜と.",
+          "error_category": "particle",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "authentic_citations": [
@@ -9577,32 +9579,43 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "「あした 雨が ふりますね。」",
-          "right": "「あした 雨が ふりますよ。」(use よ for new info)",
-          "why": "Context: when telling someone NEW info they didn't know. ね seeks agreement on SHARED knowledge. For information the listener doesn't have yet, use よ instead.",
+          "why": "ね seeks the listener's agreement; よ tells them new information. Both correct - choose by intent.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_teacher_review_2026_05_13",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "g3-format-fix-2026-05-13"
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation.",
+          "audit_wave": "g3-format-fix-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "Seeking agreement (ね)",
+          "form_a": "あした 雨が ふりますね。",
+          "label_b": "Informing (よ)",
+          "form_b": "あした 雨が ふりますよ。"
         },
         {
-          "wrong": "いい てんきですよ。",
-          "right": "いい てんきですね。",
-          "why": "ね seeks AGREEMENT about something speaker and listener both observe ('nice weather, isn't it?'). よ ASSERTS new information to listener ('it's nice weather, fyi'). For weather small-talk, ね is correct — both parties see the weather.",
+          "why": "よ informs; ね seeks agreement. Both correct - choose by intent.",
           "category": "register",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "Informing (よ)",
+          "form_a": "いい てんきですよ。",
+          "label_b": "Seeking agreement (ね)",
+          "form_b": "いい てんきですね。",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
-          "wrong": "いい てんきですよ ね。",
-          "right": "いい てんきですね。",
-          "why": "Don't string よ and ね together at the sentence end. よ ASSERTS new info to the listener; ね SEEKS AGREEMENT on shared observation. Pick one based on the speech-act you want — they're not stackable. For shared weather small-talk, ね alone is the natural choice.",
+          "why": "よね (emphasis + shared agreement) and ね (agreement) are both correct; choose by nuance.",
           "category": "register",
-          "provenance": "auto_fix_2026_05_24",
+          "provenance": "needs_native_review",
           "audit_wave": "claude_audit_2026_05_24",
           "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review.",
+          "kind": "register_variant",
+          "label_a": "Shared agreement (よね)",
+          "form_a": "いい てんきですよね。",
+          "label_b": "Agreement (ね)",
+          "form_b": "いい てんきですね。",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "contrasts": [
@@ -9654,13 +9667,14 @@
       },
       "wrong_corrected_pair": [
         {
-          "wrong": "いい てんきです ね。",
-          "correct": "いい てんきです。",
-          "why": "Context: about your own observation, no agreement sought. ね seeks agreement / shared perception. If listener cannot evaluate, ね sounds odd.",
-          "error_category": "pragmatic",
-          "provenance": "llm_curated",
+          "wrong": "いいね てんきです。",
+          "correct": "いい てんきですね。",
+          "why": "ね is a sentence-final particle - it goes at the very end (after です), not mid-sentence.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
           "category_provenance": "reclassified_sweep1_2026_05_19",
-          "reg_001_sweep1_class": "C"
+          "reg_001_sweep1_class": "C",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "がくせいですね。",
@@ -10017,12 +10031,16 @@
           "provenance_note": "BUG-211 Option-A rewrite: replaced English meta-advice entry with a real JA-JA wrong/right pair that demonstrates the same register-teaching point (drop よ in formal written contexts). Prior content was \"Using よ in formal business writing.\" / \"Drop the particle in writing.\" — flagged by GRAMMAR-CT-001 TS-03 check 2026-05-24."
         },
         {
-          "wrong": "あした しけんですね。",
-          "right": "あした しけんですよ。",
-          "why": "よ informs the listener of something they may not know ('there's an exam tomorrow, btw'). ね assumes shared knowledge. For a reminder/announcement, よ is correct.",
+          "why": "ね seeks agreement; よ informs the listener of something they may not know. Both correct - choose by intent.",
           "category": "register",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "Seeking agreement (ね)",
+          "form_a": "あした しけんですね。",
+          "label_b": "Informing (よ)",
+          "form_b": "あした しけんですよ。",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "あした しけんですよか。",
@@ -10082,20 +10100,22 @@
       },
       "wrong_corrected_pair": [
         {
-          "wrong": "たかいですよね。",
+          "wrong": "よ たかいです。",
           "correct": "たかいですよ。",
-          "why": "Context: asserting, not seeking agreement. よ asserts new info to listener; ね seeks agreement. よね combines both — only use when both apply.",
-          "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "why": "よ is a sentence-final particle; attach it at the very end (after です), not at the start.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
-          "wrong": "がくせいですよ。",
-          "correct": "がくせいです。",
-          "why": "Context: in formal context to teacher. よ has assertive tone; can sound presumptuous to seniors. In formal context omit it.",
-          "error_category": "pragmatic",
-          "provenance": "llm_curated",
+          "wrong": "がくせいよ です。",
+          "correct": "がくせいですよ。",
+          "why": "よ goes at the very end of the sentence, after です.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
           "category_provenance": "reclassified_sweep1_2026_05_19",
-          "reg_001_sweep1_class": "C"
+          "reg_001_sweep1_class": "C",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "たべますよか。",
@@ -13599,13 +13619,13 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "ぐらい with a specific point",
-          "right": "9時ぐらいに / 9時ごろに are both fine; but specific times like まいにち don't take ぐらい - only quantities/durations.",
-          "why": "Context: like 9時ぐらいに. ぐらい works for amounts and durations; ごろ is preferred for approximate time-points.",
+          "wrong": "まいにち ぐらい べんきょうします。",
+          "right": "まいにち べんきょうします。",
+          "why": "ぐらい attaches to quantities or durations (3時間ぐらい), not to frequency words like まいにち.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "1時間ごろ まちました。",
@@ -20652,11 +20672,12 @@
           "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
-          "wrong": "どうやって よみますか。",
-          "correct": "どうやって よみますか。 (already correct)",
-          "why": "Context: asking method casually. どうやって = \"how / in what manner\". For multi-step instructions, listener responds with て-form chain.",
-          "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "wrong": "どうやってで よみますか。",
+          "correct": "どうやって よみますか。",
+          "why": "どうやって takes no で: どうやって よみますか.",
+          "error_category": "particle",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "なんで いきますか。",
@@ -22621,10 +22642,11 @@
         },
         {
           "wrong": "なんにちに きました か。",
-          "correct": "なんにちに きましたか。 (already correct)",
-          "why": "Context: asking which day-of-month. Specific date takes に. なんにち = which day of month.",
-          "error_category": "particle",
-          "provenance": "llm_curated"
+          "correct": "なんにちに きましたか。",
+          "why": "No space before か: ...きましたか.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "authentic_citations": [
@@ -32486,20 +32508,22 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "いいです。",
-          "correct": "けっこうです。 / だいじょうぶです。",
-          "why": "Context: about an offer, intent: no thanks. いいです can mean \"good\" OR \"no thanks\" depending on context — risky in offers. Use けっこう/だいじょうぶ for clarity.",
-          "error_category": "pragmatic",
-          "provenance": "llm_curated",
+          "wrong": "たかいくないです。",
+          "correct": "たかくないです。",
+          "why": "い-adjective negative: drop い and add くない (たかくない), not い + くない (×たかいくない).",
+          "error_category": "conjugation",
+          "provenance": "needs_native_review",
           "category_provenance": "reclassified_sweep1_2026_05_19",
-          "reg_001_sweep1_class": "C"
+          "reg_001_sweep1_class": "C",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
-          "wrong": "たかかったです。",
-          "correct": "たかくなかったです。 / たかくありませんでした。",
-          "why": "Context: negative intent. Past form is たかかった (positive); negative-past needs くなかった or くありませんでした.",
+          "wrong": "たかいでした。",
+          "correct": "たかかったです。",
+          "why": "Past of an い-adjective: drop い and add かった (+です) -> たかかったです. Do NOT use い-adj + でした (でした is for nouns/な-adjectives).",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "politeness_ladder": {
@@ -41511,13 +41535,16 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "わたしは 日本語が じょうずです。",
-          "right": "わたしは 日本語が とくいです。 (or self-deprecate)",
-          "why": "Saying じょうず about yourself sounds boastful. Reserve じょうず for others; for yourself, use とくい or まだまだです.",
+          "why": "Both are grammatical. About your OWN ability じょうず can sound boastful; 〜が とくいです (or できます) is more modest. Use じょうず mainly to praise OTHERS.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation.",
+          "kind": "register_variant",
+          "label_a": "Grammatical, but boastful about oneself",
+          "form_a": "わたしは 日本語が じょうずです。",
+          "label_b": "More modest self-reference",
+          "form_b": "わたしは 日本語が とくいです。"
         },
         {
           "wrong": "あの 人は 日本語を じょうずです。",
@@ -41610,13 +41637,14 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "わたしは じょうずです。",
-          "correct": "わたしは あまり じょうずじゃありません。",
-          "why": "Context: about myself. Calling oneself 上手 is culturally arrogant; use modest じょうずじゃありません or まだまだ.",
-          "error_category": "cultural",
-          "provenance": "llm_curated",
+          "wrong": "わたしは ピアノを じょうずです。",
+          "correct": "わたしは ピアノが じょうずです。",
+          "why": "じょうず takes the が-particle, not を: ピアノが じょうずです.",
+          "error_category": "particle",
+          "provenance": "needs_native_review",
           "category_provenance": "reclassified_sweep1_2026_05_19",
-          "reg_001_sweep1_class": "C"
+          "reg_001_sweep1_class": "C",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         }
       ],
       "politeness_ladder": {
@@ -46271,18 +46299,20 @@
       },
       "wrong_corrected_pair": [
         {
-          "wrong": "よじ。",
-          "correct": "よじ。 (already correct)",
-          "why": "4 o'clock is よじ (not しじ). Irregular reading.",
+          "wrong": "よんじです。",
+          "correct": "よじです。",
+          "why": "4時 is read よじ, not よんじ.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
-          "wrong": "しちじはん から はちじまで。",
-          "correct": "しちじはん から はちじまで。 (already correct)",
-          "why": "7 o'clock is しちじ (not なな-じ in this reading).",
+          "wrong": "ななじです。",
+          "correct": "しちじです。",
+          "why": "7時 is read しちじ, not ななじ.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "ろくじごろに きます。",
@@ -46631,13 +46661,13 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "五ふんです。",
-          "right": "五ふんです。 (correct) / 三ぷんです。 (correct)",
-          "why": "ふん vs ぷん is determined by the preceding number. 1, 3, 4, 6, 8, 10 -> ぷん (gemination); 2, 5, 7, 9 -> ふん. Beginners memorise one form and apply it everywhere. Practice: 1ぷん, 2ふん, 3ぷん, 4ぷん, 5ふん...",
+          "wrong": "ろくぷんです。",
+          "right": "ろっぷんです。",
+          "why": "6分 is read ろっぷん (small tsu), not ろくぷん.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "10ふん まちました。",
@@ -49416,11 +49446,12 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "すぐ きました。",
-          "correct": "すぐ きました。 (already correct)",
-          "why": "Context: intent: I came right away. すぐ = \"right away / soon\"; can be used with past-tense for \"I came immediately\".",
+          "wrong": "まだ きました。",
+          "correct": "もう きました。",
+          "why": "For a completed action use もう ('already'); まだ ('still / not yet') pairs with a negative.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "まだ いきますか。",
@@ -64382,13 +64413,16 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "日本に行きましたよね。 vs 日本に行きましたね。",
-          "right": "よね = assertion + agreement-seeking; ね = soft confirmation.",
-          "why": "ね alone seeks confirmation ('right?'). よね asserts AND seeks confirmation ('that's right, isn't it?'). Beginners use them interchangeably; native speakers calibrate by speaker confidence.",
+          "why": "ね = soft confirmation; よね = assertion plus seeking agreement. Both correct - choose by nuance.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation.",
+          "kind": "register_variant",
+          "label_a": "Soft confirmation (ね)",
+          "form_a": "日本に 行きましたね。",
+          "label_b": "Assertion + agreement (よね)",
+          "form_b": "日本に 行きましたよね。"
         },
         {
           "wrong": "いい てんきですか。",
@@ -64473,11 +64507,12 @@
       "authentic_citations_provenance": "llm_curated",
       "wrong_corrected_pair": [
         {
-          "wrong": "たかいですよね。",
-          "correct": "たかいですよ。",
-          "why": "Context: only asserting. よね = よ (assert) + ね (agreement); use よ alone if no agreement is sought.",
-          "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "wrong": "たかいよね です。",
+          "correct": "たかいですよね。",
+          "why": "よね is sentence-final - it goes at the very end, after です.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "がくせいですね、わたし。",
@@ -65262,12 +65297,16 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "あした 雨でしょう。",
-          "right": "あした 雨だろう。",
-          "why": "だろう is the PLAIN/CASUAL counterpart of でしょう. Both mean 'probably'. でしょう is polite (matches です/ます register); だろう is casual (matches plain register). The example uses casual register — だろう fits.",
+          "why": "だろう (plain) and でしょう (polite) both express probability; both correct, differ only in register.",
           "category": "register",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "Plain (だろう)",
+          "form_a": "あした 雨だろう。",
+          "label_b": "Polite (でしょう)",
+          "form_b": "あした 雨でしょう。",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "form_a": "あした 雨でしょう。 (in casual context)",
@@ -65685,13 +65724,16 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "いい てんきですよね。",
-          "right": "いい てんきですね。 (or よ, not both)",
-          "why": "Context: overuse. よ asserts new info; ね seeks agreement. Stacking よね is colloquial and overused  -  pick one in clean speech.",
+          "why": "ね, よ, and the combination よね are all correct - よ and ね DO co-occur as よね. Choose by nuance.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation.",
+          "kind": "register_variant",
+          "label_a": "Agreement (ね)",
+          "form_a": "いい てんきですね。",
+          "label_b": "Shared agreement (よね)",
+          "form_b": "いい てんきですよね。"
         },
         {
           "wrong": "いい てんきだね。",
@@ -68475,13 +68517,13 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "お電話番号 -> ご電話番号",
-          "right": "お電話番号 (correct, 和語 reading)",
-          "why": "お~ attaches to native (和語) words; ご~ attaches to Sino-Japanese (漢語) words. 電話 is 漢語 so ご should win - but 電話 has been so thoroughly nativised that お電話 is the standard. Exception lists matter: お+和語, ご+漢語 with documented overrides.",
+          "wrong": "ご電話番号",
+          "right": "お電話番号",
+          "why": "電話 takes the お- prefix (おでんわ), not ご-; お- goes with native (wago) readings, ご- with Sino-Japanese (kango) ones.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "ちゃを どうぞ。",
@@ -77873,10 +77915,11 @@
         },
         {
           "wrong": "どこかへ いきません か。",
-          "correct": "どこかへ いきませんか。 (already correct)",
-          "why": "Context: intent: shall we go somewhere. どこか + へ for \"somewhere\" (direction); negative-question for invitation.",
-          "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "correct": "どこかへ いきませんか。",
+          "why": "No space before か: ...いきませんか.",
+          "error_category": "word_order",
+          "provenance": "needs_native_review",
+          "provenance_note": "Fixed 2026-05-31 per native-review false-negative report (BUG-247): the previous form was correct Japanese; reframed. Pending native confirmation."
         },
         {
           "wrong": "どこにも いきました。",
