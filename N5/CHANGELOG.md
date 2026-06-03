@@ -2,6 +2,34 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.37 - 2026-05-31 (grammar content quality: clearer cross-references, honest wrong/correct pairs)
+
+### Changed (grammar pattern content - native-review prep + native pass)
+
+- **Cross-reference links show the concept, not a code.** The "Also see" /
+  "Same kana, different meaning" links and in-text references that used to
+  print an internal pattern id (e.g. *"n5-039"*) now show the pattern's name
+  (e.g. *これ / それ / あれ / どれ*). Affects the SPA and all static grammar
+  mirrors.
+- **Wrong/correct examples no longer mark correct Japanese as wrong.** A
+  native-speaker pass over every ✗/✓ pair found cases where the struck
+  ("wrong") sentence was itself correct - e.g. *あした 雨でしょう* (でしょう is
+  valid), and ね / よ / よね, から / ので, だろう / でしょう contrasts. These are
+  now shown as register / intent variants (both correct); rows whose "correct"
+  field merely admitted the wrong form was fine were rewritten to carry a
+  genuine error. The false *"よ, not both"* note was removed (よ and ね do
+  co-occur, as よね).
+- **Tidier explanations.** Removed unfilled *"vs ?:"* contrast placeholders,
+  de-jargoned ALL-CAPS notation, softened over-stated register claims
+  (*"most-used"* → *"very common"*), de-duplicated the cultural note that had
+  appeared twice per pattern, and varied a few repeated example sentences.
+- **が vs は** comparisons now note that 〜が is correct under a focus ("who?")
+  reading, rather than flatly marking it wrong.
+
+All authored Japanese reframes are tagged for native-reviewer confirmation. New
+CI guards JA-174..177 prevent regressions of these classes (raw ids, *"vs ?:"*
+placeholders, duplicate examples, *"already correct"* admissions).
+
 ## v1.17.36 - 2026-05-31 (grammar + vocab detail: subtitle now spans full content width, matching sections below)
 
 ### Changed

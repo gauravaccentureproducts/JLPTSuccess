@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.36';  // bumped 2026-05-31 — subtitle full-width fix: the subtitle (.meaning-en on grammar pages, .vocab-gloss-big on vocab pages) was nested inside the .pattern-header flex container, where it got wrap-constrained to the title-cell width — long subtitles like the いつ pattern's "When - pairs with から / まで / ごろ for richer time questions" wrapped halfway while HOW TO USE / EXPLANATION below ran full-width. Moved the subtitle out of .pattern-header so it spans the same width as the sections below it. CSS margins adjusted so the title-subtitle pair stays visually tight.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.37';  // bumped 2026-05-31 — subtitle full-width fix: the subtitle (.meaning-en on grammar pages, .vocab-gloss-big on vocab pages) was nested inside the .pattern-header flex container, where it got wrap-constrained to the title-cell width — long subtitles like the いつ pattern's "When - pairs with から / まで / ごろ for richer time questions" wrapped halfway while HOW TO USE / EXPLANATION below ran full-width. Moved the subtitle out of .pattern-header so it spans the same width as the sections below it. CSS margins adjusted so the title-subtitle pair stays visually tight.
 
 const PRECACHE = [
   './',

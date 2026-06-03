@@ -99,6 +99,25 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.37 - 2026-05-31 (grammar content quality: clearer cross-references, honest wrong/correct pairs)</h2>
+<h3>Changed (grammar pattern content - native-review prep + native pass)</h3>
+<ul>
+<li><strong>Cross-reference links show the concept, not a code.</strong> The &quot;Also see&quot; /</li>
+</ul>
+<p>&quot;Same kana, different meaning&quot; links and in-text references that used to print an internal pattern id (e.g. <em>&quot;n5-039&quot;</em>) now show the pattern&#x27;s name (e.g. <em>これ / それ / あれ / どれ</em>). Affects the SPA and all static grammar mirrors.</p>
+<ul>
+<li><strong>Wrong/correct examples no longer mark correct Japanese as wrong.</strong> A</li>
+</ul>
+<p>native-speaker pass over every ✗/✓ pair found cases where the struck (&quot;wrong&quot;) sentence was itself correct - e.g. <em>あした 雨でしょう</em> (でしょう is valid), and ね / よ / よね, から / ので, だろう / でしょう contrasts. These are now shown as register / intent variants (both correct); rows whose &quot;correct&quot; field merely admitted the wrong form was fine were rewritten to carry a genuine error. The false <em>&quot;よ, not both&quot;</em> note was removed (よ and ね do co-occur, as よね).</p>
+<ul>
+<li><strong>Tidier explanations.</strong> Removed unfilled <em>&quot;vs ?:&quot;</em> contrast placeholders,</li>
+</ul>
+<p>de-jargoned ALL-CAPS notation, softened over-stated register claims (<em>&quot;most-used&quot;</em> → <em>&quot;very common&quot;</em>), de-duplicated the cultural note that had appeared twice per pattern, and varied a few repeated example sentences.</p>
+<ul>
+<li><strong>が vs は</strong> comparisons now note that 〜が is correct under a focus (&quot;who?&quot;)</li>
+</ul>
+<p>reading, rather than flatly marking it wrong.</p>
+<p>All authored Japanese reframes are tagged for native-reviewer confirmation. New CI guards JA-174..177 prevent regressions of these classes (raw ids, <em>&quot;vs ?:&quot;</em> placeholders, duplicate examples, <em>&quot;already correct&quot;</em> admissions).</p>
 <h2>v1.17.36 - 2026-05-31 (grammar + vocab detail: subtitle now spans full content width, matching sections below)</h2>
 <h3>Changed</h3>
 <ul>

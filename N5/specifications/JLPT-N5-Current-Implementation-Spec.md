@@ -804,9 +804,11 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-171 at the 2026-05-29 checkpoint — 173 invariants
+(JA-1 through JA-177 at the 2026-05-31 checkpoint — 179 invariants
 total; JA-170 = static-mirror app-header-presence guard, JA-171 = object-request
-grammar-example-label content match (both 2026-05-29), see AUDIT-COVERAGE
+grammar-example-label content match (both 2026-05-29), JA-172 = static-mirror
+footer-presence guard (2026-05-30), JA-174..177 = grammar content-quality
+guards (2026-05-31, see §25.8 and AUDIT-COVERAGE Part 63), see AUDIT-COVERAGE
 Parts 60-61; `tools/check_content_integrity.py` is the authoritative current
 set and may carry rows newer than this reference's prose; gaps for
 retired / reserved slots — JA-42..46
@@ -1143,10 +1145,15 @@ Cross-reference table:
 | JA-142 | MOJI-005 (BUG-143) | 2 questions had `rationale_hi` with over-literal Hindi rendering `के पास है पढ़ते हुए` (word-by-word "has reading"). Same defect class as DOKKAI-002 (`एक महीना ago`) / DOKKAI-004 (`आना-जाना by ट्रेन`) / PAPER-004 (`यहाँre` / `o'घड़ी` etc.) — translation pattern leak where English construction has no direct Hindi cognate. JA-142 is the substring guard; corpus-wide fix pattern is `X का पठन Y है`. |
 | JA-143 | MOJI-006 (BUG-144) + 4 same-class follow-ups | `moji-7.2` rationale_hi truncated 250c vs EN 343c — dropped the EN conclusion "for N5 the 立 form is the only correct match." Content-coverage parity, not translation-quality. After wiring JA-143, 4 more pre-existing instances surfaced (goi-7.9 / moji-1.6 / moji-4.10 / moji-6.3); all extended in the same batch. JA-143 guards against future truncation: rationale_hi must be within 0.6×–2.0× of rationale length. |
 | JA-144 | DOCS-KANJI-004 (BUG-150) | `n5_kanji_whitelist.exceptions.md` REVIEW_DATE field had no documented format; downstream parsing risk. JA-144 enforces ISO 8601 (YYYY-MM-DD); skips template values inside HTML comments. Pre-activated at 0 live entries; first real exception entry must comply. Pattern: regex-validate format on optional fields in governance docs to prevent downstream parsing fragility. |
+| JA-174 | BUG-246 (C8) | Raw internal pattern ids `n5-NNN` leaked into learner-facing prose (essay / explanation / common_mistakes / wrong_corrected_pair / example text) on 119 patterns across 234 fields, so a learner saw "see n5-039" instead of the concept name; humanized to pattern names. `_alias_of` / `_homonym_of` keys and audio paths excluded. Client-side sibling BUG-244 fixed the "Also see" / "Same kana" cross-reference badge label render (UI-only, no content-integrity invariant). |
+| JA-175 | BUG-247 (C1) | `essay.contrasts` on one pattern still carried the unfilled `"vs ?:"` authoring-template placeholder; guard forbids the literal residue corpus-wide. |
+| JA-176 | BUG-249 (C5) | Identical `ja` example sentences repeated within a single pattern (copy-paste during example authoring); guard forbids intra-pattern duplicate example text. |
+| JA-177 | BUG-247 (false-negative, malformed sub-class) | wrong/correct pairs (`common_mistakes` + `wrong_corrected_pair`) whose `correct` / `right` field admitted the struck "wrong" form was itself valid ("already correct" / "IS valid" / "(correct)"). Native review of 1,027 pairs found 29 entries across 18 patterns where the struck sentence was correct, natural Japanese, teaching learners to avoid valid forms (e.g. n5-158 でしょう, n5-025 ね, n5-026 よ, the false "よ, not both" rule). Reframed: valid forms became register / intent variants; malformed rows became genuine errors; が/は got a focus ("who?") note. Only the malformed sub-class is structurally auto-detectable (JA-177); the broad class "struck sentence is actually valid Japanese" stays native-judgment. Same false-negative family as BUG-246's misleading それから contrast. All authored reframes tagged `needs_native_review`. |
+| JA-127 family (reused; no new invariant) | BUG-245 (C4) | A single `common_mistakes[0]` struck a grammatical sentence and placed its explanation in the `correct` field; reclassified to `register_variant` (1 of 522 entries scanned, isolated). Covered by the existing JA-127 register-variant-schema family. |
 
-For the full bug-class lineage (BUG-001 through BUG-145) and the
+For the full bug-class lineage (BUG-001 through BUG-252) and the
 authoring rules that prevent recurrence, see Appendix F (sections
-F.15 through F.24) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+F.15 through F.49) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
 BUG-049 (pacing too slow on 26/50 listening items) stays Open
 this batch; needs audio re-render at VOICEVOX speed_scale ~1.3.
 
