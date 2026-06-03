@@ -6300,3 +6300,10 @@ JA-170/JA-172 are the sibling parity invariants for the
 same "builder-alone strip" pattern class).
 ============================================================
 
+
+=== FP classes added 2026-05-31 (native-review-prep) ===
+FP-A: "never use X" / "always Y" hard grammar rules are CORRECT, not register overstatements - do not soften (e.g. "never use でした with i-adjectives", "Japanese always uses a counter").
+FP-B: comparison-pattern examples that share an end-clause (X と Y と、どちらが ...ですか) are INHERENT to the pattern, not duplicates - do not flag as repetitive.
+FP-C: formation-formula notation ("Noun + を + ください") is clear pedagogy, not fragmented English - do not rewrite into prose.
+FP-D: audio-path ids (audio/grammar/n5-NNN.N.mp3) and _alias_of / _homonym_of ref fields legitimately carry n5-NNN ids and are NOT learner-facing - exclude from any "raw id in prose" check.
+CI invariants added this checkpoint: JA-174 (no raw id in grammar prose), JA-175 (no "vs ?:" placeholder), JA-176 (no identical-ja duplicate examples).

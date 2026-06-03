@@ -235,3 +235,21 @@ out of scope for BUG-243.
   the JA-173 regression-block.
 - **Procedure manual** (class 8): appendix F.48 (HOW-TO-USE-strip
   retrospective + the three-strikes pattern).
+
+## Part 63 - N5 grammar native-review-prep content cleanup (added 2026-05-31)
+
+First-pass cleanup of 9 mechanical issue-classes across all 178 grammar patterns ahead of native review (calibrated on n5-121, then horizontal-deployed). Bounded by the detectors named per class, against this corpus snapshot.
+
+Instance counts found / fixed (data-agnostic detectors):
+- C8 raw n5-NNN ids in prose: ~119 patterns / 234+ fields stripped (residual 0). Guard JA-174.
+- C9 duplicate cultural note (two fields): 174/178 - render-level de-dup (generator + SPA renderer), not data edits.
+- C1 fragmented English: 30 broken "vs ?:" placeholders stripped + 35 ALL-CAPS POS jargon de-jargoned. Guard JA-175.
+- C3 overstated register: 17 superlatives softened; correct hard grammar rules LEFT intact (false positives).
+- C5 repetitive examples: 7 genuine near-identical duplicates replaced; inherent comparison repetition left. Guard JA-176.
+- C6 bilingual labels: 4 sections chipped (誤用/丁寧さ/出典/文化) in generator + renderer.
+- C4 false contrast: 1 (n5-121, isolated) -> register_variant. C7 force-fit ladder: 1 (n5-121, isolated).
+- C2 inconsistent translations: addressed on n5-121 (calibration); corpus-wide pass deferred to native review.
+
+Deliverable: N5/docs/grammar-review/N5-grammar-178-patterns-for-native-review.docx (one pattern per page, audio dropped, incorrect forms struck, reviewer-notes box, 0 rendered ids).
+
+Provisional / future native-human review: all maintainer-authored JP/English (rewrites, new examples, trimmed ladders, chip labels) is tagged for native confirmation. Registered BUG-245..253. CI guards JA-174/175/176 added (CI at this checkpoint: 178 invariants).
