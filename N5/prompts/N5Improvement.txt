@@ -4514,3 +4514,10 @@ in Section 2. Section 0 must be derivable from Section 2 + 3 + 4.
 === Section-10 anti-items + Phase-0 checks added 2026-05-31 (native-review-prep) ===
 Anti-items (do NOT introduce): raw n5-NNN ids in learner-facing prose; unfilled "vs ?:" contrast placeholders; ALL-CAPS POS jargon tokens in explanation prose; superlative register overstatements ("most-used", "Don't overuse"); identical duplicate example sentences; cultural note duplicated across essay.cultural_context AND cultural_callout.note; force-fit politeness ladder where humble == respectful.
 Phase-0 regression checks (must return 0 against the current corpus): JA-174 (no raw id in grammar prose), JA-175 (no "vs ?:"), JA-176 (no identical-ja duplicate examples). Leave correct hard rules ("never use ...", "always ...") and inherent comparison-example repetition UNTOUCHED.
+
+## Section 10 anti-item (added 2026-05-31, BUG-247): false-negative wrong/correct pairs
+Do NOT mark correct, natural Japanese as the ✗ in a wrong/correct pair. Phase-0 check:
+scan grammar.json wrong_corrected_pair/common_mistakes 'correct'/'right' for
+'already correct' / 'IS valid' / '(correct)' -> must return 0 (locked by JA-177).
+Particle (ね/よ/よね), register (だろう/でしょう, から/ので) and focus (が/は) contrasts belong
+in register_variant or a usage note, never as a ✗/✓ pair.

@@ -6307,3 +6307,15 @@ FP-B: comparison-pattern examples that share an end-clause (X と Y と、どち
 FP-C: formation-formula notation ("Noun + を + ください") is clear pedagogy, not fragmented English - do not rewrite into prose.
 FP-D: audio-path ids (audio/grammar/n5-NNN.N.mp3) and _alias_of / _homonym_of ref fields legitimately carry n5-NNN ids and are NOT learner-facing - exclude from any "raw id in prose" check.
 CI invariants added this checkpoint: JA-174 (no raw id in grammar prose), JA-175 (no "vs ?:" placeholder), JA-176 (no identical-ja duplicate examples).
+
+================================================================================
+FALSE-NEGATIVE AUDIT (added 2026-05-31, BUG-247)
+================================================================================
+When reviewing wrong/correct (✗/✓) pairs, flag FALSE NEGATIVES: the ✗ sentence is
+itself correct, natural Japanese. Sub-classes: register/politeness swaps (だろう/でしょう,
+から/ので); sentence-final-particle intent swaps (ね/よ/よね - they co-occur, never "not
+both"); pragmatic/cultural mislabeled as grammar (じょうず); unrelated data-pairing;
+malformed "already correct" admissions (CI JA-177); が/は focus reading.
+FIX: reclassify valid pairs to register_variant; reframe malformed to a genuine error;
+add a focus note for が/は; never strike valid Japanese. Only the malformed sub-class is
+auto-detectable (JA-177); the rest are native-judgment.

@@ -253,3 +253,14 @@ Instance counts found / fixed (data-agnostic detectors):
 Deliverable: N5/docs/grammar-review/N5-grammar-178-patterns-for-native-review.docx (one pattern per page, audio dropped, incorrect forms struck, reviewer-notes box, 0 rendered ids).
 
 Provisional / future native-human review: all maintainer-authored JP/English (rewrites, new examples, trimmed ladders, chip labels) is tagged for native confirmation. Registered BUG-245..253. CI guards JA-174/175/176 added (CI at this checkpoint: 178 invariants).
+
+---
+
+## Part 63 - Native-review false-negatives (BUG-247, added 2026-05-31)
+
+A native pass over all 1,027 wrong/correct grammar pairs flagged false negatives
+(correct Japanese marked wrong): 4 CRITICAL + 5 HIGH + 13 MALFORMED + the が/は focus
+class. All 29 reframed - valid forms to register/intent variants; malformed to genuine
+errors; が/は focus note - tagged needs_native_review. The malformed sub-class is locked
+by JA-177; the broad class (struck sentence actually valid) is native-judgment, not
+auto-guardable. Methodology: procedure manual F.49.
