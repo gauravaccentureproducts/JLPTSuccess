@@ -1575,6 +1575,9 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-171", "object-request grammar example labels (<physical-object>-request/-order) name an object present in translation_en - blocks copy-paste form-label leaks like n5-149 'water-request' on a pen sentence (2026-05-29)", lambda: _check_ja_171_object_request_label_content_match()),
     ("JA-172", "every static SEO mirror carries the site app-footer (footer menu) - companion to JA-170 (header); blocks the build_static_mirrors-run-alone footer-strip regression (2026-05-30)", lambda: _check_ja_172_mirror_app_footer_present()),
     ("JA-173", "every grammar pattern's static mirror at learn/<id>/index.html renders the rich HOW TO USE / 使い方 section that matches the SPA - includes pattern-usage section + each form_rules.conjugations[].example token verbatim; blocks the build_static_mirrors-run-alone howto-strip regression that caused BUG-203 (n5-017 HOW TO USE rendered as just 'Attaches to: question_word', 2026-05-31)", lambda: _check_ja_173_grammar_mirror_howto_parity()),
+    ("JA-174", "grammar.json learner-facing prose (essay/explanation/mistake/wcp/example text) free of raw internal pattern ids n5-NNN; _alias_of/_homonym_of + audio paths excluded (BUG-246 C8 guard, 2026-05-31)", lambda: _check_ja_174_no_raw_pattern_id_in_grammar_prose()),
+    ("JA-175", "grammar.json essay.contrasts free of unfilled 'vs ?:' contrast placeholder (BUG-247 C1 guard, 2026-05-31)", lambda: _check_ja_175_no_broken_contrast_placeholder()),
+    ("JA-176", "grammar.json: no identical-ja duplicate example sentences within a pattern (BUG-249 C5 guard, 2026-05-31)", lambda: _check_ja_176_no_identical_duplicate_examples()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -9710,6 +9713,87 @@ def _check_ja_150_vocab_example_kanji_whitelist() -> list[str]:
                     f"non-whitelist kanji {sorted(offending)} — text: {ja[:80]!r}"
                 )
     return failures
+
+
+def _check_ja_174_no_raw_pattern_id_in_grammar_prose() -> list:
+    """BUG-246 (C8): learner-facing grammar prose must not expose raw internal
+    pattern ids (n5-NNN). _alias_of/_homonym_of ref fields and audio paths
+    legitimately carry ids and are excluded."""
+    import re as _re
+    failures = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-174 could not read grammar.json: %s" % e]
+    pats = g if isinstance(g, list) else (g.get("patterns") or [])
+    rx = _re.compile(r"n5-\d{3}")
+    def chk(pid, where, val):
+        if isinstance(val, str) and rx.search(val):
+            failures.append("JA-174 %s %s exposes raw pattern id: %r" % (pid, where, val[:60]))
+    for p in pats:
+        if not isinstance(p, dict):
+            continue
+        pid = p.get("id")
+        for f in ("explanation_en", "meaning_en", "notes"):
+            chk(pid, f, p.get(f))
+        e = p.get("essay") or {}
+        for f in ("intro", "why_it_matters", "common_pitfalls", "contrasts", "closing_practice_tip", "cultural_context"):
+            chk(pid, "essay." + f, e.get(f))
+        chk(pid, "cultural_callout.note", (p.get("cultural_callout") or {}).get("note"))
+        for m in (p.get("common_mistakes") or []):
+            for k in ("wrong", "right", "why", "form_a", "form_b"):
+                chk(pid, "common_mistakes." + k, m.get(k))
+        for m in (p.get("wrong_corrected_pair") or []):
+            for k in ("wrong", "correct", "why"):
+                chk(pid, "wrong_corrected_pair." + k, m.get(k))
+        for ex in (p.get("examples") or []):
+            for k in ("ja", "translation_en"):
+                chk(pid, "examples." + k, ex.get(k))
+    return failures
+
+
+def _check_ja_175_no_broken_contrast_placeholder() -> list:
+    """BUG-247 (C1): essay.contrasts must not contain an unfilled 'vs ?:'
+    placeholder (template target never substituted)."""
+    import re as _re
+    failures = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-175 could not read grammar.json: %s" % e]
+    pats = g if isinstance(g, list) else (g.get("patterns") or [])
+    rx = _re.compile(r"vs\s*[?\uff1f]\s*:")
+    for p in pats:
+        if not isinstance(p, dict):
+            continue
+        v = (p.get("essay") or {}).get("contrasts")
+        if isinstance(v, str) and rx.search(v):
+            failures.append("JA-175 %s essay.contrasts has unfilled 'vs ?:' placeholder" % p.get("id"))
+    return failures
+
+
+def _check_ja_176_no_identical_duplicate_examples() -> list:
+    """BUG-249 (C5): a pattern must not carry two example sentences with identical
+    `ja` text. Varied sentences that merely share a clause are fine."""
+    failures = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-176 could not read grammar.json: %s" % e]
+    pats = g if isinstance(g, list) else (g.get("patterns") or [])
+    for p in pats:
+        if not isinstance(p, dict):
+            continue
+        jas = [ex.get("ja") for ex in (p.get("examples") or []) if ex.get("ja")]
+        seen = set(); dups = set()
+        for j in jas:
+            if j in seen:
+                dups.add(j)
+            seen.add(j)
+        if dups:
+            failures.append("JA-176 %s has identical duplicate example(s): %s" % (p.get("id"), list(dups)[:2]))
+    return failures
+
 
 
 def main(argv: list[str] | None = None) -> int:
