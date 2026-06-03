@@ -147,6 +147,7 @@ def para(doc, *, space_before=2, space_after=2):
 def title(doc, text):
     p = para(doc, space_before=0, space_after=2)
     run(p, text, bold=True, size=22, color=HEAD_DARK)
+    return p
 
 
 def subtitle(doc, text):
@@ -190,12 +191,72 @@ def reviewer_box(doc):
     cell.paragraphs[0].paragraph_format.space_after = Pt(6)
 
 
+# --- clickable Table of Contents: bookmarks + internal hyperlinks ---
+_BM_ID = [1000]
+
+def _bookmark(paragraph, name):
+    """Wrap a paragraph in a Word bookmark so TOC links can jump to it."""
+    bid = str(_BM_ID[0]); _BM_ID[0] += 1
+    start = OxmlElement('w:bookmarkStart'); start.set(qn('w:id'), bid); start.set(qn('w:name'), name)
+    end = OxmlElement('w:bookmarkEnd'); end.set(qn('w:id'), bid)
+    pPr = paragraph._p.find(qn('w:pPr'))
+    if pPr is not None:
+        pPr.addnext(start)
+    else:
+        paragraph._p.insert(0, start)
+    paragraph._p.append(end)
+
+
+def _toc_link(paragraph, anchor, text):
+    """Append a clickable internal hyperlink that jumps to bookmark `anchor`."""
+    h = OxmlElement('w:hyperlink'); h.set(qn('w:anchor'), anchor)
+    r = OxmlElement('w:r')
+    rPr = OxmlElement('w:rPr')
+    rf = OxmlElement('w:rFonts')
+    rf.set(qn('w:ascii'), LATIN); rf.set(qn('w:hAnsi'), LATIN); rf.set(qn('w:eastAsia'), CJK)
+    rPr.append(rf)
+    col = OxmlElement('w:color'); col.set(qn('w:val'), '0563C1'); rPr.append(col)
+    u = OxmlElement('w:u'); u.set(qn('w:val'), 'single'); rPr.append(u)
+    r.append(rPr)
+    t = OxmlElement('w:t'); t.set(qn('xml:space'), 'preserve'); t.text = text
+    r.append(t); h.append(r)
+    paragraph._p.append(h)
+
+
+def build_toc(doc, pats, L):
+    """Front Contents page: a clickable link to every pattern, grouped by category."""
+    h = para(doc, space_before=0, space_after=4)
+    run(h, "Contents", bold=True, size=20, color=HEAD_DARK)
+    intro = para(doc, space_after=10)
+    run(intro, "%d N5 grammar patterns - click any entry to jump to that pattern." % len(pats),
+        italic=True, size=10, color=MUTED)
+    buckets = {sc: [] for sc, _ in GRAMMAR_SUPERCATS}
+    for p in pats:
+        buckets[supercat_for(p)].append(p)
+    n = 0
+    for sc, _ in GRAMMAR_SUPERCATS:
+        group = buckets.get(sc) or []
+        if not group:
+            continue
+        ch = para(doc, space_before=8, space_after=2)
+        run(ch, sc, bold=True, size=12, color=HEAD_DARK)
+        for p in group:
+            n += 1
+            line = para(doc, space_before=0, space_after=1)
+            _toc_link(line, 'pat_' + p.get('id', '').replace('-', '_'),
+                      "%d.  %s" % (n, p.get('pattern', '')))
+            if p.get('meaning_en'):
+                run(line, "  -  " + p['meaning_en'], size=9, color=MUTED)
+    doc.add_page_break()
+
+
 # --- per-pattern render (mirror of renderGrammarPatternDetail, EN locale) ---
 def render_pattern(doc, p, L, first):
     if not first:
         doc.add_page_break()
 
-    title(doc, p.get('pattern', ''))
+    tp = title(doc, p.get('pattern', ''))
+    _bookmark(tp, 'pat_' + p.get('id', '').replace('-', '_'))
     subtitle(doc, p.get('meaning_en', ''))
 
     # HOW TO USE — only if >=2 attach points OR >=2 conjugations (renderer gate)
@@ -379,6 +440,9 @@ def main():
     _rfonts.set(qn('w:ascii'), LATIN)
     _rfonts.set(qn('w:hAnsi'), LATIN)
     _rfonts.set(qn('w:eastAsia'), CJK)
+
+    if arg == 'all':
+        build_toc(doc, pats, L)
 
     for i, p in enumerate(pats):
         render_pattern(doc, p, L, first=(i == 0))
