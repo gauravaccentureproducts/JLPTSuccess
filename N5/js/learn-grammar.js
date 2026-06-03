@@ -607,7 +607,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   const ladder = (p.politeness_ladder && typeof p.politeness_ladder === 'object') ? p.politeness_ladder : null;
   const ladderHtml = ladder ? `
     <section class="politeness-ladder">
-      <h3 class="section-title">${esc(t('grammar_detail.ladder_section'))}</h3>
+      <div class="pattern-usage-header"><h3 class="section-title">${esc(t('grammar_detail.ladder_section'))}</h3><span class="pattern-usage-chip" lang="ja">丁寧さ</span></div>
       <table class="ladder-table">
         <tbody>
           ${['casual','polite','humble','respectful'].map(tier => {
@@ -642,7 +642,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   const pdRefs = Array.isArray(p.public_domain_refs) ? p.public_domain_refs : [];
   const pdRefsHtml = pdRefs.length ? `
     <section class="pd-refs">
-      <h3 class="section-title">Public-domain references</h3>
+      <div class="pattern-usage-header"><h3 class="section-title">Public-domain references</h3><span class="pattern-usage-chip" lang="ja">出典</span></div>
       <ul class="pd-refs-list">
         ${pdRefs.map(r => {
           const source = esc(r.source_type || '?');
@@ -765,7 +765,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
             ${item(t('grammar_detail.deep_dive_pitfalls'), essay.common_pitfalls)}
             ${item(t('grammar_detail.deep_dive_contrasts'), essay.contrasts)}
             ${item(t('grammar_detail.deep_dive_practice'), essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
-            ${item('Cultural / usage context', essay.cultural_context)}
+            ${'' /* C9 (2026-05-31): essay.cultural_context not rendered - duplicates the dedicated Cultural usage note section (render-level de-dup) */}
           </section>
         `;
       })()}
@@ -803,7 +803,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
 
       ${wcp.length ? `
         <section class="wrong-corrected-pair">
-          <h3 class="section-title">${esc(t('grammar_detail.wcp_section'))} (${wcp.length})</h3>
+          <div class="pattern-usage-header"><h3 class="section-title">${esc(t('grammar_detail.wcp_section'))} (${wcp.length})</h3><span class="pattern-usage-chip" lang="ja">誤用</span></div>
           <ul class="wcp-list">${wcpItems}</ul>
         </section>
       ` : ''}
@@ -821,7 +821,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
              callout — when/why a learner picks this pattern in real
              Japanese situations (business / classroom / casual / etc.). -->
         <section class="grammar-cultural-callout">
-          <h3 class="section-title">Cultural usage note</h3>
+          <div class="pattern-usage-header"><h3 class="section-title">Cultural usage note</h3><span class="pattern-usage-chip" lang="ja">文化</span></div>
           <p>${esc(p.cultural_callout.note || '')}</p>
           ${Array.isArray(p.cultural_callout.contexts) && p.cultural_callout.contexts.length ? `
             <p class="muted small">
