@@ -51406,12 +51406,16 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "シャワーを あびました。そして、ねました。",
-          "right": "シャワーを あびました。それから、ねました。",
-          "why": "それから = EXPLICIT TEMPORAL ('after that, then'). そして is neutral conjunction. For 'shower, then sleep' (clear time sequence), use それから. そして would feel softer/list-like.",
+          "why": "そして (and) and それから (after that, then) are both natural here. それから slightly emphasises the time order; そして is more neutral addition.",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "Sequential (general)",
+          "form_a": "シャワーを あびました。そして、ねました。",
+          "label_b": "Sequential (then / after that)",
+          "form_b": "シャワーを あびました。それから、ねました。",
+          "provenance_note": "Reframed 2026-05-31 (BUG-246 sibling): previous wrong/correct pair struck a grammatical sentence whose connector is actually valid; converted to a register/nuance variant (both forms correct). Pending native confirmation."
         },
         {
           "wrong": "シャワーを あびて、それから ねました。",
@@ -56698,12 +56702,16 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "あたまが いたいから、休みます。",
-          "right": "あたまが いたいので、休みます。",
-          "why": "ので is the SOFTER causal connector (more polite/objective). から is more direct/subjective and can sound blunt in formal or customer-facing contexts. For requesting time off due to illness, ので is the appropriate register. Pattern: [reason]ので、[result]. Note: な-adjectives need な before ので (静かなので), and nouns need な (学生なので).",
+          "why": "から and ので both mean 'because' and are both correct. ので sounds softer and more polite (formal / customer-facing contexts); から is more direct.",
           "category": "register",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "needs_native_review",
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "Casual / direct",
+          "form_a": "あたまが いたいから、休みます。",
+          "label_b": "Softer / polite",
+          "form_b": "あたまが いたいので、休みます。",
+          "provenance_note": "Reframed 2026-05-31 (BUG-246 sibling): previous wrong/correct pair struck a grammatical sentence whose connector is actually valid; converted to a register/nuance variant (both forms correct). Pending native confirmation."
         },
         {
           "wrong": "あたまが いたいから ので、休みます。",
