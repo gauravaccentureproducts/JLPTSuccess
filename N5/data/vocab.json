@@ -2979,7 +2979,15 @@
         "学生の カード",
         "学生りょう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Older students — typically university / college / high-school age",
+          "gloss": "学生 (がくせい) usually refers to STUDENTS in higher education — university, college, sometimes high school. For elementary or junior-high schoolchildren, the more usual word is せいと (生徒).",
+          "context": "English 'student' covers both, but Japanese typically reserves 学生 for the older end. Example: 「大学の 学生です」 = 'I'm a university student.' For a primary-schooler, prefer せいと or 小学生 (しょうがくせい)."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.3-people-roles.せいと",
@@ -3052,7 +3060,15 @@
         "せいとが いる",
         "せいとは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Younger students / pupils — typically elementary, junior-high, or high school",
+          "gloss": "せいと (生徒) refers to pupils in compulsory education and high school. For university and college, use 学生 (がくせい).",
+          "context": "Example: 「中学校の せいとです」 = 'I'm a junior-high-school pupil.' English 'student' translates to both 学生 and せいと depending on level."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.3-people-roles.先生",
@@ -3525,7 +3541,15 @@
         "けいかんが いる",
         "けいかんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Formal / descriptive — 'police officer'",
+          "gloss": "けいかん (警官) is the formal / written / news-register word for a police officer. Direct address or warm reference uses おまわりさん.",
+          "context": "けいかん appears in news, official documents, signage. To call out to or warmly refer to an officer (especially in conversation with children), use おまわりさん."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.3-people-roles.おまわりさん",
@@ -3592,7 +3616,15 @@
         "おまわりさんが いる",
         "おまわりさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Warm / child-friendly / direct-address — 'the (friendly) police officer'",
+          "gloss": "おまわりさん is the everyday / child-friendly form for a police officer. Built from まわる ('to go around', as in patrolling) + the お…さん honorific frame.",
+          "context": "Used when speaking to children about police, when directly addressing an officer, or in friendly conversational reference. For formal / written register, use けいかん (警官)."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.3-people-roles.りゅうがくせい",
@@ -3743,7 +3775,15 @@
         "外国人が いる",
         "外国人は やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Pragmatic caution — 'foreigner' can sound exclusionary in direct address",
+          "gloss": "外国人 (がいこくじん) literally means 'foreign-country person'. The word is accurate but in direct address it can feel othering — many residents of Japan find it cold when applied to them personally.",
+          "context": "For a more neutral / friendly tone: 海外から 来た方 (かいがいから きた かた) = 'a person from overseas', or just refer to the person by name + さん / nationality (アメリカ人 / フランス人). Used naturally in news, statistics, or general statements about non-Japanese people."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.4-body-parts.からだ",
@@ -4497,7 +4537,15 @@
         "あしを ひらく",
         "あしが きれい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "'Leg' AND 'foot' — Japanese 足 covers both",
+          "gloss": "Japanese 足 (あし) covers the entire lower limb — both 'leg' and 'foot'. English splits these; Japanese usually doesn't, unless you need to be specific.",
+          "context": "Examples: 「足が ながい」 = 'long legs'. 「足が いたい」 = 'my foot hurts' OR 'my leg hurts' — depending context. For 'foot specifically (sole)' you can say 足首 (あしくび, 'ankle') or 足の うら (sole) — N4+ vocabulary."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.4-body-parts.おなか",
@@ -4639,7 +4687,15 @@
         "せを ひらく",
         "せが きれい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two meanings — 'back (of body)' AND 'height (stature)'",
+          "gloss": "せ (背) covers both 'back' (the body part) and 'height / stature' (how tall someone is).",
+          "context": "Examples: 「せが いたい」 = 'My back hurts.' 「せが たかい」 = 'They are tall' (literally: 'their stature is high'). Context disambiguates: pairs with verbs/adjectives of body sensation (痛い, ぶつける) → back; pairs with 高い / 低い → height."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.5-demonstratives.これ",
@@ -7256,9 +7312,14 @@
           "function": "how-means",
           "gloss": "by what means",
           "context": "ambiguous — disambiguate with どうやって"
+        },
+        {
+          "function": "Two senses — 'why?' (most common) vs 'by what means?'",
+          "gloss": "何で (なんで) has two N5-level senses: (1) the casual 'why?' (synonymous with どうして / なぜ); (2) the literal 'by what means / by what method?'. Context disambiguates.",
+          "context": "Examples: 「何で 来ましたか」 — most often heard as 'Why did you come?' but literally could be 'By what means did you come?' (car/train/bus/etc.). 「何で 食べますか」 — 'Why do you eat?' OR 'With what do you eat?' (chopsticks/fork). For unambiguous 'why', prefer どうして. For unambiguous 'by what means', use なにで or その方法は? Note: なんで can also be more casual than どうして / なぜ."
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "llm_curated | native_review_2026_06_04 (batch G: section-level P1/P2 fixes)",
       "frequent_patterns": [
         "n5-017",
         "n5-039"
@@ -11333,7 +11394,15 @@
         "こんばんを まつ",
         "こんばんが おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "'Tonight' — the conversational default",
+          "gloss": "こんばん (今晩) is the everyday spoken word for 'tonight'. The greeting 「こんばんは」 ('good evening') is built from this word + the topic particle は.",
+          "context": "More formal / written alternative: こんや (今夜). Pair: 「こんばん 何を しますか」 = 'What are you doing tonight?'"
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.10-time-general.こんや",
@@ -11405,7 +11474,15 @@
         "こんやを まつ",
         "こんやが おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "'Tonight' — slightly more formal / written than こんばん",
+          "gloss": "こんや (今夜) and こんばん (今晩) both mean 'tonight', but こんや has a slightly more formal, written, or newscaster feel. Conversational everyday speech usually uses こんばん.",
+          "context": "Examples: 「こんばんは 寒いです」 (informal, spoken) = 'It's cold tonight.' 「こんやの ニュースで…」 (newscast / formal) = 'In tonight's news...'"
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.10-time-general.午前",
@@ -11889,7 +11966,15 @@
         "一日を まつ",
         "一日が おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two readings — ついたち (1st day of month) vs いちにち (one day / whole day)",
+          "gloss": "一日 has two readings with different meanings: ついたち = the 1st day of the month (a date); いちにち = one day or 'a whole day' (a duration).",
+          "context": "ついたち is irregular — the only date in the 1–10 sequence not formed by Sino-Japanese counting; etymologically from 月立ち (the start of the month). Examples: 「七月一日」(しちがつ ついたち) = July 1st. 「一日中」(いちにち じゅう) = 'all day long'. This entry covers the ついたち (1st-of-month) sense."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.一日.2",
@@ -11969,7 +12054,15 @@
         "一日を まつ",
         "一日が おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two readings — ついたち (1st day of month) vs いちにち (one day / whole day)",
+          "gloss": "一日 has two readings with different meanings: ついたち = the 1st day of the month (a date); いちにち = one day or 'a whole day' (a duration).",
+          "context": "ついたち is irregular — the only date in the 1–10 sequence not formed by Sino-Japanese counting; etymologically from 月立ち (the start of the month). Examples: 「七月一日」(しちがつ ついたち) = July 1st. 「一日中」(いちにち じゅう) = 'all day long'. This entry covers the いちにち (whole day) sense."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.二日",
@@ -17147,7 +17240,15 @@
         "おてあらいまで あるく",
         "おてあらいに つく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Polite — 'restroom / washroom' (literal: お-hand-wash)",
+          "gloss": "おてあらい (お手洗い) is the polite Japanese-style word for restroom. Slightly more euphemistic / refined than トイレ. Common on signage in restaurants, hotels, and businesses.",
+          "context": "Example: 「おてあらいは どこですか」 = 'Where is the restroom?' (polite). For everyday casual conversation, トイレ is also fine and very common."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.トイレ",
@@ -17213,7 +17314,15 @@
         "トイレを そうじする",
         "トイレの かぎ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Everyday — 'toilet / restroom' (loanword)",
+          "gloss": "トイレ (from English 'toilet') is the everyday, direct, very common word for toilet/restroom. More casual / direct than おてあらい (お手洗い).",
+          "context": "Example: 「トイレに 行きたいです」 = 'I want to go to the toilet.' Both トイレ and おてあらい are widely understood; choose by formality. In a fancy restaurant or business setting, おてあらい sounds more polished."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.おふろ",
@@ -17276,7 +17385,15 @@
         "おふろまで あるく",
         "おふろに つく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Bath — Japanese-style tub-soaking bath",
+          "gloss": "おふろ (お風呂) is a TUB-style bath. In Japanese homes, the tub is typically deep and used for soaking; you wash yourself OUTSIDE the tub first, then enter the clean water to soak.",
+          "context": "Example: 「おふろに 入ります」 = 'I take a bath' (literally 'enter the bath'). Note the verb — 入る (enter), not 取る (take). For a quick shower without soaking, use シャワー."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.げんかん",
@@ -30564,7 +30681,15 @@
         "白を みる",
         "やすい 白"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Noun form — pair with the い-adjective form '白い (しろい)'",
+          "gloss": "白 (しろ) is the NOUN form of the color (the color itself, as a concept). The corresponding い-adjective form is 白い (しろい) (describes a thing as being that color).",
+          "context": "Examples: 「白 (しろ)が すきです」 = 'I like 白 (しろ) (the color).' VS 「白い (しろい) ペン」 = 'a 白い (しろい) pen' (describing a pen). Use the noun when talking about the color itself; use the adjective when describing something's color."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.白い",
@@ -30628,7 +30753,15 @@
         "白い はな",
         "白い かみ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "い-adjective form — pair with the noun form '白 (しろ)'",
+          "gloss": "白い (しろい) is the い-ADJECTIVE form (describes a thing as being that color). The noun form (the color itself) is 白 (しろ).",
+          "context": "Examples: 「白い (しろい) はな」 = 'a 白い (しろい) flower' (describing a flower). VS 「白 (しろ)が すきです」 = 'I like 白 (しろ) (the color).' Use the adjective when describing; use the noun for the color concept."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.くろ",
@@ -30701,7 +30834,15 @@
         "くろを みる",
         "やすい くろ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Noun form — pair with the い-adjective form 'くろい (黒い)'",
+          "gloss": "くろ (黒) is the NOUN form of the color (the color itself, as a concept). The corresponding い-adjective form is くろい (黒い) (describes a thing as being that color).",
+          "context": "Examples: 「くろ (黒)が すきです」 = 'I like くろ (黒) (the color).' VS 「くろい (黒い) ペン」 = 'a くろい (黒い) pen' (describing a pen). Use the noun when talking about the color itself; use the adjective when describing something's color."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.くろい",
@@ -30765,7 +30906,15 @@
         "くろくて べんりだ",
         "くろく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "い-adjective form — pair with the noun form 'くろ (黒)'",
+          "gloss": "くろい (黒い) is the い-ADJECTIVE form (describes a thing as being that color). The noun form (the color itself) is くろ (黒).",
+          "context": "Examples: 「くろい (黒い) はな」 = 'a くろい (黒い) flower' (describing a flower). VS 「くろ (黒)が すきです」 = 'I like くろ (黒) (the color).' Use the adjective when describing; use the noun for the color concept."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.あか",
@@ -30838,7 +30987,15 @@
         "あかを みる",
         "やすい あか"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Noun form — pair with the い-adjective form 'あかい (赤い)'",
+          "gloss": "あか (赤) is the NOUN form of the color (the color itself, as a concept). The corresponding い-adjective form is あかい (赤い) (describes a thing as being that color).",
+          "context": "Examples: 「あか (赤)が すきです」 = 'I like あか (赤) (the color).' VS 「あかい (赤い) ペン」 = 'a あかい (赤い) pen' (describing a pen). Use the noun when talking about the color itself; use the adjective when describing something's color."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.あかい",
@@ -30897,7 +31054,15 @@
         "あかくて べんりだ",
         "あかく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "い-adjective form — pair with the noun form 'あか (赤)'",
+          "gloss": "あかい (赤い) is the い-ADJECTIVE form (describes a thing as being that color). The noun form (the color itself) is あか (赤).",
+          "context": "Examples: 「あかい (赤い) はな」 = 'a あかい (赤い) flower' (describing a flower). VS 「あか (赤)が すきです」 = 'I like あか (赤) (the color).' Use the adjective when describing; use the noun for the color concept."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.あお",
@@ -30968,7 +31133,15 @@
         "あおを みる",
         "やすい あお"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Noun form — pair with the い-adjective form 'あおい (青い)'",
+          "gloss": "あお (青) is the NOUN form of the color (the color itself, as a concept). The corresponding い-adjective form is あおい (青い) (describes a thing as being that color).",
+          "context": "Examples: 「あお (青)が すきです」 = 'I like あお (青) (the color).' VS 「あおい (青い) ペン」 = 'a あおい (青い) pen' (describing a pen). Use the noun when talking about the color itself; use the adjective when describing something's color."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.あおい",
@@ -31035,7 +31208,15 @@
         "あおくて べんりだ",
         "あおく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "い-adjective form — pair with the noun form 'あお (青)'",
+          "gloss": "あおい (青い) is the い-ADJECTIVE form (describes a thing as being that color). The noun form (the color itself) is あお (青).",
+          "context": "Examples: 「あおい (青い) はな」 = 'a あおい (青い) flower' (describing a flower). VS 「あお (青)が すきです」 = 'I like あお (青) (the color).' Use the adjective when describing; use the noun for the color concept."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.20-colors.きいろ",
@@ -35556,7 +35737,15 @@
         "ことばを ならう",
         "やさしい ことば"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Broad scope — 'word', 'language', or 'speech / what someone said'",
+          "gloss": "ことば covers a wide range: a single word, a language (Japanese, English), or 'what someone said / their speech'. For 'vocabulary item / lexical entry' specifically, the narrower word is たんご.",
+          "context": "Examples: 「日本語の ことば」 = 'a Japanese word' OR 'the Japanese language'. 「親切な ことば」 = 'kind words / kind speech'. For a vocabulary drill: 「たんごを おぼえる」 = 'memorize vocabulary'."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.じ",
@@ -35628,7 +35817,15 @@
         "じを まつ",
         "じが おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Generic 'character / letter' — covers all writing systems",
+          "gloss": "じ (字) is the broadest term for a written character: kanji, kana (hiragana/katakana), even Roman letters can be called じ in everyday speech. もじ (文字) is a near-synonym.",
+          "context": "Examples: 「じを 書きます」 = 'I write characters.' For a specific system, use the specific name: かんじ, ひらがな, カタカナ. Use じ when you don't need to specify."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.かんじ",
@@ -35694,7 +35891,15 @@
         "かんじを みる",
         "やすい かんじ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Chinese-origin characters — distinct from kana",
+          "gloss": "かんじ (漢字) are the Chinese-origin characters used in Japanese writing. Each kanji has both meaning and (typically multiple) readings. N5 covers ~100 kanji.",
+          "context": "Distinct from かな (the syllabic systems ひらがな / カタカナ). Example: 「漢字で 書きます」 = 'I'll write it in kanji.' On the JLPTSuccess kanji pages, each card shows the kanji's On/Kun readings, stroke order, and example words."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.かな",
@@ -35760,7 +35965,15 @@
         "行かなきゃ",
         "行かなくても"
       ],
-      "particle_examples_provenance": "auto_derived"
+      "particle_examples_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "Umbrella term — both ひらがな and カタカナ together",
+          "gloss": "かな is the umbrella term for the two Japanese syllabic systems: ひらがな (hiragana — rounded shapes, native words and grammatical particles) and カタカナ (katakana — angular shapes, loanwords and emphasis).",
+          "context": "Examples: 「かなで 書いてください」 = 'Please write in kana' (= either hiragana or katakana, not kanji). When you need to specify, use ひらがな or カタカナ directly."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.ひらがな",
@@ -35829,7 +36042,15 @@
         "ひらがなを みる",
         "やすい ひらがな"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Hiragana — rounded syllabic script for native Japanese words and grammar",
+          "gloss": "ひらがな is one of the two Japanese syllabaries (the other is カタカナ). 46 basic characters plus modifications. Used for native Japanese words, verb endings, particles, and as ruby (furigana) reading-hints above kanji.",
+          "context": "First script that N5 learners typically master. Distinct from カタカナ (used for loanwords) and かんじ (Chinese-origin meaning-characters)."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.カタカナ",
@@ -35897,7 +36118,15 @@
         "カタカナを みる",
         "やすい カタカナ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Katakana — angular syllabic script for loanwords, names, emphasis",
+          "gloss": "カタカナ is the other Japanese syllabary. Same sound system as ひらがな but with angular shapes. Used for: loanwords (コーヒー, テレビ), foreign names, scientific names, onomatopoeia, and stylistic emphasis.",
+          "context": "An N5 learner needs to recognize both syllabaries. Pair with ひらがな (native words) and かんじ (Chinese-origin characters) to make up the three writing systems used in Japanese."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.もじ",
@@ -35966,7 +36195,15 @@
         "もじを みる",
         "やすい もじ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Generic 'character / letter / script' — slightly more formal than じ",
+          "gloss": "もじ (文字) is a near-synonym of じ but feels slightly more formal / technical. Refers to written characters of any kind.",
+          "context": "Examples: 「もじを ならいます」 = 'learn to write characters.' On a computer: もじ is also used for 'character' in the encoding sense (e.g., 文字化け = mojibake / garbled characters)."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.24-school-and-study.ぶん",
@@ -40650,7 +40887,15 @@
         "はブラシを ひらく",
         "はブラシが きれい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Orthography note — usually written 歯ブラシ in modern Japanese",
+          "gloss": "はブラシ is the kana-headword form; in modern written Japanese this word is typically written as 歯ブラシ (kanji 歯 'tooth' + katakana ブラシ from English 'brush').",
+          "context": "Mixed kanji+katakana words like 歯ブラシ are common — the Japanese-origin part (歯) keeps its kanji, the loanword part (ブラシ) keeps its katakana. Recognize はブラシ in beginner kana-only texts; expect to see 歯ブラシ in real-world reading."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.タオル",
@@ -53706,7 +53951,15 @@
         "はやくて べんりだ",
         "はやく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two kanji, two meanings — 早い (early) vs 速い (fast)",
+          "gloss": "Same kana はやい, two different kanji: 早い means 'early' (time); 速い means 'fast' (speed). Context disambiguates when written in kana.",
+          "context": "Examples: 「あさが はやい」 = '(my) morning is early' (= I get up early). 「はやく はしる」 = 'run fast'. When writing, prefer the kanji to remove ambiguity. When reading, look at what's being modified: time-related → 早い; motion-related → 速い."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.31-adjectives.おそい",
@@ -54480,7 +54733,15 @@
         "やさしくて べんりだ",
         "やさしく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two kanji, two meanings — 易しい (easy) vs 優しい (kind/gentle)",
+          "gloss": "Same kana やさしい, two different kanji and meanings: 易しい = 'easy / simple'; 優しい = 'kind / gentle / considerate'. Context (modifying a person vs a task) usually disambiguates.",
+          "context": "Examples: 「やさしい もんだいです」 = 'It's an easy problem' (易しい). 「やさしい 人です」 = 'They are a kind person' (優しい). Same kana, very different meanings — when writing, prefer the kanji."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.31-adjectives.むずかしい",
@@ -55001,7 +55262,15 @@
         "からくて べんりだ",
         "からく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Primarily 'spicy / hot in taste' — occasionally 'salty' in some regions",
+          "gloss": "からい (辛い) primarily means 'spicy / hot' as in chili pepper, wasabi, mustard. In some regions and older usage it can also mean 'salty', but in modern standard Japanese 'salty' is しょっぱい.",
+          "context": "Examples: 「カレーは からい」 = 'Curry is spicy.' 「わさびが からい」 = 'Wasabi is hot/spicy.' For 'salty', prefer しょっぱい in modern usage. からい can also figuratively mean 'harsh' (e.g., harsh criticism = 辛い 評価)."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.31-adjectives.にがい",
@@ -55454,7 +55723,15 @@
         "いっしゅうかん くらい",
         "どれ くらい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Approximation suffix — interchangeable with ぐらい",
+          "gloss": "くらい / ぐらい are the same particle in two voiced/unvoiced forms. くらい is slightly more common phrase-initially and after vowel-final words; ぐらい is slightly more common after consonant-final words.",
+          "context": "Same examples as ぐらい — see that entry. Standard textbooks treat them as free variants for N5 purposes."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.31-adjectives.まるい",
@@ -55851,7 +56128,15 @@
         "休みが ほしい",
         "新しい ものが ほしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "い-adjective expressing desire — NOT a verb",
+          "gloss": "ほしい means 'want / desired' but is grammatically an い-adjective, not a verb. The thing wanted is marked with が (the grammatical subject), and the person wanting it is marked with は (the topic).",
+          "context": "Pattern: 「Xは Yが ほしいです」 = 'X wants Y' (literally: 'as for X, Y is desired'). Example: 「わたしは くるまが ほしいです」 = 'I want a car.' Note: ほしい is for objects/things. For 'want to DO an action', use the Vたい form: 「行きたいです」 = 'I want to go'."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.31-adjectives.ぬるい",
@@ -62244,7 +62529,15 @@
         "なんしか",
         "いつしか"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "ALWAYS pairs with a negative predicate — 'only / nothing but'",
+          "gloss": "しか is a restrictive particle that REQUIRES a negative predicate. Together they mean 'only X' with an implicit 'and not more'. Pattern: 「Xしか〜ない」.",
+          "context": "Examples: 「水しか のみません」 = 'I drink only water (and nothing else).' 「1000円しか ありません」 = 'I have only 1000 yen.' Note: the verb must be negative — you can't say 「水しか のみます」 (ungrammatical). Contrast with だけ (positive predicate OK): 「水だけ のみます」 = 'I drink only water.'"
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.35-particles-functional-.ごろ",
@@ -65911,7 +66204,15 @@
         "はやい シャワー",
         "シャワーから 出る"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Shower — quick rinse (loanword, often distinct from soaking-bath)",
+          "gloss": "シャワー (from English 'shower') is the quick standing rinse. In Japanese culture, this is often a separate practice from おふろ (the soaking bath) — you might シャワー in the morning and おふろ at night.",
+          "context": "Example: 「シャワーを 浴びます」 = 'I take a shower' (literally 'bathe in shower'). Verb collocate is 浴びる (あびる, 'bathe / be exposed to'), not 入る."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.マッチ",
@@ -70269,7 +70570,15 @@
         "おなか いっぱい",
         "ひとが いっぱい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Two senses — 'full' (container) vs 'a lot' (quantity)",
+          "gloss": "いっぱい covers both 'full / brimming' (a glass is いっぱい of water) AND 'a lot / many' (today there are いっぱい of people).",
+          "context": "Examples: 「コップに 水が いっぱい あります」 = 'The cup is full of water.' 「公園に 人が いっぱい います」 = 'There are a lot of people in the park.' Context (specific container vs general scene) disambiguates."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おくれる",
@@ -70963,7 +71272,15 @@
         "ただ おねがいします",
         "ただ こたえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Multiple senses — 'just / only / merely', 'free of charge', 'however / but'",
+          "gloss": "ただ has several meanings: (1) 'only / merely / just' — limits or restricts; (2) 'free of charge' — no cost; (3) 'however / but' — adversative connector at sentence start.",
+          "context": "Examples: 「ただの 学生です」 = 'I'm just a student.' 「ただで もらいました」 = 'I got it for free.' 「行きたいです。ただ、時間が ありません」 = 'I want to go. However, I don't have time.' Context disambiguates."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ためる",
@@ -71112,7 +71429,15 @@
         "たんごを みる",
         "やすい たんご"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Narrow scope — 'vocabulary item / individual word as a lexical entry'",
+          "gloss": "たんご (単語) means 'word' as an entry in a dictionary or vocabulary list — the unit you drill, memorize, or look up. ことば is the broader term covering language / speech / utterance.",
+          "context": "Examples: 「今日は たんごを 20個 おぼえました」 = 'Today I memorized 20 vocabulary words.' 「たんごテスト」 = 'vocabulary test'. Use ことば for the broader senses."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はらう",
@@ -71312,7 +71637,15 @@
         "アルバイトの しごと",
         "アルバイトに 行く"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Often abbreviated to バイト in casual speech",
+          "gloss": "アルバイト (from German 'Arbeit', 'work') means a part-time job. In casual conversation it's frequently shortened to バイト.",
+          "context": "Examples: 「アルバイトを しています」 (formal/neutral) = 'I have a part-time job.' 「バイトに 行く」 (casual, very common) = 'I'm off to my part-time gig.' Both refer to the same thing."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.カフェ",
@@ -72399,7 +72732,15 @@
         "なんぐらい / くらい",
         "いつぐらい / くらい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Approximation suffix — 'about / approximately'",
+          "gloss": "ぐらい / くらい attach to quantities and times to mean 'about / approximately'. The two forms are mostly interchangeable; ぐらい is slightly more common after consonant-final words, くらい slightly more common at the start of a phrase or for emphasis.",
+          "context": "Examples: 「1時間ぐらい かかります」 = 'It takes about an hour.' 「100人くらい 来ました」 = 'About 100 people came.' Either form works in most contexts; rule of thumb: when in doubt, ぐらい."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.34-conjunctions.けれど",
@@ -72543,7 +72884,15 @@
         "まいにち ござる",
         "いま ござる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Very polite — almost always seen in the form ございます",
+          "gloss": "ござる is the ultra-polite copula / existence verb. It is almost never used in its plain dictionary form; what you'll actually see is ございます (the polite-form conjugation).",
+          "context": "Examples: 「ありがとう ございます」 = 'thank you (polite)'. 「おはよう ございます」 = 'good morning (polite)'. 「Xが ございます」 = 'there is X (very polite, often in shops/restaurants)'. As an N5 learner, recognize ござる as the root of these set phrases."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.じゃあ",
@@ -72757,7 +73106,15 @@
         "やはり たかい",
         "やはり ほしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Formal / written — colloquial spoken form is やっぱり",
+          "gloss": "やはり ('as expected / after all / indeed') is the formal/written register. In casual conversation, native speakers usually say やっぱり.",
+          "context": "Examples: 「やはり 来ましたね」 (slightly formal) = 'You came after all.' 「やっぱり おいしい!」 (casual) = 'It IS delicious, just like I thought!' Either form is grammatical; switch register depending on context."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch G: section-level P1/P2 fixes)"
     },
     {
       "id": "n5.vocab.7-numbers.ゼロ",
@@ -73481,6 +73838,7 @@
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
     "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 17 duplicate example rows dropped from 17 entries.",
     "native_review_pass_2026_06_04": "Batches A-D applied from the consolidated native-reviewer report dated 2026-06-04: A) かた sense de-contamination (1 entry), B) homonym false_friends sweep (27 entries), C) counter cleanup (2 entries), D) family pragmatic notes (15 entries). Batch E (particle-example native re-audit, ~50-300 entries) deferred to a follow-up cycle and tracked in xlsx bug tracker.",
-    "native_review_pass_2026_06_04_batch_f": "Batch F applied: 27 of 27 target entries received pragmatic_functions additions covering legacy markers (F1), なく animal/human kanji split (F2), pronoun usage cautions (F3), 先生 honorific scope (F4), greeting context (F5), key lexical contrasts (F6), な-adj predicate grammar (F7), and きれい dual-meaning (F8). Driver: tools/apply_native_review_batch_f_2026_06_04.py."
+    "native_review_pass_2026_06_04_batch_f": "Batch F applied: 27 of 27 target entries received pragmatic_functions additions covering legacy markers (F1), なく animal/human kanji split (F2), pronoun usage cautions (F3), 先生 honorific scope (F4), greeting context (F5), key lexical contrasts (F6), な-adj predicate grammar (F7), and きれい dual-meaning (F8). Driver: tools/apply_native_review_batch_f_2026_06_04.py.",
+    "native_review_pass_2026_06_04_batch_g": "Batch G applied: 45 entries received additional pragmatic_functions notes covering G1-G26 section-level recommendations from the 2026-06-04 native-reviewer report (student/police scope, foreigner caution, date readings, tonight, part-time, full-vs-lot, just/only, particle polarity, approximation, formality split, vocab scope, question-word ambiguity, adjective-of-desire, polite copula, early/fast + easy/kind splits, toilet/bath register, body-part duals, kanji/kana family, spicy/salty, color noun-vs-adj, hairbrush orthography). Driver: tools/apply_native_review_batch_g_2026_06_04.py."
   }
 }
