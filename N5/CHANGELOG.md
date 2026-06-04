@@ -2,6 +2,36 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.39 - 2026-06-04 (vocabulary: fix malformed verb conjugations + remove nonsense template example sentences)
+
+### Fixed
+
+- **110 verb entries** had malformed polite-form artifacts in their
+  "particle examples" — every verb showed `<dictionary-form>ます` and
+  `<dictionary-form>ました`, which is not valid Japanese (e.g.
+  *べんきょうするます*, *かすました*, *あるます*, *すむます*). These are now
+  the correct polite forms (べんきょうします, かしました, あります, すみます)
+  produced by a verb-class-aware conjugator across all godan, ichidan,
+  and irregular verbs. The kanji-aware split is handled correctly — the
+  homonym きる shows きります for the "cut" verb and きます for the "wear"
+  verb.
+- **~32 nonsense template example sentences** removed:
+  - *えいがは <adj>でした* ("the movie was yellow / thin / bitter") — 16
+    sentences that were both grammatically wrong (い-adjective past is
+    かったです, not でした) and semantically odd.
+  - *今日は とても <adj>です* ("today is very white / round / short /
+    lukewarm") — 14 sentences for adjectives that can't describe a day
+    (weather adjectives like すずしい / あたたかい were kept).
+  - *この りんごは うるさいです* ("this apple is noisy") — removed.
+  - Every affected entry keeps its remaining valid example sentences.
+- **カタカナ** entry: removed template collocations that treated a
+  writing system as a buyable object (*カタカナを かう* "buy katakana",
+  *たかい カタカナ* "expensive katakana", etc.).
+
+These came from a native-Japanese / JLPT expert review (BUG-266).
+Remaining particle-example naturalness items (e.g. まいにち すむ) stay
+tracked under BUG-263 for a follow-up native pass.
+
 ## v1.17.37 - 2026-05-31 (grammar content quality: clearer cross-references, honest wrong/correct pairs)
 
 ### Changed (grammar pattern content - native-review prep + native pass)

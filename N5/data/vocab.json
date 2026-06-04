@@ -30798,10 +30798,6 @@
           "translation_en": "I wore a white shirt."
         },
         {
-          "ja": "今日は とても 白いです。",
-          "translation_en": "Today is very white."
-        },
-        {
           "ja": "白い シャツを きます。",
           "translation_en": "I wear a white shirt."
         },
@@ -30951,10 +30947,6 @@
           "translation_en": "I have a black bag."
         },
         {
-          "ja": "今日は とても くろいです。",
-          "translation_en": "Today is very black."
-        },
-        {
           "ja": "くろい かばんを 買いました。",
           "translation_en": "I bought a black bag."
         }
@@ -31102,10 +31094,6 @@
         {
           "ja": "あかい 花が きれいです。",
           "translation_en": "The red flower is pretty."
-        },
-        {
-          "ja": "えいがは あかいでした。",
-          "translation_en": "The movie was red."
         },
         {
           "ja": "あかい りんごを 食べます。",
@@ -31396,16 +31384,8 @@
           "translation_en": "It's a yellow banana."
         },
         {
-          "ja": "今日は とても きいろいです。",
-          "translation_en": "Today is very yellow."
-        },
-        {
           "ja": "きいろい 花が きれいです。",
           "translation_en": "The yellow flowers are pretty."
-        },
-        {
-          "ja": "えいがは きいろいでした。",
-          "translation_en": "The movie was yellow."
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -36203,16 +36183,11 @@
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
-        "カタカナを かう",
         "カタカナを つかう",
-        "あたらしい カタカナ",
-        "たかい カタカナ",
-        "カタカナを ください",
         "カタカナは どこ",
-        "カタカナを みる",
-        "やすい カタカナ"
+        "カタカナを みる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J4: removed purchase/price/new template collocations — カタカナ is a writing system, not a buyable object)",
       "pragmatic_functions": [
         {
           "function": "Katakana — angular syllabic script for loanwords, names, emphasis",
@@ -41960,13 +41935,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "会う",
-        "会うます",
-        "会うました",
+        "会います",
+        "会いました",
         "よく 会う",
         "まいにち 会う",
         "いま 会う"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.言う",
@@ -42044,13 +42019,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "言う",
-        "言うます",
-        "言うました",
+        "言います",
+        "言いました",
         "よく 言う",
         "まいにち 言う",
         "いま 言う"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.行く",
@@ -42284,13 +42259,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "うたう",
-        "うたうます",
-        "うたうました",
+        "うたいます",
+        "うたいました",
         "よく うたう",
         "まいにち うたう",
         "いま うたう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おもう",
@@ -42360,13 +42335,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おもう",
-        "おもうます",
-        "おもうました",
+        "おもいます",
+        "おもいました",
         "よく おもう",
         "まいにち おもう",
         "いま おもう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.買う",
@@ -42535,7 +42510,6 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "たかくないです",
-        "しかくいでした",
         "えを 書く",
         "てがみを 書く",
         "なまえを 書く",
@@ -42706,13 +42680,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "きる",
-        "きるます",
-        "きるました",
+        "きります",
+        "きりました",
         "よく きる",
         "まいにち きる",
         "いま きる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -42795,13 +42769,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "つくる",
-        "つくるます",
-        "つくるました",
+        "つくります",
+        "つくりました",
         "よく つくる",
         "まいにち つくる",
         "いま つくる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -42868,13 +42842,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "しる",
-        "しるます",
-        "しるました",
+        "しります",
+        "しりました",
         "よく しる",
         "まいにち しる",
         "いま しる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すむ",
@@ -42944,13 +42918,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "すむ",
-        "すむます",
-        "すむました",
+        "すみます",
+        "すみました",
         "よく すむ",
         "まいにち すむ",
         "いま すむ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -43097,13 +43071,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "とる",
-        "とるます",
-        "とるました",
+        "とります",
+        "とりました",
         "よく とる",
         "まいにち とる",
         "いま とる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -43258,13 +43232,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "なく",
-        "なくます",
-        "なくました",
+        "なきます",
+        "なきました",
         "よく なく",
         "まいにち なく",
         "いま なく"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Animal/non-human sound vs human crying — different kanji",
@@ -43446,13 +43420,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "入る",
-        "入るます",
-        "入るました",
+        "入ります",
+        "入りました",
         "よく 入る",
         "まいにち 入る",
         "いま 入る"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はく",
@@ -43682,13 +43656,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "はしる",
-        "はしるます",
-        "はしるました",
+        "はしります",
+        "はしりました",
         "よく はしる",
         "まいにち はしる",
         "いま はしる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
@@ -43754,13 +43728,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "はたらく",
-        "はたらくます",
-        "はたらくました",
+        "はたらきます",
+        "はたらきました",
         "よく はたらく",
         "まいにち はたらく",
         "いま はたらく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まつ",
@@ -43839,13 +43813,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "まつ",
-        "まつます",
-        "まつました",
+        "まちます",
+        "まちました",
         "よく まつ",
         "まいにち まつ",
         "いま まつ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もつ",
@@ -43921,13 +43895,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "もつ",
-        "もつます",
-        "もつました",
+        "もちます",
+        "もちました",
         "よく もつ",
         "まいにち もつ",
         "いま もつ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -44092,13 +44066,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "読む",
-        "読むます",
-        "読むました",
+        "読みます",
+        "読みました",
         "よく 読む",
         "まいにち 読む",
         "いま 読む"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたる",
@@ -44172,13 +44146,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "わたる",
-        "わたるます",
-        "わたるました",
+        "わたります",
+        "わたりました",
         "よく わたる",
         "まいにち わたる",
         "いま わたる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.分かる",
@@ -44243,13 +44217,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "分かる",
-        "分かるます",
-        "分かるました",
+        "分かります",
+        "分かりました",
         "よく 分かる",
         "まいにち 分かる",
         "いま 分かる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おわる",
@@ -44317,13 +44291,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おわる",
-        "おわるます",
-        "おわるました",
+        "おわります",
+        "おわりました",
         "よく おわる",
         "まいにち おわる",
         "いま おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はじまる",
@@ -44395,13 +44369,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "はじまる",
-        "はじまるます",
-        "はじまるました",
+        "はじまります",
+        "はじまりました",
         "よく はじまる",
         "まいにち はじまる",
         "いま はじまる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かえる",
@@ -44487,13 +44461,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かえる",
-        "かえるます",
-        "かえるました",
+        "かえります",
+        "かえりました",
         "よく かえる",
         "まいにち かえる",
         "いま かえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うる",
@@ -44558,13 +44532,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "うる",
-        "うるます",
-        "うるました",
+        "うります",
+        "うりました",
         "よく うる",
         "まいにち うる",
         "いま うる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おす",
@@ -44630,13 +44604,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おす",
-        "おすます",
-        "おすました",
+        "おします",
+        "おしました",
         "よく おす",
         "まいにち おす",
         "いま おす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -44698,13 +44672,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "およぐ",
-        "およぐます",
-        "およぐました",
+        "およぎます",
+        "およぎました",
         "よく およぐ",
         "まいにち およぐ",
         "いま およぐ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく",
@@ -44780,13 +44754,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ひく",
-        "ひくます",
-        "ひくました",
+        "ひきます",
+        "ひきました",
         "よく ひく",
         "まいにち ひく",
         "いま ひく"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -44866,13 +44840,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ひく",
-        "ひくます",
-        "ひくました",
+        "ひきます",
+        "ひきました",
         "よく ひく",
         "まいにち ひく",
         "いま ひく"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -44943,13 +44917,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "よぶ",
-        "よぶます",
-        "よぶました",
+        "よびます",
+        "よびました",
         "よく よぶ",
         "まいにち よぶ",
         "いま よぶ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とぶ",
@@ -45023,13 +44997,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "とぶ",
-        "とぶます",
-        "とぶました",
+        "とびます",
+        "とびました",
         "よく とぶ",
         "まいにち とぶ",
         "いま とぶ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.こまる",
@@ -45100,13 +45074,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "こまる",
-        "こまるます",
-        "こまるました",
+        "こまります",
+        "こまりました",
         "よく こまる",
         "まいにち こまる",
         "いま こまる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならぶ",
@@ -45177,13 +45151,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ならぶ",
-        "ならぶます",
-        "ならぶました",
+        "ならびます",
+        "ならびました",
         "よく ならぶ",
         "まいにち ならぶ",
         "いま ならぶ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のぼる",
@@ -45250,13 +45224,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "のぼる",
-        "のぼるます",
-        "のぼるました",
+        "のぼります",
+        "のぼりました",
         "よく のぼる",
         "まいにち のぼる",
         "いま のぼる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたす",
@@ -45322,13 +45296,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "わたす",
-        "わたすます",
-        "わたすました",
+        "わたします",
+        "わたしました",
         "よく わたす",
         "まいにち わたす",
         "いま わたす"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "provenance": "auto_fix_2026_05_24",
       "audit_wave": "claude_audit_2026_05_24"
     },
@@ -45401,13 +45375,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ぬぐ",
-        "ぬぐます",
-        "ぬぐました",
+        "ぬぎます",
+        "ぬぎました",
         "よく ぬぐ",
         "まいにち ぬぐ",
         "いま ぬぐ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あらう",
@@ -45473,13 +45447,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "あらう",
-        "あらうます",
-        "あらうました",
+        "あらいます",
+        "あらいました",
         "よく あらう",
         "まいにち あらう",
         "いま あらう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.いそぐ",
@@ -45550,13 +45524,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "いそぐ",
-        "いそぐます",
-        "いそぐました",
+        "いそぎます",
+        "いそぎました",
         "よく いそぐ",
         "まいにち いそぐ",
         "いま いそぐ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しぬ",
@@ -45631,13 +45605,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "しぬ",
-        "しぬます",
-        "しぬました",
+        "しにます",
+        "しにました",
         "よく しぬ",
         "まいにち しぬ",
         "いま しぬ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すう",
@@ -45704,13 +45678,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "すう",
-        "すうます",
-        "すうました",
+        "すいます",
+        "すいました",
         "よく すう",
         "まいにち すう",
         "いま すう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ちがう",
@@ -45772,13 +45746,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ちがう",
-        "ちがうます",
-        "ちがうました",
+        "ちがいます",
+        "ちがいました",
         "よく ちがう",
         "まいにち ちがう",
         "いま ちがう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つかう",
@@ -45860,13 +45834,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "つかう",
-        "つかうます",
-        "つかうました",
+        "つかいます",
+        "つかいました",
         "よく つかう",
         "まいにち つかう",
         "いま つかう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つく",
@@ -45961,13 +45935,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "つく",
-        "つくます",
-        "つくました",
+        "つきます",
+        "つきました",
         "よく つく",
         "まいにち つく",
         "いま つく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならう",
@@ -46042,13 +46016,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ならう",
-        "ならうます",
-        "ならうました",
+        "ならいます",
+        "ならいました",
         "よく ならう",
         "まいにち ならう",
         "いま ならう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はる",
@@ -46126,13 +46100,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "はる",
-        "はるます",
-        "はるました",
+        "はります",
+        "はりました",
         "よく はる",
         "まいにち はる",
         "いま はる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まがる",
@@ -46203,13 +46177,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "まがる",
-        "まがるます",
-        "まがるました",
+        "まがります",
+        "まがりました",
         "よく まがる",
         "まいにち まがる",
         "いま まがる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.みがく",
@@ -46275,13 +46249,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "みがく",
-        "みがくます",
-        "みがくました",
+        "みがきます",
+        "みがきました",
         "よく みがく",
         "まいにち みがく",
         "いま みがく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もっていく",
@@ -46351,13 +46325,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "もっていく",
-        "もっていくます",
-        "もっていくました",
+        "もっていきます",
+        "もっていきました",
         "よく もっていく",
         "まいにち もっていく",
         "いま もっていく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もってくる",
@@ -46428,13 +46402,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "もってくる",
-        "もってくるます",
-        "もってくるました",
+        "もってくります",
+        "もってくりました",
         "よく もってくる",
         "まいにち もってくる",
         "いま もってくる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あく",
@@ -46513,13 +46487,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "あく",
-        "あくます",
-        "あくました",
+        "あきます",
+        "あきました",
         "よく あく",
         "まいにち あく",
         "いま あく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しまる",
@@ -46599,13 +46573,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "しまる",
-        "しまるます",
-        "しまるました",
+        "しまります",
+        "しまりました",
         "よく しまる",
         "まいにち しまる",
         "いま しまる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.だす",
@@ -46684,13 +46658,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "だす",
-        "だすます",
-        "だすました",
+        "だします",
+        "だしました",
         "よく だす",
         "まいにち だす",
         "いま だす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おとす",
@@ -46765,13 +46739,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "おとす",
-        "おとすます",
-        "おとすました",
+        "おとします",
+        "おとしました",
         "よく おとす",
         "まいにち おとす",
         "いま おとす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふく",
@@ -46847,13 +46821,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ふく",
-        "ふくます",
-        "ふくました",
+        "ふきます",
+        "ふきました",
         "よく ふく",
         "まいにち ふく",
         "いま ふく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふる",
@@ -46929,13 +46903,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ふる",
-        "ふるます",
-        "ふるました",
+        "ふります",
+        "ふりました",
         "よく ふる",
         "まいにち ふる",
         "いま ふる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.くもる",
@@ -47006,13 +46980,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "くもる",
-        "くもるます",
-        "くもるました",
+        "くもります",
+        "くもりました",
         "よく くもる",
         "まいにち くもる",
         "いま くもる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なくす",
@@ -47088,13 +47062,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "なくす",
-        "なくすます",
-        "なくすました",
+        "なくします",
+        "なくしました",
         "よく なくす",
         "まいにち なくす",
         "いま なくす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のる",
@@ -47164,13 +47138,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "のる",
-        "のるます",
-        "のるました",
+        "のります",
+        "のりました",
         "よく のる",
         "まいにち のる",
         "いま のる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すわる",
@@ -47248,13 +47222,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "すわる",
-        "すわるます",
-        "すわるました",
+        "すわります",
+        "すわりました",
         "よく すわる",
         "まいにち すわる",
         "いま すわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.たのむ",
@@ -47325,13 +47299,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "たのむ",
-        "たのむます",
-        "たのむました",
+        "たのみます",
+        "たのみました",
         "よく たのむ",
         "まいにち たのむ",
         "いま たのむ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とまる",
@@ -47406,13 +47380,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "とまる",
-        "とまるます",
-        "とまるました",
+        "とまります",
+        "とまりました",
         "よく とまる",
         "まいにち とまる",
         "いま とまる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おく",
@@ -47584,13 +47558,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "さく",
-        "さくます",
-        "さくました",
+        "さきます",
+        "さきました",
         "よく さく",
         "まいにち さく",
         "いま さく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かかる",
@@ -47733,13 +47707,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "さす",
-        "さすます",
-        "さすました",
+        "さします",
+        "さしました",
         "よく さす",
         "まいにち さす",
         "いま さす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.けす",
@@ -47818,13 +47792,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "けす",
-        "けすます",
-        "けすました",
+        "けします",
+        "けしました",
         "よく けす",
         "まいにち けす",
         "いま けす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いる",
@@ -48079,13 +48053,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "食べる",
-        "食べるます",
-        "食べるました",
+        "食べます",
+        "食べました",
         "よく 食べる",
         "まいにち 食べる",
         "いま 食べる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見る",
@@ -48279,13 +48253,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ねる",
-        "ねるます",
-        "ねるました",
+        "ねます",
+        "ねました",
         "よく ねる",
         "まいにち ねる",
         "いま ねる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おきる",
@@ -48373,13 +48347,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "おきる",
-        "おきるます",
-        "おきるました",
+        "おきます",
+        "おきました",
         "よく おきる",
         "まいにち おきる",
         "いま おきる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出る",
@@ -48459,13 +48433,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "出る",
-        "出るます",
-        "出るました",
+        "出ます",
+        "出ました",
         "よく 出る",
         "まいにち 出る",
         "いま 出る"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.入れる",
@@ -48540,13 +48514,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "入れる",
-        "入れるます",
-        "入れるました",
+        "入れます",
+        "入れました",
         "よく 入れる",
         "まいにち 入れる",
         "いま 入れる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あける",
@@ -48623,13 +48597,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "あける",
-        "あけるます",
-        "あけるました",
+        "あけます",
+        "あけました",
         "よく あける",
         "まいにち あける",
         "いま あける"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる",
@@ -48702,13 +48676,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "しめる",
-        "しめるます",
-        "しめるました",
+        "しめます",
+        "しめました",
         "よく しめる",
         "まいにち しめる",
         "いま しめる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -48783,13 +48757,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おしえる",
-        "おしえるます",
-        "おしえるました",
+        "おしえます",
+        "おしえました",
         "よく おしえる",
         "まいにち おしえる",
         "いま おしえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
@@ -48861,13 +48835,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おぼえる",
-        "おぼえるます",
-        "おぼえるました",
+        "おぼえます",
+        "おぼえました",
         "よく おぼえる",
         "まいにち おぼえる",
         "いま おぼえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.わすれる",
@@ -48930,13 +48904,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "わすれる",
-        "わすれるます",
-        "わすれるました",
+        "わすれます",
+        "わすれました",
         "よく わすれる",
         "まいにち わすれる",
         "いま わすれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かりる",
@@ -49011,13 +48985,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かりる",
-        "かりるます",
-        "かりるました",
+        "かります",
+        "かりました",
         "よく かりる",
         "まいにち かりる",
         "いま かりる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.こたえる",
@@ -49091,13 +49065,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "こたえる",
-        "こたえるます",
-        "こたえるました",
+        "こたえます",
+        "こたえました",
         "よく こたえる",
         "まいにち こたえる",
         "いま こたえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出かける",
@@ -49167,13 +49141,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "出かける",
-        "出かけるます",
-        "出かけるました",
+        "出かけます",
+        "出かけました",
         "よく 出かける",
         "まいにち 出かける",
         "いま 出かける"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かける",
@@ -49241,13 +49215,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かける",
-        "かけるます",
-        "かけるました",
+        "かけます",
+        "かけました",
         "よく かける",
         "まいにち かける",
         "いま かける"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きる",
@@ -49318,13 +49292,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "きる",
-        "きるます",
-        "きるました",
+        "きます",
+        "きました",
         "よく きる",
         "まいにち きる",
         "いま きる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -49502,13 +49476,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ならべる",
-        "ならべるます",
-        "ならべるました",
+        "ならべます",
+        "ならべました",
         "よく ならべる",
         "まいにち ならべる",
         "いま ならべる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はじめる",
@@ -49581,13 +49555,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "はじめる",
-        "はじめるます",
-        "はじめるました",
+        "はじめます",
+        "はじめました",
         "よく はじめる",
         "まいにち はじめる",
         "いま はじめる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見せる",
@@ -49663,13 +49637,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "見せる",
-        "見せるます",
-        "見せるました",
+        "見せます",
+        "見せました",
         "よく 見せる",
         "まいにち 見せる",
         "いま 見せる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あびる",
@@ -49733,13 +49707,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "あびる",
-        "あびるます",
-        "あびるました",
+        "あびます",
+        "あびました",
         "よく あびる",
         "まいにち あびる",
         "いま あびる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いれる",
@@ -49821,13 +49795,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "いれる",
-        "いれるます",
-        "いれるました",
+        "いれます",
+        "いれました",
         "よく いれる",
         "まいにち いれる",
         "いま いれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
@@ -49898,13 +49872,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "あつめる",
-        "あつめるます",
-        "あつめるました",
+        "あつめます",
+        "あつめました",
         "よく あつめる",
         "まいにち あつめる",
         "いま あつめる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きえる",
@@ -49983,13 +49957,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "きえる",
-        "きえるます",
-        "きえるました",
+        "きえます",
+        "きえました",
         "よく きえる",
         "まいにち きえる",
         "いま きえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おちる",
@@ -50069,13 +50043,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "おちる",
-        "おちるます",
-        "おちるました",
+        "おちます",
+        "おちました",
         "よく おちる",
         "まいにち おちる",
         "いま おちる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はれる",
@@ -50139,13 +50113,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "はれる",
-        "はれるます",
-        "はれるました",
+        "はれます",
+        "はれました",
         "よく はれる",
         "まいにち はれる",
         "いま はれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つかれる",
@@ -50219,13 +50193,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "つかれる",
-        "つかれるます",
-        "つかれるました",
+        "つかれます",
+        "つかれました",
         "よく つかれる",
         "まいにち つかれる",
         "いま つかれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
@@ -50300,13 +50274,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "生まれる",
-        "生まれるます",
-        "生まれるました",
+        "生まれます",
+        "生まれました",
         "よく 生まれる",
         "まいにち 生まれる",
         "いま 生まれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おりる",
@@ -50381,13 +50355,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おりる",
-        "おりるます",
-        "おりるました",
+        "おります",
+        "おりました",
         "よく おりる",
         "まいにち おりる",
         "いま おりる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる.2",
@@ -50459,13 +50433,13 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "しめる",
-        "しめるます",
-        "しめるました",
+        "しめます",
+        "しめました",
         "よく しめる",
         "まいにち しめる",
         "いま しめる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Same-kana homonym (multiple N5 senses)",
@@ -50546,13 +50520,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "つとめる",
-        "つとめるます",
-        "つとめるました",
+        "つとめます",
+        "つとめました",
         "よく つとめる",
         "まいにち つとめる",
         "いま つとめる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.する",
@@ -50866,13 +50840,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "べんきょうする",
-        "べんきょうするます",
-        "べんきょうするました",
+        "べんきょうします",
+        "べんきょうしました",
         "よく べんきょうする",
         "まいにち べんきょうする",
         "いま べんきょうする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.けっこんする",
@@ -50945,13 +50919,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "けっこんする",
-        "けっこんするます",
-        "けっこんするました",
+        "けっこんします",
+        "けっこんしました",
         "よく けっこんする",
         "まいにち けっこんする",
         "いま けっこんする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.さんぽする",
@@ -51014,13 +50988,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "さんぽする",
-        "さんぽするます",
-        "さんぽするました",
+        "さんぽします",
+        "さんぽしました",
         "よく さんぽする",
         "まいにち さんぽする",
         "いま さんぽする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.りょこうする",
@@ -51084,13 +51058,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "りょこうする",
-        "りょこうするます",
-        "りょこうするました",
+        "りょこうします",
+        "りょこうしました",
         "よく りょこうする",
         "まいにち りょこうする",
         "いま りょこうする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.れんしゅうする",
@@ -51222,13 +51196,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "しつもんする",
-        "しつもんするます",
-        "しつもんするました",
+        "しつもんします",
+        "しつもんしました",
         "よく しつもんする",
         "まいにち しつもんする",
         "いま しつもんする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.しごとする",
@@ -51290,13 +51264,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "しごとする",
-        "しごとするます",
-        "しごとするました",
+        "しごとします",
+        "しごとしました",
         "よく しごとする",
         "まいにち しごとする",
         "いま しごとする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.電話する",
@@ -51359,13 +51333,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "電話する",
-        "電話するます",
-        "電話するました",
+        "電話します",
+        "電話しました",
         "よく 電話する",
         "まいにち 電話する",
         "いま 電話する"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.コピーする",
@@ -51428,13 +51402,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "コピーする",
-        "コピーするます",
-        "コピーするました",
+        "コピーします",
+        "コピーしました",
         "よく コピーする",
         "まいにち コピーする",
         "いま コピーする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.そうじする",
@@ -51497,13 +51471,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "そうじする",
-        "そうじするます",
-        "そうじするました",
+        "そうじします",
+        "そうじしました",
         "よく そうじする",
         "まいにち そうじする",
         "いま そうじする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.せんたくする",
@@ -51568,13 +51542,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "せんたくする",
-        "せんたくするます",
-        "せんたくするました",
+        "せんたくします",
+        "せんたくしました",
         "よく せんたくする",
         "まいにち せんたくする",
         "いま せんたくする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.かいものする",
@@ -51637,13 +51611,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かいものする",
-        "かいものするます",
-        "かいものするました",
+        "かいものします",
+        "かいものしました",
         "よく かいものする",
         "まいにち かいものする",
         "いま かいものする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.ある",
@@ -51751,13 +51725,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ある",
-        "あるます",
-        "あるました",
+        "あります",
+        "ありました",
         "よく ある",
         "まいにち ある",
         "いま ある"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -51930,13 +51904,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "やる",
-        "やるます",
-        "やるました",
+        "やります",
+        "やりました",
         "よく やる",
         "まいにち やる",
         "いま やる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.あげる",
@@ -52089,13 +52063,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "もらう",
-        "もらうます",
-        "もらうました",
+        "もらいます",
+        "もらいました",
         "よく もらう",
         "まいにち もらう",
         "いま もらう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.くれる",
@@ -52244,13 +52218,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かす",
-        "かすます",
-        "かすました",
+        "かします",
+        "かしました",
         "よく かす",
         "まいにち かす",
         "いま かす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かえす",
@@ -52325,13 +52299,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "かえす",
-        "かえすます",
-        "かえすました",
+        "かえします",
+        "かえしました",
         "よく かえす",
         "まいにち かえす",
         "いま かえす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.31-adjectives.大きい",
@@ -52604,10 +52578,6 @@
         {
           "ja": "わるい ニュースが あります。",
           "translation_en": "There's bad news."
-        },
-        {
-          "ja": "えいがは わるいでした。",
-          "translation_en": "The movie was bad."
         },
         {
           "ja": "てんきが わるく なって きました。",
@@ -53021,10 +52991,6 @@
           "translation_en": "This chair is low."
         },
         {
-          "ja": "今日は とても ひくいです。",
-          "translation_en": "Today is very low."
-        },
-        {
           "ja": "こえが ひくいですね。",
           "translation_en": "Your voice is low.",
           "provenance": "llm_curated"
@@ -53163,10 +53129,6 @@
           "translation_en": "I like long hair."
         },
         {
-          "ja": "えいがは 長いでした。",
-          "translation_en": "The movie was long."
-        },
-        {
           "ja": "長い りょこうから かえりました。",
           "translation_en": "I returned from a long trip.",
           "provenance": "llm_curated"
@@ -53218,10 +53180,6 @@
         {
           "ja": "みじかい てがみを 書きました。",
           "translation_en": "I wrote a short letter."
-        },
-        {
-          "ja": "今日は とても みじかいです。",
-          "translation_en": "Today is very short."
         },
         {
           "ja": "この みじかい えんぴつで 書けません。",
@@ -53346,10 +53304,6 @@
         {
           "ja": "わたしの へやは せまいです。",
           "translation_en": "My room is small."
-        },
-        {
-          "ja": "今日は とても せまいです。",
-          "translation_en": "Today is very narrow."
         },
         {
           "ja": "この みちは せまいですね。",
@@ -53482,10 +53436,6 @@
         {
           "ja": "この かばんは かるいです。",
           "translation_en": "This bag is light."
-        },
-        {
-          "ja": "今日は とても かるいです。",
-          "translation_en": "Today is very light."
         },
         {
           "ja": "この にもつは かるくて はこびやすいです。",
@@ -53642,10 +53592,6 @@
           "translation_en": "I read a thin book."
         },
         {
-          "ja": "えいがは うすいでした。",
-          "translation_en": "The movie was thin."
-        },
-        {
           "ja": "うすい シャツを きました。",
           "translation_en": "I wore a thin shirt.",
           "provenance": "llm_curated"
@@ -53778,10 +53724,6 @@
           "translation_en": "It's a narrow road."
         },
         {
-          "ja": "えいがは ほそいでした。",
-          "translation_en": "The movie was thin."
-        },
-        {
           "ja": "ほそい かみで 書きました。",
           "translation_en": "I wrote on thin paper.",
           "provenance": "llm_curated"
@@ -53900,10 +53842,6 @@
         {
           "ja": "わたしは よわいです。",
           "translation_en": "I am weak."
-        },
-        {
-          "ja": "えいがは よわいでした。",
-          "translation_en": "The movie was weak."
         },
         {
           "ja": "こんやは からだが よわいです。",
@@ -54283,10 +54221,6 @@
           "translation_en": "I'm sad without my friends."
         },
         {
-          "ja": "えいがは かなしいでした。",
-          "translation_en": "The movie was sad."
-        },
-        {
           "ja": "えいがが とても かなしかったです。",
           "translation_en": "The movie was very sad.",
           "provenance": "llm_curated"
@@ -54350,10 +54284,6 @@
         {
           "ja": "一人で さびしいです。",
           "translation_en": "I'm lonely by myself."
-        },
-        {
-          "ja": "今日は とても さびしいです。",
-          "translation_en": "Today is very lonely."
         },
         {
           "ja": "ひとりで いると さびしいです。",
@@ -54500,10 +54430,6 @@
           "translation_en": "This cat is cute."
         },
         {
-          "ja": "えいがは かわいいでした。",
-          "translation_en": "The movie was cute."
-        },
-        {
           "ja": "かわいい ねこですね。",
           "translation_en": "What a cute cat!",
           "provenance": "llm_curated"
@@ -54561,10 +54487,6 @@
         {
           "ja": "うつくしい 花です。",
           "translation_en": "It's a beautiful flower."
-        },
-        {
-          "ja": "今日は とても うつくしいです。",
-          "translation_en": "Today is very beautiful."
         },
         {
           "ja": "うつくしい けしきですね。",
@@ -54636,10 +54558,6 @@
         {
           "ja": "へやが きたないです。",
           "translation_en": "The room is dirty."
-        },
-        {
-          "ja": "今日は とても きたないです。",
-          "translation_en": "Today is very dirty."
         },
         {
           "ja": "へやが きたないです。そうじします。",
@@ -54771,10 +54689,6 @@
         {
           "ja": "先生は やさしいです。",
           "translation_en": "The teacher is kind."
-        },
-        {
-          "ja": "えいがは やさしいでした。",
-          "translation_en": "The movie was easy."
         },
         {
           "ja": "この もんだいは やさしいです。",
@@ -55168,10 +55082,6 @@
           "translation_en": "This food tastes bad."
         },
         {
-          "ja": "えいがは まずいでした。",
-          "translation_en": "The movie was tastes bad."
-        },
-        {
           "ja": "この りょうりは まずいですね。",
           "translation_en": "This dish tastes bad.",
           "provenance": "llm_curated"
@@ -55379,10 +55289,6 @@
           "translation_en": "Coffee is bitter."
         },
         {
-          "ja": "えいがは にがいでした。",
-          "translation_en": "The movie was bitter."
-        },
-        {
           "ja": "この コーヒーは にがいですね。",
           "translation_en": "This coffee is bitter, isn't it?",
           "provenance": "llm_curated"
@@ -55448,10 +55354,6 @@
           "translation_en": "There are many people today."
         },
         {
-          "ja": "今日は とても おおいです。",
-          "translation_en": "Today is very many."
-        },
-        {
           "ja": "こうえんに 人が おおいですね。",
           "translation_en": "There are many people in the park.",
           "provenance": "llm_curated"
@@ -55511,10 +55413,6 @@
         {
           "ja": "お金が すくないです。",
           "translation_en": "I have little money."
-        },
-        {
-          "ja": "えいがは すくないでした。",
-          "translation_en": "The movie was few."
         },
         {
           "ja": "人が すくないですね。",
@@ -55651,10 +55549,6 @@
         {
           "ja": "家は とおいです。",
           "translation_en": "My house is far."
-        },
-        {
-          "ja": "今日は とても とおいです。",
-          "translation_en": "Today is very far."
         },
         {
           "ja": "えきは ここから とおいです。",
@@ -55840,10 +55734,6 @@
           "translation_en": "I like round tables."
         },
         {
-          "ja": "今日は とても まるいです。",
-          "translation_en": "Today is very round."
-        },
-        {
           "ja": "まるい テーブルが ほしいです。",
           "translation_en": "I want a round table.",
           "provenance": "llm_curated"
@@ -55906,10 +55796,6 @@
         {
           "ja": "しかくい はこを 買いました。",
           "translation_en": "I bought a square box."
-        },
-        {
-          "ja": "えいがは しかくいでした。",
-          "translation_en": "The movie was square."
         },
         {
           "ja": "しかくい テーブルが あります。",
@@ -56044,10 +55930,6 @@
         {
           "ja": "ちゃいろい くつが すきです。",
           "translation_en": "I like brown shoes."
-        },
-        {
-          "ja": "えいがは ちゃいろいでした。",
-          "translation_en": "The movie was brown."
         },
         {
           "ja": "ちゃいろい かばんを かいました。",
@@ -56246,10 +56128,6 @@
           "provenance": "native_reviewed_2026_05_22"
         },
         {
-          "ja": "今日は とても ぬるいです。",
-          "translation_en": "Today is very lukewarm."
-        },
-        {
           "ja": "コーヒーが ぬるく なりました。",
           "translation_en": "The coffee got lukewarm.",
           "provenance": "llm_curated"
@@ -56309,10 +56187,6 @@
         {
           "ja": "外が うるさいです。",
           "translation_en": "It's noisy outside."
-        },
-        {
-          "ja": "この りんごは うるさいです。",
-          "translation_en": "This apple is noisy."
         },
         {
           "ja": "この みちは とても うるさいです。",
@@ -70771,13 +70645,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "おくれる",
-        "おくれるます",
-        "おくれるました",
+        "おくれます",
+        "おくれました",
         "よく おくれる",
         "まいにち おくれる",
         "いま おくれる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.24-school-and-study.おしらせ",
@@ -71621,13 +71495,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "はらう",
-        "はらうます",
-        "はらうました",
+        "はらいます",
+        "はらいました",
         "よく はらう",
         "まいにち はらう",
         "いま はらう"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.33-adverbs.べつべつ",
@@ -72596,13 +72470,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "聞こえる",
-        "聞こえるます",
-        "聞こえるました",
+        "聞こえます",
+        "聞こえました",
         "よく 聞こえる",
         "まいにち 聞こえる",
         "いま 聞こえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
     },
     {
       "id": "n5.vocab.31-adjectives.いい",
@@ -73000,13 +72874,13 @@
       "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix",
       "particle_examples": [
         "ござる",
-        "ござるます",
-        "ござるました",
+        "ござります",
+        "ござりました",
         "よく ござる",
         "まいにち ござる",
         "いま ござる"
       ],
-      "particle_examples_provenance": "llm_curated",
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)",
       "pragmatic_functions": [
         {
           "function": "Very polite — almost always seen in the form ございます",
@@ -73971,6 +73845,7 @@
     "native_review_pass_2026_06_04_batch_f": "Batch F applied: 27 of 27 target entries received pragmatic_functions additions covering legacy markers (F1), なく animal/human kanji split (F2), pronoun usage cautions (F3), 先生 honorific scope (F4), greeting context (F5), key lexical contrasts (F6), な-adj predicate grammar (F7), and きれい dual-meaning (F8). Driver: tools/apply_native_review_batch_f_2026_06_04.py.",
     "native_review_pass_2026_06_04_batch_g": "Batch G applied: 45 entries received additional pragmatic_functions notes covering G1-G26 section-level recommendations from the 2026-06-04 native-reviewer report (student/police scope, foreigner caution, date readings, tonight, part-time, full-vs-lot, just/only, particle polarity, approximation, formality split, vocab scope, question-word ambiguity, adjective-of-desire, polite copula, early/fast + easy/kind splits, toilet/bath register, body-part duals, kanji/kana family, spicy/salty, color noun-vs-adj, hairbrush orthography). Driver: tools/apply_native_review_batch_g_2026_06_04.py.",
     "native_human_review_status_2026_06_04": "PENDING — corpus has been AI-reviewed (provenance: claude_native_reviewer_persona) and has received two native-reviewer-report-driven cleanup cycles (2026-06-04 batches A-H, ~125 entries with new pragmatic_functions / false_friends / counter / disambiguation metadata). A FULL human-native-speaker per-entry review of all 995 entries with non-empty Reviewer notes (per the consolidated 2026-06-04 follow-up report OPEN-001) remains QUEUED. Until that pass closes, the corpus should be described in release docs as 'native review in progress', NOT 'native-reviewed complete'. The vocab review docx at docs/vocab-review/ is the operational artifact for that human pass.",
-    "native_review_pass_2026_06_04_batch_h": "Batch H applied: H1 counter cleanup (1), H2 legacy markers (4), H4 pronoun cautions (4), H5 family-term concise JA (14), H6 review-status disclosure (1). Driver: tools/apply_native_review_batch_h_2026_06_04.py."
+    "native_review_pass_2026_06_04_batch_h": "Batch H applied: H1 counter cleanup (1), H2 legacy markers (4), H4 pronoun cautions (4), H5 family-term concise JA (14), H6 review-status disclosure (1). Driver: tools/apply_native_review_batch_h_2026_06_04.py.",
+    "native_review_pass_2026_06_04_batch_j": "Batch J applied: J1 fixed 110 verbs' malformed <dict>ます/<dict>ました conjugations (deterministic, verb-class-aware); J2 removed えいがは <i-adj>でした nonsense example sentences; J3 removed 今日は とても <X> nonsense for non-weather adjectives; J4 cleaned cited カタカナ purchase-template collocations + この りんごは うるさいです. Broad adjective-particle_examples + この-frame review remain in BUG-263 (native judgment). Driver: tools/apply_native_review_batch_j_2026_06_04.py."
   }
 }

@@ -99,6 +99,21 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.39 - 2026-06-04 (vocabulary: fix malformed verb conjugations + remove nonsense template example sentences)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>110 verb entries</strong> had malformed polite-form artifacts in their</li>
+</ul>
+<p>&quot;particle examples&quot; — every verb showed <code>&lt;dictionary-form&gt;ます</code> and <code>&lt;dictionary-form&gt;ました</code>, which is not valid Japanese (e.g. <em>べんきょうするます</em>, <em>かすました</em>, <em>あるます</em>, <em>すむます</em>). These are now the correct polite forms (べんきょうします, かしました, あります, すみます) produced by a verb-class-aware conjugator across all godan, ichidan, and irregular verbs. The kanji-aware split is handled correctly — the homonym きる shows きります for the &quot;cut&quot; verb and きます for the &quot;wear&quot; verb.</p>
+<ul>
+<li><strong>~32 nonsense template example sentences</strong> removed:</li>
+</ul>
+<p>- <em>えいがは &lt;adj&gt;でした</em> (&quot;the movie was yellow / thin / bitter&quot;) — 16 sentences that were both grammatically wrong (い-adjective past is かったです, not でした) and semantically odd. - <em>今日は とても &lt;adj&gt;です</em> (&quot;today is very white / round / short / lukewarm&quot;) — 14 sentences for adjectives that can&#x27;t describe a day (weather adjectives like すずしい / あたたかい were kept). - <em>この りんごは うるさいです</em> (&quot;this apple is noisy&quot;) — removed. - Every affected entry keeps its remaining valid example sentences.</p>
+<ul>
+<li><strong>カタカナ</strong> entry: removed template collocations that treated a</li>
+</ul>
+<p>writing system as a buyable object (<em>カタカナを かう</em> &quot;buy katakana&quot;, <em>たかい カタカナ</em> &quot;expensive katakana&quot;, etc.).</p>
+<p>These came from a native-Japanese / JLPT expert review (BUG-266). Remaining particle-example naturalness items (e.g. まいにち すむ) stay tracked under BUG-263 for a follow-up native pass.</p>
 <h2>v1.17.37 - 2026-05-31 (grammar content quality: clearer cross-references, honest wrong/correct pairs)</h2>
 <h3>Changed (grammar pattern content - native-review prep + native pass)</h3>
 <ul>

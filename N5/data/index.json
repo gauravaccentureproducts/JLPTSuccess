@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.17.38"
+    "version": "v1.17.39"
   },
   "files": [
     {
@@ -23,7 +23,7 @@
       "path": "data/vocab.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/vocab.json",
       "content_type": "application/json",
-      "size_bytes": 2404061,
+      "size_bytes": 2413959,
       "schema_version": "1.0",
       "description": "N5 vocabulary (995 entries; pitch-accent, PoS, frequency, collocations)",
       "item_count": 995
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9535718,
+    "total_bytes": 9545616,
     "counts": {
       "grammar": 178,
       "vocab": 995,

@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.38';  // bumped 2026-06-04 — native-reviewer batch I: OPEN-007 homonym badge at the top of vocab pages with same-reading siblings (visual warning before the learner gets misled by kana-only ambiguity). Plus the cumulative batches A-H from 2026-06-04 (140 entries with native-reviewer pragmatic notes); learners see them via the SPA's existing pragmatic_functions / false_friends sections.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.39';  // bumped 2026-06-04 — native-reviewer batch J: fixed 110 verbs' malformed conjugation artifacts in particle_examples (べんきょうするます→べんきょうします etc.) + removed ~32 nonsense template example sentences (えいがは <adj>でした / 今日は とても <non-weather-adj>です / この りんごは うるさいです) + cleaned カタカナ purchase-template collocations. Cache-bust so the corrected vocab data reaches returning learners.
 
 const PRECACHE = [
   './',
