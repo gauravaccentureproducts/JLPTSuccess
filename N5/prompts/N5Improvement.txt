@@ -2605,6 +2605,72 @@ body-rewrite),`tools/build_static_mirrors.py` (renderer enhanced),
 `tools/check_content_integrity.py` (+ JA-173). Procedure
 manual: F.48.
 
+### Phase-0 template-generated content-artifact block (added 2026-06-04)
+
+Codifies BUG-266: a native-reviewer specific-bug audit cited 12
+JP-content errors in vocab.json; reproduction confirmed all 12 AND
+revealed a SYSTEMATIC template-generation defect spanning ~142
+entries (110 verbs + ~32 nonsense sentences). Any field that was
+bulk-seeded by a frame template (particle_examples, examples) is
+suspect corpus-wide, not per-citation.
+
+1. **A malformed conjugation is an objective bug — fix it
+   deterministically and lock it.** The template emitted
+   「<dict-form>ます」/「<dict-form>ました」 for every verb
+   (べんきょうするます, かすました, あるます, すむます). You conjugate the
+   stem, never append ます to the dictionary form.
+
+   Phase-0 check (validated to return 0 against the current corpus):
+   - For every vocab entry with pos in {verb-1, verb-2, verb-3},
+     assert NO particle_example equals `form + 'ます'` or
+     `form + 'ました'`. (This is exactly JA-178; the check is
+     precise — it compares against the entry's OWN form, so it
+     never false-positives on a correctly conjugated かします.)
+   - Expected: 0. A hit means the template re-ran or a bulk edit
+     re-introduced the artifact → fix with the verb-class-aware
+     conjugator in tools/apply_native_review_batch_j_2026_06_04.py.
+
+2. **A semantic-frame example is valid for some headwords and
+   nonsense for others — allowlist-remove, never fabricate.** The
+   frames 「今日は とても <adj>です」 / 「えいがは <adj>でした」 /
+   「この <noun>は <adj>です」 produce nonsense when the adjective
+   can't pair with the frame (今日は 白い, えいがは きいろい, りんごは
+   うるさい). The えいがは frame ALSO carries an い-adj past-form error
+   (でした, not かったです).
+
+   Phase-0 check:
+   - Grep examples[].ja for the frames; for 「今日は とても X」 keep
+     only weather/day-quality adjectives (allowlist: すずしい /
+     あたたかい / あつい / さむい / いい / わるい / いそがしい), remove the
+     rest. For 「えいがは <i-adj>でした」 remove (grammar + sense both
+     wrong). GUARD: never empty an entry's examples — skip + log if
+     removal would.
+   - Expected after batch J: 0 「えいがは <i-adj>でした」, 0 non-weather
+     「今日は とても X」.
+
+3. **When a reviewer cites N instances in a template-seeded field,
+   audit the WHOLE field.** The real scope is "every entry the
+   template touched", not N. Reproduce each citation against live
+   data first (the extracted report's "entry numbers" may be docx
+   page positions, not IDs — match by headword), then one query
+   scopes the systematic class.
+
+Bounded-coverage framing:
+  - JA-178 prevents re-introduction of *the specific form+ます /
+    form+ました malformation in verb particle_examples*. It does NOT
+    certify a particle_example is a good particle example (template-
+    seeded field; naturalness is native-judgment / BUG-263), nor
+    catch malformed conjugations in other fields.
+  - The semantic-frame removals are "addressed against the cited
+    frames + the conservative allowlist, this snapshot"; residual
+    naturalness (まいにち すむ adverb collocations) stays in BUG-263.
+
+Source: BUG-266 fix 2026-06-04; AUDIT-COVERAGE-2026-06-04.md Part 64;
+sw.js CACHE_VERSION v1.17.38 → v1.17.39; tools:
+`tools/apply_native_review_batch_j_2026_06_04.py` (conjugator +
+nonsense removal), `tools/check_content_integrity.py` (+ JA-178).
+Procedure manual: F.52.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

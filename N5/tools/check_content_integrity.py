@@ -1579,6 +1579,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-175", "grammar.json essay.contrasts free of unfilled 'vs ?:' contrast placeholder (BUG-247 C1 guard, 2026-05-31)", lambda: _check_ja_175_no_broken_contrast_placeholder()),
     ("JA-176", "grammar.json: no identical-ja duplicate example sentences within a pattern (BUG-249 C5 guard, 2026-05-31)", lambda: _check_ja_176_no_identical_duplicate_examples()),
     ("JA-177", "grammar.json wrong/correct pairs: correct/right field must not admit the wrong form is itself correct (no 'already correct'/'IS valid'/'(correct)') (BUG-247 false-negative malformed guard, 2026-05-31)", lambda: _check_ja_177_no_already_correct_admission()),
+    ("JA-178", "vocab.json verb entries: particle_examples must not contain the malformed conjugation artifact <dictionary-form>+ます / <dictionary-form>+ました (you cannot append ます to a dictionary form). Blocks regression of the template-generation bug that produced べんきょうするます/かすました/あるます across 110 verbs (BUG-266 batch J guard, 2026-06-04)", lambda: _check_ja_178_no_malformed_verb_masu_in_particle_examples()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -9820,6 +9821,51 @@ def _check_ja_177_no_already_correct_admission() -> list:
         for m in (p.get("wrong_corrected_pair") or []):
             if admit.search(str(m.get("correct", ""))):
                 failures.append("JA-177 %s wrong_corrected_pair 'correct' admits the wrong is correct: %r" % (p.get("id"), str(m.get("correct"))[:50]))
+    return failures
+
+
+def _check_ja_178_no_malformed_verb_masu_in_particle_examples() -> list:
+    """BUG-266 batch J guard (2026-06-04): vocab.json verb entries must not
+    contain the malformed conjugation artifact in particle_examples where the
+    dictionary form has ます or ました directly appended.
+
+    The template generator that built particle_examples produced
+    「<dict-form>ます」 and 「<dict-form>ました」 for every verb (べんきょうするます,
+    かすました, あるます, すむます, …) — none of which is valid Japanese; you
+    conjugate the stem, you do not append ます to the dictionary form. Batch J
+    corrected all 110 instances via a verb-class-aware conjugator. This invariant
+    blocks regression: if the generator (or any future bulk edit) re-introduces
+    a 「<form>ます」/「<form>ました」 string into a verb's particle_examples, the
+    build fails.
+
+    Scope: entries with pos in {verb-1, verb-2, verb-3}. The check is precise —
+    it compares each particle_example against the entry's OWN dictionary form +
+    ます / ました, so it never false-positives on a correctly conjugated form
+    (e.g. かします != かす+ます, 食べます != 食べる+ます)."""
+    failures = []
+    try:
+        v = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-178 could not read vocab.json: %s" % e]
+    entries = v.get("entries", []) if isinstance(v, dict) else (v or [])
+    VERB_POS = {"verb-1", "verb-2", "verb-3"}
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        if e.get("pos") not in VERB_POS:
+            continue
+        form = e.get("form") or ""
+        if not form:
+            continue
+        pe = e.get("particle_examples") or []
+        for p in pe:
+            if p == form + "ます" or p == form + "ました":
+                failures.append(
+                    "JA-178 %s (%s) particle_examples has malformed conjugation "
+                    "%r — append ます to the stem, not the dictionary form "
+                    "(re-run tools/apply_native_review_batch_j_2026_06_04.py)"
+                    % (e.get("id"), e.get("pos"), p)
+                )
     return failures
 
 
