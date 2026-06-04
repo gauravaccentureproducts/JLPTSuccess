@@ -424,12 +424,23 @@ def build_readme(doc, entries, version_meta):
         "You can write in Japanese, English, or Hindi — whichever is "
         "natural. There is no required format: bullet points, prose, "
         "or short verdicts (\"OK\" / \"reading wrong: should be \") all "
-        "work. The team will read everything.")
+        "work.")
     p5b = para(doc, space_after=4)
     run(p5b,
-        "If an entry is correct as-is, you can either leave the "
-        "Reviewer-notes box empty, or write a brief OK / 問題なし — "
-        "either signals \"reviewed, no changes\".")
+        "Please write your feedback in ", bold=False)
+    run(p5b, "every entry's", bold=True)
+    run(p5b,
+        " Reviewer-notes box individually — do not skip entries. "
+        "Per-entry feedback (one box at a time) is much easier for "
+        "us to act on than a single end-of-document summary, and "
+        "ensures every entry has been considered. Even a brief ",
+        bold=False)
+    run(p5b, "OK", bold=True)
+    run(p5b, " / ", bold=False)
+    run(p5b, "問題なし", bold=True)
+    run(p5b,
+        " counts as a reviewed entry — that signals \"I looked at "
+        "this one, no changes needed.\"", bold=False)
     p5c = para(doc, space_after=4)
     run(p5c,
         "Heavy-rewrite suggestions (whole replacement examples, full new "
@@ -483,12 +494,17 @@ def build_readme(doc, entries, version_meta):
     run(h7, "Logistics", bold=True, size=14, color=HEAD_DARK)
     p7 = para(doc, space_after=4)
     run(p7,
-        "Save the document with your edits and send the same .docx file "
-        "back via email or the shared link you received. If a single "
-        "entry needs a long discussion, feel free to email separately "
-        "with the entry's headword as the subject — we'll route it to "
-        "the right place. Thank you for the time and care; native review "
-        "is the single highest-impact step in our quality pipeline.")
+        "When you are done, simply ", bold=False)
+    run(p7, "save the document", bold=True)
+    run(p7,
+        " with all your edits. You do ", bold=False)
+    run(p7, "not", bold=True)
+    run(p7,
+        " need to send it anywhere — keep the file locally; our team "
+        "will follow up to collect it (or you can hand it back via "
+        "whatever channel we used to share it). Thank you for the "
+        "time and care; native review is the single highest-impact "
+        "step in our quality pipeline.", bold=False)
 
     doc.add_page_break()
 
