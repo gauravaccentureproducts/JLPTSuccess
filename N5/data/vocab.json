@@ -42920,11 +42920,11 @@
         "すむ",
         "すみます",
         "すみました",
-        "よく すむ",
-        "まいにち すむ",
-        "いま すむ"
+        "東京に すむ",
+        "日本に すむ",
+        "この町に すむ"
       ],
-      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms)"
+      "particle_examples_provenance": "llm_curated | native_review_2026_06_04 (batch J1: malformed conjugation <dict>ます/<dict>ました corrected to proper polite forms) | native_review_2026_06_04 (batch K: replaced frequency/time-adverb collocations (よく/まいにち/いま すむ) with reviewer-approved location-particle collocations — すむ is stative and takes に for location; broad adverb-collocation review across other verbs remains BUG-263 as it is per-verb, e.g. よくある is natural)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -73846,6 +73846,7 @@
     "native_review_pass_2026_06_04_batch_g": "Batch G applied: 45 entries received additional pragmatic_functions notes covering G1-G26 section-level recommendations from the 2026-06-04 native-reviewer report (student/police scope, foreigner caution, date readings, tonight, part-time, full-vs-lot, just/only, particle polarity, approximation, formality split, vocab scope, question-word ambiguity, adjective-of-desire, polite copula, early/fast + easy/kind splits, toilet/bath register, body-part duals, kanji/kana family, spicy/salty, color noun-vs-adj, hairbrush orthography). Driver: tools/apply_native_review_batch_g_2026_06_04.py.",
     "native_human_review_status_2026_06_04": "PENDING — corpus has been AI-reviewed (provenance: claude_native_reviewer_persona) and has received two native-reviewer-report-driven cleanup cycles (2026-06-04 batches A-H, ~125 entries with new pragmatic_functions / false_friends / counter / disambiguation metadata). A FULL human-native-speaker per-entry review of all 995 entries with non-empty Reviewer notes (per the consolidated 2026-06-04 follow-up report OPEN-001) remains QUEUED. Until that pass closes, the corpus should be described in release docs as 'native review in progress', NOT 'native-reviewed complete'. The vocab review docx at docs/vocab-review/ is the operational artifact for that human pass.",
     "native_review_pass_2026_06_04_batch_h": "Batch H applied: H1 counter cleanup (1), H2 legacy markers (4), H4 pronoun cautions (4), H5 family-term concise JA (14), H6 review-status disclosure (1). Driver: tools/apply_native_review_batch_h_2026_06_04.py.",
-    "native_review_pass_2026_06_04_batch_j": "Batch J applied: J1 fixed 110 verbs' malformed <dict>ます/<dict>ました conjugations (deterministic, verb-class-aware); J2 removed えいがは <i-adj>でした nonsense example sentences; J3 removed 今日は とても <X> nonsense for non-weather adjectives; J4 cleaned cited カタカナ purchase-template collocations + この りんごは うるさいです. Broad adjective-particle_examples + この-frame review remain in BUG-263 (native judgment). Driver: tools/apply_native_review_batch_j_2026_06_04.py."
+    "native_review_pass_2026_06_04_batch_j": "Batch J applied: J1 fixed 110 verbs' malformed <dict>ます/<dict>ました conjugations (deterministic, verb-class-aware); J2 removed えいがは <i-adj>でした nonsense example sentences; J3 removed 今日は とても <X> nonsense for non-weather adjectives; J4 cleaned cited カタカナ purchase-template collocations + この りんごは うるさいです. Broad adjective-particle_examples + この-frame review remain in BUG-263 (native judgment). Driver: tools/apply_native_review_batch_j_2026_06_04.py.",
+    "native_review_pass_2026_06_04_batch_k": "Batch K: closed the 2 remaining BUG-266 re-check items on すむ (まいにち すむ / いま すむ) + the same-class よく すむ, replaced with reviewer-approved location-particle collocations 東京に/日本に/この町に すむ. Driver: tools/apply_native_review_batch_k_2026_06_04.py."
   }
 }

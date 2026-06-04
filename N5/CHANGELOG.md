@@ -2,6 +2,18 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.40 - 2026-06-04 (vocabulary: すむ particle examples — natural location patterns)
+
+### Fixed
+
+- **すむ** ("to live / reside") — its particle examples showed unnatural
+  frequency/time pairings (*よく すむ* "often live", *まいにち すむ* "live
+  every day", *いま すむ* "live now") that don't fit a stative verb. These
+  are replaced with the natural location patterns a learner should
+  actually use: **東京に すむ**, **日本に すむ**, **この町に すむ** — all
+  showing the location particle に that すむ takes. (Native-reviewer
+  re-check of BUG-266; closes the last 2 items.)
+
 ## v1.17.39 - 2026-06-04 (vocabulary: fix malformed verb conjugations + remove nonsense template example sentences)
 
 ### Fixed

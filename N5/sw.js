@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.39';  // bumped 2026-06-04 — native-reviewer batch J: fixed 110 verbs' malformed conjugation artifacts in particle_examples (べんきょうするます→べんきょうします etc.) + removed ~32 nonsense template example sentences (えいがは <adj>でした / 今日は とても <non-weather-adj>です / この りんごは うるさいです) + cleaned カタカナ purchase-template collocations. Cache-bust so the corrected vocab data reaches returning learners.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.40';  // bumped 2026-06-04 — native-reviewer batch K: closed the last 2 BUG-266 re-check items on すむ — replaced unnatural frequency/time-adverb collocations (よく/まいにち/いま すむ) with reviewer-approved location-particle collocations (東京に/日本に/この町に すむ). Cache-bust so the corrected すむ entry reaches returning learners.
 
 const PRECACHE = [
   './',
