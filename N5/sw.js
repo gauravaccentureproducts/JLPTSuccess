@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.37';  // bumped 2026-05-31 — subtitle full-width fix: the subtitle (.meaning-en on grammar pages, .vocab-gloss-big on vocab pages) was nested inside the .pattern-header flex container, where it got wrap-constrained to the title-cell width — long subtitles like the いつ pattern's "When - pairs with から / まで / ごろ for richer time questions" wrapped halfway while HOW TO USE / EXPLANATION below ran full-width. Moved the subtitle out of .pattern-header so it spans the same width as the sections below it. CSS margins adjusted so the title-subtitle pair stays visually tight.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.38';  // bumped 2026-06-04 — native-reviewer batch I: OPEN-007 homonym badge at the top of vocab pages with same-reading siblings (visual warning before the learner gets misled by kana-only ambiguity). Plus the cumulative batches A-H from 2026-06-04 (140 entries with native-reviewer pragmatic notes); learners see them via the SPA's existing pragmatic_functions / false_friends sections.
 
 const PRECACHE = [
   './',

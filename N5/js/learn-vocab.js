@@ -440,6 +440,36 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
            the longer English gloss reads better when not wrap-constrained
            by the flex title-cell. 2026-05-31. -->
       <p class="vocab-gloss-big">${esc(localizedGloss(entry))} ${renderItemBadge(entry, true)}</p>
+      ${(() => {
+        // OPEN-007 (2026-06-04 native-reviewer report): kana-only display
+        // ambiguity. Surface a prominent homonym/false-friends badge near
+        // the top of the page when the entry has same-reading siblings,
+        // so a learner skimming kana doesn't conflate the senses. The
+        // "Same-kana homonym" pragmatic_functions entry already covers
+        // this content further down, but the reviewer asked for an
+        // up-front warning. Trigger conditions:
+        //   - entry.false_friends array is non-empty (cross-form homonym
+        //     siblings populated by batch B), OR
+        //   - any pragmatic_functions entry's function string starts
+        //     with "Same-kana homonym" (same-form homonym siblings).
+        const ff = Array.isArray(entry.false_friends) ? entry.false_friends.filter(Boolean) : [];
+        const pf = Array.isArray(entry.pragmatic_functions) ? entry.pragmatic_functions : [];
+        const isSameFormHomonym = pf.some(p => (p.function || '').startsWith('Same-kana homonym'));
+        if (!ff.length && !isSameFormHomonym) return '';
+        const links = ff.map(form =>
+          `<a class="vocab-homonym-chip-link" href="#/learn/vocab/${encodeURIComponent(form)}"><span lang="ja">${esc(form)}</span></a>`
+        ).join(' / ');
+        const sameFormNote = isSameFormHomonym
+          ? `<span class="vocab-homonym-chip-same"><span lang="ja">${esc(entry.reading || entry.form)}</span> has multiple N5 senses — see "Multiple uses (pragmatic)" below for the contrast.</span>`
+          : '';
+        return `
+          <aside class="vocab-homonym-badge" role="note" aria-label="Homonym warning">
+            <span class="vocab-homonym-badge-label">⚠ Same-kana homonym</span>
+            ${ff.length ? `<span class="vocab-homonym-chip-also">also see: ${links}</span>` : ''}
+            ${sameFormNote}
+          </aside>
+        `;
+      })()}
 
       <section>
         <h3 class="section-title">${esc(t('vocab_detail.meaning'))}</h3>

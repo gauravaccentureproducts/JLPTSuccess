@@ -3688,6 +3688,67 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   color: var(--c-muted);
   text-wrap: balance;
 }
+/* Homonym warning badge — surfaces near the top of a vocab page when
+ * the entry shares its reading with another entry. Addresses OPEN-007
+ * (kana-only display ambiguity) from the 2026-06-04 native-reviewer
+ * follow-up review: a learner reading kana-only could conflate
+ * は (tooth/leaf/topic), はし (chopsticks/bridge), あめ (rain/candy),
+ * etc. without a visible cue at the top of the page. 2026-06-04. */
+.vocab-homonym-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 0 0 18px;
+  background: #fff7e0;
+  border-left: 3px solid #d4a82a;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  color: #5a4400;
+}
+.vocab-homonym-badge-label {
+  font-weight: 600;
+  color: #7a5a00;
+  white-space: nowrap;
+}
+.vocab-homonym-chip-also {
+  font-size: 13px;
+  color: #5a4400;
+}
+.vocab-homonym-chip-link {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 2px 8px;
+  background: #fff;
+  border: 1px solid #d4a82a;
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--c-primary, #14452a);
+  font-weight: 500;
+}
+.vocab-homonym-chip-link:hover { background: #fff3c4; }
+.vocab-homonym-chip-same {
+  font-size: 13px;
+  color: #5a4400;
+}
+@media (prefers-color-scheme: dark) {
+  .vocab-homonym-badge {
+    background: #3a2f1e;
+    border-left-color: #d4a82a;
+    color: #f0d496;
+  }
+  .vocab-homonym-badge-label { color: #f0c890; }
+  .vocab-homonym-chip-also,
+  .vocab-homonym-chip-same { color: #d8c490; }
+  .vocab-homonym-chip-link {
+    background: #2a2316;
+    border-color: #b08c20;
+    color: #f0e0a0;
+  }
+  .vocab-homonym-chip-link:hover { background: #3a3020; }
+}
+
 .vocab-detail .example-list li { padding: 8px 0; border-bottom: 1px solid var(--c-border); list-style: decimal inside; }
 .vocab-detail .example-ja { font-size: 17px; margin: 4px 0; }
 .vocab-nav { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--c-border); }

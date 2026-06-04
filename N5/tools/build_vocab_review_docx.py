@@ -223,16 +223,39 @@ def labeled(doc, label, text):
 
 
 def reviewer_box(doc):
+    """Reviewer notes table — pre-populated with a visible '未確認 /
+    not yet reviewed' placeholder so unreviewed entries flag themselves
+    rather than being silently empty (addresses OPEN-001 mechanically:
+    the human native reviewer DELETES the placeholder when filling in
+    「問題なし。」 or 「要修正: ...」, so the queue of unreviewed entries
+    is visually obvious throughout the document until each one is
+    addressed). 2026-06-04, batch I."""
     p = para(doc, space_before=10, space_after=2)
     run(p, "Reviewer notes", bold=True, size=11, color=MUTED)
     tbl = doc.add_table(rows=1, cols=1)
     tbl.style = 'Table Grid'
     cell = tbl.rows[0].cells[0]
     cell.width = Inches(6.5)
-    for _ in range(3):
+
+    # Placeholder line 1: status marker in red so empty entries stand out
+    cp1 = cell.paragraphs[0]
+    cp1.paragraph_format.space_after = Pt(2)
+    run(cp1, "☐ 未確認 / not yet reviewed",
+        italic=True, color=WRONG_RED, size=10)
+
+    # Placeholder line 2: instruction (small muted)
+    cp2 = cell.add_paragraph()
+    cp2.paragraph_format.space_after = Pt(6)
+    run(cp2,
+        "[Native reviewer: delete the line above and write 「問題なし。」 "
+        "if the entry is correct, OR 「要修正: <issue>」 with a specific "
+        "issue. Empty boxes are treated as 'not yet reviewed'.]",
+        italic=True, color=MUTED, size=9)
+
+    # Two empty paragraphs for actual reviewer text
+    for _ in range(2):
         cp = cell.add_paragraph()
         cp.paragraph_format.space_after = Pt(6)
-    cell.paragraphs[0].paragraph_format.space_after = Pt(6)
 
 
 # --- clickable Table of Contents: bookmarks + internal hyperlinks ---
