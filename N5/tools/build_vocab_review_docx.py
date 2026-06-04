@@ -279,6 +279,220 @@ def _entry_anchor(e):
     return safe
 
 
+def build_readme(doc, entries, version_meta):
+    """Front README page: orient the reviewer to the site, level, and task.
+
+    Lives on its own page, before the clickable Contents page. Tells the
+    reviewer what JLPTSuccess is, what N5 covers, what this packet is for,
+    what they should check for each entry, and exactly where (the
+    Reviewer-notes table at the bottom of every entry page) to write
+    their comments.
+    """
+    # Title
+    h = para(doc, space_before=0, space_after=4)
+    run(h, "N5 Vocabulary — Native-Speaker Review Packet",
+        bold=True, size=22, color=HEAD_DARK)
+
+    # Doc metadata (count + site version + build date) right under the title.
+    # vocab.json doesn't carry a corpus-version field, so we anchor to the
+    # site release tag + the packet build date — that's the pair an
+    # institutional reviewer needs to identify "which release did I review".
+    from datetime import date
+    site_v = version_meta.get('site_version') or '(unknown)'
+    meta = para(doc, space_after=14)
+    run(meta,
+        "%d entries  ·  built %s  ·  JLPTSuccess release %s" % (
+            len(entries),
+            date.today().isoformat(),
+            site_v),
+        italic=True, size=10, color=MUTED)
+
+    # 1. About JLPTSuccess
+    h1 = para(doc, space_before=4, space_after=2)
+    run(h1, "About JLPTSuccess", bold=True, size=14, color=HEAD_DARK)
+    p1 = para(doc, space_after=4)
+    run(p1,
+        "JLPTSuccess is a free, learner-focused study site for the "
+        "Japanese-Language Proficiency Test (JLPT). It runs in any modern "
+        "browser at ")
+    run(p1, "https://gauravaccentureproducts.github.io/JLPTSuccess/",
+        color=RGBColor(0x05, 0x63, 0xC1))
+    run(p1,
+        ", works offline as a Progressive Web App, and ships with the "
+        "full corpus (grammar patterns, vocabulary entries, kanji, reading "
+        "passages, listening items, and mock exam questions) plus drills, "
+        "tests, an SRS-style review queue, and bilingual UI (English + "
+        "Hindi).")
+
+    # 2. About the N5 level
+    h2 = para(doc, space_before=10, space_after=2)
+    run(h2, "About the N5 level", bold=True, size=14, color=HEAD_DARK)
+    p2 = para(doc, space_after=4)
+    run(p2,
+        "JLPT has five levels: N5 (entry-level) → N4 → N3 → N2 → N1 "
+        "(near-native). N5 is the first certification, aimed at learners "
+        "who understand basic everyday Japanese: roughly 100 kanji, ~800 "
+        "vocabulary items, basic verb conjugations and particles, simple "
+        "polite-form sentences, and survival-level listening / reading.")
+    p2b = para(doc, space_after=4)
+    run(p2b, "This N5 corpus currently contains: ")
+    run(p2b, "%d grammar patterns" % version_meta.get('counts', {}).get('grammar', 178), bold=True)
+    run(p2b, " · ")
+    run(p2b, "%d vocabulary entries" % len(entries), bold=True)
+    run(p2b, " · ")
+    run(p2b, "%d kanji" % version_meta.get('counts', {}).get('kanji', 106), bold=True)
+    run(p2b, " · ")
+    run(p2b, "%d reading passages" % version_meta.get('counts', {}).get('reading', 54), bold=True)
+    run(p2b, " · ")
+    run(p2b, "%d listening items" % version_meta.get('counts', {}).get('listening', 50), bold=True)
+    run(p2b, " · ")
+    run(p2b, "%d mock-test questions" % version_meta.get('counts', {}).get('paperQuestions', 402), bold=True)
+    run(p2b, ". This packet covers ONLY the vocabulary corpus.")
+
+    # 3. Purpose of this document
+    h3 = para(doc, space_before=10, space_after=2)
+    run(h3, "Purpose of this document", bold=True, size=14, color=HEAD_DARK)
+    p3 = para(doc, space_after=4)
+    run(p3,
+        "Many of the 995 vocabulary entries were AI-generated, "
+        "machine-translated, or auto-derived from corpus heuristics. "
+        "Before the next public release we want a native Japanese speaker "
+        "(ideally a JLPT instructor or native teacher) to verify each "
+        "entry's accuracy. This packet renders the same content the "
+        "live site shows on each vocab detail page — in printable form — "
+        "so you can read and annotate offline.")
+
+    # 4. What the reviewer should check
+    h4 = para(doc, space_before=10, space_after=2)
+    run(h4, "What you (the reviewer) are asked to check",
+        bold=True, size=14, color=HEAD_DARK)
+    p4 = para(doc, space_after=2)
+    run(p4,
+        "For each entry, please verify the following. Flag anything that "
+        "is wrong, awkward, or off-level for N5:")
+    checklist = [
+        ('Form / Reading',
+         'Does the kanji + kana headword spell the intended word correctly? '
+         'Is the reading kana accurate?'),
+        ('English gloss',
+         'Does it convey the Japanese meaning at N5 level? Too narrow, '
+         'too broad, idiomatic-only, or just wrong?'),
+        ('Hindi gloss (when shown)',
+         'Translation accuracy — does the Hindi term match the Japanese '
+         'sense at N5 level?'),
+        ('Example sentences',
+         'Natural, grammatical, level-appropriate. Catch unnatural word '
+         'order, wrong particles, kanji a beginner won\'t know, or '
+         'sentences that don\'t illustrate the headword.'),
+        ('Particle examples',
+         'Are these the collocations a native speaker would actually use? '
+         'Anything obviously template-generated rather than real usage?'),
+        ('Pitch accent',
+         'HL contour (Tokyo dialect). Drop position correct? Heiban vs '
+         'kifuku flagged correctly?'),
+        ('Counter (if shown)',
+         'Is the counter shown the one a Japanese speaker would use for '
+         'this object/concept?'),
+        ('Register',
+         'neutral / casual / polite / humble / respectful — accurate? '
+         'And does the entry feel like N5-appropriate vocabulary at that '
+         'register?'),
+        ('Part of speech / Verb class',
+         'Noun / verb / adjective / particle classification. For verbs: '
+         'Group 1 (う-verb) / Group 2 (る-verb) / Irregular — correct? '
+         'Group-1 exception flag accurate?'),
+        ('False friends, pragmatic, devoiced vowels',
+         'When shown, do these notes match how the word actually behaves '
+         'in modern standard Japanese?'),
+    ]
+    for label, body in checklist:
+        cp = para(doc, space_before=2, space_after=2)
+        run(cp, "• " + label + ": ", bold=True)
+        run(cp, body)
+
+    # 5. Where to write your notes
+    h5 = para(doc, space_before=10, space_after=2)
+    run(h5, "Where to write your review comments",
+        bold=True, size=14, color=HEAD_DARK)
+    p5a = para(doc, space_after=4)
+    run(p5a,
+        "Each entry page has a gray-bordered ")
+    run(p5a, "Reviewer notes", bold=True)
+    run(p5a,
+        " table box at the bottom (after the entry's last section). "
+        "Click into that table and type your comments directly there. "
+        "You can write in Japanese, English, or Hindi — whichever is "
+        "natural. There is no required format: bullet points, prose, "
+        "or short verdicts (\"OK\" / \"reading wrong: should be \") all "
+        "work. The team will read everything.")
+    p5b = para(doc, space_after=4)
+    run(p5b,
+        "If an entry is correct as-is, you can either leave the "
+        "Reviewer-notes box empty, or write a brief OK / 問題なし — "
+        "either signals \"reviewed, no changes\".")
+    p5c = para(doc, space_after=4)
+    run(p5c,
+        "Heavy-rewrite suggestions (whole replacement examples, full new "
+        "particle-example lists) are welcome — put them directly into the "
+        "notes box; we'll port them back to the corpus on our end.")
+
+    # 6. How to read the page layout
+    h6 = para(doc, space_before=10, space_after=2)
+    run(h6, "Quick guide to each entry page",
+        bold=True, size=14, color=HEAD_DARK)
+    guide = [
+        ('Small gray header line',
+         'The numbered section the entry belongs to (e.g. "1. People - '
+         'Pronouns and Self"). 41 sections total, grouped on the '
+         'Contents page into 8 super-categories.'),
+        ('Large dark-green word',
+         'The entry headword (form): kanji if used at N5, otherwise kana.'),
+        ('Gray kana line below',
+         'The reading (only shown when it differs from the form, e.g. '
+         'kanji headwords).'),
+        ('Italic gray subtitle',
+         'The English gloss — short translation of the meaning.'),
+        ('MEANING section',
+         'Structured detail: English, Hindi gloss (when present), '
+         'reading, pitch-accent HL contour, counter, register, register '
+         'origin, POS / verb-class, frequency rank, and patterns that '
+         'frequently co-occur with this word.'),
+        ('Example sentences',
+         'Real Japanese sentences using the entry, with English '
+         'translation. Each line shows a "From pattern" or '
+         '"Provenance" tag indicating where the example came from.'),
+        ('Particle examples',
+         'Short particle-collocation templates (e.g. "わたしの ともだち"). '
+         'Historically called "collocations" — renamed because they are '
+         'particle templates, not real corpus collocations.'),
+        ('Provenance & review status',
+         'A small footer showing which fields are AI-generated vs '
+         'native-reviewed. Helpful context for prioritising your '
+         'attention.'),
+        ('Reviewer notes',
+         'The gray-bordered box where you write your feedback. (See '
+         'previous section.)'),
+    ]
+    for label, body in guide:
+        gp = para(doc, space_before=1, space_after=1)
+        run(gp, "• " + label + ": ", bold=True)
+        run(gp, body)
+
+    # 7. Logistics + thank-you
+    h7 = para(doc, space_before=10, space_after=2)
+    run(h7, "Logistics", bold=True, size=14, color=HEAD_DARK)
+    p7 = para(doc, space_after=4)
+    run(p7,
+        "Save the document with your edits and send the same .docx file "
+        "back via email or the shared link you received. If a single "
+        "entry needs a long discussion, feel free to email separately "
+        "with the entry's headword as the subject — we'll route it to "
+        "the right place. Thank you for the time and care; native review "
+        "is the single highest-impact step in our quality pipeline.")
+
+    doc.add_page_break()
+
+
 def build_toc(doc, entries, L):
     """Front Contents page: clickable links per entry, grouped by super-cat then numbered section."""
     h = para(doc, space_before=0, space_after=4)
@@ -502,6 +716,29 @@ def render_entry(doc, e, L, first):
     reviewer_box(doc)
 
 
+def _load_version_meta():
+    """Pull vocab _meta.version + site version.json into a single dict so
+    the README can stamp itself with the exact build state. Falls back
+    gracefully if either file is missing."""
+    out = {}
+    try:
+        with open(VOCAB, encoding='utf-8') as f:
+            v = json.load(f)
+        out['vocab_version'] = (v.get('_meta') or {}).get('version', '')
+    except Exception:
+        out['vocab_version'] = ''
+    try:
+        ver_fp = os.path.join(ROOT, 'data', 'version.json')
+        with open(ver_fp, encoding='utf-8') as f:
+            ver = json.load(f)
+        out['site_version'] = ver.get('version', '')
+        out['counts'] = ver.get('counts', {})
+    except Exception:
+        out['site_version'] = ''
+        out['counts'] = {}
+    return out
+
+
 def main():
     arg = sys.argv[1] if len(sys.argv) > 1 else '私'
     with open(VOCAB, encoding='utf-8') as f:
@@ -511,6 +748,8 @@ def main():
         print("could not read vocab entries"); return 1
     with open(EN_LOCALE, encoding='utf-8') as f:
         L = json.load(f).get('vocab_detail', {})
+
+    version_meta = _load_version_meta()
 
     if arg == 'all':
         ents = ordered_entries(entries)
@@ -534,6 +773,11 @@ def main():
     _rfonts.set(qn('w:ascii'), LATIN)
     _rfonts.set(qn('w:hAnsi'), LATIN)
     _rfonts.set(qn('w:eastAsia'), CJK)
+
+    # README always renders first — both for the full 995-entry packet
+    # AND single-entry samples (so the reviewer who receives the sample
+    # also gets the orientation context).
+    build_readme(doc, ents, version_meta)
 
     if arg == 'all':
         build_toc(doc, ents, L)
