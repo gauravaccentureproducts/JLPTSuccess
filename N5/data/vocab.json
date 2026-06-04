@@ -67,7 +67,15 @@
         "わたしを しる",
         "わたしと あう"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "pragmatic_functions": [
+        {
+          "function": "'I' — often OMITTED in Japanese when context is clear",
+          "gloss": "私 means 'I' / 'me', but native Japanese speakers usually OMIT the subject when it's already clear from context. Saying 私 explicitly in every sentence sounds heavy or English-influenced.",
+          "context": "Examples: 「日本語を勉強します」 (subject omitted, understood as 'I') is more natural than 「私は日本語を勉強します」 in everyday speech. Use 私 when contrasting ('わたしは行きません、あなたは…') or first introducing yourself. Reading 'わたくし' is the formal version; 'わたし' is everyday-polite."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.私たち",
@@ -141,7 +149,15 @@
         "わたしたちを しる",
         "わたしたちと あう"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "pragmatic_functions": [
+        {
+          "function": "'We' — often OMITTED in Japanese when context is clear",
+          "gloss": "私たち means 'we' / 'us'. Like 私, Japanese typically omits the subject when context is clear. Saying 私たち explicitly is more common when contrasting groups or introducing the group.",
+          "context": "Examples: 「行きましょう」 (subject omitted, understood as 'let's go (we)') is more natural than 「私たちは行きましょう」. Use 私たち for explicit group contrast or formal-register introduction."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.あなた",
@@ -638,7 +654,15 @@
         "みなさん いっしょに",
         "みなさんの こえ"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "pragmatic_functions": [
+        {
+          "function": "Everyone — polite address form for groups",
+          "gloss": "みなさん (皆さん) is the polite-respectful form of 'everyone'. Used to address audiences, customers, students, anyone you want to show group-respect to.",
+          "context": "Examples: 「みなさん、こんにちは」 (formal hello to a group), 「みなさんの ご意見を…」 (formal 'your collective opinions'). For casual peer-group reference, use みんな."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.だれ",
@@ -1037,9 +1061,14 @@
           "function": "Own father (talking to outsiders)",
           "gloss": "Use 父 when referring to YOUR own father in conversation with people outside your family.",
           "context": "Example: 「父は会社員です」 — 'My father is a company employee.' For someone else's father, use お父さん."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の父を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.母",
@@ -1121,9 +1150,14 @@
           "function": "Own mother (talking to outsiders)",
           "gloss": "Use 母 when referring to YOUR own mother in conversation with people outside your family.",
           "context": "Example: 「私の母は元気です」 — 'My mother is well.' Don't use お母さん in that position; that form is for someone else's mother or as a direct address."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の母を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.お父さん",
@@ -1190,9 +1224,14 @@
           "function": "Someone else's father / address form",
           "gloss": "Use お父さん to refer politely to SOMEONE ELSE'S father, or to address YOUR OWN father directly.",
           "context": "When talking ABOUT your own father to outsiders, switch to 父."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "他人の父、または自分の父への呼びかけに使う。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.お母さん",
@@ -1259,9 +1298,14 @@
           "function": "Someone else's mother / address form",
           "gloss": "Use お母さん to refer politely to SOMEONE ELSE'S mother, or to address YOUR OWN mother directly.",
           "context": "When talking ABOUT your own mother to outsiders, switch to 母. The お…さん pattern marks respect for the referent, which is why it doesn't fit your own family in outward-facing reference."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "他人の母、または自分の母への呼びかけに使う。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.あに",
@@ -1346,9 +1390,14 @@
           "function": "Own older brother (talking to outsiders)",
           "gloss": "Use あに / 兄 when referring to YOUR own older brother in conversation with people outside your family.",
           "context": "For someone else's older brother, or as a direct address form within the family, use お兄さん."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の兄を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.あね",
@@ -1427,9 +1476,14 @@
           "function": "Own older sister (talking to outsiders)",
           "gloss": "Use あね / 姉 when referring to YOUR own older sister in conversation with people outside your family.",
           "context": "For someone else's older sister, or as a direct address form within the family, use お姉さん."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の姉を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おとうと",
@@ -1644,9 +1698,14 @@
           "function": "Someone else's older brother / address form",
           "gloss": "Use お兄さん (おにいさん) for SOMEONE ELSE'S older brother, or to address your own older brother directly.",
           "context": "When talking about your own older brother to outsiders, use あに / 兄 instead."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "他人の兄、または呼びかけに使う。自分の兄を外に話すときは「あに」。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おねえさん",
@@ -1728,9 +1787,14 @@
           "function": "Someone else's older sister / address form",
           "gloss": "Use お姉さん (おねえさん) for SOMEONE ELSE'S older sister, or to address your own older sister directly.",
           "context": "When talking about your own older sister to outsiders, use あね / 姉 instead."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "他人の姉、または呼びかけに使う。自分の姉を外に話すときは「あね」。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.きょうだい",
@@ -1939,9 +2003,14 @@
           "function": "Own grandfather (talking to outsiders)",
           "gloss": "Use 祖父 (そふ) when referring to YOUR own grandfather in conversation with people outside your family. More formal/literary than おじいさん.",
           "context": "Within the family or for someone else's grandfather, おじいさん is more common in spoken Japanese."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の祖父を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.そぼ",
@@ -2012,9 +2081,14 @@
           "function": "Own grandmother (talking to outsiders)",
           "gloss": "Use 祖母 (そぼ) when referring to YOUR own grandmother in conversation with people outside your family. More formal/literary than おばあさん.",
           "context": "Within the family or for someone else's grandmother, おばあさん is more common in spoken Japanese."
+        },
+        {
+          "function": "Concise JA (native-reviewer wording)",
+          "gloss": "自分の祖母を外の人に話すときの言い方。",
+          "context": "(Reviewer's preferred concise JA. See the longer English explanation above for the same content.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おじいさん",
@@ -2104,9 +2178,14 @@
           "function": "Kinship / general elderly man / address",
           "gloss": "Used both for grandfathers (own or someone else's) and as a friendly term for an elderly man.",
           "context": "Pragmatic caution: using おじいさん to address an unrelated elderly man you don't know can sound presumptuous about their age — many Japanese speakers avoid it in cold-call situations and switch to 「すみません」 + a job/role title where possible."
+        },
+        {
+          "function": "Concise JA pragmatic caution (native-reviewer wording)",
+          "gloss": "家族や親しい文脈では自然だが、知らない人に直接使うと失礼に感じられる場合がある。",
+          "context": "(Reviewer's preferred concise JA wording for the address-form caution.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おばあさん",
@@ -2196,9 +2275,14 @@
           "function": "Kinship / general elderly woman / address",
           "gloss": "Used both for grandmothers (own or someone else's) and as a friendly term for an elderly woman.",
           "context": "Pragmatic caution: using おばあさん to address an unrelated elderly woman can sound presumptuous about their age. See おじいさん for the same caveat."
+        },
+        {
+          "function": "Concise JA pragmatic caution (native-reviewer wording)",
+          "gloss": "家族や親しい文脈では自然だが、知らない人に直接使うと失礼に感じられる場合がある。",
+          "context": "(Reviewer's preferred concise JA wording for the address-form caution.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おじさん",
@@ -2286,9 +2370,14 @@
           "function": "Uncle / middle-aged man / address",
           "gloss": "Used both for one's uncle (own or someone else's) and as a friendly term for a middle-aged man.",
           "context": "Pragmatic caution: using おじさん to address a man who isn't actually your uncle can sound like you're calling him 'old' — children often use it freely; adults usually avoid it for strangers."
+        },
+        {
+          "function": "Concise JA pragmatic caution (native-reviewer wording)",
+          "gloss": "家族や親しい文脈では自然だが、知らない人に直接使うと失礼に感じられる場合がある。",
+          "context": "(Reviewer's preferred concise JA wording for the address-form caution.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.おばさん",
@@ -2367,9 +2456,14 @@
           "function": "Aunt / middle-aged woman / address",
           "gloss": "Used both for one's aunt (own or someone else's) and as a friendly term for a middle-aged woman.",
           "context": "Pragmatic caution: using おばさん to address an unrelated woman can sound rude — many Japanese women dislike being called おばさん because of the age implication. See おじさん for the same caveat."
+        },
+        {
+          "function": "Concise JA pragmatic caution (native-reviewer wording)",
+          "gloss": "家族や親しい文脈では自然だが、知らない人に直接使うと失礼に感じられる場合がある。",
+          "context": "(Reviewer's preferred concise JA wording for the address-form caution.)"
         }
       ],
-      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms) | native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.2-people-family.子ども",
@@ -65175,10 +65269,6 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": {
-        "kanji": "回",
-        "reading": "回"
-      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -66284,7 +66374,15 @@
         "マッチを すきに する",
         "マッチが きえる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Lower-frequency — matchsticks are used less in daily life",
+          "gloss": "マッチ (matchsticks for lighting). Less common day-to-day now that smoking has declined and electric lighters / induction stoves are standard. Still used in households for candles, incense (お線香), and some cooking.",
+          "context": "Recognize but not high-priority. The 本 counter (long thin objects) is correct."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.たばこ",
@@ -66427,7 +66525,15 @@
         "はいざらを みる",
         "やすい はいざら"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Lower-frequency — ashtray, less common as smoking declines",
+          "gloss": "はいざら (灰皿) is an ashtray. Smoking rates in Japan have declined and most restaurants are now non-smoking, so the word is less daily-frequent than in older N5 lists.",
+          "context": "Recognize but not high-priority. The 個 counter (generic object) is correct."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.スリッパ",
@@ -66650,7 +66756,15 @@
         "フィルムを とる",
         "フィルムの しゅるい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Legacy / low-frequency — photographic film, mostly obsolete in daily life",
+          "gloss": "フィルム is photographic film (35mm rolls etc.). Smartphone cameras and digital photography have made it niche. Modern photography vocabulary: デジカメ, スマホ, しゃしん.",
+          "context": "Recognize for older texts and analog-photography hobbyist contexts; not high-priority active vocabulary. The 本 counter (long/cylindrical) on フィルム is correct."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.レコード",
@@ -66722,7 +66836,15 @@
         "新しい レコード",
         "レコードの あじわい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Legacy / low-frequency — vinyl record, mostly obsolete in daily life",
+          "gloss": "レコード referred to a vinyl audio record. Modern music is digital — CD, ストリーミング, ダウンロード. Vinyl had a hobbyist revival but a typical N5 learner won't encounter it day-to-day.",
+          "context": "Recognize for older texts and music-history contexts; not high-priority active vocabulary. The 枚 counter on レコード is correct (flat object counter) — the legacy label is about modern frequency, not the counter."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.よてい",
@@ -73037,7 +73159,15 @@
         "みんなに あう",
         "クラスの みんな"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "pragmatic_functions": [
+        {
+          "function": "Everyone — casual, NOT a polite address",
+          "gloss": "みんな (皆) is the casual / informal 'everyone' or 'all of us'. For polite address to a group, use みなさん (皆さん).",
+          "context": "Examples: 「みんな来た?」 ('Did everyone come?', casual). To address a group politely: 「みなさん、こんにちは」 ('Hello everyone'). Don't use みんな in a formal speech or to address customers — switch to みなさん."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch H: mechanical closure of remaining OPEN items)"
     },
     {
       "id": "n5.vocab.33-adverbs.やはり",
@@ -73839,6 +73969,8 @@
     "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 17 duplicate example rows dropped from 17 entries.",
     "native_review_pass_2026_06_04": "Batches A-D applied from the consolidated native-reviewer report dated 2026-06-04: A) かた sense de-contamination (1 entry), B) homonym false_friends sweep (27 entries), C) counter cleanup (2 entries), D) family pragmatic notes (15 entries). Batch E (particle-example native re-audit, ~50-300 entries) deferred to a follow-up cycle and tracked in xlsx bug tracker.",
     "native_review_pass_2026_06_04_batch_f": "Batch F applied: 27 of 27 target entries received pragmatic_functions additions covering legacy markers (F1), なく animal/human kanji split (F2), pronoun usage cautions (F3), 先生 honorific scope (F4), greeting context (F5), key lexical contrasts (F6), な-adj predicate grammar (F7), and きれい dual-meaning (F8). Driver: tools/apply_native_review_batch_f_2026_06_04.py.",
-    "native_review_pass_2026_06_04_batch_g": "Batch G applied: 45 entries received additional pragmatic_functions notes covering G1-G26 section-level recommendations from the 2026-06-04 native-reviewer report (student/police scope, foreigner caution, date readings, tonight, part-time, full-vs-lot, just/only, particle polarity, approximation, formality split, vocab scope, question-word ambiguity, adjective-of-desire, polite copula, early/fast + easy/kind splits, toilet/bath register, body-part duals, kanji/kana family, spicy/salty, color noun-vs-adj, hairbrush orthography). Driver: tools/apply_native_review_batch_g_2026_06_04.py."
+    "native_review_pass_2026_06_04_batch_g": "Batch G applied: 45 entries received additional pragmatic_functions notes covering G1-G26 section-level recommendations from the 2026-06-04 native-reviewer report (student/police scope, foreigner caution, date readings, tonight, part-time, full-vs-lot, just/only, particle polarity, approximation, formality split, vocab scope, question-word ambiguity, adjective-of-desire, polite copula, early/fast + easy/kind splits, toilet/bath register, body-part duals, kanji/kana family, spicy/salty, color noun-vs-adj, hairbrush orthography). Driver: tools/apply_native_review_batch_g_2026_06_04.py.",
+    "native_human_review_status_2026_06_04": "PENDING — corpus has been AI-reviewed (provenance: claude_native_reviewer_persona) and has received two native-reviewer-report-driven cleanup cycles (2026-06-04 batches A-H, ~125 entries with new pragmatic_functions / false_friends / counter / disambiguation metadata). A FULL human-native-speaker per-entry review of all 995 entries with non-empty Reviewer notes (per the consolidated 2026-06-04 follow-up report OPEN-001) remains QUEUED. Until that pass closes, the corpus should be described in release docs as 'native review in progress', NOT 'native-reviewed complete'. The vocab review docx at docs/vocab-review/ is the operational artifact for that human pass.",
+    "native_review_pass_2026_06_04_batch_h": "Batch H applied: H1 counter cleanup (1), H2 legacy markers (4), H4 pronoun cautions (4), H5 family-term concise JA (14), H6 review-status disclosure (1). Driver: tools/apply_native_review_batch_h_2026_06_04.py."
   }
 }
