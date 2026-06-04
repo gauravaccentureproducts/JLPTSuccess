@@ -451,18 +451,20 @@
       "register_provenance": "auto_derived",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
-        "読みかたは",
-        "書きかたを",
-        "読みかたを",
-        "行きかたが",
-        "日本人の かた",
-        "よみかた",
-        "つくりかた",
-        "かんがえかた",
-        "いきかた",
-        "ねかた"
+        "あの方は",
+        "あの方が",
+        "どの方も",
+        "あの方に"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_review_2026_06_04 (batch A: sense de-contamination — earlier particle_examples were shared with the way-of-doing 「〜かた」 entry and belonged to that sense; replaced with polite-person 「方」 collocations)",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「かた」 covers 2 distinct N5 meanings: かた — person (polite)  /  かた — way of doing (e.g., たべかた = how to eat)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.人",
@@ -896,13 +898,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": {
-        "kanji": "人",
-        "reading": "にん"
-      },
-      "counter_register": null,
-      "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "かぞくと あう",
@@ -1004,7 +999,15 @@
         "父が いる",
         "父は やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own father (talking to outsiders)",
+          "gloss": "Use 父 when referring to YOUR own father in conversation with people outside your family.",
+          "context": "Example: 「父は会社員です」 — 'My father is a company employee.' For someone else's father, use お父さん."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.母",
@@ -1080,7 +1083,15 @@
         "母が いる",
         "母は やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own mother (talking to outsiders)",
+          "gloss": "Use 母 when referring to YOUR own mother in conversation with people outside your family.",
+          "context": "Example: 「私の母は元気です」 — 'My mother is well.' Don't use お母さん in that position; that form is for someone else's mother or as a direct address."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.お父さん",
@@ -1141,7 +1152,15 @@
         "お父さんの たんじょうび",
         "お父さんの ともだち"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Someone else's father / address form",
+          "gloss": "Use お父さん to refer politely to SOMEONE ELSE'S father, or to address YOUR OWN father directly.",
+          "context": "When talking ABOUT your own father to outsiders, switch to 父."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.お母さん",
@@ -1202,7 +1221,15 @@
         "お母さんに あう",
         "お母さんの たんじょうび"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Someone else's mother / address form",
+          "gloss": "Use お母さん to refer politely to SOMEONE ELSE'S mother, or to address YOUR OWN mother directly.",
+          "context": "When talking ABOUT your own mother to outsiders, switch to 母. The お…さん pattern marks respect for the referent, which is why it doesn't fit your own family in outward-facing reference."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.あに",
@@ -1281,7 +1308,15 @@
         "あにが いる",
         "あには やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own older brother (talking to outsiders)",
+          "gloss": "Use あに / 兄 when referring to YOUR own older brother in conversation with people outside your family.",
+          "context": "For someone else's older brother, or as a direct address form within the family, use お兄さん."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.あね",
@@ -1354,7 +1389,15 @@
         "あねが いる",
         "あねは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own older sister (talking to outsiders)",
+          "gloss": "Use あね / 姉 when referring to YOUR own older sister in conversation with people outside your family.",
+          "context": "For someone else's older sister, or as a direct address form within the family, use お姉さん."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おとうと",
@@ -1563,7 +1606,15 @@
         "おにいさんが いる",
         "おにいさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Someone else's older brother / address form",
+          "gloss": "Use お兄さん (おにいさん) for SOMEONE ELSE'S older brother, or to address your own older brother directly.",
+          "context": "When talking about your own older brother to outsiders, use あに / 兄 instead."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おねえさん",
@@ -1639,7 +1690,15 @@
         "おねえさんが いる",
         "おねえさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Someone else's older sister / address form",
+          "gloss": "Use お姉さん (おねえさん) for SOMEONE ELSE'S older sister, or to address your own older sister directly.",
+          "context": "When talking about your own older sister to outsiders, use あね / 姉 instead."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.きょうだい",
@@ -1765,13 +1824,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": {
-        "kanji": "人",
-        "reading": "にん"
-      },
-      "counter_register": null,
-      "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "りょうしんと あう",
@@ -1849,7 +1901,15 @@
         "そふが いる",
         "そふは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own grandfather (talking to outsiders)",
+          "gloss": "Use 祖父 (そふ) when referring to YOUR own grandfather in conversation with people outside your family. More formal/literary than おじいさん.",
+          "context": "Within the family or for someone else's grandfather, おじいさん is more common in spoken Japanese."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.そぼ",
@@ -1914,7 +1974,15 @@
         "そぼが いる",
         "そぼは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Own grandmother (talking to outsiders)",
+          "gloss": "Use 祖母 (そぼ) when referring to YOUR own grandmother in conversation with people outside your family. More formal/literary than おばあさん.",
+          "context": "Within the family or for someone else's grandmother, おばあさん is more common in spoken Japanese."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おじいさん",
@@ -1998,7 +2066,15 @@
         "おじいさんが いる",
         "おじいさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Kinship / general elderly man / address",
+          "gloss": "Used both for grandfathers (own or someone else's) and as a friendly term for an elderly man.",
+          "context": "Pragmatic caution: using おじいさん to address an unrelated elderly man you don't know can sound presumptuous about their age — many Japanese speakers avoid it in cold-call situations and switch to 「すみません」 + a job/role title where possible."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おばあさん",
@@ -2082,7 +2158,15 @@
         "おばあさんが いる",
         "おばあさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Kinship / general elderly woman / address",
+          "gloss": "Used both for grandmothers (own or someone else's) and as a friendly term for an elderly woman.",
+          "context": "Pragmatic caution: using おばあさん to address an unrelated elderly woman can sound presumptuous about their age. See おじいさん for the same caveat."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おじさん",
@@ -2164,7 +2248,15 @@
         "おじさんと はなす",
         "おじさんの でんわ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Uncle / middle-aged man / address",
+          "gloss": "Used both for one's uncle (own or someone else's) and as a friendly term for a middle-aged man.",
+          "context": "Pragmatic caution: using おじさん to address a man who isn't actually your uncle can sound like you're calling him 'old' — children often use it freely; adults usually avoid it for strangers."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.おばさん",
@@ -2237,7 +2329,15 @@
         "おばさんと はなす",
         "おばさんの でんわ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Aunt / middle-aged woman / address",
+          "gloss": "Used both for one's aunt (own or someone else's) and as a friendly term for a middle-aged woman.",
+          "context": "Pragmatic caution: using おばさん to address an unrelated woman can sound rude — many Japanese women dislike being called おばさん because of the age implication. See おじさん for the same caveat."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.2-people-family.子ども",
@@ -4057,7 +4157,11 @@
         "はなを ひらく",
         "はなが きれい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "false_friends": [
+        "花"
+      ],
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)"
     },
     {
       "id": "n5.vocab.4-body-parts.くち",
@@ -10296,9 +10400,10 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "false_friends": [
-        "さっき"
+        "さっき",
+        "いま"
       ],
-      "false_friends_provenance": "llm_curated",
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
@@ -11655,9 +11760,10 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "false_friends": [
-        "ひる"
+        "ひる",
+        "火"
       ],
-      "false_friends_provenance": "llm_curated",
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
@@ -20387,7 +20493,15 @@
         "はしまで あるく",
         "はしに つく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「はし」 covers 2 distinct N5 meanings: はし — bridge  /  はし — chopsticks",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.まち",
@@ -22351,7 +22465,11 @@
         "花を ひらく",
         "花が きれい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "false_friends": [
+        "はな"
+      ],
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.くさ",
@@ -23001,7 +23119,11 @@
         "雨に濡れる",
         "雨の日"
       ],
-      "particle_examples_provenance": "auto_derived"
+      "particle_examples_provenance": "auto_derived",
+      "false_friends": [
+        "あめ"
+      ],
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.ゆき",
@@ -23124,7 +23246,15 @@
         "つめたい かぜ",
         "かぜに なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「かぜ」 covers 2 distinct N5 meanings: かぜ — wind  /  かぜ — cold (illness)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.天気",
@@ -23872,9 +24002,10 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "false_friends": [
-        "ひる"
+        "ひる",
+        "日"
       ],
-      "false_friends_provenance": "llm_curated",
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
@@ -28687,7 +28818,11 @@
         "つめたい あめ",
         "あめに なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "false_friends": [
+        "雨"
+      ],
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)"
     },
     {
       "id": "n5.vocab.18-drinks.おちゃ",
@@ -29677,7 +29812,15 @@
         "はしまで あるく",
         "はしに つく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「はし」 covers 2 distinct N5 meanings: はし — bridge  /  はし — chopsticks",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.19-tableware-and-cooking.スプーン",
@@ -39499,9 +39642,10 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "false_friends": [
-        "さっき"
+        "さっき",
+        "今"
       ],
-      "false_friends_provenance": "llm_curated",
+      "false_friends_provenance": "native_review_2026_06_04 (batch B: same-reading cross-form homonym; reviewer recommended explicit 'Don't confuse with' cross-links)",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
@@ -42125,7 +42269,15 @@
         "まいにち きる",
         "いま きる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「きる」 covers 2 distinct N5 meanings: きる — to cut (Group 1 exception - looks like Group 2)  /  きる — to wear (upper body)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -42508,7 +42660,15 @@
         "まいにち とる",
         "いま とる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「とる」 covers 2 distinct N5 meanings: とる — to take, to pick up (general)  /  とる — to take (a photo or video) - homophone of the above; uses a different kanji (not in N5 syllabus); semantically a specialization of \"take\"",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる.2",
@@ -42578,7 +42738,15 @@
         "休みを とる",
         "お金を とる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「とる」 covers 2 distinct N5 meanings: とる — to take, to pick up (general)  /  とる — to take (a photo or video) - homophone of the above; uses a different kanji (not in N5 syllabus); semantically a specialization of \"take\"",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なく",
@@ -44167,7 +44335,15 @@
         "まいにち ひく",
         "いま ひく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「ひく」 covers 2 distinct N5 meanings: ひく — to play (a string instrument like guitar/piano)  /  ひく — to pull (homophone of the above; separate verb, separate kanji - both are common N5 readings of ひく)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
@@ -44245,7 +44421,15 @@
         "まいにち ひく",
         "いま ひく"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「ひく」 covers 2 distinct N5 meanings: ひく — to play (a string instrument like guitar/piano)  /  ひく — to pull (homophone of the above; separate verb, separate kanji - both are common N5 readings of ひく)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.よぶ",
@@ -47317,7 +47501,15 @@
         "かいしゃに いる",
         "ともだちが いる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「いる」 covers 2 distinct N5 meanings: いる — to exist (animate)  /  いる — to need (Group 1 exception - looks like Group 2; homophone of existence-いる which is Group 2)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.食べる",
@@ -48065,7 +48257,15 @@
         "まいにち しめる",
         "いま しめる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「しめる」 covers 2 distinct N5 meanings: しめる — to close (transitive)  /  しめる — to tie / fasten / tighten (distinct from しめる \"to close\")",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おしえる",
@@ -48673,7 +48873,15 @@
         "まいにち きる",
         "いま きる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「きる」 covers 2 distinct N5 meanings: きる — to cut (Group 1 exception - looks like Group 2)  /  きる — to wear (upper body)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つける",
@@ -49806,7 +50014,15 @@
         "まいにち しめる",
         "いま しめる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「しめる」 covers 2 distinct N5 meanings: しめる — to close (transitive)  /  しめる — to tie / fasten / tighten (distinct from しめる \"to close\")",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つとめる",
@@ -51179,7 +51395,15 @@
         "かいしゃに いる",
         "ともだちが いる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「いる」 covers 2 distinct N5 meanings: いる — to exist (animate)  /  いる — to need (Group 1 exception - looks like Group 2; homophone of existence-いる which is Group 2)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.やる",
@@ -52076,7 +52300,15 @@
       ],
       "particle_examples_provenance": "llm_curated",
       "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24"
+      "audit_wave": "claude_audit_2026_05_24",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「あつい」 covers 3 distinct N5 meanings: あつい — hot (weather)  /  あつい — hot (to the touch; separate adjective and separate kanji - homophone of the hot-weather one)  /  あつい — thick (e.g., a thick book; separate adjective and separate kanji - third homophone of the あつい readings above)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.31-adjectives.あつい.2",
@@ -52161,7 +52393,15 @@
         "あつくて べんりだ",
         "あつく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「あつい」 covers 3 distinct N5 meanings: あつい — hot (weather)  /  あつい — hot (to the touch; separate adjective and separate kanji - homophone of the hot-weather one)  /  あつい — thick (e.g., a thick book; separate adjective and separate kanji - third homophone of the あつい readings above)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.31-adjectives.つめたい",
@@ -52928,7 +53168,15 @@
         "あつくて べんりだ",
         "あつく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「あつい」 covers 3 distinct N5 meanings: あつい — hot (weather)  /  あつい — hot (to the touch; separate adjective and separate kanji - homophone of the hot-weather one)  /  あつい — thick (e.g., a thick book; separate adjective and separate kanji - third homophone of the あつい readings above)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.31-adjectives.うすい",
@@ -65186,7 +65434,15 @@
         "つめたい かぜ",
         "かぜに なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「かぜ」 covers 2 distinct N5 meanings: かぜ — wind  /  かぜ — cold (illness)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.びょうき",
@@ -67106,7 +67362,15 @@
         "いきかた",
         "ねかた"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Same-kana homonym (multiple N5 senses)",
+          "gloss": "The kana 「かた」 covers 2 distinct N5 meanings: かた — person (polite)  /  かた — way of doing (e.g., たべかた = how to eat)",
+          "context": "Context (preceding particle, surrounding nouns, kanji where written) disambiguates which sense is intended. When writing, prefer the kanji form to remove ambiguity."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch B: same-form homonym disambiguation; SPA routes by form so false_friends cannot disambiguate — multi-sense summary surfaced here instead)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.おくさん",
@@ -67177,7 +67441,15 @@
         "おくさんが いる",
         "おくさんは やさしい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "Someone else's wife",
+          "gloss": "Use おくさん (奥さん) to refer to SOMEONE ELSE'S wife or to address a married woman politely.",
+          "context": "Don't use おくさん for your own wife when speaking to outsiders — say 妻 (つま) or 家内 (かない) instead. Using おくさん for one's own wife is a common learner mistake."
+        }
+      ],
+      "pragmatic_functions_provenance": "native_review_2026_06_04 (batch D: uchi/soto + address-form guidance per reviewer recommendation on family terms)"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.先",
@@ -72997,6 +73269,7 @@
     },
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 17 duplicate example rows dropped from 17 entries."
+    "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 17 duplicate example rows dropped from 17 entries.",
+    "native_review_pass_2026_06_04": "Batches A-D applied from the consolidated native-reviewer report dated 2026-06-04: A) かた sense de-contamination (1 entry), B) homonym false_friends sweep (27 entries), C) counter cleanup (2 entries), D) family pragmatic notes (15 entries). Batch E (particle-example native re-audit, ~50-300 entries) deferred to a follow-up cycle and tracked in xlsx bug tracker."
   }
 }
