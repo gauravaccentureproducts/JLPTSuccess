@@ -2,6 +2,19 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.41 - 2026-06-07 (cache-bust: native-review corrections reach returning learners)
+
+### Changed
+
+- **Cache-bust release — no new content changes.** Bumps the cache version so
+  returning / installed (PWA) users re-fetch the corrected vocabulary. This
+  delivers the native-review particle-example + notation corrections listed
+  under v1.17.40 — pronoun/noun 「Xを しる」 → natural verbs, the question-word
+  frames → grammatical だれと いきますか / だれに ききますか, じぶんで つくる, and the
+  日本語 / 四人 / いっしょ / そふと そぼ notation fixes — to learners whose browser
+  had cached the pre-fix data.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped
+  v1.17.40 → v1.17.41 (JA-68).
 ## v1.17.40 - 2026-06-04 (vocabulary: すむ particle examples — natural location patterns)
 
 ### Fixed
