@@ -18,7 +18,7 @@
           "source": "n5-001"
         },
         {
-          "ja": "私は 日本ごを ならって います。",
+          "ja": "私は 日本語を ならって います。",
           "translation_en": "I am learning Japanese.",
           "provenance": "llm_curated"
         }
@@ -64,7 +64,7 @@
         "わたしの なまえ",
         "わたしは がくせい",
         "わたしも いく",
-        "わたしを しる",
+        "わたしが する",
         "わたしと あう"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
@@ -146,7 +146,7 @@
         "わたしたちの なまえ",
         "わたしたちは がくせい",
         "わたしたちも いく",
-        "わたしたちを しる",
+        "わたしたちが する",
         "わたしたちと あう"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
@@ -268,7 +268,7 @@
         "あなたの なまえ",
         "あなたは がくせい",
         "あなたも いく",
-        "あなたを しる",
+        "あなたが する",
         "あなたと あう"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
@@ -338,7 +338,7 @@
         "かれの なまえ",
         "かれは がくせい",
         "かれも いく",
-        "かれを しる",
+        "かれが する",
         "かれと あう"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
@@ -407,7 +407,7 @@
         "かのじょの なまえ",
         "かのじょは がくせい",
         "かのじょも いく",
-        "かのじょを しる",
+        "かのじょが する",
         "かのじょと あう"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
@@ -734,8 +734,8 @@
       "particle_examples": [
         "だれですか",
         "だれが いい",
-        "だれを しますか",
-        "だれに いきますか",
+        "だれと いきますか",
+        "だれに ききますか",
         "だれと あいますか",
         "だれの なまえ"
       ],
@@ -811,8 +811,8 @@
       "particle_examples": [
         "どなたですか",
         "どなたが いい",
-        "どなたを しますか",
-        "どなたに いきますか",
+        "どなたと いきますか",
+        "どなたに ききますか",
         "どなたと あいますか",
         "どなたの なまえ"
       ],
@@ -831,8 +831,8 @@
           "translation_en": "I do my homework by myself."
         },
         {
-          "ja": "じぶんは がくせいです。",
-          "translation_en": "I am a student myself. (じぶん as a self-referential topic)"
+          "ja": "じぶんで ごはんを つくります。",
+          "translation_en": "I cook a meal by myself."
         },
         {
           "ja": "じぶんの 名前を 書いて ください。",
@@ -895,8 +895,8 @@
         "じぶんの なまえ",
         "じぶんは がくせい",
         "じぶんも いく",
-        "じぶんを しる",
-        "じぶんと あう"
+        "じぶんで する",
+        "じぶんの ほん"
       ],
       "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
       "pragmatic_functions": [
@@ -925,8 +925,8 @@
           "translation_en": "I took a picture with my family."
         },
         {
-          "ja": "わたしの かぞくは よ人です。",
-          "translation_en": "My family has four members.",
+          "ja": "かぞくと りょこうに いきます。",
+          "translation_en": "I go on a trip with my family.",
           "provenance": "llm_curated"
         }
       ],
@@ -959,11 +959,11 @@
         "かぞくと あう",
         "かぞくと はなす",
         "かぞくに きく",
-        "かぞくは どこ",
-        "かぞくの なまえ",
+        "かぞくと すんで います",
+        "かぞくの しゃしん",
         "かぞくが くる",
         "かぞくが いる",
-        "かぞくは やさしい"
+        "かぞくは よにんです"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -1881,7 +1881,7 @@
       "pos": "noun",
       "examples": [
         {
-          "ja": "りょうしんと 一いっしょに すんで います。",
+          "ja": "りょうしんと いっしょに すんで います。",
           "translation_en": "I live with my parents."
         },
         {
@@ -1946,8 +1946,8 @@
           "translation_en": "My grandfather is healthy."
         },
         {
-          "ja": "そふぼや ともだちなどに あいました。",
-          "translation_en": "I met my grandparents, friends, and others.",
+          "ja": "そふと そぼに あいました。",
+          "translation_en": "I met my grandfather and grandmother.",
           "source": "n5-037"
         },
         {
@@ -2843,8 +2843,8 @@
           "translation_en": "When I become an adult, I want to buy a car."
         },
         {
-          "ja": "大人は 五百円です。",
-          "translation_en": "It's 500 yen for adults.",
+          "ja": "大人は 千円です。",
+          "translation_en": "It's 1000 yen for adults.",
           "provenance": "llm_curated"
         }
       ],
@@ -3235,7 +3235,7 @@
         "たなか先生で",
         "たなか先生は",
         "たなか先生が",
-        "日本ごの 先生",
+        "日本語の 先生",
         "先生に きく",
         "先生の しごと",
         "先生に あう",
@@ -35512,7 +35512,7 @@
         "テストを うける",
         "テストの けっか",
         "むずかしい テスト",
-        "日本ごの テスト",
+        "日本語の テスト",
         "テストの じかん",
         "テスト べんきょう"
       ],
@@ -35804,7 +35804,7 @@
       "bug_018_merged_from": "n5.vocab.37-common-nouns-miscella.ことば",
       "bug_018_merged_from_section": "37. Common Nouns - Miscellaneous",
       "particle_examples": [
-        "日本ごの ことば",
+        "日本語の ことば",
         "むずかしい ことば",
         "きれいな ことば",
         "ことばの いみ",
