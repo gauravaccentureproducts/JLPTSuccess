@@ -410,18 +410,10 @@ def build_readme(doc, entries, version_meta):
         ('Particle examples',
          'Are these the collocations a native speaker would actually use? '
          'Anything obviously template-generated rather than real usage?'),
-        ('Pitch accent',
-         'HL contour (Tokyo dialect). Drop position correct? Heiban vs '
-         'kifuku flagged correctly?'),
         ('Counter (if shown)',
          'Is the counter shown the one a Japanese speaker would use for '
          'this object/concept?'),
-        ('Register',
-         'neutral / casual / polite / humble / respectful — accurate? '
-         'And does the entry feel like N5-appropriate vocabulary at that '
-         'register?'),
-        ('Part of speech / Verb class',
-         'Noun / verb / adjective / particle classification. For verbs: '
+        ('Verb class (for verbs)',
          'Group 1 (う-verb) / Group 2 (る-verb) / Irregular — correct? '
          'Group-1 exception flag accurate?'),
         ('False friends, pragmatic, devoiced vowels',
@@ -488,9 +480,7 @@ def build_readme(doc, entries, version_meta):
          'The English gloss — short translation of the meaning.'),
         ('MEANING section',
          'Structured detail: English, Hindi gloss (when present), '
-         'reading, pitch-accent HL contour, counter, register, register '
-         'origin, POS / verb-class, frequency rank, and patterns that '
-         'frequently co-occur with this word.'),
+         'reading, counter, and verb-class (for verbs).'),
         ('Example sentences',
          'Real Japanese sentences using the entry, with English '
          'translation. Each line shows a "From pattern" or '
@@ -618,24 +608,8 @@ def render_entry(doc, e, L, first):
     if e.get('reading'):
         labeled(doc, L.get('japanese_reading', 'Japanese reading'), e['reading'])
 
-    pa = e.get('pitch_accent')
-    if isinstance(pa, dict) and pa.get('mora') is not None:
-        pp = para(doc)
-        run(pp, (L.get('pitch_accent', 'Pitch accent') + ': '), bold=True)
-        run(pp, _pitch_pattern(pa, e.get('reading') or ''))
-        if pa.get('confidence'):
-            run(pp, f"  [confidence: {pa['confidence']}]", size=9, color=MUTED)
-
     if e.get('counter'):
         labeled(doc, L.get('counter', 'Counter'), '〜' + _counter_kana(e['counter']))
-
-    if e.get('register'):
-        labeled(doc, L.get('register', 'Register'), e['register'])
-    if e.get('register_origin'):
-        labeled(doc, 'Register origin', e['register_origin'])
-
-    if e.get('pos'):
-        labeled(doc, 'Part of speech', e['pos'])
 
     if e.get('verb_class'):
         class_labels = {
@@ -653,12 +627,6 @@ def render_entry(doc, e, L, first):
         if e.get('pair_id'):
             t_text += f"  ({L.get('pair', 'pair')}: {e['pair_id']})"
         labeled(doc, L.get('transitivity', 'Transitivity'), t_text)
-
-    if e.get('frequency_rank') is not None:
-        labeled(doc, 'Frequency rank', f"{e['frequency_rank']} (source: {e.get('frequency_rank_source', 'unknown')})")
-
-    if e.get('frequent_patterns'):
-        labeled(doc, 'Frequent patterns', ', '.join(e['frequent_patterns']))
 
     # EXAMPLES (audio dropped)
     examples = e.get('examples') or []
