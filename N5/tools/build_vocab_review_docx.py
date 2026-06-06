@@ -793,6 +793,21 @@ def main():
     out_path = os.path.join(OUT_DIR, out_name)
     doc.save(out_path)
     print("wrote", out_path, "(%d entry/entries)" % len(ents))
+
+    # Full review packet only: keep exactly ONE date-stamped copy in the folder.
+    # Remove any older stamped copies first, then emit a fresh one stamped with
+    # the current date+time. This guarantees the newest build is the only dated
+    # file to grab, so a reviewer can never be handed a stale upload.
+    # (See procedure manual Appendix: dated-deliverable / stale-copy workflow.)
+    if arg == 'all':
+        import glob, shutil, datetime
+        stem = os.path.splitext(out_path)[0]
+        for prev in glob.glob(stem + "_*.docx"):
+            os.remove(prev)
+        stamp = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
+        dated = "%s_%s.docx" % (stem, stamp)
+        shutil.copy2(out_path, dated)
+        print("wrote dated copy", os.path.basename(dated), "(older dated copies removed)")
     return 0
 
 
