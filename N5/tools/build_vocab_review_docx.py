@@ -702,12 +702,9 @@ def render_entry(doc, e, L, first):
             if rp.get('formal_same'):
                 labeled(doc, L.get('formal', 'formal'), rp['formal_same'])
 
-    # AUTHENTIC REFS
-    ar = e.get('authentic_refs') or []
-    if ar:
-        section_header(doc, 'Seen in the real world', '実例')
-        for cid in ar:
-            run(para(doc, space_before=0), '• ' + str(cid), size=10)
+    # "Seen in the real world" (authentic_refs) intentionally NOT shown: the
+    # refs are auto-derived placeholder ids (e.g. "auth.signs.ni-getsu") that
+    # don't resolve to real example text, so they were noise for the reviewer.
 
     # PROVENANCE / REVIEW STATUS (audit-trail surface for the reviewer)
     if e.get('review_status') or e.get('gloss_provenance'):
