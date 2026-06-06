@@ -13,6 +13,23 @@ All user-visible changes to the JLPT N5 study material site.
   actually use: **東京に すむ**, **日本に すむ**, **この町に すむ** — all
   showing the location particle に that すむ takes. (Native-reviewer
   re-check of BUG-266; closes the last 2 items.)
+- **Companion non-verb particle-example + notation corrections**
+  (same native-review wave as the verb fixes in v1.17.39 below): the
+  template-seeded `particle_examples` field also produced unnatural or
+  wrong collocations on pronouns, nouns and question words. Fixed for the
+  reviewer-cited entries:
+  - `Xを しる` → the natural verb, across 24 pronoun/noun entries
+    (しごとを する, べんきょうを する, りょこうを する, しゃしんを とる,
+    えいがを みる, ...).
+  - Question-word frames `だれ/どなた を しますか` / `に いきますか`
+    (ungrammatical) → `だれと いきますか` / `だれに ききますか`.
+  - `じぶんは がくせい` (weak topic frame) → `じぶんで つくる`.
+  - Notation typos repaired: 日本ご → 日本語 (x4), よ人 → 四人,
+    一いっしょ → いっしょ, そふぼや → そふと そぼ; and the 大人
+    admission-price example made internally consistent (千円).
+  Native-judgment naturalness items, so only the cited entries were
+  changed; the corpus-wide particle-example sweep stays on the native
+  queue (BUG-263).
 
 ## v1.17.39 - 2026-06-04 (vocabulary: fix malformed verb conjugations + remove nonsense template example sentences)
 

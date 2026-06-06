@@ -148,3 +148,26 @@ the native queue owns the residual.
 - **Procedure manual** (class 8): F.52.
 - **User-facing docs** (class 9): CHANGELOG, vocab review docx,
   findings report, this file.
+
+## Part 65 — Batch E follow-up: reviewer-cited particle-collocation subset fixed (added 2026-06-06)
+
+**Trigger.** A native reviewer re-reported specific `particle_examples`
+items from the deferred particle-example-naturalness class (Part 64's
+Batch E / BUG-263): pronoun/noun 「Xを しる」, question-word 「だれを しますか」
+/「どなたを しますか」/「だれに いきますか」, reflexive じぶんは がくせい, plus
+notation typos (日本ご, よ人, 一いっしょ, そふぼや) and a 大人 admission-price
+inconsistency.
+
+**Disposition.** The reviewer-CITED entries were fixed per-headword
+(native-judgment, no auto-fix): 「Xを しる」 → the natural verb across 24
+pronoun/noun entries; question-word frames → grammatical だれと いきますか /
+だれに ききますか; じぶんは がくせい → じぶんで つくる; notation typos repaired;
+大人 price made internally consistent (千円). The vocab review docx was
+regenerated and re-verified (0 「を しる」, 0 「じぶんは がくせい」).
+
+**Bounded phrasing.** Only the reviewer-CITED entries are addressed this
+snapshot; the corpus-wide particle-example naturalness sweep across the
+remaining entries stays deferred to the native queue (Batch E / BUG-263).
+No new CI invariant — naturalness is native-judgment, not auto-checkable.
+Reviewer-deliverable hygiene for this cycle is captured in procedure-manual
+Appendix F.53 (auto-stamped review docx, keep-exactly-one).

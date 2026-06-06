@@ -6348,7 +6348,26 @@ FP-23. Template-generated conjugation / collocation artifacts in
            BUG-266 cited 12; the real scope was 110 verbs + ~32
            nonsense sentences.
 
-       Source: BUG-266 specific-bug audit 2026-06-04; reproduction
+                (c) UNNATURAL PARTICLE COLLOCATION (naturalness, native-
+             judgment) — the template seeded a particle+verb that is
+             grammatical in isolation but wrong/unnatural for THAT
+             headword: pronouns/nouns showing 「Xを しる」 where the
+             natural verb is する / another verb (しごとを する, not
+             しごとを しる); question words showing 「だれを しますか」
+             「どなたを しますか」「だれに いきますか」 (ungrammatical)
+             instead of だれと いきますか / だれに ききますか; reflexive
+             じぶん showing the weak topic frame じぶんは がくせい. The
+             same template also left plain notation typos: 日本ご
+             (→日本語), よ人 (→四人), 一いっしょ (→いっしょ), そふぼや
+             (→そふと そぼ). No deterministic check certifies
+             naturalness, so this sub-class is NOT auto-fixable: fix
+             the reviewer-CITED entries per-headword (24 を-しる +
+             question-word + じぶん + notation items fixed this
+             snapshot) and leave the corpus-wide sweep on the native
+             queue (Batch E / BUG-263).
+
+
+Source: BUG-266 specific-bug audit 2026-06-04; reproduction
        confirmed 12 cited + revealed 110-verb systematic scope.
        Fixed by tools/apply_native_review_batch_j_2026_06_04.py
        (J1 conjugator + J2/J3/J4 nonsense removal) + JA-178

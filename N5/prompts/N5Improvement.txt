@@ -2665,6 +2665,14 @@ Bounded-coverage framing:
     frames + the conservative allowlist, this snapshot"; residual
     naturalness (まいにち すむ adverb collocations) stays in BUG-263.
 
+  - Unnatural particle COLLOCATION in particle_examples (pronoun/noun
+    「Xを しる」 → する / another verb; question-word 「だれを しますか」 /
+    「に いきますか」 → だれと いきますか / だれに ききますか; じぶんは がくせい
+    → じぶんで つくる) + residual notation typos (日本ご→日本語, よ人→四人,
+    一いっしょ→いっしょ, そふぼや→そふと そぼ) are native-judgment, not
+    auto-checkable. Only the reviewer-CITED entries are fixed this
+    snapshot; the corpus-wide naturalness sweep stays in BUG-263.
+
 Source: BUG-266 fix 2026-06-04; AUDIT-COVERAGE-2026-06-04.md Part 64;
 sw.js CACHE_VERSION v1.17.38 → v1.17.39; tools:
 `tools/apply_native_review_batch_j_2026_06_04.py` (conjugator +
