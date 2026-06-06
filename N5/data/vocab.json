@@ -6749,12 +6749,10 @@
       "readings_provenance": "v2_migration_2026_05_13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
-        "なに / なんですか",
-        "なに / なんが いい",
-        "なに / なんを しますか",
-        "なに / なんに いきますか",
-        "なに / なんと あいますか",
-        "なに / なんの なまえ"
+        "なにを たべますか",
+        "なにが すきですか",
+        "なんですか",
+        "なんの ほん"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -6828,12 +6826,10 @@
       "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
-        "いつですか",
-        "いつが いい",
-        "いつを しますか",
-        "いつに いきますか",
-        "いつと あいますか",
-        "いつの なまえ"
+        "いつ きますか",
+        "いつから ですか",
+        "いつまで ですか",
+        "いつが いい"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -6894,11 +6890,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "いくらですか",
-        "いくらが いい",
-        "いくらを しますか",
-        "いくらに いきますか",
-        "いくらと あいますか",
-        "いくらの なまえ"
+        "いくら かかりますか",
+        "ぜんぶで いくら",
+        "おいくらですか"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -6959,12 +6953,10 @@
       "devoiced_vowel_provenance": "auto_derived",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
-        "いくつですか",
-        "いくつが いい",
-        "いくつを しますか",
-        "いくつに いきますか",
-        "いくつと あいますか",
-        "いくつの なまえ"
+        "いくつ いりますか",
+        "いくつ かいますか",
+        "おいくつですか",
+        "ぜんぶで いくつ"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7018,11 +7010,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なんじですか",
-        "なんじが いい",
-        "なんじを しますか",
         "なんじに いきますか",
-        "なんじと あいますか",
-        "なんじの なまえ"
+        "なんじまで ですか",
+        "なんじに おきますか"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7075,11 +7065,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なんようびですか",
-        "なんようびが いい",
-        "なんようびを しますか",
         "なんようびに いきますか",
-        "なんようびと あいますか",
-        "なんようびの なまえ"
+        "なんようびが いい",
+        "やすみは なんようび"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7143,11 +7131,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なんがつですか",
-        "なんがつが いい",
-        "なんがつを しますか",
         "なんがつに いきますか",
-        "なんがつと あいますか",
-        "なんがつの なまえ"
+        "なんがつが いい",
+        "たんじょうびは なんがつ"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7211,11 +7197,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なんにちですか",
-        "なんにちが いい",
-        "なんにちを しますか",
         "なんにちに いきますか",
-        "なんにちと あいますか",
-        "なんにちの なまえ"
+        "なんにちまで ですか",
+        "きょうは なんにち"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7273,11 +7257,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なぜですか",
-        "なぜが いい",
-        "なぜを しますか",
-        "なぜに いきますか",
-        "なぜと あいますか",
-        "なぜの なまえ"
+        "なぜ いきますか",
+        "なぜ きませんか",
+        "なぜ たかいですか"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7349,11 +7331,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "どうしてですか",
-        "どうしてが いい",
-        "どうしてを しますか",
-        "どうしてに いきますか",
-        "どうしてと あいますか",
-        "どうしての なまえ"
+        "どうして いきますか",
+        "どうして きませんか",
+        "どうして たべませんか"
       ],
       "particle_examples_provenance": "llm_curated"
     },
@@ -7425,11 +7405,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
         "なんでですか",
-        "なんでが いい",
-        "なんでを しますか",
-        "なんでに いきますか",
-        "なんでと あいますか",
-        "なんでの なまえ"
+        "なんで いきますか",
+        "なんで きましたか",
+        "なんで たべますか"
       ],
       "particle_examples_provenance": "llm_curated"
     },
