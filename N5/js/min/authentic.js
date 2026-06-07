@@ -11,14 +11,14 @@ import{renderJa as p}from"./furigana.js";import"./i18n.js";let i=null;async func
       <a class="back-link" href="#/home">\u2190 Home</a>
       <h2>Authentic Japanese (real-world signs &amp; phrases)</h2>
       <p class="page-lede">
-        ${o.length} starter entries you'd actually see in Japan \u2014 station signs,
+        ${o.length} starter entries you'd actually see in Japan, station signs,
         menu prices, shop hours, public-space notices. Every entry sticks to the
         N5 kanji whitelist (or kana when the kanji is N4+); the goal is real-world
         usage, not vocabulary expansion beyond N5.
       </p>
       <p class="muted small">
         Tap a card to study; click <em>Pronounce</em> to use your device's
-        speech engine if available (no audio is bundled \u2014 privacy-preserving).
+        speech engine if available (no audio is bundled, privacy-preserving).
       </p>
       <p class="muted small">
         <a href="#/mining">\u2192 Sentence-mining index: every vocab / kanji / grammar entry linked to one or more of these cards</a>
@@ -51,7 +51,7 @@ import{renderJa as p}from"./furigana.js";import"./i18n.js";let i=null;async func
       `:""}
       <div class="authentic-card-actions">
         <button type="button" class="btn-secondary btn-tiny" data-auth-speak="${t(s)}"
-                title="Read aloud (uses your device's voice \u2014 no network call)">
+                title="Read aloud (uses your device's voice, no network call)">
           \u{1F50A} Pronounce
         </button>
       </div>

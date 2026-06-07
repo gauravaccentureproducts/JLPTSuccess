@@ -180,7 +180,7 @@ async function renderSection(container, paperNumber, sectionIdx) {
 
   // IMP-WAVE-P4-T1: prime the pacing cache so renderPacingChip()
   // returns chips synchronously inside the template literal below.
-  // Best-effort — if the fetch fails, chips simply render as ''.
+  // Best-effort, if the fetch fails, chips simply render as ''.
   await loadPacing();
 
   const submit = () => {
@@ -380,14 +380,14 @@ function renderResult(container, paperNumber) {
         </tfoot>
       </table>
       <p class="muted small">
-        ※ The app ships 85Q across the 3 sections (close to the official 91Q). Per-section minimums above are raw-question approximations. The official JLPT N5 score report uses a scaled-equating method that this app does not replicate — only raw-correct percentages are shown.
+        ※ The app ships 85Q across the 3 sections (close to the official 91Q). Per-section minimums above are raw-question approximations. The official JLPT N5 score report uses a scaled-equating method that this app does not replicate, only raw-correct percentages are shown.
       </p>
 
       <!-- IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): scaled-score
            estimator. Maps app's 3 sections onto official 2 (mojigoi+
            bunpoudok = section 1 lang+reading; choukai = section 2
            listening), projects raw% linearly onto the 120/60 caps,
-           and surfaces a diagnostic band. APPROXIMATION — labelled
+           and surfaces a diagnostic band. APPROXIMATION, labelled
            as such so users don't read it as JEES-official. -->
       ${renderScoreEstimate(session.sectionResults)}
 
@@ -435,13 +435,13 @@ function renderScoreEstimate(sectionResults) {
         </thead>
         <tbody>
           <tr class="${est.section1.meets_min ? 'pass' : 'fail'}">
-            <td>Section 1 — Lang Knowledge + Reading</td>
+            <td>Section 1, Lang Knowledge + Reading</td>
             <td>${est.section1.raw_pct}%</td>
             <td>${est.section1.scaled} / ${est.section1.max}</td>
             <td class="muted small">${est.section1.meets_min ? `✓ ≥ ${est.section1.min}` : `✗ &lt; ${est.section1.min}`}</td>
           </tr>
           <tr class="${est.section2.meets_min ? 'pass' : 'fail'}">
-            <td>Section 2 — Listening</td>
+            <td>Section 2, Listening</td>
             <td>${est.section2.raw_pct}%</td>
             <td>${est.section2.scaled} / ${est.section2.max}</td>
             <td class="muted small">${est.section2.meets_min ? `✓ ≥ ${est.section2.min}` : `✗ &lt; ${est.section2.min}`}</td>

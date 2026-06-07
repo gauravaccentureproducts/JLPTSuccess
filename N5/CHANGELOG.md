@@ -2,6 +2,18 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.48 - 2026-06-08 (typography: remove em-dashes from the UI chrome)
+
+### Changed
+
+- Replaced em-dashes in all learner-facing UI chrome: page / section titles, headings,
+  labels, feedback and recommendation text, plus both locale string files (en / hi) and
+  index.html. A spaced em-dash becomes a comma; a tight em-dash becomes a hyphen. ~210
+  instances across the JS render strings + locales + index.html; zero em-dashes remain in
+  the served bundles.
+- The dense grammar / vocab / kanji EXPLANATION prose in data/*.json (~42K em-dashes) is
+  intentionally deferred to a separate, reviewed pass (tracked in TASKS.md).
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.47 -> v1.17.48.
 ## v1.17.47 - 2026-06-08 (kanji-page UX: merge duplicate sections, drop filter card, scroll-to-top)
 
 ### Changed

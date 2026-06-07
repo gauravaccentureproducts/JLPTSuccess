@@ -57,7 +57,7 @@ import{renderJa as v}from"./furigana.js";import{getBranding as P}from"./branding
         </footer>
       </article>
 
-      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper. Each printed page carries a faint <strong>JLPTSUCCESS.COM</strong> watermark \u2014 readability of the questions is unaffected; the watermark deters resale of printed copies.</p>
+      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper. Each printed page carries a faint <strong>JLPTSUCCESS.COM</strong> watermark, readability of the questions is unaffected; the watermark deters resale of printed copies.</p>
     </article>
   `;try{typeof v=="function"&&v(n)}catch{}const p=n.querySelector("#print-paper-now-btn");p&&p.addEventListener("click",()=>window.print())}function F(){const n=typeof P=="function"?P():null,t=n&&n.brand&&typeof n.brand.watermark_text=="string"&&n.brand.watermark_text?n.brand.watermark_text:"JLPTSUCCESS.COM";return`
     <div class="print-paper-watermark" aria-hidden="true">
@@ -106,7 +106,7 @@ import{renderJa as v}from"./furigana.js";import{getBranding as P}from"./branding
         ${t}
         <p><strong>Section timing:</strong> 25 min for \u8A00\u8A9E\u77E5\u8B58\uFF08\u6587\u5B57\u30FB\u8A9E\u5F59\uFF09, 50 min for \u8A00\u8A9E\u77E5\u8B58\uFF08\u6587\u6CD5\uFF09\u30FB\u8AAD\u89E3, 30 min for \u8074\u89E3. Take a brief stretch between sections; do <strong>not</strong> exceed total 105 min.</p>
       `;case"chokai":return`
-        <p>This is a printed transcript of a listening section. The audio is not on paper \u2014 play it from your phone or computer while marking answers here.</p>
+        <p>This is a printed transcript of a listening section. The audio is not on paper, play it from your phone or computer while marking answers here.</p>
         ${t}
         <p><strong>Audio source:</strong> on the JLPTSuccess web app, open the Listening tab and play the items in order. Each item is read once at JLPT-N5 pace.</p>
       `;case"combined":return`

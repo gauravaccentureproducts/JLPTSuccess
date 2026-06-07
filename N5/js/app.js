@@ -37,7 +37,7 @@ import { renderSitting } from './sitting.js';
 // designed for paper-and-pencil consumption. See js/print-paper.js.
 import { renderPrint } from './print-paper.js';
 // IMP-126 (richness audit, 2026-05-09): authentic-content layer.
-// Renders #/authentic — real-world JP signs / menus / transit / shop
+// Renders #/authentic, real-world JP signs / menus / transit / shop
 // / notice cards. The audit's "0% authentic content across every
 // surface" gap; this is the starter corpus.
 import { renderAuthentic } from './authentic.js';
@@ -53,11 +53,11 @@ import { renderWeakAreas } from './weak-areas.js';
 // Route #/examday. See js/exam-day.js.
 import { renderExamDay } from './exam-day.js';
 // IMP-WAVE-P4-27 (UI audit fix, 2026-05-12): JP101-parity story-mode
-// listening — groups listening items by ambient_context into chained
+// listening, groups listening items by ambient_context into chained
 // auto-play stories. Route #/listeningstory. See js/listening-story.js.
 import { renderListeningStory } from './listening-story.js';
 // IMP-151 (richness audit, 2026-05-12): Migaku-style sentence-mining
-// index — unified discovery view of every vocab/kanji/grammar entry's
+// index, unified discovery view of every vocab/kanji/grammar entry's
 // authentic-card cross-links. Route #/mining. See js/mining.js.
 import { renderMining } from './mining.js';
 // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
@@ -254,9 +254,9 @@ function applyNavTranslations() {
 // for deep-link previews. Falls back to the static meta when no
 // route-specific tuple exists.
 const ROUTE_META = {
-  home:       { title: 'JLPT N5 study material — free, offline, English + Hindi',
+  home:       { title: 'JLPT N5 study material, free, offline, English + Hindi',
                 desc:  'Grammar / vocab / kanji / reading / listening. No login. No tracking. Works offline.' },
-  learn:      { title: 'Learn JLPT N5 — grammar + vocabulary',
+  learn:      { title: 'Learn JLPT N5, grammar + vocabulary',
                 desc:  '178 N5 grammar patterns and 1009 vocab entries, with native examples and provenance.' },
   test:       { title: 'JLPT N5 test mode',
                 desc:  'Timed multiple-choice tests over the N5 corpus. Per-question rationale, per-pattern history.' },
@@ -274,7 +274,7 @@ const ROUTE_META = {
                 desc:  '54 reading passages with grammar footnotes, vocabulary preview, time targets.' },
   listening:  { title: 'JLPT N5 listening practice',
                 desc:  '50 chokai items with VOICEVOX audio, transcripts, distractor-pattern hints.' },
-  kanji:      { title: 'JLPT N5 kanji — 106 characters',
+  kanji:      { title: 'JLPT N5 kanji, 106 characters',
                 desc:  '106 N5 kanji with stroke-order SVGs, mnemonics, etymology, real-world cards.' },
   sitting:    { title: 'JLPT N5 mock paper sitting',
                 desc:  'Full timed mock exam with section breaks, per-mondai pacing, scaled-score estimate.' },
@@ -284,7 +284,7 @@ const ROUTE_META = {
                 desc:  'Every question you got wrong, ordered for review.' },
   print:      { title: 'Print JLPT N5 paper to PDF',
                 desc:  'Save any mock paper as a printable PDF for paper-and-pencil practice.' },
-  authentic:  { title: 'Authentic Japanese — real-world signs, menus, transit',
+  authentic:  { title: 'Authentic Japanese, real-world signs, menus, transit',
                 desc:  '100 cards of actual JP signage, menu prices, station notices, weather forecasts.' },
   strategy:   { title: 'JLPT N5 test-taking strategy',
                 desc:  'Section timing, trap patterns, 15 techniques, score breakdown, diagnostic drills.' },
@@ -307,7 +307,7 @@ function applyRouteMeta(name, params) {
   if (!meta) return;
   let title = meta.title;
   if (params && typeof params === 'string' && params.length) {
-    title += ` — ${params.split('/')[0]}`;
+    title += `, ${params.split('/')[0]}`;
   }
   document.title = title;
   // Update or create per-route meta description
@@ -340,7 +340,7 @@ async function route() {
   // Unknown-route fallback: parseRoute() now redirects unknown names to
   // 'home' via replaceState (KNOWN_ROUTES guard in router.js, BUG-202).
   // But keep a defensive fallback here too in case ROUTES drifts out of
-  // sync with KNOWN_ROUTES — fall back to renderHome (NOT renderLearn,
+  // sync with KNOWN_ROUTES, fall back to renderHome (NOT renderLearn,
   // which previously hung on unresolvable sub-params like
   // /#/learn/grammar → renderLearn('grammar')).
   const handler = ROUTES[name] || ROUTES.home;
@@ -366,7 +366,7 @@ async function route() {
   }
   // Scroll to the top on every route change (user request 2026-06-08): when a
   // kanji card (or any list item) is opened, the detail page must start at its
-  // header — the big glyph — not retain the previous page's scroll position
+  // header, the big glyph, not retain the previous page's scroll position
   // mid-page. Hash routing carries no in-page anchors, so this is always safe.
   window.scrollTo(0, 0);
   refreshDrillBadge();
@@ -466,7 +466,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initPwa();
   initFullscreenToggle();
   initLocaleChips();
-  // SVA-NEXT-3: superseded initThemeOverrides() — now reads data/branding.json
+  // SVA-NEXT-3: superseded initThemeOverrides(), now reads data/branding.json
   // (a unified file covering CSS tokens + brand strings + meta tags + footer
   // attribution + watermark text). Falls back to data/theme-overrides.json
   // for legacy forks. Awaited so overrides apply BEFORE first route render.
@@ -511,7 +511,7 @@ window.addEventListener('DOMContentLoaded', async () => {
           localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1');
           history.replaceState(null, '', urlForRoute('diagnostic'));
         }
-        // else: stay at base — home is the default route from parseRoute().
+        // else: stay at base, home is the default route from parseRoute().
       } catch { /* noop */ }
     }
   }
@@ -564,7 +564,7 @@ document.addEventListener('furigana-rerender', () => { route(); });
 // playback rate didn't). Fix: drop applyAudioRate() from the
 // MutationObserver. The initial rate is already applied per-clip in
 // enhanceOne() (audio-player.js line 51-56) by reading the Settings
-// at the time the <audio> is wrapped — so the global Settings rate
+// at the time the <audio> is wrapped, so the global Settings rate
 // still works as the *default*, but per-clip overrides stick.
 document.addEventListener('DOMContentLoaded', () => {
   import('./audio-player.js').then(({ enhanceAudioPlayers }) => {
@@ -603,7 +603,7 @@ function initLocaleChips() {
   // Phase-1 launch (2026-05-24): when only one locale is UI-enabled,
   // hide the toggle entirely (and do not register click listeners).
   // The button stays in the DOM so Phase 2 reactivation is a one-line
-  // change in js/i18n.js (widen ENABLED_LOCALES) — no HTML edit needed.
+  // change in js/i18n.js (widen ENABLED_LOCALES), no HTML edit needed.
   // Note: the `hidden` HTML attribute is overridden by `.icon-btn`'s
   // `display: flex` CSS rule, so we also force `display: none` inline
   // to make the hide actually take effect visually.
@@ -611,7 +611,7 @@ function initLocaleChips() {
     btn.hidden = true;
     btn.setAttribute('aria-hidden', 'true');
     btn.style.display = 'none';
-    // Also hide the footer "Switch language" link — it would otherwise
+    // Also hide the footer "Switch language" link, it would otherwise
     // scroll to and pulse the now-invisible toggle, leaving the user
     // confused about why nothing happened.
     const footerSwitch = document.getElementById('footer-switch-lang');
@@ -629,7 +629,7 @@ function initLocaleChips() {
     const cur = currentLocale();
     // Visible label is the DESTINATION locale (the one click will
     // switch TO), not the current locale. So when the page is in
-    // English, the button shows "HI" — i.e. "click here to go to
+    // English, the button shows "HI", i.e. "click here to go to
     // Hindi." This matches the affordance pattern users expect from
     // single-button language switchers.
     const nextIdx = (cycle.indexOf(cur) + 1) % cycle.length;
@@ -653,7 +653,7 @@ function initLocaleChips() {
   // Sync on locale-change event from Settings panel.
   document.addEventListener('locale-changed', sync);
 
-  // Footer "Switch language" link still works — scroll the toggle into
+  // Footer "Switch language" link still works, scroll the toggle into
   // view and pulse it so the user finds the picker.
   const switchLink = document.getElementById('footer-switch-lang');
   if (switchLink) {

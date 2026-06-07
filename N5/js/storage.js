@@ -71,7 +71,7 @@ const DEFAULT_SETTINGS = {
   audioPlaybackRate: 1.0,           // Brief 2 §5: 0.75 / 1.0 / 1.25
   reduceMotion: null,               // null = follow prefers-reduced-motion; true/false override
   // Owner decision (2026-06-08): review-provenance is internal, NOT a
-  // learner-facing trust signal — who/what reviewed an item is the owner's
+  // learner-facing trust signal, who/what reviewed an item is the owner's
   // concern, and the learner must see only the content. Default false; the
   // render functions in provenance-badge.js are also hard-disabled so this
   // flag no longer surfaces any "AI quality-reviewed" tag even if toggled.
@@ -81,7 +81,7 @@ const DEFAULT_SETTINGS = {
   // queue until ALL their prerequisite kanji are marked-known. This
   // enforces "kanji first, vocab second" sequencing, which has
   // pedagogical evidence behind it for kanji-heavy languages.
-  // Default OFF — opt-in only, since it can frustrate learners who
+  // Default OFF, opt-in only, since it can frustrate learners who
   // already know kanji from outside this app.
   srsGatingEnabled: false,
 };
@@ -265,9 +265,9 @@ export function getUnifiedDueQueue() {
 //   (a) easeFactor < 2.0  AND  last interval was > 7 days ago
 //       (weak ease + long interval = high relapse risk)
 //   (b) consecutiveCorrect == 0  AND  srsBox in {7d, 14d, 30d}
-//       (advanced box but recent failure — already on rocky ground)
+//       (advanced box but recent failure, already on rocky ground)
 //   (c) interval >= 30 AND last review > 30 days ago
-//       (overdue mature card — typical "ghost" usage)
+//       (overdue mature card, typical "ghost" usage)
 //
 // Returns items in the same {skill, id, entry, isGhost: true}
 // shape as the due queue so review.js can interleave them.
@@ -280,7 +280,7 @@ export function getGhostReviewQueue() {
     if (entry.isMastered) return false;
     if (entry.srsBox === 'graduated') return false;
     if (!entry.nextDue) return false;
-    // Skip items that are already due — those go to the regular queue
+    // Skip items that are already due, those go to the regular queue
     if (new Date(entry.nextDue).getTime() <= now) return false;
     const ease = entry.easeFactor ?? 2.5;
     const interval = entry.interval ?? 0;

@@ -11,7 +11,7 @@ const e=s=>String(s??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt
       </tr>
     `).join("");return`
       <section class="timing-section">
-        <h4>${e(a.section_part||l)} \u2014 ${e(a.module||"")}</h4>
+        <h4>${e(a.section_part||l)}, ${e(a.module||"")}</h4>
         <p class="muted small">${e(a.total_minutes)} min \xB7 ${e(a.total_questions)} questions \xB7 avg ${e(a.average_seconds_per_question)}s/q</p>
         <table class="timing-table">
           <thead><tr><th>Mondai</th><th>Type</th><th>Q</th><th>Time/Q</th><th>Strategy</th></tr></thead>
@@ -29,7 +29,7 @@ const e=s=>String(s??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt
       <ul class="trap-list">
         ${a.map(n=>`
           <li>
-            <p><strong>${e(n.name||"")}</strong> \u2014 ${e(n.description||"")}</p>
+            <p><strong>${e(n.name||"")}</strong>, ${e(n.description||"")}</p>
             ${n.wrong_example?`<p class="wrong" lang="ja">\u2717 ${e(n.wrong_example)}</p>`:""}
             ${n.correct_example?`<p class="right" lang="ja">\u2713 ${e(n.correct_example)}</p>`:""}
             ${n.defense?`<p class="muted small"><em>Defense:</em> ${e(n.defense)}</p>`:""}

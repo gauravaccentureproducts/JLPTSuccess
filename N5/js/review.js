@@ -156,7 +156,7 @@ function renderSetup(container) {
   document.getElementById('srs-start')?.addEventListener('click', () => {
     // IMP-092 Phase 2B: build the unified queue. Grammar new items still
     // come from getNewItems (since vocab/kanji new-card admission is
-    // configured separately and is currently 0/day by default — they
+    // configured separately and is currently 0/day by default, they
     // enter the SRS via Mark-as-known). The unified queue function
     // covers due-only across all three skills.
     const grammarItemsAsUnified = [...dueItems, ...newItems].map(it => ({
@@ -180,7 +180,7 @@ function renderSetup(container) {
         if (it.skill !== 'vocab') return true;
         const v = (vocabByIdIndex && vocabByIdIndex.get(it.id))
                   || (vocabIndex && vocabIndex.get(it.id));
-        if (!v) return true; // unknown vocab — let it through rather than swallow
+        if (!v) return true; // unknown vocab, let it through rather than swallow
         return storage.vocabKanjiPrerequisitesMet(v.form || '');
       });
       const afterCount = nonGrammarUnified.length;
@@ -217,7 +217,7 @@ function renderCard(container) {
   const itemId = item.id || item.pid;
   const total = session.queue.length;
 
-  // Card-type indicator badge — shows in the progress row
+  // Card-type indicator badge, shows in the progress row
   const SKILL_BADGES = {
     grammar: { label: '文', cls: 'srs-skill-grammar', name: 'Grammar' },
     vocab:   { label: '語', cls: 'srs-skill-vocab',   name: 'Vocab'   },

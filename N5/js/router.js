@@ -99,7 +99,7 @@ export function navigateTo(routeStr, opts) {
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
 
-// Known route names — kept in sync with ROUTES map in js/app.js.
+// Known route names, kept in sync with ROUTES map in js/app.js.
 // parseRoute() validates parsed name against this set; unknown
 // routes redirect to N5 home (silently, via replaceState) rather
 // than rendering an in-app "unknown" state that hangs.

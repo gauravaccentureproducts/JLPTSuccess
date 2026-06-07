@@ -16,7 +16,7 @@
 // Privacy: nothing leaves the device. The Blob+download pattern is the
 // same one used by Settings' progress-export.
 
-// (esc not needed — output is plain-text TSV; HTML escaping is the
+// (esc not needed, output is plain-text TSV; HTML escaping is the
 // importer's responsibility.)
 
 function tsvEscape(s) {

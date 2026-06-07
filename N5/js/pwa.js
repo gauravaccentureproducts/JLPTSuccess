@@ -86,7 +86,7 @@ function showInstallBanner() {
   banner.setAttribute('aria-label', 'Install this app');
   // Trust-band promotion 2026-05-07: install pitch now leads with the
   // niche-N2 differentiators (no login / no tracking / no ads / offline)
-  // — these are the precise reasons a learner installs vs sticks with
+  //, these are the precise reasons a learner installs vs sticks with
   // a tab in their browser. Surfacing them on the install CTA itself
   // raises install conversion on first paint.
   banner.innerHTML = `

@@ -1,7 +1,7 @@
 // SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): print-to-PDF mock-paper.
 //
 // Why: deadline-driven SSW-applicant + university-applicant learners
-// often want a "real paper, real pencil" mock-test ritual — the kind
+// often want a "real paper, real pencil" mock-test ritual, the kind
 // of pre-exam practice no other JLPT app provides. The browser already
 // knows how to print + save-as-PDF; this module renders any of our
 // 29 papers (4 per-section × 7 papers + 1 combined moji+goi × 7 +
@@ -9,8 +9,8 @@
 // in a layout designed for paper consumption rather than the screen.
 //
 // Routing:
-//   #/print/<paperId>           — print view of one paper
-//   #/print/<paperId>?key=1     — same, but with answer key page appended
+//   #/print/<paperId>          , print view of one paper
+//   #/print/<paperId>?key=1    , same, but with answer key page appended
 //
 // Print etiquette:
 //   - A4 size, 2 cm margins, 11 pt body, 13 pt mondai headings.
@@ -23,17 +23,17 @@
 //
 // Content taxonomy supported (paperId -> handler):
 //   moji-N / goi-N / bunpou-N / dokkai-N
-//                        — single-category 15Q (or 10Q for Paper 7) paper.
+//                       , single-category 15Q (or 10Q for Paper 7) paper.
 //   genngo-chishiki-moji-goi-N
-//                        — combined moji + goi section (two component
+//                       , combined moji + goi section (two component
 //                          papers concatenated under one cover).
 //   genngo-chishiki-bunpou-dokkai-N
-//                        — combined bunpou + dokkai section.
-//   chokai-N             — listening virtual paper (script-only print —
+//                       , combined bunpou + dokkai section.
+//   chokai-N            , listening virtual paper (script-only print -
 //                          a paper rendition of a listening section makes
 //                          sense for the "follow along while audio plays"
 //                          ritual; we still include the prompts + choices).
-//   full-mock-N          — full 85Q × 105min mock paper (sections
+//   full-mock-N         , full 85Q × 105min mock paper (sections
 //                          concatenated under one cover, with section
 //                          dividers and recommended timing).
 //
@@ -308,7 +308,7 @@ async function renderChokai(container, m, paperId, includeKey) {
 // can include the script + question text. Listening is the only place
 // where the question stem is prerecorded audio rather than written;
 // for printing, we substitute the script_ja text. The audio itself is
-// of course not in print — but the printed paper includes a "play
+// of course not in print, but the printed paper includes a "play
 // online" hint.
 let _listeningCache = null;
 async function loadListening() {
@@ -324,7 +324,7 @@ async function loadListening() {
 // since we eagerly resolve listening before calling.
 function chokaiQuestionsFromVirtual(vp) {
   // Note: vp doesn't have the question text inline; we look them up
-  // from listening.json. Returns a *promise-like* placeholder — the
+  // from listening.json. Returns a *promise-like* placeholder, the
   // actual fill happens in renderPrintShell (which is async-aware
   // via the listening cache).
   return vp.source_listening_ids.map((lid, i) => ({
@@ -412,13 +412,13 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
         </footer>
       </article>
 
-      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper. Each printed page carries a faint <strong>JLPTSUCCESS.COM</strong> watermark — readability of the questions is unaffected; the watermark deters resale of printed copies.</p>
+      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper. Each printed page carries a faint <strong>JLPTSUCCESS.COM</strong> watermark, readability of the questions is unaffected; the watermark deters resale of printed copies.</p>
     </article>
   `;
 
   // Render Japanese text with furigana overlay where applicable.
   // (renderJa walks text nodes; safe to skip for now if it's not
-  // available — print is still legible.)
+  // available, print is still legible.)
   try { if (typeof renderJa === 'function') renderJa(container); } catch (_) {}
 
   const btn = container.querySelector('#print-paper-now-btn');
@@ -434,7 +434,7 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
 // Why an inline SVG with <pattern>+<rect>:
 //   - Foreground SVG content prints reliably regardless of the user's
 //     "Background graphics" toggle in the print dialog. A CSS
-//     background-image would not — many browsers strip those by default.
+//     background-image would not, many browsers strip those by default.
 //   - The <pattern> repeats deterministically, so the same logo grid
 //     appears on every page when the wrapper is fixed-positioned in
 //     @media print.
@@ -525,7 +525,7 @@ function defaultInstructions(kind) {
       `;
     case 'chokai':
       return `
-        <p>This is a printed transcript of a listening section. The audio is not on paper — play it from your phone or computer while marking answers here.</p>
+        <p>This is a printed transcript of a listening section. The audio is not on paper, play it from your phone or computer while marking answers here.</p>
         ${common}
         <p><strong>Audio source:</strong> on the JLPTSuccess web app, open the Listening tab and play the items in order. Each item is read once at JLPT-N5 pace.</p>
       `;

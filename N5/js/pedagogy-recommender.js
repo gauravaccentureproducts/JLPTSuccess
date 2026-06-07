@@ -1,7 +1,7 @@
 // EB-4: Pedagogy-rule recommender (round-9 close-out, 2026-05-07).
 //
 // Purpose: replace the v2.0 "ML-backed recommender" item, which sat
-// blocked on "needs a privacy-clean data path" — there is no such
+// blocked on "needs a privacy-clean data path", there is no such
 // path inside our privacy posture (no telemetry, no cloud, no
 // account → no data to train on). The v2.0 ask is therefore not "build
 // an ML system" but "deliver a meaningful next-step recommendation
@@ -10,16 +10,16 @@
 // pedagogy directly rather than learning it from data.
 //
 // Design constraints (mandatory):
-//   1. PURE FUNCTION — input is a state snapshot from storage, output
+//   1. PURE FUNCTION, input is a state snapshot from storage, output
 //      is a structured recommendation object. No side effects, no
 //      fetch, no network, no telemetry.
-//   2. DETERMINISTIC — same state in → same recommendation out. No
+//   2. DETERMINISTIC, same state in → same recommendation out. No
 //      randomness, no time-of-day variance.
-//   3. ON-DEVICE — reads only from storage.* (which itself reads only
+//   3. ON-DEVICE, reads only from storage.* (which itself reads only
 //      from localStorage). Nothing leaves the device.
-//   4. EXPLAINABLE — every recommendation carries a `why` field so
+//   4. EXPLAINABLE, every recommendation carries a `why` field so
 //      learners + reviewers can see the rule that fired.
-//   5. RULE-PRIORITY — rules fire in pedagogical priority order; the
+//   5. RULE-PRIORITY, rules fire in pedagogical priority order; the
 //      first match wins. Lower-priority rules are tie-breakers.
 //
 // Output contract:
@@ -33,7 +33,7 @@
 //     why_hi:    string  (Hindi mirror)
 //     duration:  string  (e.g. "5 min", "15 min")
 //     priority:  number  (1 = highest)
-//     rule_id:   string  (e.g. 'R-01' — traceable to docs/RECOMMENDER-RULES.md)
+//     rule_id:   string  (e.g. 'R-01', traceable to docs/RECOMMENDER-RULES.md)
 //   }
 //
 // The home page renders the *first* recommendation; the summary page
@@ -42,7 +42,7 @@
 // Rule catalogue is documented in docs/RECOMMENDER-RULES.md.
 //
 // Tests: pure function → unit-testable; see tests/recommender.test.html
-// (browser-runnable, not committed yet — tracked as next-cycle work).
+// (browser-runnable, not committed yet, tracked as next-cycle work).
 
 import * as storage from './storage.js';
 
@@ -55,9 +55,9 @@ const TUNABLES = Object.freeze({
   // R-01: due-queue threshold above which "clear the queue" outranks
   // everything else. Tuned to the typical N5 classroom session.
   REVIEW_HIGH_DUE: 30,
-  // R-01: middle band — show review but not as overwhelming.
+  // R-01: middle band, show review but not as overwhelming.
   REVIEW_MED_DUE:  10,
-  // R-04: weak-pattern threshold — at >= this many wrong answers in
+  // R-04: weak-pattern threshold, at >= this many wrong answers in
   // recent history on the same pattern, recommend re-learning it.
   WEAK_PATTERN_WRONG_COUNT: 3,
   // R-05: number of starter-pack patterns considered "foundational"
@@ -66,24 +66,24 @@ const TUNABLES = Object.freeze({
   // R-08: today's-goal completion threshold below which we surface
   // "your daily goal" hint before any other lateral suggestion.
   DAILY_GOAL_PCT_FLOOR: 50,
-  // R-09: missing-skill-coverage thresholds — if any skill has
+  // R-09: missing-skill-coverage thresholds, if any skill has
   // < this fraction of items completed, surface that skill.
   COVERAGE_FLOOR: 0.05,
-  // R-10: lateral skill switching — if learner has done > this
+  // R-10: lateral skill switching, if learner has done > this
   // fraction of grammar without touching listening, prompt the swap.
   LATERAL_SWAP_GRAMMAR_PCT: 0.20,
   LATERAL_SWAP_KANJI_PCT:   0.20,
-  // R-12: streak-protection — if learner has practiced today, do
+  // R-12: streak-protection, if learner has practiced today, do
   // NOT pile on more recommendations; instead acknowledge.
   ACKNOWLEDGE_AFTER_GOAL_PCT: 100,
-  // R-14: mock-test threshold — once learner has touched >= this
+  // R-14: mock-test threshold, once learner has touched >= this
   // fraction of grammar AND >= this kanji, suggest a mock paper.
   MOCK_READY_GRAMMAR_PCT: 0.60,
   MOCK_READY_KANJI_PCT:   0.50,
 });
 
 // ---------------------------------------------------------------------------
-// Helpers — pure utility. No storage access here; that lives in
+// Helpers, pure utility. No storage access here; that lives in
 // `gatherSignal()` so the rules themselves can be tested with a hand-
 // rolled signal object.
 // ---------------------------------------------------------------------------
@@ -107,7 +107,7 @@ function safeDueCountsBySkill() {
   };
 }
 
-// Count of N5 corpus items per surface — fallback constants used only
+// Count of N5 corpus items per surface, fallback constants used only
 // if the live data files have not been read yet. Kept intentionally
 // short of live counts so the recommender never blocks on data load;
 // home.js passes the live counts in via `signal.corpusCounts`.
@@ -240,8 +240,8 @@ function R03_smallReviewQueue(signal) {
       href: '#/review',
       label_en: `Quick review (${signal.dueTotal} due)`,
       label_hi: `त्वरित समीक्षा (${signal.dueTotal} बाकी)`,
-      why_en: 'Small queue — clear it now and the schedule stays clean.',
-      why_hi: 'छोटी कतार — अभी साफ़ कर दें तो शेड्यूल साफ़ रहेगा।',
+      why_en: 'Small queue, clear it now and the schedule stays clean.',
+      why_hi: 'छोटी कतार, अभी साफ़ कर दें तो शेड्यूल साफ़ रहेगा।',
       duration: '3-5 min',
       priority: 3,
       rule_id: 'R-03',
@@ -263,8 +263,8 @@ function R04_revisitWeakestPattern(signal) {
       href: `#/learn/${encodeURIComponent(topPid)}`,
       label_en: `Re-learn ${topPid} (${topCount} recent misses)`,
       label_hi: `${topPid} फिर से सीखें (${topCount} हाल की चूक)`,
-      why_en: 'You have missed this pattern repeatedly — re-reading the explanation breaks the wrong-answer loop.',
-      why_hi: 'आपने यह पैटर्न बार-बार चूका है — व्याख्या फिर पढ़ने से गलत-उत्तर का चक्र टूटता है।',
+      why_en: 'You have missed this pattern repeatedly, re-reading the explanation breaks the wrong-answer loop.',
+      why_hi: 'आपने यह पैटर्न बार-बार चूका है, व्याख्या फिर पढ़ने से गलत-उत्तर का चक्र टूटता है।',
       duration: '5 min',
       priority: 4,
       rule_id: 'R-04',
@@ -281,7 +281,7 @@ function R05_starterPackForNewUser(signal) {
       label_en: 'Start the 5-pattern foundation pack',
       label_hi: '5-पैटर्न आधार-पैक शुरू करें',
       why_en: 'です・は・ます・い-adjectives・か are the bones every other N5 pattern hangs on.',
-      why_hi: 'です・は・ます・い-विशेषण・か — सब अन्य N5 पैटर्न इन्हीं पर टँगे होते हैं।',
+      why_hi: 'です・は・ます・い-विशेषण・か, सब अन्य N5 पैटर्न इन्हीं पर टँगे होते हैं।',
       duration: '25 min total (5 patterns × 5 min)',
       priority: 5,
       rule_id: 'R-05',
@@ -361,7 +361,7 @@ function R09_minorityCoverage(signal) {
                 'A listening drill at this stage establishes the prosody+pace expectation; without it, grammar study floats free of the spoken language.',
                 'इस चरण में एक श्रवण अभ्यास से उच्चारण-गति की अपेक्षा बनती है; इसके बिना व्याकरण-अध्ययन बोली-भाषा से कटा रहता है।'],
     reading:   ['First reading passage', 'पहला पठन-अनुच्छेद',
-                'Reading early — even one passage — anchors grammar patterns in their natural sentence environment.',
+                'Reading early, even one passage, anchors grammar patterns in their natural sentence environment.',
                 'जल्दी एक भी पठन से व्याकरण-पैटर्न अपने स्वाभाविक वाक्य-वातावरण में जम जाते हैं।'],
     kanji:     ['Open the kanji index', 'कान्जी सूची खोलें',
                 'You\'ll need 106 kanji for N5; meeting them in groups of 5 from day one is far easier than cramming the lot.',
@@ -389,8 +389,8 @@ function R10_lateralSwap(signal) {
     return {
       surface: 'listening',
       href: '#/listening',
-      label_en: 'Try a listening drill — your grammar is well ahead',
-      label_hi: 'एक श्रवण-अभ्यास करें — व्याकरण आगे है',
+      label_en: 'Try a listening drill, your grammar is well ahead',
+      label_hi: 'एक श्रवण-अभ्यास करें, व्याकरण आगे है',
       why_en: 'Grammar without sound is half a language; one listening drill calibrates expectations on real-time pace.',
       why_hi: 'ध्वनि के बिना व्याकरण आधी भाषा है; एक श्रवण-अभ्यास से वास्तविक-समय की गति की समझ बनती है।',
       duration: '8 min',
@@ -403,8 +403,8 @@ function R10_lateralSwap(signal) {
     return {
       surface: 'kanji',
       href: '#/kanji',
-      label_en: 'Open the kanji index — your grammar is well ahead',
-      label_hi: 'कान्जी सूची खोलें — व्याकरण आगे है',
+      label_en: 'Open the kanji index, your grammar is well ahead',
+      label_hi: 'कान्जी सूची खोलें, व्याकरण आगे है',
       why_en: 'Reading and listening start to require kanji recognition by mid-N5; pulling the lever now keeps progress balanced.',
       why_hi: 'मध्य-N5 तक पठन-श्रवण कान्जी पहचान माँगने लगते हैं; अभी ध्यान देने से प्रगति संतुलित रहती है।',
       duration: '5-10 min',
@@ -416,7 +416,7 @@ function R10_lateralSwap(signal) {
 }
 
 function R11_reReadJustExploredPattern(signal) {
-  // Tie-breaker: returning user with no other rule firing — re-open
+  // Tie-breaker: returning user with no other rule firing, re-open
   // last viewed pattern explicitly. This is the same as R-06 except
   // with a different rationale tone (consolidation rather than resume).
   if (signal.isReturning && signal.lastLearnId) {
@@ -425,8 +425,8 @@ function R11_reReadJustExploredPattern(signal) {
       href: `#/learn/${encodeURIComponent(signal.lastLearnId)}`,
       label_en: `Reread ${signal.lastLearnId}`,
       label_hi: `${signal.lastLearnId} पुनः पढ़ें`,
-      why_en: 'A second reading of a pattern is when long-term encoding happens — you\'ve seen it once; now consolidate.',
-      why_hi: 'दूसरी बार पढ़ने पर ही दीर्घ-कालिक स्मरण बनता है — एक बार देख चुके हैं; अब स्थिर करें।',
+      why_en: 'A second reading of a pattern is when long-term encoding happens, you\'ve seen it once; now consolidate.',
+      why_hi: 'दूसरी बार पढ़ने पर ही दीर्घ-कालिक स्मरण बनता है, एक बार देख चुके हैं; अब स्थिर करें।',
       duration: '3-5 min',
       priority: 11,
       rule_id: 'R-11',
@@ -442,8 +442,8 @@ function R12_acknowledgeGoalMet(signal) {
     return {
       surface: 'home',
       href: '#/summary',
-      label_en: 'Goal met today — see progress',
-      label_hi: 'आज का लक्ष्य पूरा — प्रगति देखें',
+      label_en: 'Goal met today, see progress',
+      label_hi: 'आज का लक्ष्य पूरा, प्रगति देखें',
       why_en: 'You have practiced today and the queue is clear. Review your progress; tomorrow is a fresh slot.',
       why_hi: 'आज अभ्यास हो चुका है और कतार साफ़ है। प्रगति देखें; कल नया दिन है।',
       duration: '2 min',
@@ -490,7 +490,7 @@ function R14_mockPaperReady(signal) {
   return null;
 }
 
-// Rule list, ordered by priority. Edit at your peril — the order
+// Rule list, ordered by priority. Edit at your peril, the order
 // encodes pedagogy, not just code style.
 // Dispatch order. R-14 must precede R-13 because R-13's condition
 // (`if signal.isReturning`) is a too-permissive catch-all that would
@@ -499,7 +499,7 @@ function R14_mockPaperReady(signal) {
 // to ship the original numbering as the dispatch order; tightened
 // 2026-05-21 to let the more-specific rule win as the inline
 // documentation has always intended ("R-13 catch-all returning user
-// with no other signal" — the "no other signal" gating only works if
+// with no other signal", the "no other signal" gating only works if
 // R-14 is consulted first). Other priority ordering preserved.
 const RULES = [
   R01_clearLargeReviewQueue,

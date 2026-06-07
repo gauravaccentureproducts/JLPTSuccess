@@ -54,7 +54,7 @@ function audioExists(path) {
 // present (native_reviewed only - see data/grammar.json
 // `_translation_status` policy), else fall back to English. The active
 // per-locale field is `explanation_hi` (post-2026-05-06 IMP-096
-// narrowing — earlier en/vi/id/ne/zh shell collapsed to en+hi); absence
+// narrowing, earlier en/vi/id/ne/zh shell collapsed to en+hi); absence
 // is the default state until reviewers fill it via docs/TRANSLATING.md.
 function localizedExplanation(p) {
   const lc = currentLocale();
@@ -189,7 +189,7 @@ export function buildOrderedPatternList(allPatterns) {
 // resets on a fresh page load.
 //
 // Tier filter (All / Core N5 / Late N5) removed 2026-05-10 per user
-// direction — the chips were redundant for an N5-only app where 153/178
+// direction, the chips were redundant for an N5-only app where 153/178
 // patterns are core_n5 and 25 are late_n5; the binary distinction
 // didn't drive enough learner action to justify the chrome.
 let _grammarFilterText = '';
@@ -272,7 +272,7 @@ export function renderGrammarTOC(container, data) {
   } else if (data.patterns.length === 1) {
     html += `<div class="placeholder" style="margin-top:24px"><p>Scaffold currently has 1 example pattern. Add more to <code>data/grammar.json</code> as you author content.</p></div>`;
   }
-  // Search / filter / TOC-controls block — placed AFTER the categories
+  // Search / filter / TOC-controls block, placed AFTER the categories
   // so the category table-of-contents is the primary surface on first
   // paint; the filter is a secondary refinement (UI direction 2026-05-10).
   html += `
@@ -436,7 +436,7 @@ function renderHowToUseTable(p) {
   // The conjugation table needs ≥2 rows to be worth a separate table.
   const showConjTable = conjugations.length >= 2;
   // If neither sub-table renders, the section header alone is just
-  // visual noise — return '' so the whole HOW TO USE block disappears.
+  // visual noise, return '' so the whole HOW TO USE block disappears.
   if (!showTopTable && !showConjTable) return '';
 
   const usageHeader = `
@@ -528,7 +528,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
 
   // BUG-011 + BUG-013 (2026-05-16): entries tagged `kind: "register_variant"`
   // carry two grammatically-valid forms differing in register, formality,
-  // or pragmatic context — NOT one wrong + one right. BUG-013 completed
+  // or pragmatic context, NOT one wrong + one right. BUG-013 completed
   // the schema migration: the JSON keys are now `form_a` / `form_b` (no
   // longer `wrong` / `right`) for these entries, so the data surface
   // itself no longer carries WRONG/RIGHT framing. Legacy `wrong`/`right`
@@ -567,7 +567,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   // {wrong, correct, why, error_category, provenance}.
   // The legacy `common_mistakes` field (above) is kept for backward
   // compatibility, but `wrong_corrected_pair` is the richer, schemaful
-  // version — render below `common_mistakes` if present.
+  // version, render below `common_mistakes` if present.
   const wcp = Array.isArray(p.wrong_corrected_pair) ? p.wrong_corrected_pair : [];
   const categoryBadge = (cat) => {
     if (!cat) return '';
@@ -577,7 +577,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
     return `<span class="error-category-badge cat-${esc(cat)}">${esc(label)}</span>`;
   };
   // IMP-WAVE3+ (UI clarity 2026-05-11): wcp pairs previously showed
-  // two lines of Japanese without explicit correct/incorrect labels —
+  // two lines of Japanese without explicit correct/incorrect labels -
   // users were having to guess which was which from CSS color cues
   // alone (.wrong = red strikethrough, .right = green bold). Adding
   // explicit text labels + ✗/✓ symbols. The label is localized
@@ -635,7 +635,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
 
   // Public-domain literature / cultural references (added 2026-05-13):
   // The `public_domain_refs` field carries legally-safe authentic
-  // citations — Aozora Bunko PD literature, government works, traditional
+  // citations, Aozora Bunko PD literature, government works, traditional
   // proverbs, folk songs, and NHK Easy News (recommendation-only).
   // These are LOW-RISK contrasts to the (deliberately-avoided) copyrighted
   // anime/drama citations. See NOTICES.md for the legal posture.
@@ -662,7 +662,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
             <li class="pd-ref pd-ref-${source}">
               <div class="pd-ref-header">
                 <strong class="pd-work-title" lang="ja">${title}</strong>${link}
-                ${author ? `<span class="pd-author muted small">— ${author}${death}</span>` : ''}
+                ${author ? `<span class="pd-author muted small">- ${author}${death}</span>` : ''}
               </div>
               ${pd}
               ${quoteJa}
@@ -817,7 +817,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
 
       ${p.cultural_callout ? `
         <!-- IMP-WAVE-P2-12 (UI audit fix, 2026-05-11): usage-culture
-             callout — when/why a learner picks this pattern in real
+             callout, when/why a learner picks this pattern in real
              Japanese situations (business / classroom / casual / etc.). -->
         <section class="grammar-cultural-callout">
           <div class="pattern-usage-header"><h3 class="section-title">Cultural usage note</h3><span class="pattern-usage-chip" lang="ja">文化</span></div>

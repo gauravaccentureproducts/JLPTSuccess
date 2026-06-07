@@ -7,7 +7,7 @@ const k={privacy:{path:"PRIVACY.md",title:"Privacy"},notices:{path:"NOTICES.md",
       <h1>${p(n.title)}</h1>
       <p class="muted small">Loading\u2026</p>
     </article>
-  `;let t;try{const r=await fetch(n.path);if(!r.ok)throw new Error(`HTTP ${r.status}`);t=await r.text()}catch{s.querySelector(".md-doc-page p.muted").textContent="Could not load. Try refreshing \u2014 the file is precached and works offline once you have visited the app online.";return}const o=w(t),l=e==="privacy"?`
+  `;let t;try{const r=await fetch(n.path);if(!r.ok)throw new Error(`HTTP ${r.status}`);t=await r.text()}catch{s.querySelector(".md-doc-page p.muted").textContent="Could not load. Try refreshing, the file is precached and works offline once you have visited the app online.";return}const o=w(t),l=e==="privacy"?`
     <aside class="trust-callout" aria-label="Privacy commitment">
       <strong>No login \xB7 No tracking \xB7 100% on-device \xB7 Open source</strong>
       <p>This app does NOT collect, transmit, or store any personal data on a remote server. Verifiable in the open-source code on GitHub.</p>

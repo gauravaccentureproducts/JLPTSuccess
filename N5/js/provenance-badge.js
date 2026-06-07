@@ -2,7 +2,7 @@
 //
 // BUG-012 (2026-05-16): the field value formerly `native_reviewed`
 // is now `ai_quality_reviewed`. The label text presented to the user
-// is "AI quality-reviewed" — NOT "Native-reviewed" — because the
+// is "AI quality-reviewed", NOT "Native-reviewed", because the
 // review-status assignment was done by Claude acting as a
 // native-reviewer persona, not by an actual native human teacher.
 // A future human-native review pass would introduce a separate
@@ -59,7 +59,7 @@ export function corpusProvenanceStats(corpus) {
 // OR the corpus the item belongs to hasn't yet crossed the threshold.
 export function renderItemBadge(item, corpusOverThreshold = false) {
   // Owner decision (2026-06-08): review-provenance is NOT a learner-facing
-  // signal. Who (or what) reviewed an item is an internal concern — the
+  // signal. Who (or what) reviewed an item is an internal concern, the
   // learner must see only the content, never a "AI quality-reviewed" /
   // "AI-drafted" / "Auto-generated" tag. The internal `review_status` data
   // field is retained (CI JA-35 requires it) but is never displayed.

@@ -86,7 +86,7 @@ import*as a from"./storage.js";import{setLocale as v,currentLocale as h,enabledL
            "Recommended next" card on the home page is suppressed. The
            setting is read by home.js at render time. The recommender
            code itself stays loaded (it's a small module) so toggling
-           on/off is instant \u2014 no fetch, no re-init. -->
+           on/off is instant, no fetch, no re-init. -->
       <label class="settings-row">
         <span>
           ${t("settings.show_recommender")}

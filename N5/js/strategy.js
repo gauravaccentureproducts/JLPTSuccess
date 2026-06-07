@@ -1,11 +1,11 @@
 // IMP-WAVE1 (UI audit fix, 2026-05-11): Test-strategy page renderer.
 // Consumes data/test_strategy.json (T1-T6 fully authored) and surfaces:
-//   T1 section_timing  — per-mondai time budgets
-//   T2 trap_patterns   — 30 catalogued JLPT N5 traps
-//   T3 techniques      — 15 actionable test-taking techniques
-//   T4 score_breakdown — JEES scoring + diagnostic bands
-//   T5 diagnostic_drills — 9 weak-area drill paths
-//   T6 meta_strategy   — 5-min summary + study split + 14-day schedule + exam-day checklist
+//   T1 section_timing , per-mondai time budgets
+//   T2 trap_patterns  , 30 catalogued JLPT N5 traps
+//   T3 techniques     , 15 actionable test-taking techniques
+//   T4 score_breakdown, JEES scoring + diagnostic bands
+//   T5 diagnostic_drills, 9 weak-area drill paths
+//   T6 meta_strategy  , 5-min summary + study split + 14-day schedule + exam-day checklist
 //
 // Route: #/strategy
 //
@@ -47,7 +47,7 @@ function renderSectionTiming(timing) {
     `).join('');
     return `
       <section class="timing-section">
-        <h4>${esc(s.section_part || key)} — ${esc(s.module || '')}</h4>
+        <h4>${esc(s.section_part || key)}, ${esc(s.module || '')}</h4>
         <p class="muted small">${esc(s.total_minutes)} min · ${esc(s.total_questions)} questions · avg ${esc(s.average_seconds_per_question)}s/q</p>
         <table class="timing-table">
           <thead><tr><th>Mondai</th><th>Type</th><th>Q</th><th>Time/Q</th><th>Strategy</th></tr></thead>
@@ -78,7 +78,7 @@ function renderTrapPatterns(traps) {
       <ul class="trap-list">
         ${list.map(t => `
           <li>
-            <p><strong>${esc(t.name || '')}</strong> — ${esc(t.description || '')}</p>
+            <p><strong>${esc(t.name || '')}</strong>, ${esc(t.description || '')}</p>
             ${t.wrong_example ? `<p class="wrong" lang="ja">✗ ${esc(t.wrong_example)}</p>` : ''}
             ${t.correct_example ? `<p class="right" lang="ja">✓ ${esc(t.correct_example)}</p>` : ''}
             ${t.defense ? `<p class="muted small"><em>Defense:</em> ${esc(t.defense)}</p>` : ''}

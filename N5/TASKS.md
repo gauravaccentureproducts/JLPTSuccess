@@ -509,6 +509,16 @@ _(Last verified 2026-05-25 by weekly audit)_
 ### JCE-11: Per-kanji mnemonic illustration card (POC live for 雨; rollout blocked on image production)
 - [ ] **JCE-11** Show a memory-aid illustration in each kanji page's "Radical & mnemonic" section. **Proof-of-concept shipped live for 雨 (1/106) in v1.17.45** — the plumbing is done and scales to every kanji: data field `mnemonic_image` (+ REQUIRED `mnemonic_image_alt` screen-reader text + `mnemonic_image_provenance`), a lazy-loaded `<figure>` render in `js/kanji.js`, `.kanji-mnemonic-figure/-img` styles, and a CI guard (JA-179: image resolves on disk + non-empty alt). A kanji with no image renders unchanged, so rollout is incremental. Before extending to the other 105: **(1) image production is the gating cost** — 105 more cards must be produced; cannot be auto-generated in-repo. **(2) Optimize weight** — the 雨 source was 1024×1024 / ~2.3 MB; a full set must be downscaled + WebP'd (~100-150 KB each) or repo + page weight balloon (lazy-load keeps a single page cheap). **(3) Confirm licensing** — AI-generated art needs a commercial-use right recorded in NOTICES (open item already logged there). **(4) Decide on text redundancy** — the card's baked-in text largely repeats the on-page meaning/visual/reading lines; consider trimming that text when an image is present. Scope note: this is a light per-kanji **visual aid**, distinct from a WaniKani-style elaborate mnemonic **system** (the documented anti-niche) — keep it supplementary, with the authoritative readings/meaning always present as on-page text. Asset pattern + the min-CSS/min-JS rebuild gotcha are captured in procedure-manual F.55.
 
+### TYPO-1: Em-dash cleanup in explanation prose (deferred 2026-06-08)
+- [ ] **TYPO-1** Em-dashes were removed from all learner-facing UI chrome (page/section
+  titles, labels, feedback, recommendation text, en/hi locales, index.html) in v1.17.48.
+  Deferred: the dense English + Hindi EXPLANATION prose in `data/*.json`
+  (grammar/vocab/kanji/reading/listening + papers) still holds ~42,000 em-dashes. The user
+  deferred this to a separate, reviewed pass. At that scale a true per-sentence
+  context-aware rewrite is the goal (spaced em-dash to comma/colon by clause type; tight to
+  hyphen), with spot review of the Hindi (Devanagari) clause breaks. Needs a careful scripted
+  pass + sampling review; out of scope for the v1.17.48 UI-chrome sweep.
+
 ---
 
 ## Done - Phase 4 + 5

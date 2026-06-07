@@ -318,7 +318,7 @@ export async function renderHome(container) {
 
   // EB-4: pedagogy recommender. The recommender returns a structured
   // suggestion (highest-priority rule that fires for current state).
-  // Gated to returning users only — pure + deterministic + on-device.
+  // Gated to returning users only, pure + deterministic + on-device.
   // See docs/RECOMMENDER-RULES.md.
   // IMP-NEXT-1 (round-9 follow-up, 2026-05-08): Settings toggle to
   // disable the card. Default-on; only suppressed when the user

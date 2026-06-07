@@ -51,7 +51,7 @@ export async function renderExamDay(container) {
   container.innerHTML = `
     <article class="exam-day-page">
       <a class="back-link" href="#/strategy">← Back to Strategy</a>
-      <h2>JLPT N5 — Exam-Day Prep</h2>
+      <h2>JLPT N5, Exam-Day Prep</h2>
       <p class="page-lede">
         Print this page, or pull it up on your phone the morning of the test.
         Compact, actionable, sourced from <code>data/test_strategy.json</code>.

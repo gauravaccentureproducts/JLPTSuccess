@@ -10,7 +10,7 @@
 // Fix: render the markdown inline via a minimal, dependency-free
 // markdown subset that covers what PRIVACY.md / NOTICES.md actually
 // use (h1-h3, paragraphs, lists, links, code blocks, blockquotes,
-// emphasis). No third-party library — niche-N2 privacy contract
+// emphasis). No third-party library, niche-N2 privacy contract
 // forbids new third-party scripts.
 //
 // API:
@@ -135,7 +135,7 @@ function renderMarkdown(md) {
   }
   closeList(); closeQuote();
   if (inCode) {
-    // Unclosed code fence — best effort
+    // Unclosed code fence, best effort
     out.push(`<pre><code>${_esc(codeBuf.join('\n'))}</code></pre>`);
   }
   return out.join('\n');
@@ -150,7 +150,7 @@ function _renderInline(s) {
   out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   // Italic: *text* (but not part of **)
   out = out.replace(/(^|[^*])\*([^*]+)\*(?!\*)/g, '$1<em>$2</em>');
-  // Links: [text](url) — only allow http/https/relative paths (no javascript:)
+  // Links: [text](url), only allow http/https/relative paths (no javascript:)
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, text, url) => {
     if (/^(javascript|data|vbscript):/i.test(url)) return text;  // strip dangerous
     const ext = /^https?:/i.test(url);
@@ -180,11 +180,11 @@ async function _renderInto(container, key) {
     md = await res.text();
   } catch (err) {
     container.querySelector('.md-doc-page p.muted').textContent =
-      'Could not load. Try refreshing — the file is precached and works offline once you have visited the app online.';
+      'Could not load. Try refreshing, the file is precached and works offline once you have visited the app online.';
     return;
   }
   const html = renderMarkdown(md);
-  // Privacy gets a hero trust callout above the markdown body — surfaces
+  // Privacy gets a hero trust callout above the markdown body, surfaces
   // the niche-N2 claim conspicuously at the page where users land when
   // verifying it (round-9 follow-up "make trust pills not-so-inconspicuous"
   // 2026-05-07). Notices doesn't get it (it's a third-party-attribution

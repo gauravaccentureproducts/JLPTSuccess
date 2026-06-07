@@ -89,14 +89,14 @@ import"./storage.js";import{t as h}from"./i18n.js";import{loadPacing as j,render
         </tfoot>
       </table>
       <p class="muted small">
-        \u203B The app ships 85Q across the 3 sections (close to the official 91Q). Per-section minimums above are raw-question approximations. The official JLPT N5 score report uses a scaled-equating method that this app does not replicate \u2014 only raw-correct percentages are shown.
+        \u203B The app ships 85Q across the 3 sections (close to the official 91Q). Per-section minimums above are raw-question approximations. The official JLPT N5 score report uses a scaled-equating method that this app does not replicate, only raw-correct percentages are shown.
       </p>
 
       <!-- IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): scaled-score
            estimator. Maps app's 3 sections onto official 2 (mojigoi+
            bunpoudok = section 1 lang+reading; choukai = section 2
            listening), projects raw% linearly onto the 120/60 caps,
-           and surfaces a diagnostic band. APPROXIMATION \u2014 labelled
+           and surfaces a diagnostic band. APPROXIMATION, labelled
            as such so users don't read it as JEES-official. -->
       ${H(l.sectionResults)}
 
@@ -122,13 +122,13 @@ import"./storage.js";import{t as h}from"./i18n.js";import{loadPacing as j,render
         </thead>
         <tbody>
           <tr class="${t.section1.meets_min?"pass":"fail"}">
-            <td>Section 1 \u2014 Lang Knowledge + Reading</td>
+            <td>Section 1, Lang Knowledge + Reading</td>
             <td>${t.section1.raw_pct}%</td>
             <td>${t.section1.scaled} / ${t.section1.max}</td>
             <td class="muted small">${t.section1.meets_min?`\u2713 \u2265 ${t.section1.min}`:`\u2717 &lt; ${t.section1.min}`}</td>
           </tr>
           <tr class="${t.section2.meets_min?"pass":"fail"}">
-            <td>Section 2 \u2014 Listening</td>
+            <td>Section 2, Listening</td>
             <td>${t.section2.raw_pct}%</td>
             <td>${t.section2.scaled} / ${t.section2.max}</td>
             <td class="muted small">${t.section2.meets_min?`\u2713 \u2265 ${t.section2.min}`:`\u2717 &lt; ${t.section2.min}`}</td>

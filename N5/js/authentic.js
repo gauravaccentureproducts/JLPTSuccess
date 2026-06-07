@@ -1,8 +1,8 @@
 // IMP-126 (richness audit, 2026-05-09): authentic-content layer.
 // The audit's largest leverage gap was 0% authentic real-world JP
 // across every existing surface. This module renders the starter
-// corpus from data/authentic.json — signs, menus, transit, shop,
-// notice — grouped by category as cards.
+// corpus from data/authentic.json, signs, menus, transit, shop,
+// notice, grouped by category as cards.
 import { renderJa } from './furigana.js';
 import { t } from './i18n.js';
 
@@ -62,14 +62,14 @@ export async function renderAuthentic(container) {
       <a class="back-link" href="#/home">← Home</a>
       <h2>Authentic Japanese (real-world signs &amp; phrases)</h2>
       <p class="page-lede">
-        ${items.length} starter entries you'd actually see in Japan — station signs,
+        ${items.length} starter entries you'd actually see in Japan, station signs,
         menu prices, shop hours, public-space notices. Every entry sticks to the
         N5 kanji whitelist (or kana when the kanji is N4+); the goal is real-world
         usage, not vocabulary expansion beyond N5.
       </p>
       <p class="muted small">
         Tap a card to study; click <em>Pronounce</em> to use your device's
-        speech engine if available (no audio is bundled — privacy-preserving).
+        speech engine if available (no audio is bundled, privacy-preserving).
       </p>
       <p class="muted small">
         <a href="#/mining">→ Sentence-mining index: every vocab / kanji / grammar entry linked to one or more of these cards</a>
@@ -123,7 +123,7 @@ function renderItemCard(it) {
       ` : ''}
       <div class="authentic-card-actions">
         <button type="button" class="btn-secondary btn-tiny" data-auth-speak="${esc(ja)}"
-                title="Read aloud (uses your device's voice — no network call)">
+                title="Read aloud (uses your device's voice, no network call)">
           🔊 Pronounce
         </button>
       </div>
@@ -139,7 +139,7 @@ function esc(s) {
 
 // IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): pull the trailing
 // dot-delimited segment out of a vocab id like
-// "n5.vocab.13-locations-and-places-.びょういん" — that's the
+// "n5.vocab.13-locations-and-places-.びょういん", that's the
 // human-readable surface form. Falls back to the full id if
 // the parse fails.
 function vidLabel(vid) {

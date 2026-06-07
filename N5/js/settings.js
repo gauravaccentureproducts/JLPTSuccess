@@ -6,11 +6,11 @@ import { renderJa } from './furigana.js';
 import { exportVocabTSV, exportGrammarTSV, exportKanjiTSV } from './corpus-export.js';
 import { navigateTo } from './router.js';
 
-// BUG-7 fix (UI test 2026-05-07): the `hi` entry was missing — the
+// BUG-7 fix (UI test 2026-05-07): the `hi` entry was missing, the
 // switcher rendered the bare ISO code "hi" as the option label. Added
 // proper Devanagari label so a Hindi-reading user recognizes it. The
 // other 3 entries (vi/id/ne/zh) are dead since the 2026-05-06
-// locale-narrowing transition — kept only as historical reference for
+// locale-narrowing transition, kept only as historical reference for
 // possible future re-introduction.
 const LOCALE_NAMES = {
   en: 'English',
@@ -112,7 +112,7 @@ export async function renderSettings(container) {
            "Recommended next" card on the home page is suppressed. The
            setting is read by home.js at render time. The recommender
            code itself stays loaded (it's a small module) so toggling
-           on/off is instant — no fetch, no re-init. -->
+           on/off is instant, no fetch, no re-init. -->
       <label class="settings-row">
         <span>
           ${t('settings.show_recommender')}

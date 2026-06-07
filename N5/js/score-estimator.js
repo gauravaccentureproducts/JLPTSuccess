@@ -35,10 +35,10 @@ let _bandsCache = null;
 
 const DEFAULT_BANDS = {
   below_38_or_19: 'fail (any section below minimum = fail regardless of total)',
-  '38_57':  'weak — needs focused review of section topics',
-  '57_80':  'borderline — strengthen weak section',
-  '80_120': 'pass — solid',
-  '120_180': 'strong pass — N4-ready',
+  '38_57':  'weak, needs focused review of section topics',
+  '57_80':  'borderline, strengthen weak section',
+  '80_120': 'pass, solid',
+  '120_180': 'strong pass, N4-ready',
 };
 
 export async function loadScoreBands() {
@@ -104,7 +104,7 @@ export function estimate(sec1, sec2) {
 }
 
 // Returns one of: fail / weak / borderline / pass / strong_pass.
-// `sectionMinsMet` qualifies the band — if a section min is missed,
+// `sectionMinsMet` qualifies the band, if a section min is missed,
 // the band auto-degrades to "fail" no matter what the total is.
 export function getBand(total, sectionMinsMet) {
   if (!sectionMinsMet) {
@@ -142,14 +142,14 @@ export function getBand(total, sectionMinsMet) {
   if (total < 120) {
     return {
       key:   'pass',
-      label: 'Pass — solid',
+      label: 'Pass, solid',
       hint:  'Comfortable pass. Maintain accuracy and move on to N4-prep.',
       tone:  'pass',
     };
   }
   return {
     key:   'strong_pass',
-    label: 'Strong pass — N4-ready',
+    label: 'Strong pass, N4-ready',
     hint:  'Excellent. Consider stepping up to N4 study material.',
     tone:  'strong_pass',
   };

@@ -84,7 +84,7 @@ export function romajiToKana(input) {
     if (!/[a-z\-']/.test(ch)) {
       // Flush any pending "n" as ん
       if (buf === 'n') { out += 'ん'; buf = ''; }
-      // Apostrophe: 'n + vowel' separator — flush n
+      // Apostrophe: 'n + vowel' separator, flush n
       if (ch === "'" && buf === '') { continue; }
       out += input[i];
       continue;
@@ -102,7 +102,7 @@ export function romajiToKana(input) {
         const prefix = buf.slice(0, buf.length - key.length);
         // The prefix could be incomplete; only flush if it would
         // independently convert (e.g., should not happen at this
-        // point — but emit prefix as-is for safety).
+        // point, but emit prefix as-is for safety).
         if (prefix) {
           // Handle case where prefix is a leftover "n" before a vowel-starting kana
           if (prefix === 'n' && /^[aiueo]/.test(key)) {

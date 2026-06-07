@@ -1,7 +1,7 @@
 import"./i18n.js";const t=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);let i=null;async function y(){if(i)return i;try{const s=await fetch("data/test_strategy.json");return s.ok?(i=await s.json(),i):null}catch(s){return console.warn("[exam-day] load failed:",s),null}}async function p(s){s.innerHTML='<p class="muted small">Loading exam-day prep\u2026</p>';const c=await y();if(!c||!c.meta_strategy){s.innerHTML=`<article class="exam-day-page"><p>Couldn't load exam-day data. Please retry.</p></article>`;return}const l=c.meta_strategy,h=l.five_minute_summary||[],u=l.exam_day_checklist||[],r=l.two_week_drill_schedule||[],d=l.study_distribution_recommendation||{},e=c.section_timing&&c.section_timing.exam_structure||{};s.innerHTML=`
     <article class="exam-day-page">
       <a class="back-link" href="#/strategy">\u2190 Back to Strategy</a>
-      <h2>JLPT N5 \u2014 Exam-Day Prep</h2>
+      <h2>JLPT N5, Exam-Day Prep</h2>
       <p class="page-lede">
         Print this page, or pull it up on your phone the morning of the test.
         Compact, actionable, sourced from <code>data/test_strategy.json</code>.

@@ -4,14 +4,14 @@ import"./furigana.js";import"./i18n.js";import{assetUrl as h}from"./router.js";c
             <span lang="ja">${t(l.ja)}</span>
             <span class="muted small"> \xB7 ${t(l.en)}</span>
           </h3>
-          <p class="muted small">${o.length} clip(s) \u2014 auto-plays in sequence</p>
+          <p class="muted small">${o.length} clip(s), auto-plays in sequence</p>
         </a>
       `}).join("");n.innerHTML=`
     <article class="listening-story-root">
       <a class="back-link" href="#/listening">\u2190 Back to Listening</a>
       <h2>Story-mode listening</h2>
       <p class="page-lede">
-        Pick a setting \u2014 clips auto-play one after another, like a single immersive listening session. Per-clip prompt + script reveal at the end of each.
+        Pick a setting, clips auto-play one after another, like a single immersive listening session. Per-clip prompt + script reveal at the end of each.
       </p>
       <div class="listening-story-grid">${r}</div>
     </article>

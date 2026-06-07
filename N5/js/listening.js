@@ -19,7 +19,7 @@ let session = null;
 // BUG-051 fix 2026-05-17: keyed by format_type (the canonical
 // descriptive field) after dropping the redundant `format` short-name.
 // Locked by JA-111. Pre-fix the schema carried both fields with a 1:1
-// bijection — format="task" ↔ format_type="task_understanding", etc.
+// bijection, format="task" ↔ format_type="task_understanding", etc.
 const FORMATS = {
   task_understanding:   'かだいりかい (タスクりかい)',
   point_understanding:  'ポイントりかい',
@@ -48,7 +48,7 @@ async function loadBank() {
 export async function renderListening(container, params) {
   await loadBank();
   // 2026-05-08: URL-based routing for listening detail. User reported
-  // refresh on a detail page bouncing back to the index — that was a
+  // refresh on a detail page bouncing back to the index, that was a
   // symptom of the detail view being purely in-memory (`session`)
   // with no URL representation. Now `#/listening/<id>` deep-links to
   // a specific item; refresh preserves it; sharing the URL works.
@@ -56,7 +56,7 @@ export async function renderListening(container, params) {
   if (id) {
     const item = (bank.items || []).find(it => it.id === id);
     if (!item) {
-      // Unknown id — redirect to index. The hashchange triggered by
+      // Unknown id, redirect to index. The hashchange triggered by
       // the assignment causes the router to re-fire renderListening
       // with empty params, which falls into the index path below.
       session = null;
@@ -101,7 +101,7 @@ function renderIndex(container) {
     <p>${renderJa('JLPT N5 ちょうかいの 三つの けいしき。おんせいを 聞いて、ただしい こたえを えらんで ください。')}</p>
     <p class="listening-story-cta">
       <a href="#/listeningstory" class="btn-secondary" style="text-decoration:none">🎧 Try story-mode listening</a>
-      <span class="muted small">— immersive chained playback grouped by setting (cafe / station / shop / etc.)</span>
+      <span class="muted small">- immersive chained playback grouped by setting (cafe / station / shop / etc.)</span>
     </p>
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">${renderJa('ぜんぶ ひらく')}</button>
@@ -219,7 +219,7 @@ function renderItem(container) {
         // canonical post-render record) instead of the stale
         // voice_planned field. Pre-fix every item carried
         // voice_planned.engine="edge-tts" even though
-        // audio_render_meta.voice_provider="voicevox" — Cross-Artifact
+        // audio_render_meta.voice_provider="voicevox", Cross-Artifact
         // Sync Protocol INV-7 drift. voice_planned has now been
         // dropped from listening.json (per JA-110); engine + speaker
         // names resolve from audio_render_meta.voice_provider +
@@ -239,7 +239,7 @@ function renderItem(container) {
       })()}
       ${it.prompt_ja ? `<p>${renderJa(it.prompt_ja)}</p>` : ''}
       ${(() => {
-        // IMP-WAVE4 (UI audit fix, 2026-05-11): listening_strategy_hints —
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): listening_strategy_hints -
         // mondai-format-keyed strategic guidance (4 hints per item).
         const hints = Array.isArray(it.listening_strategy_hints) ? it.listening_strategy_hints : [];
         if (!hints.length) return '';
@@ -255,7 +255,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: speech_rate_classification — pacing vs N5 standard.
+        // IMP-WAVE4: speech_rate_classification, pacing vs N5 standard.
         const sr = it.speech_rate_classification;
         if (!sr || typeof sr !== 'object' || !sr.category) return '';
         return `
@@ -267,7 +267,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: register_signal_l — auto-detected register for listening.
+        // IMP-WAVE4: register_signal_l, auto-detected register for listening.
         const rs = it.register_signal_l;
         if (!rs || typeof rs !== 'object' || !rs.register) return '';
         return `
@@ -278,7 +278,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: speaker_demographics — auto-extracted speaker roles.
+        // IMP-WAVE4: speaker_demographics, auto-extracted speaker roles.
         const sd = it.speaker_demographics;
         if (!sd || typeof sd !== 'object' || !Array.isArray(sd.roles_detected) || !sd.roles_detected.length) return '';
         return `
@@ -289,7 +289,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: prosody_hints — intonation cues from punctuation.
+        // IMP-WAVE4: prosody_hints, intonation cues from punctuation.
         const ph = Array.isArray(it.prosody_hints) ? it.prosody_hints : [];
         if (!ph.length) return '';
         return `
@@ -304,7 +304,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: time_target_seconds — JLPT N5 per-item time budget.
+        // IMP-WAVE4: time_target_seconds, JLPT N5 per-item time budget.
         const tt = it.time_target_seconds;
         if (!tt || typeof tt !== 'object') return '';
         return `
@@ -315,7 +315,7 @@ function renderItem(container) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: distractor_pattern_hint — what trap the wrong answers represent.
+        // IMP-WAVE4: distractor_pattern_hint, what trap the wrong answers represent.
         const dp = it.distractor_pattern_hint;
         if (!dp || typeof dp !== 'object' || !dp.pattern) return '';
         return `
@@ -370,7 +370,7 @@ function renderItem(container) {
              relationship. -->
         <aside class="listening-inference-prompts">
           <details>
-            <summary class="muted small"><strong>Going deeper</strong> — inference questions</summary>
+            <summary class="muted small"><strong>Going deeper</strong>, inference questions</summary>
             <ul>
               ${it.inference_question_expansion.prompts.map(q => `
                 <li>
@@ -412,7 +412,7 @@ function renderItem(container) {
     </article>
   `;
   // Wire prev/next nav buttons. Navigate via hashchange so the URL
-  // captures the active item — refresh-survives, share-link-able.
+  // captures the active item, refresh-survives, share-link-able.
   // Router's hashchange listener picks up the new id and re-renders.
   container.querySelector('[data-nav="prev"]')?.addEventListener('click', () => {
     if (prev) { window.scrollTo(0, 0); navigateTo(`listening/${encodeURIComponent(prev.id)}`); }
@@ -422,7 +422,7 @@ function renderItem(container) {
   });
   container.querySelectorAll('[data-pick]').forEach(btn => {
     btn.addEventListener('click', () => {
-      // `picked` is in-memory only — refresh resets it. The URL still
+      // `picked` is in-memory only, refresh resets it. The URL still
       // points at the same item, so refresh keeps the user on this
       // page (no answer pre-selected after refresh; that's OK).
       session.picked = btn.dataset.pick;
@@ -432,8 +432,8 @@ function renderItem(container) {
   // "← リストに もどる" link at the top: keep its href="#/listening",
   // remove the preventDefault so the browser actually navigates and
   // the URL changes (was previously rendering index without updating
-  // the URL — a refresh would then jump back to the detail page).
-  // No JS handler needed — the anchor's href does the work.
+  // the URL, a refresh would then jump back to the detail page).
+  // No JS handler needed, the anchor's href does the work.
   document.getElementById('listening-back-list')?.addEventListener('click', () => {
     navigateTo('listening');
   });

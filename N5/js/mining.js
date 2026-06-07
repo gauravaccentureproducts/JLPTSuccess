@@ -138,7 +138,7 @@ export async function renderMining(container) {
     const color = CATEGORY_COLOR[card.category] || '#888';
     const ja = card.ja || cardId;
     const en = card.gloss_en || '';
-    const title = `${ja} — ${en} (${card.category || '?'})`;
+    const title = `${ja}, ${en} (${card.category || '?'})`;
     return `<a class="mining-card-chip" href="#/authentic" data-card-id="${esc(cardId)}" title="${esc(title)}" style="border-left:3px solid ${color}">
       <span class="mining-card-ja" lang="ja">${esc(ja)}</span>
       ${en ? `<span class="mining-card-en muted small">${esc(en)}</span>` : ''}

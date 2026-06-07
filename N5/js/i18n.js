@@ -194,7 +194,7 @@ export async function initI18n() {
       // through the SPA router).
       storage.setSettings({ uiLocale: qsLc });
     }
-  } catch { /* swallow — SPA boot continues with default-flow */ }
+  } catch { /* swallow, SPA boot continues with default-flow */ }
   const saved = urlLocaleOverride || storage.getSettings().uiLocale;
   let initial = saved;
   let auto = false;
@@ -227,7 +227,7 @@ export async function initI18n() {
   }
   // Phase-1 launch (2026-05-24): if the auto-detected initial locale
   // is in SUPPORTED (data exists) but NOT in ENABLED_LOCALES (UI
-  // disabled), fall through to DEFAULT_LOCALE silently — do not fire
+  // disabled), fall through to DEFAULT_LOCALE silently, do not fire
   // the "auto-detected: <X>" toast for a locale the user can't switch
   // back to via the toggle.
   if (!ENABLED_LOCALES.includes(initial)) {

@@ -126,9 +126,9 @@ function computeAreaStats(area, history, grammarPatterns) {
 
 function badgeForAccuracy(acc) {
   if (acc == null) return `<span class="weak-area-badge weak-area-untested">Not tested</span>`;
-  if (acc < 60) return `<span class="weak-area-badge weak-area-low">${acc}% — needs review</span>`;
-  if (acc < 80) return `<span class="weak-area-badge weak-area-mid">${acc}% — improving</span>`;
-  return `<span class="weak-area-badge weak-area-high">${acc}% — solid</span>`;
+  if (acc < 60) return `<span class="weak-area-badge weak-area-low">${acc}%, needs review</span>`;
+  if (acc < 80) return `<span class="weak-area-badge weak-area-mid">${acc}%, improving</span>`;
+  return `<span class="weak-area-badge weak-area-high">${acc}%, solid</span>`;
 }
 
 export async function renderWeakAreas(container) {

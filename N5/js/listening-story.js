@@ -3,7 +3,7 @@
 // JapanesePod101-parity feature. Groups the 50 listening items by
 // ambient_context (station / cafe / shop / home / office / clinic /
 // classroom / restaurant) into thematic "stories" the learner can
-// auto-play in sequence — like a single immersive listening
+// auto-play in sequence, like a single immersive listening
 // session, not 50 disconnected drills.
 //
 // Route: #/listeningstory[/<context>]
@@ -76,7 +76,7 @@ function renderPicker(container, items) {
             <span lang="ja">${esc(label.ja)}</span>
             <span class="muted small"> · ${esc(label.en)}</span>
           </h3>
-          <p class="muted small">${list.length} clip(s) — auto-plays in sequence</p>
+          <p class="muted small">${list.length} clip(s), auto-plays in sequence</p>
         </a>
       `;
     })
@@ -87,7 +87,7 @@ function renderPicker(container, items) {
       <a class="back-link" href="#/listening">← Back to Listening</a>
       <h2>Story-mode listening</h2>
       <p class="page-lede">
-        Pick a setting — clips auto-play one after another, like a single immersive listening session. Per-clip prompt + script reveal at the end of each.
+        Pick a setting, clips auto-play one after another, like a single immersive listening session. Per-clip prompt + script reveal at the end of each.
       </p>
       <div class="listening-story-grid">${sections}</div>
     </article>

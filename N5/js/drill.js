@@ -213,7 +213,7 @@ function renderDrilling(container) {
     // soon as the field is non-empty. Enter submits without needing
     // mouse focus on the button.
     // IMP-WAVE-P4-21: attach romaji-kana auto-conversion to any
-    // input flagged with [data-jp-input]. Idempotent — safe to call
+    // input flagged with [data-jp-input]. Idempotent, safe to call
     // every render cycle.
     attachRomajiKanaAll(container);
     const textInput = container.querySelector('[data-drill-text-input]');
@@ -298,8 +298,8 @@ function isAnswered(q, answer) {
 
 // IMP-136 + IMP-138 (richness audit, 2026-05-09): typed-input renderer.
 // Three variants share the same DOM: text_input (legacy generic),
-// cloze (fill-in-the-blank — visually slot the input INTO the blank
-// in question_ja), production (English-prompt → JP typing — full
+// cloze (fill-in-the-blank, visually slot the input INTO the blank
+// in question_ja), production (English-prompt → JP typing, full
 // sentence box).
 function renderTextInput(q, answer) {
   const draft = answer ? answer.answer : (q._draft || '');
@@ -399,7 +399,7 @@ function gradeQuestionWithScore(q, draft) {
     const accepted = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers : [];
     if (accepted.some(a => norm(a) === target)) return { isCorrect: true, score: 1, reason: null };
 
-    // PARTIAL CREDIT — score 0.5:
+    // PARTIAL CREDIT, score 0.5:
     // (a) kana-vs-kanji of an existing accepted variant
     const kanjiOnly = (s) => String(s || '').replace(/[぀-ゟ゠-ヿ]/g, '');
     const kanaOnly  = (s) => String(s || '').replace(/[^぀-ゟ゠-ヿ]/g, '');
@@ -467,7 +467,7 @@ function checkAnswer(q, container) {
     recorded: false,
   };
 
-  // Persist to SRS state — pass score so SRS can use partial credit.
+  // Persist to SRS state, pass score so SRS can use partial credit.
   // For backward compat, isCorrect is the boolean decision (only score==1).
   storage.recordDrillResponse(q.grammarPatternId, isCorrect);
   session.answers[q.id].recorded = true;
@@ -496,15 +496,15 @@ function renderFeedback(q, answer) {
     advanceMsg = `Reset to the <strong>1d</strong> box. This pattern returns tomorrow.`;
   }
 
-  // IMP-WAVE-P4-22: partial-credit banner — surfaced when the
+  // IMP-WAVE-P4-22: partial-credit banner, surfaced when the
   // user got a kana-vs-kanji form-match or a single-char typo.
   // The drill still counts it as wrong (SRS unaffected) but the
   // learner sees an encouraging "close call" callout.
   const score = answer.score;
   const partialReason = answer.partial_reason;
   const PARTIAL_MESSAGES = {
-    kana_form_correct:  'Reading is right — the canonical answer uses the kanji form.',
-    kanji_form_correct: 'Kanji is right — the canonical answer uses the kana form.',
+    kana_form_correct:  'Reading is right, the canonical answer uses the kanji form.',
+    kanji_form_correct: 'Kanji is right, the canonical answer uses the kana form.',
     one_char_typo:      'One character off from the expected answer.',
   };
   const partialBanner = (score === 0.5 && partialReason)
@@ -513,7 +513,7 @@ function renderFeedback(q, answer) {
 
   return `
     <div class="drill-feedback ${isCorrect ? 'correct' : (score === 0.5 ? 'partial' : 'incorrect')}">
-      <div class="feedback-headline">${isCorrect ? 'Correct' : (score === 0.5 ? 'Close — half-credit' : 'Wrong')}</div>
+      <div class="feedback-headline">${isCorrect ? 'Correct' : (score === 0.5 ? 'Close, half-credit' : 'Wrong')}</div>
       ${partialBanner}
       ${q.explanation_en ? `<p class="feedback-explanation">${esc(q.explanation_en)}</p>` : ''}
       ${distractor ? `<p class="feedback-distractor"><em>Why your choice was off:</em> ${esc(distractor)}</p>` : ''}

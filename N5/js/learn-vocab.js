@@ -135,7 +135,7 @@ function _renderKeigoChain(entry) {
         </tbody>
       </table>
       <p class="muted small">${esc(chain.note_en)}</p>
-      <p class="muted small">Humble + respectful forms are N3+ scope; shown here for awareness only — they are not yet drilled at N5.</p>
+      <p class="muted small">Humble + respectful forms are N3+ scope; shown here for awareness only, they are not yet drilled at N5.</p>
     </div>
   `;
 }
@@ -312,7 +312,7 @@ export function renderVocabularyList(container, data) {
 
   const inp = document.getElementById('vocab-filter-q');
   if (inp) {
-    // IME composition guard — see learn-grammar.js for the rationale.
+    // IME composition guard, see learn-grammar.js for the rationale.
     // tl;dr: re-rendering on every `input` event destroys the input
     // mid-IME-composition; partial latin chars (ｔ etc.) leak into
     // the value. Skip until compositionend fires.
@@ -460,7 +460,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           `<a class="vocab-homonym-chip-link" href="#/learn/vocab/${encodeURIComponent(form)}"><span lang="ja">${esc(form)}</span></a>`
         ).join(' / ');
         const sameFormNote = isSameFormHomonym
-          ? `<span class="vocab-homonym-chip-same"><span lang="ja">${esc(entry.reading || entry.form)}</span> has multiple N5 senses — see "Multiple uses (pragmatic)" below for the contrast.</span>`
+          ? `<span class="vocab-homonym-chip-same"><span lang="ja">${esc(entry.reading || entry.form)}</span> has multiple N5 senses, see "Multiple uses (pragmatic)" below for the contrast.</span>`
           : '';
         return `
           <aside class="vocab-homonym-badge" role="note" aria-label="Homonym warning">
@@ -503,7 +503,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
             const classLabels = {
               godan: 'Godan (Group 1, u-verb)',
               ichidan: 'Ichidan (Group 2, ru-verb)',
-              irregular: 'Irregular (Group 3 — する / 来る)',
+              irregular: 'Irregular (Group 3, する / 来る)',
             };
             const label = classLabels[entry.verb_class] || entry.verb_class;
             const g1exc = entry.group1_exception
@@ -553,7 +553,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         // NTR-FU-003 (2026-05-23): renamed corpus-wide collocations →
         // particle_examples to honest-label the field (mass template
         // substitution: 228x "を かう", 220x "を つかう", 215x "は どこ",
-        // etc. — not real corpus collocations). Reads particle_examples
+        // etc., not real corpus collocations). Reads particle_examples
         // with fallback to legacy collocations field for safety during
         // rolling deploys. 995 / 995 entries renamed.
         const peSrc = Array.isArray(entry.particle_examples)
@@ -573,7 +573,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
 
       ${(() => {
         // IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): authentic-content
-        // back-links — surface real-world places this vocab item
+        // back-links, surface real-world places this vocab item
         // appears (signs, menus, transit, hospital, etc.). The
         // /authentic page hosts 100 cards across 9 categories;
         // authentic_refs is the array of card ids this vocab item
@@ -598,7 +598,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       })()}
 
       ${(() => {
-        // IMP-WAVE4: false_friends — easily confused words.
+        // IMP-WAVE4: false_friends, easily confused words.
         // Field is an array of forms (strings) that learners commonly confuse
         // with this entry. Render as inline cross-references to those vocab pages.
         const ff = Array.isArray(entry.false_friends) ? entry.false_friends : [];
@@ -618,7 +618,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       })()}
 
       ${(() => {
-        // IMP-WAVE4: pragmatic_functions — multi-function word disambiguation.
+        // IMP-WAVE4: pragmatic_functions, multi-function word disambiguation.
         // Schema: array of {function, gloss, context} objects.
         const pf = Array.isArray(entry.pragmatic_functions) ? entry.pragmatic_functions : [];
         if (!pf.length) return '';
@@ -629,7 +629,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
               ${pf.map(p => `
                 <li>
                   <strong class="pragmatic-function">${esc(p.function || '')}</strong>
-                  ${p.gloss ? ` — <span class="pragmatic-gloss">${esc(p.gloss)}</span>` : ''}
+                  ${p.gloss ? `, <span class="pragmatic-gloss">${esc(p.gloss)}</span>` : ''}
                   ${p.context ? `<p class="muted small pragmatic-context">${esc(p.context)}</p>` : ''}
                 </li>
               `).join('')}
@@ -639,7 +639,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       })()}
 
       ${(() => {
-        // IMP-WAVE4: devoiced_vowels — Tokyo-standard phonological marker.
+        // IMP-WAVE4: devoiced_vowels, Tokyo-standard phonological marker.
         // Schema: {positions: int[], note: string, rule: string}.
         const dv = entry.devoiced_vowels;
         if (!dv || typeof dv !== 'object') return '';
@@ -656,7 +656,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       })()}
 
       ${(() => {
-        // IMP-WAVE4: counter_register — casual/formal counter pair.
+        // IMP-WAVE4: counter_register, casual/formal counter pair.
         // Schema: {counter, irregular, note, register_pair: {casual_alt, formal_same}}.
         const cr = entry.counter_register;
         if (!cr || typeof cr !== 'object') return '';

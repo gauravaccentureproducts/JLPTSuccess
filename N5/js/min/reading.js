@@ -180,7 +180,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
       </li>
     `}).join("");return`
     <details class="reading-grammar-footnotes">
-      <summary><strong>Grammar footnotes</strong> <span class="muted small">\u2014 ${e.length} note${e.length===1?"":"s"} across ${o.size} sentence${o.size===1?"":"s"}</span></summary>
+      <summary><strong>Grammar footnotes</strong> <span class="muted small">- ${e.length} note${e.length===1?"":"s"} across ${o.size} sentence${o.size===1?"":"s"}</span></summary>
       <ol class="reading-footnote-groups">${r}</ol>
     </details>
   `}export{L as renderReading};

@@ -210,7 +210,7 @@ function renderRead(container, p) {
       ` : ''}
       ${renderGrammarFootnotes(p)}
       ${(() => {
-        // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel — per-
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel, per-
         // passage reading-time targets derived from N5 reading rate
         // (~2.5 chars/sec) + question-count buffer.
         const tt = p.time_target_seconds;
@@ -224,7 +224,7 @@ function renderRead(container, p) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: comprehension_strategy_hints — format-role-keyed
+        // IMP-WAVE4: comprehension_strategy_hints, format-role-keyed
         // strategic guidance (3 actionable hints per passage).
         const hints = Array.isArray(p.comprehension_strategy_hints) ? p.comprehension_strategy_hints : [];
         if (!hints.length) return '';
@@ -240,7 +240,7 @@ function renderRead(container, p) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: register_signal — auto-detected register classification.
+        // IMP-WAVE4: register_signal, auto-detected register classification.
         const rs = p.register_signal;
         if (!rs || typeof rs !== 'object' || !rs.register) return '';
         return `
@@ -251,7 +251,7 @@ function renderRead(container, p) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: target_reading_age — native-equivalent reader age band.
+        // IMP-WAVE4: target_reading_age, native-equivalent reader age band.
         const ta = p.target_reading_age;
         if (!ta || typeof ta !== 'object') return '';
         return `
@@ -262,7 +262,7 @@ function renderRead(container, p) {
         `;
       })()}
       ${(() => {
-        // IMP-WAVE4: discourse_markers_used — auto-extracted connectors.
+        // IMP-WAVE4: discourse_markers_used, auto-extracted connectors.
         const dm = Array.isArray(p.discourse_markers_used) ? p.discourse_markers_used : [];
         if (!dm.length) return '';
         return `
@@ -452,7 +452,7 @@ function renderGrammarFootnotes(p) {
 
   return `
     <details class="reading-grammar-footnotes">
-      <summary><strong>Grammar footnotes</strong> <span class="muted small">— ${fns.length} note${fns.length === 1 ? '' : 's'} across ${grouped.size} sentence${grouped.size === 1 ? '' : 's'}</span></summary>
+      <summary><strong>Grammar footnotes</strong> <span class="muted small">- ${fns.length} note${fns.length === 1 ? '' : 's'} across ${grouped.size} sentence${grouped.size === 1 ? '' : 's'}</span></summary>
       <ol class="reading-footnote-groups">${groups}</ol>
     </details>
   `;

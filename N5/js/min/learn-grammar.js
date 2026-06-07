@@ -118,7 +118,7 @@ import{renderJa as $}from"./furigana.js";import*as T from"./storage.js";import{e
             <li class="pd-ref pd-ref-${o}">
               <div class="pd-ref-header">
                 <strong class="pd-work-title" lang="ja">${m}</strong>${X}
-                ${g?`<span class="pd-author muted small">\u2014 ${g}${b}</span>`:""}
+                ${g?`<span class="pd-author muted small">- ${g}${b}</span>`:""}
               </div>
               ${Q}
               ${Y}
@@ -222,7 +222,7 @@ import{renderJa as $}from"./furigana.js";import*as T from"./storage.js";import{e
 
       ${t.cultural_callout?`
         <!-- IMP-WAVE-P2-12 (UI audit fix, 2026-05-11): usage-culture
-             callout \u2014 when/why a learner picks this pattern in real
+             callout, when/why a learner picks this pattern in real
              Japanese situations (business / classroom / casual / etc.). -->
         <section class="grammar-cultural-callout">
           <div class="pattern-usage-header"><h3 class="section-title">Cultural usage note</h3><span class="pattern-usage-chip" lang="ja">\u6587\u5316</span></div>

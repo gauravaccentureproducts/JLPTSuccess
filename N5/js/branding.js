@@ -27,10 +27,10 @@
 //
 // What it deliberately does NOT override
 // ======================================
-//   - localStorage namespace (`jlpt-n5-tutor:`) — would orphan
+//   - localStorage namespace (`jlpt-n5-tutor:`), would orphan
 //     installed-PWA progress on every fork update.
 //   - Service-worker scope or cache version.
-//   - Privacy guarantees (no telemetry, no third-party scripts) —
+//   - Privacy guarantees (no telemetry, no third-party scripts) -
 //     a fork that adds analytics MUST update PRIVACY.md per upstream
 //     posture; the loader doesn't help with that.
 //
@@ -69,16 +69,16 @@ export function getBranding() {
   return FALLBACK;
 }
 
-// Public loader. Awaited once during app bootstrap. Idempotent —
+// Public loader. Awaited once during app bootstrap. Idempotent -
 // re-runs are no-ops once cached.
 //
 // Source precedence (highest first):
-//   1. data/branding.json — unified branding file (current).
-//   2. data/theme-overrides.json — legacy file from the v1.7 era.
+//   1. data/branding.json, unified branding file (current).
+//   2. data/theme-overrides.json, legacy file from the v1.7 era.
 //      Tokens + brand.name only; superseded by branding.json. Loader
 //      keeps reading it so existing forks with that file in place
 //      continue to work without migration.
-//   3. FALLBACK — upstream JLPTSuccess defaults.
+//   3. FALLBACK, upstream JLPTSuccess defaults.
 export async function loadBranding() {
   if (cachedFlat) return cachedFlat;
   let user = null;
