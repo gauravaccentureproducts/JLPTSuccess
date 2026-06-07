@@ -99,6 +99,19 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.45 - 2026-06-07 (kanji: 雨 — mnemonic illustration proof-of-concept)</h2>
+<h3>Added</h3>
+<ul>
+<li><strong>雨</strong>: a mnemonic illustration (memory-aid card) now appears in the kanji page&#x27;s</li>
+</ul>
+<p>&quot;Radical &amp; mnemonic&quot; section, below the meaning / visual / reading notes. The image is supplementary - the authoritative readings and meaning stay as on-page text - and is lazy-loaded with descriptive alt text for screen readers. Single-kanji proof-of-concept; the other 105 kanji show no image until illustrations are added.</p>
+<ul>
+<li>New kanji data field <code>mnemonic_image</code> (plus <code>mnemonic_image_alt</code> /</li>
+</ul>
+<p><code>mnemonic_image_provenance</code>); new CI guard JA-179 (image resolves on disk + non-empty alt).</p>
+<ul>
+<li>cacheVersion + sw.js <code>CACHE_VERSION</code> + index.html css/js <code>?v=</code> bumped v1.17.44 -&gt; v1.17.45 (JA-68).</li>
+</ul>
 <h2>v1.17.44 - 2026-06-07 (kanji: 雨 — replace redundant example sentences)</h2>
 <h3>Fixed</h3>
 <ul>

@@ -1580,6 +1580,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-176", "grammar.json: no identical-ja duplicate example sentences within a pattern (BUG-249 C5 guard, 2026-05-31)", lambda: _check_ja_176_no_identical_duplicate_examples()),
     ("JA-177", "grammar.json wrong/correct pairs: correct/right field must not admit the wrong form is itself correct (no 'already correct'/'IS valid'/'(correct)') (BUG-247 false-negative malformed guard, 2026-05-31)", lambda: _check_ja_177_no_already_correct_admission()),
     ("JA-178", "vocab.json verb entries: particle_examples must not contain the malformed conjugation artifact <dictionary-form>+ます / <dictionary-form>+ました (you cannot append ます to a dictionary form). Blocks regression of the template-generation bug that produced べんきょうするます/かすました/あるます across 110 verbs (BUG-266 batch J guard, 2026-06-04)", lambda: _check_ja_178_no_malformed_verb_masu_in_particle_examples()),
+    ("JA-179", "kanji.json mnemonic_image (if present) resolves to a file on disk AND carries a non-trivial mnemonic_image_alt (broken-src + accessibility guard; 雨 mnemonic-image POC, 2026-06-07)", lambda: _check_ja_179_mnemonic_image_refs_resolve_with_alt()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -9866,6 +9867,47 @@ def _check_ja_178_no_malformed_verb_masu_in_particle_examples() -> list:
                     "(re-run tools/apply_native_review_batch_j_2026_06_04.py)"
                     % (e.get("id"), e.get("pos"), p)
                 )
+    return failures
+
+
+def _check_ja_179_mnemonic_image_refs_resolve_with_alt() -> list:
+    """Mnemonic-image guard (2026-06-07): every kanji.json entry that carries a
+    `mnemonic_image` must (a) point to a file that exists on disk, and (b) carry
+    a non-trivial `mnemonic_image_alt` for screen-reader users.
+
+    The mnemonic illustration is a decorative memory-aid card rendered in the
+    kanji detail's mnemonic block. The authoritative readings/meaning stay as
+    live HTML beside it, so the image is supplementary — but an <img> with a
+    broken src 404s, and an <img> with no alt text is invisible to assistive
+    tech. This invariant blocks both failure modes: a dangling path, or a
+    missing / stub alt. Introduced with the 雨 mnemonic-image proof-of-concept;
+    scales to every kanji that later gains an illustration.
+    """
+    failures = []
+    try:
+        d = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return ["JA-179 could not read kanji.json: %s" % e]
+    entries = d.get("entries", []) if isinstance(d, dict) else (d or [])
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        rel = e.get("mnemonic_image")
+        if not rel:
+            continue
+        full = ROOT / str(rel).replace("\\", "/")
+        if not full.exists():
+            failures.append(
+                "JA-179 %s mnemonic_image points to missing file: %s"
+                % (e.get("glyph") or e.get("id"), rel)
+            )
+        alt = (e.get("mnemonic_image_alt") or "").strip()
+        if len(alt) < 12:
+            failures.append(
+                "JA-179 %s has mnemonic_image but missing/stub mnemonic_image_alt "
+                "(accessibility: screen readers need a description >= 12 chars)"
+                % (e.get("glyph") or e.get("id"))
+            )
     return failures
 
 

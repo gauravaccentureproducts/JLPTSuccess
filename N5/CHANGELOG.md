@@ -2,6 +2,18 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.45 - 2026-06-07 (kanji: 雨 — mnemonic illustration proof-of-concept)
+
+### Added
+
+- **雨**: a mnemonic illustration (memory-aid card) now appears in the kanji page's
+  "Radical & mnemonic" section, below the meaning / visual / reading notes. The image
+  is supplementary - the authoritative readings and meaning stay as on-page text - and
+  is lazy-loaded with descriptive alt text for screen readers. Single-kanji
+  proof-of-concept; the other 105 kanji show no image until illustrations are added.
+- New kanji data field `mnemonic_image` (plus `mnemonic_image_alt` /
+  `mnemonic_image_provenance`); new CI guard JA-179 (image resolves on disk + non-empty alt).
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.44 -> v1.17.45 (JA-68).
 ## v1.17.44 - 2026-06-07 (kanji: 雨 — replace redundant example sentences)
 
 ### Fixed

@@ -171,7 +171,7 @@ Each example's **`form`** is an **open semantic label** for the sentence's gramm
 
 ### 5.5 Kanji (`#/kanji` and per-glyph detail)
 
-106 N5 kanji indexed by stroke count + frequency. Per-glyph detail shows: stroke-order animation (KanjiVG SVG), on-yomi / kun-yomi readings (primary highlighted), meanings, **`meanings_hi` Devanagari translations (106/106)**, **`mnemonic` (106/106)**, **`radical_decomposition` (106/106)**, **`confusable_with` clusters (29/106)**, ≥3 examples (106/106) compound-vocab cross-links + ≥1 N5 example sentence, `frequency_rank`, `recognition_priority`, **provenance badge (106/106 native_reviewed)**.
+106 N5 kanji indexed by stroke count + frequency. Per-glyph detail shows: stroke-order animation (KanjiVG SVG), on-yomi / kun-yomi readings (primary highlighted), meanings, **`meanings_hi` Devanagari translations (106/106)**, **`mnemonic` (106/106)**, **`radical_decomposition` (106/106)**, **`confusable_with` clusters (29/106)**, ≥3 examples (106/106) compound-vocab cross-links + ≥1 N5 example sentence, `frequency_rank`, `recognition_priority`, **provenance badge (106/106 native_reviewed)**, and an optional **`mnemonic_image`** memory-aid illustration in the Radical & mnemonic section (`img/kanji/<glyph>.png`; **1/106** — 雨 proof-of-concept; lazy-loaded, supplementary to the authoritative on-page readings/meaning; requires sibling `mnemonic_image_alt`; guarded by JA-179 file-resolve + alt-presence).
 
 A reusable `kanji-popover.js` lets any kanji character clicked anywhere in the app open a quick-info card.
 

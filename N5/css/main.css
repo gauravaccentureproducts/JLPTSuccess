@@ -3443,6 +3443,21 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   margin: 8px 0 0;
   font-style: italic;
 }
+/* Mnemonic illustration (decorative memory-aid card; supplements the
+   authoritative readings/meaning text above — never the sole source of
+   that info). Display width capped so the square card stays tidy; the
+   <img> is lazy-loaded in markup. */
+.kanji-mnemonic-figure {
+  margin: 12px 0 0;
+}
+.kanji-mnemonic-img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--color-accent, #14452a) 18%, transparent);
+}
 /* JCE-7 (round-9 follow-up, 2026-05-08): classroom-trap notes on
    stroke order. Surfaces below the stroke-order SVG. Visually mirrors
    the mnemonic-block tone (faint accent fill) but distinct enough that

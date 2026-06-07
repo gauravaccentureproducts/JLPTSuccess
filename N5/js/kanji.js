@@ -265,6 +265,16 @@ function renderDetail(container, entry, entries) {
             </p>
           ` : ''}
           ${renderMnemonicBlock(entry.mnemonic)}
+          ${entry.mnemonic_image ? `
+            <!-- Mnemonic illustration (decorative memory-aid card). The
+                 authoritative readings/meaning stay as the live HTML above;
+                 the image is supplementary. alt text + lazy-load required. -->
+            <figure class="kanji-mnemonic-figure">
+              <img class="kanji-mnemonic-img" src="${esc(entry.mnemonic_image)}"
+                   loading="lazy" decoding="async"
+                   alt="${esc(entry.mnemonic_image_alt || ('Memory-aid illustration for the kanji ' + (entry.glyph || '')))}">
+            </figure>
+          ` : ''}
           ${entry.etymology ? `
             <!-- IMP-WAVE-P2-13 (UI audit fix, 2026-05-11): historical /
                  pictographic origin of the kanji. Schema:

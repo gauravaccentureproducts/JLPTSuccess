@@ -25,6 +25,20 @@ Per CC BY-SA 3.0:
 - The KanjiVG SVG files in `svg/kanji/` retain their original CC BY-SA 3.0
   license. The rest of the project is governed by its own LICENSE.
 
+## Kanji mnemonic illustrations (proof-of-concept)
+
+- **What it is:** an AI-generated memory-aid illustration shown in the kanji detail
+  page's "Radical & mnemonic" section.
+- **Files:** `img/kanji/<glyph>.png` (currently 1 file — 雨 — a single-kanji
+  proof-of-concept; not yet rolled out to the other 105 kanji).
+- **Provenance:** AI image generation; tagged
+  `mnemonic_image_provenance: "ai_generated_illustration"` in `data/kanji.json`.
+- **Open item (before any roll-out beyond this POC):** the commercial-use rights of the
+  image-generation source MUST be confirmed and recorded here, mirroring the KanjiVG
+  attribution discipline above. The illustration is supplementary — the kanji's
+  authoritative readings and meaning remain as on-page text — so removing it would lose
+  no learning content.
+
 ## Microsoft Edge TTS (legacy — not currently shipped)
 
 > **2026-05-12 update:** as of release v1.14.1, the 50 listening
