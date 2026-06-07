@@ -2,6 +2,26 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.42 - 2026-06-07 (kanji: native-review corrections — reading rules, examples, sentences)
+
+### Fixed
+
+A native-speaker review of the N5 kanji pages found learner-content issues, now corrected:
+
+- **Reading rules for on-dominant kanji were backwards.** For the numbers (二, 三, 四, 五,
+  六, 七, 八, 九, 十, 千) and 分 / 半 / 語 / 天, the standalone reading is the on-yomi
+  (二 is に, not ふた); the kun reading appears in counter / native forms (二つ, 二日…).
+  Those rules were rewritten. The ~50 kanji where "standalone = kun" is correct
+  (山 → やま, 川 → かわ, …) were left unchanged.
+- **父** on-reading example fixed (父親 is ちちおや, not an example of ふ → now 父母 ふぼ).
+- **手** malformed 手つだって → てつだって.
+- **本** shown as "book" (it had been labelled only as a counter).
+- **中** example sentences now teach 中 = inside (箱の 中に…), replacing surname-only /
+  casual sentences.
+- **外 / 私** fill-in-the-blank items replaced with complete sentences.
+- **下** clearer location sentence; **金** dropped a non-N5-useful word; **田** sentence
+  now teaches 田 = rice field.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.41 → v1.17.42 (JA-68).
 ## v1.17.41 - 2026-06-07 (cache-bust: native-review corrections reach returning learners)
 
 ### Changed

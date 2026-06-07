@@ -406,7 +406,7 @@
         "四"
       ],
       "lookalikes_provenance": "llm_curated",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 二: standalone use of kun (ふた); compounds use on (に).",
+      "reading_rule": "For 二: the standalone number is read に. The kun reading ふた appears in forms such as 二つ（ふたつ）, 二人（ふたり）, and 二日（ふつか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "二:つ"
@@ -618,7 +618,7 @@
         "川"
       ],
       "lookalikes_provenance": "llm_curated",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 三: standalone use of kun (み); compounds use on (さん).",
+      "reading_rule": "For 三: the standalone number is read さん. The kun reading み appears in forms such as 三つ（みっつ） and 三日（みっか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "三:つ"
@@ -793,7 +793,7 @@
         "西"
       ],
       "lookalikes_provenance": "llm_curated",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 四: standalone use of kun (よ); compounds use on (し).",
+      "reading_rule": "For 四: the standalone number is usually read よん or し depending on context. The reading よ appears in forms such as 四つ（よっつ） and 四日（よっか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "四:つ"
@@ -981,7 +981,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 五: standalone use of kun (いつ); compounds use on (ご).",
+      "reading_rule": "For 五: the standalone number is read ご. The kun reading いつ appears in forms such as 五つ（いつつ） and 五日（いつか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "五:つ"
@@ -1150,7 +1150,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 六: standalone use of kun (む); compounds use on (ろく).",
+      "reading_rule": "For 六: the standalone number is read ろく. The kun reading む appears in forms such as 六つ（むっつ） and 六日（むいか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "六:つ"
@@ -1331,7 +1331,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 七: standalone use of kun (なな); compounds use on (しち). Usage note (2026-05-22): なな is heard in ordering/listing contexts (especially to disambiguate from いち over the phone); しち in fixed time/date compounds (七時 しちじ, 七月 しちがつ). NHK uses なな when reading numerals aloud. 七人 takes either reading (しちにん or ななにん); 七つ is exclusively ななつ. For phone/list disambiguation, prefer なな.",
+      "reading_rule": "For 七: the standalone number is read しち or なな. The kun appears in forms such as 七つ（ななつ） and 七日（なのか）. Usage note: なな is preferred in ordering/listing contexts and over the phone (to disambiguate from いち); しち in fixed time/date compounds (七時 しちじ, 七月 しちがつ). 七人 takes either reading (しちにん / ななにん); 七つ is always ななつ.",
       "reading_rule_provenance": "native_reviewed_2026_05_22",
       "okurigana_cuts": [
         "七:つ"
@@ -1554,7 +1554,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 八: standalone use of kun (や); compounds use on (はち).",
+      "reading_rule": "For 八: the standalone number is read はち. The kun readings や / よう appear in forms such as 八つ（やっつ） and 八日（ようか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "八:つ"
@@ -1729,7 +1729,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 九: standalone use of kun (ここの); compounds use on (きゅう).",
+      "reading_rule": "For 九: the standalone number is usually read きゅう or く depending on context. The kun reading ここの appears in 九つ（ここのつ） and 九日（ここのか）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "九:つ"
@@ -1948,7 +1948,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 十: standalone use of kun (とお); compounds use on (じゅう).",
+      "reading_rule": "For 十: the standalone number is read じゅう. The kun reading とお appears in special forms such as 十日（とおか）.",
       "reading_rule_provenance": "llm_curated",
       "lookalikes": [
         "一",
@@ -2349,7 +2349,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 千: standalone use of kun (ち); compounds use on (せん).",
+      "reading_rule": "For 千: the standalone number is read せん. The reading ち appears mainly in place names such as 千葉（ちば） and is not the main N5 reading.",
       "reading_rule_provenance": "llm_curated",
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
@@ -4109,11 +4109,6 @@
           "form": "金曜日",
           "reading": "きんようび",
           "gloss": "Friday"
-        },
-        {
-          "form": "金時",
-          "reading": "きんとき",
-          "gloss": "golden time / sweet potato dish (named after a folk hero)"
         }
       ],
       "primary_reading": "かね",
@@ -5242,7 +5237,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 分: standalone use of kun (わ); compounds use on (ぶん).",
+      "reading_rule": "For 分: in time expressions read ふん / ぷん, and in words such as 半分 read ぶん. The kun reading わ appears in verbs such as 分かる（わかる） and 分ける（わける）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "分:かる"
@@ -5415,7 +5410,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 半: standalone use of kun (なか); compounds use on (はん).",
+      "reading_rule": "For 半: the main N5 reading is はん, as in 半分（はんぶん） and 三時半（さんじはん）. The reading なか appears in 半ば（なかば）, which is outside basic N5 usage.",
       "reading_rule_provenance": "llm_curated",
       "lookalikes": [
         "分"
@@ -7282,7 +7277,7 @@
       "mnemonic": {
         "summary": "Two crossing strokes - paternal authority figure = FATHER.",
         "visual": "Two crossed arms over a base — FATHER holding everything together.",
-        "reading": "ふ / ちち / とう — Polite お父さん (otousan), humble 父 (chichi). On ふ in 父親 (chichioya).",
+        "reading": "ふ / ちち / とう — Polite お父さん (otousan), humble 父 (chichi). On ふ in 父母 (fubo).",
         "meaning": "Two crossing strokes - paternal authority figure = FATHER.",
         "provenance": {
           "summary": "native_reviewed",
@@ -8165,7 +8160,7 @@
       "stroke_count": 4,
       "sentences": [
         {
-          "ja": "だれか 手つだってください。",
+          "ja": "だれか てつだってください。",
           "translation_en": "Someone please help me."
         }
       ],
@@ -9381,7 +9376,7 @@
         {
           "form": "本",
           "reading": "ほん",
-          "gloss": "counter for long thin objects"
+          "gloss": "book (also a counter for long, thin objects)"
         },
         {
           "form": "日本",
@@ -9778,7 +9773,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 語: standalone use of kun (かた); compounds use on (ご).",
+      "reading_rule": "For 語: in N5 this kanji is mainly read ご, in language names such as 日本語, 英語, 外国語, and 中国語. The kun かた appears in the verb 語る（かたる）, which is beyond basic N5.",
       "reading_rule_provenance": "llm_curated",
       "lookalikes": [
         "書",
@@ -10847,12 +10842,12 @@
       "stroke_count": 4,
       "sentences": [
         {
-          "ja": "たぶん 田中さんは 学生だろう。",
-          "translation_en": "Tanaka-san is probably a student."
+          "ja": "箱の 中に 本が あります。",
+          "translation_en": "There is a book inside the box."
         },
         {
-          "ja": "田中さんは 「行かない」って 言ってた。",
-          "translation_en": "Tanaka-san said he's not going. (casual)"
+          "ja": "かばんの 中に ノートが あります。",
+          "translation_en": "There is a notebook inside the bag."
         }
       ],
       "additional_readings": {
@@ -11399,8 +11394,8 @@
       "stroke_count": 3,
       "sentences": [
         {
-          "ja": "下では ありませんか。",
-          "translation_en": "Isn't it underneath?"
+          "ja": "本は つくえの 下に あります。",
+          "translation_en": "The book is under the desk."
         }
       ],
       "additional_readings": {
@@ -12238,8 +12233,8 @@
       "stroke_count": 5,
       "sentences": [
         {
-          "ja": "きょうは 雨ですから、外へ いき （　　）。",
-          "translation_en": "Today it is raining, so going outside ( )."
+          "ja": "きょうは 雨ですから、外へ 行きません。",
+          "translation_en": "It is raining today, so I will not go outside."
         },
         {
           "ja": "きょうは さむいので、外 へ でません。",
@@ -13490,8 +13485,8 @@
       "stroke_count": 5,
       "sentences": [
         {
-          "ja": "田中さんは 「行きません」と 言いました。",
-          "translation_en": "Tanaka-san said, \"I will not go.\""
+          "ja": "田んぼに 水が あります。",
+          "translation_en": "There is water in the rice field."
         }
       ],
       "additional_readings": {
@@ -13850,7 +13845,7 @@
         }
       ],
       "reading_passages_provenance": "auto_derived",
-      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 天: standalone use of kun (あめ); compounds use on (てん).",
+      "reading_rule": "For 天: the standalone reading is てん (on-yomi), as in 天気（てんき）. The kun あめ / あま appears in bound forms such as 天の川（あまのがわ）.",
       "reading_rule_provenance": "llm_curated",
       "okurigana_cuts": [
         "天:ぷら"
@@ -19620,12 +19615,12 @@
       },
       "sentences": [
         {
-          "ja": "私は 学生 では （　　）。",
-          "translation_en": "I am ( ) a student."
+          "ja": "私は 学生では ありません。",
+          "translation_en": "I am not a student."
         },
         {
-          "ja": "私は 中国へ 行った こと（　　）あります。",
-          "translation_en": "I have ( ) been to China."
+          "ja": "私は 中国へ 行ったことが あります。",
+          "translation_en": "I have been to China."
         }
       ],
       "review_status": "ai_quality_reviewed",

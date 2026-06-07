@@ -171,3 +171,27 @@ remaining entries stays deferred to the native queue (Batch E / BUG-263).
 No new CI invariant — naturalness is native-judgment, not auto-checkable.
 Reviewer-deliverable hygiene for this cycle is captured in procedure-manual
 Appendix F.53 (auto-stamped review docx, keep-exactly-one).
+
+## Part 66 — Kanji native-review: reading-rule + example/sentence corrections (added 2026-06-07)
+
+**Trigger.** A native-Japanese / JLPT N5 expert reviewed the kanji review packet
+(build_kanji_review_docx.py output, 106 entries) and reported 19 concrete issues.
+
+**What was true (reproduced against kanji.json).**
+- Systematic: the `reading_rule` field, auto-generated on ~60 kanji, stated the generic
+  "standalone -> kun-yomi" default, which is BACKWARDS for on-dominant kanji. Scope found via
+  primary_reading-in-on'yomi (script-normalised): 17 candidates, 4 removed as false-positives
+  (年/先/会/新 — kun standalone valid), 14 corrected (numbers 二三四五六七八九十千 + 分/半/語/天).
+  The reviewer cited 11; the signal caught the rest (七, 天).
+- One-off: 父 on-example (父親 -> 父母), 手 malformed (手つだって -> てつだって), 本 ("book"),
+  中 surname-only/casual sentences -> 中=inside, 外/私 cloze -> complete sentences, 下 sentence,
+  金 (dropped non-N5 word), 田 (rice-field sentence).
+
+**Addressed this part.** kanji.json corrected; kanji review docx regenerated; cache bump
+v1.17.41 -> v1.17.42 so the corrected kanji data reaches returning learners; CHANGELOG v1.17.42;
+CI PASS all 180.
+
+**Bounded phrasing.** Reading-rule correctness is native-judgment prose with no CI guard;
+"corrected" = the on-dominant kanji detected by the primary_reading signal + the reviewer's
+cited one-offs, this snapshot. The static kanji SEO mirrors refresh on the next full mirror
+rebuild; the cache bump deploys the SPA data path immediately.

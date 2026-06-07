@@ -2673,6 +2673,12 @@ Bounded-coverage framing:
     auto-checkable. Only the reviewer-CITED entries are fixed this
     snapshot; the corpus-wide naturalness sweep stays in BUG-263.
 
+  - KANJI reading_rule (2026-06-07): same template-artifact class — a generic
+    "standalone -> kun-yomi" rule was auto-stamped on ~60 kanji, backwards for
+    on-dominant ones (二 is に, not ふた; also 語/分/半/天). Detect via primary_reading
+    in on'yomi (script-normalised) and not in kun'yomi; native judgment removes
+    false-positives (年/先/会/新). 14 corrected.
+
 Source: BUG-266 fix 2026-06-04; AUDIT-COVERAGE-2026-06-04.md Part 64;
 sw.js CACHE_VERSION v1.17.38 → v1.17.39; tools:
 `tools/apply_native_review_batch_j_2026_06_04.py` (conjugator +

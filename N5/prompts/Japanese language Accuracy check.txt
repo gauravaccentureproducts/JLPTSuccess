@@ -6374,6 +6374,15 @@ Source: BUG-266 specific-bug audit 2026-06-04; reproduction
        (regression guard). Residual particle-example naturalness
        (まいにち すむ class) deferred to BUG-263 native judgment.
 
+       KANJI READING-RULE INSTANCE (2026-06-07): the same template-artifact
+       shape recurred in kanji.json reading_rule — a generic "standalone ->
+       kun-yomi" rule auto-stamped on ~60 kanji, BACKWARDS for on-dominant kanji
+       (numbers + 語/分/半/天, where standalone = on-yomi: 二 is に, not ふた).
+       Detection: primary_reading in on'yomi (katakana->hiragana normalised) and
+       NOT in kun'yomi flags the wrong ones; native judgment removes false-
+       positives where the kun standalone is real (年 とし, 先 さき, 会 会う, 新
+       新しい). 14 corrected; no CI guard (reading-rule is native-judgment prose).
+
 Source: BUG-266 fix 2026-06-04; AUDIT-COVERAGE-2026-06-04.md Part 64;
 procedure-manual F.52; sw.js CACHE_VERSION v1.17.38 → v1.17.39.
 
