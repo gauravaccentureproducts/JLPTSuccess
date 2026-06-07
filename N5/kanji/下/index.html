@@ -61,28 +61,14 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/kanji/%E4%B8%8B"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
-<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css?v=1.17.30">
+<link rel="stylesheet" href="../../css/main.min.css?v=1.17.30">
 </head>
 <body>
 <header class="app-header" role="banner">
 <div class="brand">
 <h1>
-<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level"><svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
+<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
+<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
 <g fill="currentColor">
 <rect x="1" y="0"  width="98" height="9" rx="4.5"/>
 <rect x="1" y="12" width="84" height="9" rx="4.5"/>
@@ -90,7 +76,11 @@
 <rect x="1" y="36" width="44" height="9" rx="4.5"/>
 <rect x="1" y="48" width="22" height="9" rx="4.5"/>
 </g>
-</svg></a><a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home"><span class="brand-wordmark">N5</span></a>
+</svg>
+</a>
+<a href="/JLPTSuccess/N5/" class="brand-link" aria-label="N5 home">
+<span class="brand-wordmark">N5</span>
+</a>
 </h1>
 </div>
 <nav class="primary-nav" aria-label="Primary">
@@ -105,10 +95,8 @@
 </nav>
 </header>
 
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/kanji/%E4%B8%8B">Open the interactive version</a> (audio playback, drills, cross-references require JavaScript).
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../../">&larr; JLPT N5 home</a></p>
 <h1>下 — down, below</h1>
 <p style="text-align:center; font-size:5em; line-height:1; margin:0.5rem 0;" lang="ja">下</p>
 <p style="text-align:center; font-size:1.1em;"><span class="lang-tag">EN</span>down, below</p>
@@ -123,8 +111,8 @@
 </ul>
 <h2>Example sentences</h2>
 <div class="ex">
-<div class="ja" lang="ja"><span class="lang-tag">JA</span>下では ありませんか。</div>
-<div class="en"><span class="lang-tag">EN</span>Isn&#x27;t it underneath?</div>
+<div class="ja" lang="ja"><span class="lang-tag">JA</span>本は つくえの 下に あります。</div>
+<div class="en"><span class="lang-tag">EN</span>The book is under the desk.</div>
 </div>
 <h2>Visually similar</h2>
 <footer>
@@ -132,6 +120,8 @@
   <p>Part of <a href="../../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   <p>Primary reading: <span lang="ja">した</span></p>
 </footer>
+</main>
+<script type="module" src="../../js/min/app.js?v=1.17.30"></script>
 <footer class="app-footer" role="contentinfo">
 <nav class="footer-nav" aria-label="Footer">
 <a href="/JLPTSuccess/N5/changelog/">What's new</a>
