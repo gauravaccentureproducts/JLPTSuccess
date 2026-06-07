@@ -65,35 +65,18 @@ test.describe('v1.12.28+ feature regression', () => {
     await expect(timer).toHaveText(/^\d{2}:\d{2}$/);
   });
 
-  test('kanji index has search + stroke + lesson + sort filters', async ({ page }) => {
+  test('kanji index is a plain grid with no filter card (filter card removed 2026-06-08, BUG-UI-004)', async ({ page }) => {
     await page.goto('/#/kanji');
-    // The audit's IMP-003 + IMP-025 added these four affordances. They all
-    // live inside the .kanji-filters block.
-    await expect(page.locator('.kanji-filters')).toBeVisible();
-    await expect(page.locator('#kanji-filter-q')).toBeVisible();
-    // Stroke + Lesson chip rows; both labelled by their .kanji-filter-label.
-    const labels = page.locator('.kanji-filter-label');
-    await expect(labels).toHaveCount(3);  // Strokes / Lesson / Sort
-    await expect(labels.nth(0)).toHaveText('Strokes:');
-    await expect(labels.nth(1)).toHaveText('Lesson:');
-    await expect(labels.nth(2)).toHaveText('Sort:');
-    // Sort dropdown (IMP-025).
-    const sort = page.locator('#kanji-sort');
-    await expect(sort).toBeVisible();
-    // The four canonical sort modes ship as <option> values.
-    const opts = await sort.locator('option').allTextContents();
-    expect(opts.length).toBeGreaterThanOrEqual(4);
-  });
-
-  test('kanji search input filters the visible cards', async ({ page }) => {
-    await page.goto('/#/kanji');
-    const input = page.locator('#kanji-filter-q');
-    await input.fill('water');
-    // The "showing X of Y" counter should drop below the full count after a
-    // narrow filter. The 水 entry is the canonical "water" kanji.
-    const count = page.locator('.kanji-filter-count strong').first();
-    const filteredText = await count.textContent();
-    expect(parseInt(filteredText, 10)).toBeLessThan(106);
+    // The search input + stroke/lesson filter chips + sort dropdown + count
+    // (the old .kanji-filters card, IMP-003 / IMP-025) were removed per user
+    // request: the index is now a plain grid of all 106 N5 kanji in lesson
+    // order. Assert the filter affordances are ABSENT...
+    await expect(page.locator('.kanji-filters')).toHaveCount(0);
+    await expect(page.locator('#kanji-filter-q')).toHaveCount(0);
+    await expect(page.locator('#kanji-sort')).toHaveCount(0);
+    await expect(page.locator('.kanji-filter-count')).toHaveCount(0);
+    // ...and the full, unfiltered grid renders (all 106 cards).
+    await expect(page.locator('.kanji-card')).toHaveCount(106);
   });
 
   test('kanji detail page shows "In a sentence" block (IMP-018)', async ({ page }) => {
