@@ -178,17 +178,30 @@ def labeled(doc, label, text):
 
 
 def reviewer_box(doc):
+    """Reviewer notes table - pre-populated with a visible '未確認 / not yet
+    reviewed' placeholder so unreviewed patterns flag themselves rather than
+    being silently empty. The native reviewer DELETES the placeholder when
+    writing 「問題なし。」 or 「要修正: ...」 so the unreviewed queue stays visually
+    obvious. (Same convention as the vocab/kanji review packets.)"""
     p = para(doc, space_before=10, space_after=2)
     run(p, "Reviewer notes", bold=True, size=11, color=MUTED)
     tbl = doc.add_table(rows=1, cols=1)
     tbl.style = 'Table Grid'
     cell = tbl.rows[0].cells[0]
     cell.width = Inches(6.5)
-    for _ in range(3):
+    cp1 = cell.paragraphs[0]
+    cp1.paragraph_format.space_after = Pt(2)
+    run(cp1, "☐ 未確認 / not yet reviewed", italic=True, color=WRONG_RED, size=10)
+    cp2 = cell.add_paragraph()
+    cp2.paragraph_format.space_after = Pt(6)
+    run(cp2,
+        "[Native reviewer: delete the line above and write 「問題なし。」 if the "
+        "pattern is correct, OR 「要修正: <issue>」 with a specific issue. Empty "
+        "boxes are treated as 'not yet reviewed'.]",
+        italic=True, color=MUTED, size=9)
+    for _ in range(2):
         cp = cell.add_paragraph()
         cp.paragraph_format.space_after = Pt(6)
-    # remove the default empty first paragraph's spacing
-    cell.paragraphs[0].paragraph_format.space_after = Pt(6)
 
 
 # --- clickable Table of Contents: bookmarks + internal hyperlinks ---
@@ -451,6 +464,19 @@ def main():
     out_path = os.path.join(OUT_DIR, out_name)
     doc.save(out_path)
     print("wrote", out_path, "(%d pattern(s))" % len(pats))
+
+    # Full review packet only: keep exactly ONE date-stamped copy in the folder.
+    # Remove older stamped copies first, then emit a fresh one, so a reviewer is
+    # never handed a stale upload. (Procedure manual Appendix F.53.)
+    if arg == 'all':
+        import glob, shutil, datetime
+        stem = os.path.splitext(out_path)[0]
+        for prev in glob.glob(stem + "_*.docx"):
+            os.remove(prev)
+        stamp = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
+        dated = "%s_%s.docx" % (stem, stamp)
+        shutil.copy2(out_path, dated)
+        print("wrote dated copy", os.path.basename(dated), "(older dated copies removed)")
     return 0
 
 
