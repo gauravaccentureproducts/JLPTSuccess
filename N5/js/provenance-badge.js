@@ -58,33 +58,21 @@ export function corpusProvenanceStats(corpus) {
 // Returns HTML string. Returns empty string when the feature flag is off
 // OR the corpus the item belongs to hasn't yet crossed the threshold.
 export function renderItemBadge(item, corpusOverThreshold = false) {
-  if (!_isEnabled()) return '';
-  if (!corpusOverThreshold) return '';
-  const rs = item.review_status || 'unknown';
-  const labels = {
-    ai_quality_reviewed: { text: 'AI quality-reviewed', cls: 'badge-ai-quality' },
-    // Legacy value during migration window; presents the same label
-    // so a partially-migrated corpus has consistent UI.
-    native_reviewed:     { text: 'AI quality-reviewed', cls: 'badge-ai-quality' },
-    llm_curated:         { text: 'AI-drafted',          cls: 'badge-llm'        },
-    auto_generated:      { text: 'Auto-generated',      cls: 'badge-auto'       },
-  };
-  const m = labels[rs];
-  if (!m) return '';
-  return `<span class="provenance-badge ${m.cls}" title="${rs}">${m.text}</span>`;
+  // Owner decision (2026-06-08): review-provenance is NOT a learner-facing
+  // signal. Who (or what) reviewed an item is an internal concern — the
+  // learner must see only the content, never a "AI quality-reviewed" /
+  // "AI-drafted" / "Auto-generated" tag. The internal `review_status` data
+  // field is retained (CI JA-35 requires it) but is never displayed.
+  // This function is kept (callers + tests import it) but renders nothing.
+  return '';
 }
 
 // Render a per-corpus summary banner. Useful for an admin / reviewer
 // dashboard. Off when flag is off.
 export function renderCorpusBanner(corpusName, stats) {
-  if (!_isEnabled()) return '';
-  const pct = Math.round(stats.percentAiQualityReviewed * 10) / 10;
-  return `
-    <p class="provenance-banner muted small">
-      ${corpusName}: ${stats.aiQualityReviewed} of ${stats.total} items AI-quality-reviewed
-      (${pct}% - threshold ${THRESHOLD_PERCENT}%).
-    </p>
-  `;
+  // Owner decision (2026-06-08): review-provenance is internal, never a
+  // learner-facing banner. Retained for tooling/tests; renders nothing.
+  return '';
 }
 
 function _isEnabled() {

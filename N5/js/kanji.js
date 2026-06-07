@@ -504,13 +504,10 @@ function renderMnemonicBlock(mn) {
   const reading = mn.reading || '';
   const prov = mn.provenance || {};
 
-  const provBadge = (key) => {
-    const p = prov[key];
-    if (p === 'auto_derived') {
-      return ' <span class="kanji-mnemonic-prov muted small" title="Auto-derived stub; pending native review.">auto</span>';
-    }
-    return '';
-  };
+  // Owner decision (2026-06-08): review/provenance status (e.g. an "auto /
+  // pending native review" tag) is internal and must never surface to the
+  // learner. Badge suppressed; the mnemonic text itself is shown as-is.
+  const provBadge = (_key) => '';
 
   const lines = [];
   if (summary) {

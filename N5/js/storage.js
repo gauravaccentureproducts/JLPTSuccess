@@ -70,13 +70,12 @@ const DEFAULT_SETTINGS = {
   lastDiagnosticDate: null,
   audioPlaybackRate: 1.0,           // Brief 2 §5: 0.75 / 1.0 / 1.25
   reduceMotion: null,               // null = follow prefers-reduced-motion; true/false override
-  // ISSUE-079 (round-8 2026-05-06): provenance-badge UI activation.
-  // The round-6 scaffold gated on this flag; round-8 promoted 27/178
-  // grammar patterns to review_status: native_reviewed (15% > Q21
-  // 10% launch threshold), so the badge can fire. Default true to
-  // surface the trust signal on every visit. Users can opt-out via
-  // the Settings panel.
-  showProvenanceBadges: true,
+  // Owner decision (2026-06-08): review-provenance is internal, NOT a
+  // learner-facing trust signal — who/what reviewed an item is the owner's
+  // concern, and the learner must see only the content. Default false; the
+  // render functions in provenance-badge.js are also hard-disabled so this
+  // flag no longer surfaces any "AI quality-reviewed" tag even if toggled.
+  showProvenanceBadges: false,
   // IMP-145 (richness audit, 2026-05-09): WaniKani-style SRS gating.
   // When enabled, vocab cards are hidden from the unified review
   // queue until ALL their prerequisite kanji are marked-known. This

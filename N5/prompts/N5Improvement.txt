@@ -4613,3 +4613,18 @@ lowercase+strip-punctuation each sentences[].translation_en; flag any entry wher
 OR where two JA differ only by a register-pair token (だろう/でしょう, だ/です). 2026-06-07 scan: 雨
 was the sole hit (now fixed). This is native-judgment prose - single grammar-borrowed sentences
 without duplication are not auto-detectable and remain a human-review surface.
+
+## Section 10 anti-item (added 2026-06-08, owner directive): never show review-provenance to the learner
+Do NOT surface review/provenance status as a learner-facing tag. This includes the
+"AI quality-reviewed" / "AI-drafted" / "Auto-generated" item badge, the per-corpus
+"N of M items AI-quality-reviewed" banner, the kanji mnemonic "auto / pending native review"
+tag, and any "native_reviewed" / "native-teacher-reviewed" claim in README / page footnotes.
+Owner directive (2026-06-08): "Who reviewed is my problem - the user must not see that. Even if
+AI reviewed it, it is my responsibility to check it in the end; the user must see the correct
+response only." The `review_status` data field stays (internal-only; CI JA-35 requires it) but is
+NEVER rendered. The badge module (`provenance-badge.js`) render functions are hard-disabled
+(return ''); `showProvenanceBadges` defaults false. When adding any new surface, do not re-introduce
+a provenance/review badge or a "reviewed by X" string. Phase-0 check: grep served JS + learner-
+facing HTML/README for `AI quality-reviewed|AI-drafted|Auto-generated|pending native review|
+native-teacher-reviewed|native_reviewed` -> must be absent from render paths (internal data
+fields / audit docs / NOTICES disclaimer excluded).

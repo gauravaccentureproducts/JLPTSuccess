@@ -742,13 +742,12 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
         // essay for the top-30 trickiest patterns. Renders when an essay
         // object is present. Each section is a short pedagogical
         // commentary block (intro, why_it_matters, common_pitfalls,
-        // contrasts, closing_practice_tip). Stubs (provenance =
-        // needs_native_review) render the intro + auto-extracted bits
-        // and show a "essay pending native review" hint for the
-        // empty fields.
+        // contrasts, closing_practice_tip). Empty fields simply render
+        // nothing. Owner decision (2026-06-08): review/completeness status
+        // (the old "stub" badge + "Pending native author." placeholders) is
+        // internal and must NOT surface to the learner.
         const essay = p.essay;
         if (!essay || typeof essay !== 'object') return '';
-        const stub = essay.provenance === 'needs_native_review';
         const item = (label, text, fallback) => {
           if (!text && !fallback) return '';
           if (!text) return `<p><strong>${esc(label)}:</strong> <span class="muted small">${esc(fallback)}</span></p>`;
@@ -757,14 +756,14 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
         return `
           <section class="pattern-essay">
             <div class="pattern-usage-header">
-              <h3 class="section-title">${esc(t('grammar_detail.deep_dive'))} ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+              <h3 class="section-title">${esc(t('grammar_detail.deep_dive'))}</h3>
               <span class="pattern-usage-chip" lang="ja">詳細</span>
             </div>
             ${item(t('grammar_detail.deep_dive_at_a_glance'), essay.intro)}
-            ${item(t('grammar_detail.deep_dive_why'), essay.why_it_matters, stub ? 'Pending native author.' : '')}
+            ${item(t('grammar_detail.deep_dive_why'), essay.why_it_matters)}
             ${item(t('grammar_detail.deep_dive_pitfalls'), essay.common_pitfalls)}
             ${item(t('grammar_detail.deep_dive_contrasts'), essay.contrasts)}
-            ${item(t('grammar_detail.deep_dive_practice'), essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
+            ${item(t('grammar_detail.deep_dive_practice'), essay.closing_practice_tip)}
             ${'' /* C9 (2026-05-31): essay.cultural_context not rendered - duplicates the dedicated Cultural usage note section (render-level de-dup) */}
           </section>
         `;

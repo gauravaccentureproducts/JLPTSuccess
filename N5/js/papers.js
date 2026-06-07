@@ -154,7 +154,6 @@ async function renderCategoryIndex(container) {
       <h2>Mock-test Papers</h2>
       <p class="page-lede">${m.totalQuestions} audited JLPT N5 questions across ${m.totalPapers} papers in 4 sections. Each paper is sized to a study-session (15 questions, ~10 minutes). Scores persist locally so you can track which papers you've completed.</p>
       <div class="paper-cat-grid">${cards}</div>
-      <p class="papers-foot-note">Source: <code>KnowledgeBank/{moji,goi,bunpou,dokkai}_questions_n5.md</code> - curated and native-teacher-reviewed across Pass-9 through Pass-19.</p>
     </article>
   `;
 }

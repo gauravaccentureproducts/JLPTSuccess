@@ -99,6 +99,15 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.46 - 2026-06-08 (privacy/trust: remove review-provenance tags from learner-facing UI)</h2>
+<h3>Changed</h3>
+<ul>
+<li>Removed every learner-facing review / provenance tag: the &quot;AI quality-reviewed&quot; /</li>
+</ul>
+<p>&quot;AI-drafted&quot; / &quot;Auto-generated&quot; item badge (on kanji meanings + vocab glosses), the kanji mnemonic &quot;auto / pending native review&quot; tag, the grammar essay &quot;stub&quot; badge and &quot;Pending native author.&quot; placeholders, the papers-page &quot;native-teacher-reviewed&quot; footnote, and the README &quot;native_reviewed&quot; claim. Who or what reviewed an item is an internal matter; the learner now sees only the content. The internal <code>review_status</code> data field is retained (CI-enforced) but is never displayed; the badge render functions are hard-disabled and the <code>showProvenanceBadges</code> default is now false.</p>
+<ul>
+<li>cacheVersion + sw.js <code>CACHE_VERSION</code> + index.html css/js <code>?v=</code> bumped v1.17.45 -&gt; v1.17.46.</li>
+</ul>
 <h2>v1.17.45 - 2026-06-07 (kanji: 雨 — mnemonic illustration proof-of-concept)</h2>
 <h3>Added</h3>
 <ul>

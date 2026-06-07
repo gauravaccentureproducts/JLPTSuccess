@@ -2,6 +2,19 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.46 - 2026-06-08 (privacy/trust: remove review-provenance tags from learner-facing UI)
+
+### Changed
+
+- Removed every learner-facing review / provenance tag: the "AI quality-reviewed" /
+  "AI-drafted" / "Auto-generated" item badge (on kanji meanings + vocab glosses), the
+  kanji mnemonic "auto / pending native review" tag, the grammar essay "stub" badge and
+  "Pending native author." placeholders, the papers-page "native-teacher-reviewed"
+  footnote, and the README "native_reviewed" claim. Who or what reviewed an item is an
+  internal matter; the learner now sees only the content. The internal `review_status`
+  data field is retained (CI-enforced) but is never displayed; the badge render functions
+  are hard-disabled and the `showProvenanceBadges` default is now false.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.45 -> v1.17.46.
 ## v1.17.45 - 2026-06-07 (kanji: 雨 — mnemonic illustration proof-of-concept)
 
 ### Added
