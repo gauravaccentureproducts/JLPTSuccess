@@ -2,6 +2,15 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.43 - 2026-06-07 (kanji: 語 — demote かた reading to "additional")
+
+### Changed
+
+- **語**: the 語る reading かた moved from the primary kun line into "additional
+  readings," so the Readings section no longer presents it as a normal standalone
+  N5 reading (語 is mainly read ご). Closes the last native-review item on 語.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped
+  v1.17.42 → v1.17.43 (JA-68).
 ## v1.17.42 - 2026-06-07 (kanji: native-review corrections — reading rules, examples, sentences)
 
 ### Fixed
