@@ -411,7 +411,10 @@ def main():
         import glob, shutil, datetime
         stem = os.path.splitext(out_path)[0]
         for prev in glob.glob(stem + "_*.docx"):
-            os.remove(prev)
+            try:
+                os.remove(prev)
+            except OSError as e:
+                print("  (could not remove %s - file in use? leaving it: %s)" % (os.path.basename(prev), e))
         stamp = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
         dated = "%s_%s.docx" % (stem, stamp)
         shutil.copy2(out_path, dated)

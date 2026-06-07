@@ -843,6 +843,28 @@ A26. KANJI.JSON DUPLICATE-FORM EXAMPLES WITH SAME READING
      Fix policy: keep both when readings differ (multi-reading
      teaching value); merge / drop when readings are identical.
 
+A26.1 KANJI.JSON SENTENCES BORROWED FROM A GRAMMAR PATTERN /
+     REDUNDANT-ENGLISH PAIR (added 2026-06-07)
+
+     Anti-pattern: a kanji's `sentences[]` array carries two example
+     sentences whose English translations are identical or near-
+     identical (e.g. 雨: "あした 雨だろう" / "あした 雨でしょう" - both
+     "It'll probably rain tomorrow"). Almost always a sign the pair was
+     lifted from a GRAMMAR pattern (here だろう vs でしょう register
+     contrast) to illustrate the grammar, not the kanji. On a kanji
+     page the second sentence then adds no kanji-usage value.
+
+     Detection: within each entry's sentences[], flag any two whose
+     translation_en is equal after lowercasing + stripping trailing
+     punctuation, OR whose JA differs only by a known register-pair
+     token (だろう/でしょう, だ/です, the like).
+
+     Fix policy: keep ONE, replace the other with a varied everyday
+     sentence that teaches the kanji in a different context (different
+     verb / time / place). Kanji example sentences must teach the
+     TARGET kanji's everyday usage - not be a vehicle for a grammar
+     contrast. Corpus scan 2026-06-07: 雨 was the only affected entry.
+
 A27. DOKKAI MONDAI RANGE IS 4-6 (NOT 1-4 LIKE LISTENING)
      (added 2026-05-15)
 

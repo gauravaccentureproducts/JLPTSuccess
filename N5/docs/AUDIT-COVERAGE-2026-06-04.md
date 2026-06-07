@@ -195,3 +195,21 @@ CI PASS all 180.
 "corrected" = the on-dominant kanji detected by the primary_reading signal + the reviewer's
 cited one-offs, this snapshot. The static kanji SEO mirrors refresh on the next full mirror
 rebuild; the cache bump deploys the SPA data path immediately.
+
+## Part 67 — Kanji 雨 follow-up: redundant example-sentence pair (added 2026-06-07)
+
+**Trigger.** User review of the kanji doc's 雨 page flagged its two example sentences as a
+near-duplicate pair (あした 雨だろう / あした 雨でしょう, identical English) - borrowed from the
+でしょう/だろう grammar pattern, teaching a register contrast rather than the kanji.
+
+**What was true + scope.** Confirmed in kanji.json. A corpus-wide scan (duplicate translation_en
++ near-identical JA within an entry's sentences) found 雨 was the ONLY affected kanji. Replaced
+with two varied everyday 雨 sentences. Registered BUG-KANJI-020.
+
+**Also fixed (tooling).** The review-doc builders' auto-stamp crashed if an old dated copy was
+open (locked) - os.remove now skips a locked file with a warning instead of failing the build.
+Applied to all three builders (vocab/kanji/grammar).
+
+**Bounded phrasing.** "Only 雨 affected" = against the near-duplicate / duplicate-English signal,
+this snapshot; single grammar-borrowed sentences without duplication are not auto-detectable and
+remain native-judgment. Cache bump v1.17.43 -> v1.17.44; CI PASS 180.

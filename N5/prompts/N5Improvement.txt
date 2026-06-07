@@ -4601,3 +4601,15 @@ scan grammar.json wrong_corrected_pair/common_mistakes 'correct'/'right' for
 'already correct' / 'IS valid' / '(correct)' -> must return 0 (locked by JA-177).
 Particle (ね/よ/よね), register (だろう/でしょう, から/ので) and focus (が/は) contrasts belong
 in register_variant or a usage note, never as a ✗/✓ pair.
+
+## Section 10 anti-item (added 2026-06-07, BUG-KANJI-020): kanji example sentences borrowed from a grammar pattern
+Do NOT give a kanji TWO example sentences whose English translations are identical/near-
+identical (sign of a pair lifted from a grammar pattern to show a register contrast - e.g. 雨
+had "あした 雨だろう"/"あした 雨でしょう", both "It'll probably rain tomorrow"). A kanji page must
+teach the TARGET kanji's everyday usage, not be a vehicle for a だろう/でしょう grammar contrast.
+Keep one, replace the other with a varied everyday sentence (different verb/time/place).
+Phase-0 check (validated to return 0 against the current corpus): for each kanji.json entry,
+lowercase+strip-punctuation each sentences[].translation_en; flag any entry where two are equal,
+OR where two JA differ only by a register-pair token (だろう/でしょう, だ/です). 2026-06-07 scan: 雨
+was the sole hit (now fixed). This is native-judgment prose - single grammar-borrowed sentences
+without duplication are not auto-detectable and remain a human-review surface.

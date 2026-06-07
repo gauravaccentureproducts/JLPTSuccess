@@ -2,6 +2,17 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.44 - 2026-06-07 (kanji: 雨 — replace redundant example sentences)
+
+### Fixed
+
+- **雨**: the two example sentences were the same sentence with only the conjecture
+  ending swapped (あした 雨だろう / あした 雨でしょう, identical English) - borrowed from
+  the でしょう/だろう grammar pattern and teaching a register contrast, not the 雨 kanji.
+  Replaced with two varied everyday sentences (きょうは 雨が ふって います / 雨の 日は
+  うちで 本を よみます). A corpus-wide near-duplicate-sentence scan confirmed 雨 was the
+  only affected kanji.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.43 → v1.17.44 (JA-68).
 ## v1.17.43 - 2026-06-07 (kanji: 語 — demote かた reading to "additional")
 
 ### Changed
