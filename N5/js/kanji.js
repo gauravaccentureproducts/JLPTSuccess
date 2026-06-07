@@ -105,117 +105,24 @@ function _sortKey(e) {
 }
 
 function renderIndex(container, entries) {
-  const q = _filterText.trim().toLowerCase();
-  const filtered = entries
-    .filter(e => _matchesFilter(e, q, _filterStroke, _filterLesson))
-    .slice()
-    .sort((a, b) => {
-      const ka = _sortKey(a), kb = _sortKey(b);
-      if (typeof ka === 'string') return ka.localeCompare(kb);
-      return ka - kb;
-    });
-  // 2026-05-06 (user request): list-tile pages show only the kanji glyph
-  // for active-recall practice. Readings + meanings appear on the detail
-  // page after click-through. This lets learners self-assess "do I know
-  // this kanji?" before revealing the answer.
-  const cards = filtered.map(e => `
+  // Search / stroke-lesson filters / sort card removed (user request
+  // 2026-06-08): the index now shows every N5 kanji in lesson order as a
+  // simple grid. List tiles show only the glyph for active-recall practice;
+  // readings + meanings appear on the detail page after click-through.
+  const sorted = entries.slice()
+    .sort((a, b) => (a.lesson_order ?? 999) - (b.lesson_order ?? 999));
+  const cards = sorted.map(e => `
     <a class="kanji-card" href="#/kanji/${encodeURIComponent(e.glyph)}">
       <span class="kanji-card-glyph" lang="ja">${esc(e.glyph)}</span>
     </a>
   `).join('');
 
-  const chip = (group, value, label, active) =>
-    `<button type="button" class="kanji-chip ${active ? 'active' : ''}"
-       data-filter-group="${group}" data-filter-value="${value}">${esc(label)}</button>`;
-
   container.innerHTML = `
     <a class="back-link" href="#/learn">← Back to Learn</a>
     <h2>Kanji</h2>
     <p>${entries.length} kanji at JLPT N5 level. Tap any card for readings, meanings, and stroke order.</p>
-
-    <div class="kanji-filters" role="search" aria-label="Filter kanji">
-      <input type="search" id="kanji-filter-q" class="kanji-filter-input"
-        placeholder="Search reading, meaning, or glyph (e.g. みず / water / 水)"
-        value="${esc(_filterText)}" autocomplete="off" lang="ja"
-        aria-label="Search kanji by reading, meaning, or glyph">
-
-      <div class="kanji-filter-row" aria-label="Stroke count filter">
-        <span class="kanji-filter-label">Strokes:</span>
-        ${chip('stroke', 'all', 'All', _filterStroke === 'all')}
-        ${chip('stroke', '1-5', '1-5', _filterStroke === '1-5')}
-        ${chip('stroke', '6-10', '6-10', _filterStroke === '6-10')}
-        ${chip('stroke', '11-15', '11-15', _filterStroke === '11-15')}
-        ${chip('stroke', '16+', '16+', _filterStroke === '16+')}
-      </div>
-
-      <div class="kanji-filter-row" aria-label="Lesson order filter">
-        <span class="kanji-filter-label">Lesson:</span>
-        ${chip('lesson', 'all', 'All', _filterLesson === 'all')}
-        ${chip('lesson', '1-30', '1-30', _filterLesson === '1-30')}
-        ${chip('lesson', '31-60', '31-60', _filterLesson === '31-60')}
-        ${chip('lesson', '61-90', '61-90', _filterLesson === '61-90')}
-        ${chip('lesson', '91-106', '91-106', _filterLesson === '91-106')}
-      </div>
-
-      <div class="kanji-filter-row kanji-sort-row" aria-label="Sort kanji">
-        <span class="kanji-filter-label">Sort:</span>
-        <select id="kanji-sort" class="kanji-sort-select" aria-label="Sort kanji by">
-          <option value="lesson"    ${_sortBy === 'lesson'    ? 'selected' : ''}>Lesson order (default)</option>
-          <option value="frequency" ${_sortBy === 'frequency' ? 'selected' : ''}>Frequency rank</option>
-          <option value="strokes"   ${_sortBy === 'strokes'   ? 'selected' : ''}>Stroke count</option>
-          <option value="glyph"     ${_sortBy === 'glyph'     ? 'selected' : ''}>Glyph (Unicode order)</option>
-        </select>
-      </div>
-
-      <p class="kanji-filter-count muted small" aria-live="polite">
-        Showing <strong>${filtered.length}</strong> of ${entries.length}.
-      </p>
-    </div>
-
-    <div class="kanji-card-grid">${cards || '<p class="muted">No kanji match the current filters.</p>'}</div>
+    <div class="kanji-card-grid">${cards}</div>
   `;
-
-  const input = document.getElementById('kanji-filter-q');
-  if (input) {
-    // IME composition guard — see learn-grammar.js for the rationale.
-    let isComposing = false;
-    const reapply = () => {
-      _filterText = input.value;
-      renderIndex(container, entries);
-      // Re-focus the input after re-render and restore caret.
-      const newInput = document.getElementById('kanji-filter-q');
-      if (newInput) {
-        newInput.focus();
-        const v = newInput.value;
-        newInput.setSelectionRange(v.length, v.length);
-      }
-    };
-    input.addEventListener('compositionstart', () => { isComposing = true; });
-    input.addEventListener('compositionend',   () => { isComposing = false; reapply(); });
-    input.addEventListener('input', () => {
-      if (isComposing) return;
-      reapply();
-    });
-  }
-
-  container.querySelectorAll('[data-filter-group]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.dataset.filterGroup;
-      const value = btn.dataset.filterValue;
-      if (group === 'stroke') _filterStroke = value;
-      else if (group === 'lesson') _filterLesson = value;
-      renderIndex(container, entries);
-    });
-  });
-
-  // IMP-025: sort dropdown
-  const sortSelect = document.getElementById('kanji-sort');
-  if (sortSelect) {
-    sortSelect.addEventListener('change', () => {
-      _sortBy = sortSelect.value;
-      renderIndex(container, entries);
-    });
-  }
 }
 
 function renderDetail(container, entry, entries) {
@@ -303,51 +210,47 @@ function renderDetail(container, entry, entries) {
           </div>
         </section>
       ` : ''}
-      ${entry.examples?.length ? `
+      ${(() => {
+        // Merged "Example usage" + "Words containing this kanji" (user request
+        // 2026-06-08): the two overlapped, so they are now ONE section listing
+        // the N5 words that use this kanji, clickable through to the vocab entry
+        // when one exists. Built from examples[] (richer compounds, pedagogical
+        // order) unioned with n5_compounds[] (vocab-linked), deduped by form, and
+        // EXCLUDING kana-only homophones (e.g. あめ "candy" does not contain 雨)
+        // so the heading stays truthful.
+        const glyph = entry.glyph || '';
+        const compounds = entry.n5_compounds || [];
+        const linkForms = new Set(compounds.filter(c => c.form).map(c => c.form));
+        const seen = new Set();
+        const rows = [];
+        for (const it of [...(entry.examples || []), ...compounds]) {
+          const form = it.form || '';
+          if (!form || !form.includes(glyph)) continue;   // drop kana homophones
+          if (seen.has(form)) continue;
+          seen.add(form);
+          rows.push({ form, reading: it.reading || '', gloss: it.gloss || '', link: linkForms.has(form) });
+        }
+        if (!rows.length) return '';
+        const body = rows.map(r => {
+          const formCell = r.link
+            ? `<a href="#/learn/vocab/${encodeURIComponent(r.form)}" lang="ja">${esc(r.form)}</a>`
+            : `<span lang="ja">${esc(r.form)}</span>`;
+          return `
+                <tr>
+                  <td class="ex-form">${formCell}</td>
+                  <td class="ex-reading" lang="ja">${esc(r.reading)}</td>
+                  <td class="ex-gloss">${esc(r.gloss)}</td>
+                </tr>`;
+        }).join('');
+        return `
         <section class="kanji-examples">
           <h3>${esc(t('kanji_detail.example_usage'))}</h3>
+          <p class="muted small">N5 words that use this kanji. Click a linked row to open its vocab entry.</p>
           <table class="kanji-examples-table">
-            <tbody>
-              ${entry.examples.map(ex => `
-                <tr>
-                  <td class="ex-form" lang="ja">${esc(ex.form)}</td>
-                  <td class="ex-reading" lang="ja">${esc(ex.reading || '')}</td>
-                  <td class="ex-gloss">${esc(ex.gloss || '')}</td>
-                </tr>
-              `).join('')}
-            </tbody>
+            <tbody>${body}</tbody>
           </table>
-        </section>
-      ` : ''}
-      ${entry.n5_compounds?.length ? `
-        <!-- IMP-176 (2026-05-13): Jisho-style "words containing this kanji"
-             with click-through to the vocab detail page. n5_compounds is
-             the same schema as examples but with vocab_id linking. -->
-        <section class="kanji-n5-compounds">
-          <h3>Words containing this kanji</h3>
-          <p class="muted small">
-            N5-scope vocabulary that uses this kanji. Click any row to jump to its vocab entry.
-          </p>
-          <table class="kanji-examples-table">
-            <tbody>
-              ${entry.n5_compounds.map(c => {
-                // Vocab detail route is #/learn/vocab/<form>, NOT id-keyed.
-                const vocabHref = c.form ? `#/learn/vocab/${encodeURIComponent(c.form)}` : null;
-                const formCell = vocabHref
-                  ? `<a href="${esc(vocabHref)}" lang="ja">${esc(c.form)}</a>`
-                  : `<span lang="ja">${esc(c.form)}</span>`;
-                return `
-                  <tr>
-                    <td class="ex-form">${formCell}</td>
-                    <td class="ex-reading" lang="ja">${esc(c.reading || '')}</td>
-                    <td class="ex-gloss">${esc(c.gloss || '')}</td>
-                  </tr>
-                `;
-              }).join('')}
-            </tbody>
-          </table>
-        </section>
-      ` : ''}
+        </section>`;
+      })()}
       ${entry.sentences?.length ? `
         <section class="kanji-sentences">
           <h3>${esc(t('kanji_detail.in_a_sentence'))}</h3>

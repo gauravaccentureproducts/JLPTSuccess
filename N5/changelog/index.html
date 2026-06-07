@@ -99,6 +99,23 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.47 - 2026-06-08 (kanji-page UX: merge duplicate sections, drop filter card, scroll-to-top)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Kanji detail:</strong> merged the overlapping &quot;Example usage&quot; and &quot;Words containing this</li>
+</ul>
+<p>kanji&quot; sections into ONE list. Rows link through to the vocab entry when one exists, and kana-only homophones are excluded - e.g. あめ &quot;candy&quot; no longer appears on the 雨 page (it shares the reading あめ but does not contain the kanji).</p>
+<ul>
+<li><strong>Kanji home:</strong> removed the search / stroke / lesson / sort filter card; the page now</li>
+</ul>
+<p>shows every N5 kanji as a simple grid in lesson order.</p>
+<ul>
+<li><strong>Navigation:</strong> every route change now scrolls to the top, so opening a kanji card</li>
+</ul>
+<p>lands on the detail page&#x27;s header (the large glyph) instead of mid-page.</p>
+<ul>
+<li>cacheVersion + sw.js <code>CACHE_VERSION</code> + index.html css/js <code>?v=</code> bumped v1.17.46 -&gt; v1.17.47.</li>
+</ul>
 <h2>v1.17.46 - 2026-06-08 (privacy/trust: remove review-provenance tags from learner-facing UI)</h2>
 <h3>Changed</h3>
 <ul>

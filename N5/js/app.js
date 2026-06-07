@@ -364,6 +364,11 @@ async function route() {
   } finally {
     clearTimeout(timeoutId);
   }
+  // Scroll to the top on every route change (user request 2026-06-08): when a
+  // kanji card (or any list item) is opened, the detail page must start at its
+  // header — the big glyph — not retain the previous page's scroll position
+  // mid-page. Hash routing carries no in-page anchors, so this is always safe.
+  window.scrollTo(0, 0);
   refreshDrillBadge();
 }
 

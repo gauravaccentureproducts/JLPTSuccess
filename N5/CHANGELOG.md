@@ -2,6 +2,19 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.47 - 2026-06-08 (kanji-page UX: merge duplicate sections, drop filter card, scroll-to-top)
+
+### Changed
+
+- **Kanji detail:** merged the overlapping "Example usage" and "Words containing this
+  kanji" sections into ONE list. Rows link through to the vocab entry when one exists,
+  and kana-only homophones are excluded - e.g. あめ "candy" no longer appears on the 雨
+  page (it shares the reading あめ but does not contain the kanji).
+- **Kanji home:** removed the search / stroke / lesson / sort filter card; the page now
+  shows every N5 kanji as a simple grid in lesson order.
+- **Navigation:** every route change now scrolls to the top, so opening a kanji card
+  lands on the detail page's header (the large glyph) instead of mid-page.
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.46 -> v1.17.47.
 ## v1.17.46 - 2026-06-08 (privacy/trust: remove review-provenance tags from learner-facing UI)
 
 ### Changed

@@ -1,64 +1,23 @@
-import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";import{renderItemBadge as b}from"./provenance-badge.js";function w(s){const n=v();if(n&&n!=="en"){const l=s[`meanings_${n}`];if(Array.isArray(l)&&l.length)return l}return s.meanings||[]}let j=null;async function x(){return j||(j=await(await fetch("data/kanji.json")).json(),j)}async function T(s,n){await x();const l=j.entries||[],r=n?decodeURIComponent(n):"";if(!r)return $(s,l);const p=l.find(o=>o.glyph===r);if(!p){s.innerHTML=`
+import*as j from"./storage.js";import{currentLocale as $,t}from"./i18n.js";import{renderItemBadge as f}from"./provenance-badge.js";function y(s){const n=$();if(n&&n!=="en"){const i=s[`meanings_${n}`];if(Array.isArray(i)&&i.length)return i}return s.meanings||[]}let m=null;async function v(){return m||(m=await(await fetch("data/kanji.json")).json(),m)}async function K(s,n){await v();const i=m.entries||[],o=n?decodeURIComponent(n):"";if(!o)return C(s,i);const l=i.find(c=>c.glyph===o);if(!l){s.innerHTML=`
       <div class="placeholder">
         <h2>Kanji not found</h2>
-        <p>No N5 entry for <strong lang="ja">${a(r)}</strong>.</p>
+        <p>No N5 entry for <strong lang="ja">${a(o)}</strong>.</p>
         <p><a href="#/kanji" class="btn-primary" style="text-decoration:none">Back to kanji list</a></p>
       </div>
-    `;return}return C(s,p,l)}let f="",k="all",m="all",h="lesson";function S(s){return s==null?"":s<=5?"1-5":s<=10?"6-10":s<=15?"11-15":"16+"}function I(s){return s==null?"":s<=30?"1-30":s<=60?"31-60":s<=90?"61-90":"91-106"}function L(s,n,l,r){if(n){const p=s.additional_readings||{};if(![s.glyph||"",...s.on||[],...s.kun||[],...p.on||[],...p.kun||[],...s.meanings||[]].join(" ").toLowerCase().includes(n))return!1}return!(l!=="all"&&S(s.stroke_count)!==l||r!=="all"&&I(s.lesson_order)!==r)}function y(s){switch(h){case"frequency":return s.frequency_rank??999;case"strokes":return s.stroke_count??999;case"glyph":return s.glyph||"";default:return s.lesson_order??999}}function $(s,n){const l=f.trim().toLowerCase(),r=n.filter(i=>L(i,l,k,m)).slice().sort((i,c)=>{const d=y(i),u=y(c);return typeof d=="string"?d.localeCompare(u):d-u}),p=r.map(i=>`
-    <a class="kanji-card" href="#/kanji/${encodeURIComponent(i.glyph)}">
-      <span class="kanji-card-glyph" lang="ja">${a(i.glyph)}</span>
+    `;return}return I(s,l,i)}let L="",S="all",B="all",b="lesson";function w(s){return s==null?"":s<=5?"1-5":s<=10?"6-10":s<=15?"11-15":"16+"}function x(s){return s==null?"":s<=30?"1-30":s<=60?"31-60":s<=90?"61-90":"91-106"}function U(s,n,i,o){if(n){const l=s.additional_readings||{};if(![s.glyph||"",...s.on||[],...s.kun||[],...l.on||[],...l.kun||[],...s.meanings||[]].join(" ").toLowerCase().includes(n))return!1}return!(i!=="all"&&w(s.stroke_count)!==i||o!=="all"&&x(s.lesson_order)!==o)}function E(s){switch(b){case"frequency":return s.frequency_rank??999;case"strokes":return s.stroke_count??999;case"glyph":return s.glyph||"";default:return s.lesson_order??999}}function C(s,n){const o=n.slice().sort((l,c)=>(l.lesson_order??999)-(c.lesson_order??999)).map(l=>`
+    <a class="kanji-card" href="#/kanji/${encodeURIComponent(l.glyph)}">
+      <span class="kanji-card-glyph" lang="ja">${a(l.glyph)}</span>
     </a>
-  `).join(""),o=(i,c,d,u)=>`<button type="button" class="kanji-chip ${u?"active":""}"
-       data-filter-group="${i}" data-filter-value="${c}">${a(d)}</button>`;s.innerHTML=`
+  `).join("");s.innerHTML=`
     <a class="back-link" href="#/learn">\u2190 Back to Learn</a>
     <h2>Kanji</h2>
     <p>${n.length} kanji at JLPT N5 level. Tap any card for readings, meanings, and stroke order.</p>
-
-    <div class="kanji-filters" role="search" aria-label="Filter kanji">
-      <input type="search" id="kanji-filter-q" class="kanji-filter-input"
-        placeholder="Search reading, meaning, or glyph (e.g. \u307F\u305A / water / \u6C34)"
-        value="${a(f)}" autocomplete="off" lang="ja"
-        aria-label="Search kanji by reading, meaning, or glyph">
-
-      <div class="kanji-filter-row" aria-label="Stroke count filter">
-        <span class="kanji-filter-label">Strokes:</span>
-        ${o("stroke","all","All",k==="all")}
-        ${o("stroke","1-5","1-5",k==="1-5")}
-        ${o("stroke","6-10","6-10",k==="6-10")}
-        ${o("stroke","11-15","11-15",k==="11-15")}
-        ${o("stroke","16+","16+",k==="16+")}
-      </div>
-
-      <div class="kanji-filter-row" aria-label="Lesson order filter">
-        <span class="kanji-filter-label">Lesson:</span>
-        ${o("lesson","all","All",m==="all")}
-        ${o("lesson","1-30","1-30",m==="1-30")}
-        ${o("lesson","31-60","31-60",m==="31-60")}
-        ${o("lesson","61-90","61-90",m==="61-90")}
-        ${o("lesson","91-106","91-106",m==="91-106")}
-      </div>
-
-      <div class="kanji-filter-row kanji-sort-row" aria-label="Sort kanji">
-        <span class="kanji-filter-label">Sort:</span>
-        <select id="kanji-sort" class="kanji-sort-select" aria-label="Sort kanji by">
-          <option value="lesson"    ${h==="lesson"?"selected":""}>Lesson order (default)</option>
-          <option value="frequency" ${h==="frequency"?"selected":""}>Frequency rank</option>
-          <option value="strokes"   ${h==="strokes"?"selected":""}>Stroke count</option>
-          <option value="glyph"     ${h==="glyph"?"selected":""}>Glyph (Unicode order)</option>
-        </select>
-      </div>
-
-      <p class="kanji-filter-count muted small" aria-live="polite">
-        Showing <strong>${r.length}</strong> of ${n.length}.
-      </p>
-    </div>
-
-    <div class="kanji-card-grid">${p||'<p class="muted">No kanji match the current filters.</p>'}</div>
-  `;const g=document.getElementById("kanji-filter-q");if(g){let i=!1;const c=()=>{f=g.value,$(s,n);const d=document.getElementById("kanji-filter-q");if(d){d.focus();const u=d.value;d.setSelectionRange(u.length,u.length)}};g.addEventListener("compositionstart",()=>{i=!0}),g.addEventListener("compositionend",()=>{i=!1,c()}),g.addEventListener("input",()=>{i||c()})}s.querySelectorAll("[data-filter-group]").forEach(i=>{i.addEventListener("click",()=>{const c=i.dataset.filterGroup,d=i.dataset.filterValue;c==="stroke"?k=d:c==="lesson"&&(m=d),$(s,n)})});const e=document.getElementById("kanji-sort");e&&e.addEventListener("change",()=>{h=e.value,$(s,n)})}function C(s,n,l){const r=l.findIndex(e=>e.glyph===n.glyph),p=r>0?l[r-1]:null,o=r<l.length-1?l[r+1]:null,g=_.isKanjiKnown(n.glyph);s.innerHTML=`
+    <div class="kanji-card-grid">${o}</div>
+  `}function I(s,n,i){const o=i.findIndex(e=>e.glyph===n.glyph),l=o>0?i[o-1]:null,c=o<i.length-1?i[o+1]:null,u=j.isKanjiKnown(n.glyph);s.innerHTML=`
     <article class="kanji-detail">
       <div class="srs-progress">
         <a href="#/kanji">\u2190 ${a(t("kanji_detail.all_kanji"))}</a>
-        <span class="muted small">${r+1} ${a(t("kanji_detail.of_total"))} ${l.length}</span>
+        <span class="muted small">${o+1} ${a(t("kanji_detail.of_total"))} ${i.length}</span>
       </div>
       <div class="kanji-glyph-row pattern-header">
         <div class="kanji-glyph-cluster">
@@ -66,11 +25,11 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
           <div class="kanji-readings">
             ${n.on?.length?`<p><strong>${a(t("kanji_detail.on"))}:</strong> <span lang="ja">${n.on.map(a).join(" / ")}</span></p>`:Array.isArray(n.on)?`<p><strong>${a(t("kanji_detail.on"))}:</strong> <span class="muted small">${a(t("kanji_detail.none_at_n5"))}</span></p>`:""}
             ${n.kun?.length?`<p><strong>${a(t("kanji_detail.kun"))}:</strong> <span lang="ja">${n.kun.map(a).join(" / ")}</span></p>`:Array.isArray(n.kun)?`<p><strong>${a(t("kanji_detail.kun"))}:</strong> <span class="muted small">${a(t("kanji_detail.none_at_n5"))}</span></p>`:""}
-            ${(()=>{const e=w(n);return e.length?`<p><strong>${a(t("kanji_detail.meaning"))}:</strong> ${e.map(a).join(", ")} ${b(n,!0)}</p>`:""})()}
+            ${(()=>{const e=y(n);return e.length?`<p><strong>${a(t("kanji_detail.meaning"))}:</strong> ${e.map(a).join(", ")} ${f(n,!0)}</p>`:""})()}
           </div>
         </div>
         <label class="known-toggle" title="Manually mark this kanji as known. Cleared on the next miss in Test or Drill.">
-          <input type="checkbox" id="mark-known-kanji" ${g?"checked":""}>
+          <input type="checkbox" id="mark-known-kanji" ${u?"checked":""}>
           <span>${a(t("kanji_detail.mark_as_known"))}</span>
         </label>
       </div>
@@ -127,44 +86,19 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
           </div>
         </section>
       `:""}
-      ${n.examples?.length?`
+      ${(()=>{const e=n.glyph||"",d=n.n5_compounds||[],p=new Set(d.filter(r=>r.form).map(r=>r.form)),h=new Set,k=[];for(const r of[...n.examples||[],...d]){const g=r.form||"";!g||!g.includes(e)||h.has(g)||(h.add(g),k.push({form:g,reading:r.reading||"",gloss:r.gloss||"",link:p.has(g)}))}if(!k.length)return"";const _=k.map(r=>`
+                <tr>
+                  <td class="ex-form">${r.link?`<a href="#/learn/vocab/${encodeURIComponent(r.form)}" lang="ja">${a(r.form)}</a>`:`<span lang="ja">${a(r.form)}</span>`}</td>
+                  <td class="ex-reading" lang="ja">${a(r.reading)}</td>
+                  <td class="ex-gloss">${a(r.gloss)}</td>
+                </tr>`).join("");return`
         <section class="kanji-examples">
           <h3>${a(t("kanji_detail.example_usage"))}</h3>
+          <p class="muted small">N5 words that use this kanji. Click a linked row to open its vocab entry.</p>
           <table class="kanji-examples-table">
-            <tbody>
-              ${n.examples.map(e=>`
-                <tr>
-                  <td class="ex-form" lang="ja">${a(e.form)}</td>
-                  <td class="ex-reading" lang="ja">${a(e.reading||"")}</td>
-                  <td class="ex-gloss">${a(e.gloss||"")}</td>
-                </tr>
-              `).join("")}
-            </tbody>
+            <tbody>${_}</tbody>
           </table>
-        </section>
-      `:""}
-      ${n.n5_compounds?.length?`
-        <!-- IMP-176 (2026-05-13): Jisho-style "words containing this kanji"
-             with click-through to the vocab detail page. n5_compounds is
-             the same schema as examples but with vocab_id linking. -->
-        <section class="kanji-n5-compounds">
-          <h3>Words containing this kanji</h3>
-          <p class="muted small">
-            N5-scope vocabulary that uses this kanji. Click any row to jump to its vocab entry.
-          </p>
-          <table class="kanji-examples-table">
-            <tbody>
-              ${n.n5_compounds.map(e=>{const i=e.form?`#/learn/vocab/${encodeURIComponent(e.form)}`:null;return`
-                  <tr>
-                    <td class="ex-form">${i?`<a href="${a(i)}" lang="ja">${a(e.form)}</a>`:`<span lang="ja">${a(e.form)}</span>`}</td>
-                    <td class="ex-reading" lang="ja">${a(e.reading||"")}</td>
-                    <td class="ex-gloss">${a(e.gloss||"")}</td>
-                  </tr>
-                `}).join("")}
-            </tbody>
-          </table>
-        </section>
-      `:""}
+        </section>`})()}
       ${n.sentences?.length?`
         <section class="kanji-sentences">
           <h3>${a(t("kanji_detail.in_a_sentence"))}</h3>
@@ -189,7 +123,7 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
             This kanji appears on these authentic Japanese cards. Click to see the original sign / menu / notice in context.
           </p>
           <ul class="authentic-ref-list">
-            ${n.authentic_refs.map(e=>{const i=e.split(".")[1]||"authentic";return`<li><a href="#/authentic">${a(e)}</a> <span class="muted small">(${a(i)})</span></li>`}).join("")}
+            ${n.authentic_refs.map(e=>{const d=e.split(".")[1]||"authentic";return`<li><a href="#/authentic">${a(e)}</a> <span class="muted small">(${a(d)})</span></li>`}).join("")}
           </ul>
         </section>
       `:""}
@@ -220,7 +154,7 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
             ${e.why_it_matters?`<p><strong>${a(t("kanji_detail.why_it_matters"))}:</strong> ${a(e.why_it_matters)}</p>`:""}
           </section>
         `})()}
-      ${(()=>{const e=n.on_kun_pair_drill;if(!e||typeof e!="object")return"";const i=e.standalone||{},c=e.compound||{};return`
+      ${(()=>{const e=n.on_kun_pair_drill;if(!e||typeof e!="object")return"";const d=e.standalone||{},p=e.compound||{};return`
           <section class="kanji-on-kun-drill">
             <h3>${a(t("kanji_detail.on_kun_pair_drill"))}</h3>
             <table class="on-kun-drill-table">
@@ -230,14 +164,14 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
               <tbody>
                 <tr>
                   <td>
-                    <span class="form" lang="ja">${a(i.form||"")}</span>
-                    <span class="reading muted small" lang="ja">${a(i.reading||"")}</span>
-                    <span class="gloss">${a(i.gloss||"")}</span>
+                    <span class="form" lang="ja">${a(d.form||"")}</span>
+                    <span class="reading muted small" lang="ja">${a(d.reading||"")}</span>
+                    <span class="gloss">${a(d.gloss||"")}</span>
                   </td>
                   <td>
-                    <span class="form" lang="ja">${a(c.form||"")}</span>
-                    <span class="reading muted small" lang="ja">${a(c.reading||"")}</span>
-                    <span class="gloss">${a(c.gloss||"")}</span>
+                    <span class="form" lang="ja">${a(p.form||"")}</span>
+                    <span class="reading muted small" lang="ja">${a(p.reading||"")}</span>
+                    <span class="gloss">${a(p.gloss||"")}</span>
                   </td>
                 </tr>
               </tbody>
@@ -256,16 +190,16 @@ import*as _ from"./storage.js";import{currentLocale as v,t}from"./i18n.js";impor
             <h3>${a(t("kanji_detail.okurigana_boundary"))}</h3>
             <p class="muted small">${a(t("kanji_detail.okurigana_intro"))}</p>
             <ul class="okurigana-cuts-list">
-              ${e.map(i=>{const c=String(i).split(":");return c.length!==2?`<li><span lang="ja">${a(i)}</span></li>`:`<li>
-                  <span class="okurigana-kanji" lang="ja">${a(c[0])}</span><span class="okurigana-cut" aria-hidden="true">\uFE31</span><span class="okurigana-suffix" lang="ja">${a(c[1])}</span>
+              ${e.map(d=>{const p=String(d).split(":");return p.length!==2?`<li><span lang="ja">${a(d)}</span></li>`:`<li>
+                  <span class="okurigana-kanji" lang="ja">${a(p[0])}</span><span class="okurigana-cut" aria-hidden="true">\uFE31</span><span class="okurigana-suffix" lang="ja">${a(p[1])}</span>
                 </li>`}).join("")}
             </ul>
           </section>
         `:""})()}
       <nav class="kanji-nav">
-        ${p?`<a href="#/kanji/${encodeURIComponent(p.glyph)}">\u2190 <span lang="ja">${a(p.glyph)}</span></a>`:"<span></span>"}
-        ${o?`<a href="#/kanji/${encodeURIComponent(o.glyph)}"><span lang="ja">${a(o.glyph)}</span> \u2192</a>`:"<span></span>"}
+        ${l?`<a href="#/kanji/${encodeURIComponent(l.glyph)}">\u2190 <span lang="ja">${a(l.glyph)}</span></a>`:"<span></span>"}
+        ${c?`<a href="#/kanji/${encodeURIComponent(c.glyph)}"><span lang="ja">${a(c.glyph)}</span> \u2192</a>`:"<span></span>"}
       </nav>
     </article>
-  `,document.getElementById("mark-known-kanji")?.addEventListener("change",e=>{_.setKanjiKnown(n.glyph,e.target.checked)})}function a(s){return String(s??"").replace(/[&<>"']/g,n=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[n])}function A(s){if(!s)return"";if(typeof s=="string")return`<p class="kanji-mnemonic">${a(s)}</p>`;if(typeof s!="object")return"";const n=s.summary||s.meaning||"",l=s.visual||"",r=s.reading||"",p=s.provenance||{},o=e=>"",g=[];return n&&g.push(`<p class="kanji-mnemonic kanji-mnemonic-summary"><strong>Meaning:</strong> ${a(n)}${o("summary")}</p>`),l&&l!==n&&g.push(`<p class="kanji-mnemonic kanji-mnemonic-visual"><strong>Visual:</strong> ${a(l)}${o("visual")}</p>`),r&&g.push(`<p class="kanji-mnemonic kanji-mnemonic-reading"><strong>Reading:</strong> ${a(r)}${o("reading")}</p>`),g.join(`
-          `)}export{T as renderKanji};
+  `,document.getElementById("mark-known-kanji")?.addEventListener("change",e=>{j.setKanjiKnown(n.glyph,e.target.checked)})}function a(s){return String(s??"").replace(/[&<>"']/g,n=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[n])}function A(s){if(!s)return"";if(typeof s=="string")return`<p class="kanji-mnemonic">${a(s)}</p>`;if(typeof s!="object")return"";const n=s.summary||s.meaning||"",i=s.visual||"",o=s.reading||"",l=s.provenance||{},c=e=>"",u=[];return n&&u.push(`<p class="kanji-mnemonic kanji-mnemonic-summary"><strong>Meaning:</strong> ${a(n)}${c("summary")}</p>`),i&&i!==n&&u.push(`<p class="kanji-mnemonic kanji-mnemonic-visual"><strong>Visual:</strong> ${a(i)}${c("visual")}</p>`),o&&u.push(`<p class="kanji-mnemonic kanji-mnemonic-reading"><strong>Reading:</strong> ${a(o)}${c("reading")}</p>`),u.join(`
+          `)}export{K as renderKanji};
