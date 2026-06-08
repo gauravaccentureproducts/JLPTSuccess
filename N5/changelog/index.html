@@ -99,6 +99,25 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.50 - 2026-06-08 (header Print icon + weekly audit: PRECACHE + test-runner)</h2>
+<p>Consolidated release bundling two parallel work streams into one cache version.</p>
+<h3>Added</h3>
+<ul>
+<li>A <strong>Print</strong> icon in the header toolbar (next to Settings), present on every page, so any</li>
+</ul>
+<p>route - the Grammar list, Kanji, Reading, a detail page, etc. - can be printed or saved as PDF from one place. It prints the current page via the browser dialog; the site&#x27;s global print watermark + per-route print styles already make any page print cleanly. (Search was already in the same toolbar on every page.)</p>
+<h3>Fixed</h3>
+<ul>
+<li>Service-worker PRECACHE now includes the error-monitor and report-problem modules</li>
+</ul>
+<p>(<code>js/error-monitor.js</code> + <code>js/min/error-monitor.js</code>, <code>js/report-problem.js</code> + <code>js/min/report-problem.js</code>), which existed but were missed by an earlier precache sweep - so they are available offline.</p>
+<ul>
+<li>Test runner (<code>tools/test-runner/tests.html</code>) ES-module import paths corrected</li>
+</ul>
+<p>(<code>./js/...</code> -&gt; <code>../../js/...</code>) so the in-browser test page resolves storage.js / furigana.js and runs (37/37 pass).</p>
+<ul>
+<li>cacheVersion + sw.js <code>CACHE_VERSION</code> + index.html css/js <code>?v=</code> bumped v1.17.48 -&gt; v1.17.50.</li>
+</ul>
 <h2>v1.17.48 - 2026-06-08 (typography: remove em-dashes from the UI chrome)</h2>
 <h3>Changed</h3>
 <ul>

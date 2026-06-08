@@ -465,6 +465,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initSearch();
   initPwa();
   initFullscreenToggle();
+  initPrintButton();
   initLocaleChips();
   // SVA-NEXT-3: superseded initThemeOverrides(), now reads data/branding.json
   // (a unified file covering CSS tokens + brand strings + meta tags + footer
@@ -697,4 +698,19 @@ function initFullscreenToggle() {
   document.addEventListener('fullscreenchange', updateLabel);
   document.addEventListener('webkitfullscreenchange', updateLabel);
   updateLabel();
+}
+
+// Header Print affordance (2026-06-08, user request): a printer icon in the
+// secondary nav that prints the CURRENT route. It lives in the static header,
+// so it is available on every page (Grammar / Kanji / Reading / etc.). The
+// global print watermark (index.html) + per-route print CSS already make any
+// route print cleanly; this just exposes the trigger. CSP (script-src 'self')
+// forbids inline onclick, so the handler is bound here by id.
+function initPrintButton() {
+  const btn = document.getElementById('print-page');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    try { window.print(); }
+    catch (err) { console.warn('Print failed:', err); }
+  });
 }

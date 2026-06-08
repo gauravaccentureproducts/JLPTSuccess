@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.48';  // bumped 2026-06-07 (v1.17.44: 雨 example sentences replaced; v1.17.43: 語 かた demoted to additional readings; v1.17.42: kanji native-review corrections - reading rules for on-dominant kanji + example/sentence fixes; v1.17.41: cache-bust delivering the native-review pronoun/noun/question-word particle-example + notation fixes to returning learners); prior bump 2026-06-04 — native-reviewer batch K: closed the last 2 BUG-266 re-check items on すむ — replaced unnatural frequency/time-adverb collocations (よく/まいにち/いま すむ) with reviewer-approved location-particle collocations (東京に/日本に/この町に すむ). Cache-bust so the corrected すむ entry reaches returning learners.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.50';  // bumped 2026-06-08 (v1.17.44: 雨 example sentences replaced; v1.17.43: 語 かた demoted to additional readings; v1.17.42: kanji native-review corrections - reading rules for on-dominant kanji + example/sentence fixes; v1.17.41: cache-bust delivering the native-review pronoun/noun/question-word particle-example + notation fixes to returning learners); prior bump 2026-06-04 — native-reviewer batch K: closed the last 2 BUG-266 re-check items on すむ — replaced unnatural frequency/time-adverb collocations (よく/まいにち/いま すむ) with reviewer-approved location-particle collocations (東京に/日本に/この町に すむ). Cache-bust so the corrected すむ entry reaches returning learners.
 
 const PRECACHE = [
   './',
@@ -213,6 +213,13 @@ const PRECACHE = [
   './js/min/strategy-modal.js',
   './js/weak-areas.js',
   './js/min/weak-areas.js',
+  // Audit 2026-06-08: error-monitor + report-problem modules added since last
+  // PRECACHE sweep. Precache both unminified (DevTools Sources) and minified
+  // (runtime) copies so the feature resolves offline.
+  './js/error-monitor.js',
+  './js/min/error-monitor.js',
+  './js/report-problem.js',
+  './js/min/report-problem.js',
 ];
 
 self.addEventListener('install', (event) => {

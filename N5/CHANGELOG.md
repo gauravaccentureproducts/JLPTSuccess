@@ -2,6 +2,28 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.50 - 2026-06-08 (header Print icon + weekly audit: PRECACHE + test-runner)
+
+Consolidated release bundling two parallel work streams into one cache version.
+
+### Added
+
+- A **Print** icon in the header toolbar (next to Settings), present on every page, so any
+  route - the Grammar list, Kanji, Reading, a detail page, etc. - can be printed or saved as
+  PDF from one place. It prints the current page via the browser dialog; the site's global
+  print watermark + per-route print styles already make any page print cleanly. (Search was
+  already in the same toolbar on every page.)
+
+### Fixed
+
+- Service-worker PRECACHE now includes the error-monitor and report-problem modules
+  (`js/error-monitor.js` + `js/min/error-monitor.js`, `js/report-problem.js` +
+  `js/min/report-problem.js`), which existed but were missed by an earlier precache sweep -
+  so they are available offline.
+- Test runner (`tools/test-runner/tests.html`) ES-module import paths corrected
+  (`./js/...` -> `../../js/...`) so the in-browser test page resolves storage.js / furigana.js
+  and runs (37/37 pass).
+- cacheVersion + sw.js `CACHE_VERSION` + index.html css/js `?v=` bumped v1.17.48 -> v1.17.50.
 ## v1.17.48 - 2026-06-08 (typography: remove em-dashes from the UI chrome)
 
 ### Changed
