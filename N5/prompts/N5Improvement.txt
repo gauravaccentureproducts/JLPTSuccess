@@ -4628,3 +4628,19 @@ a provenance/review badge or a "reviewed by X" string. Phase-0 check: grep serve
 facing HTML/README for `AI quality-reviewed|AI-drafted|Auto-generated|pending native review|
 native-teacher-reviewed|native_reviewed` -> must be absent from render paths (internal data
 fields / audit docs / NOTICES disclaimer excluded).
+
+## Section 10 anti-item (added 2026-06-09, procedure-manual F.60 / N4-grammar audit rounds 5-6): meaning gloss must cover the senses its examples exercise
+Do NOT ship a grammar entry whose `meaning_en` lists MORE senses than it has examples to
+demonstrate them (overreach), and flag for native review any entry whose gloss is a single bare
+sense while its examples span multiple functions of a polysemous form (too-narrow - the って miss
+where the gloss "named; called ~" did not cover example 3 あした 雨が ふるって = casual hearsay
+"I hear it'll rain"). The gloss must be the UNION of exactly the senses the examples exercise:
+no example without a covering gloss-clause, no gloss-clause without a demonstrating example.
+Phase-0 check (validated to return 0 against the current corpus): for each grammar.json pattern,
+split `meaning_en` on [;/／、；] and ' or ' into sense-segments; flag any pattern where
+len(sense_segments) > len(examples). 2026-06-09 scan of all 178 patterns: 0 hits. This is a
+conservative proxy (it catches segment-count overreach, not every undemonstrated sense). The
+too-narrow direction is NOT auto-gateable: the same scan's surface-form heuristic (polysemous
+substring が/と/し + single-sense gloss) returned 58/178, almost all false positives (mono-sense
+patterns whose NAME merely contains a particle substring - しか〜ない "only", など "etc.", 何 "what"),
+so it stays a human-review surface. See accuracy-check A93 / FP-24; procedure-manual F.60.

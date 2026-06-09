@@ -6431,3 +6431,58 @@ malformed "already correct" admissions (CI JA-177); が/は focus reading.
 FIX: reclassify valid pairs to register_variant; reframe malformed to a genuine error;
 add a focus note for が/は; never strike valid Japanese. Only the malformed sub-class is
 auto-detectable (JA-177); the rest are native-judgment.
+
+================================================================================
+A93 + FP-24 — meaning-gloss vs example sense-coverage
+(added 2026-06-09, cross-level procedure-manual F.60 propagation)
+================================================================================
+A93. MEANING-GLOSS SENSE-COVERAGE vs EXAMPLES
+     ============================================================
+     Trigger: native review of the standalone N4 grammar deliverable
+     (rounds 5-6) found pattern glosses that did not match the senses
+     their examples exercised — in BOTH directions:
+       - TOO NARROW: って glossed "named; called ~" while example 3
+         (あした 雨が ふるって) was casual hearsay ("I hear it'll rain").
+       - OVERREACH: a gloss listing a sense ("reason for …") that none
+         of the shown examples demonstrate (the cleft-focus のは〜だ case).
+     RULE: meaning_en must be the UNION of exactly the senses the
+     examples exercise — no example without a covering gloss-clause, and
+     no gloss-clause without a demonstrating example. Highest-risk:
+     polysemous particles / enders (って, と, し, から, のに, ば/たら) whose
+     one surface form spans naming / topic / quote / hearsay / cause /
+     contrast.
+
+     Auto-coverage (validated against the 178-pattern N5 grammar.json
+     corpus on 2026-06-09):
+       - DIR-A (overreach, gate-able): split meaning_en on [;/／、；] and
+         ' or '; flag patterns with more sense-segments than examples.
+         Result: 0/178. Conservative proxy — catches segment-count
+         overreach, not every undemonstrated sense.
+       - DIR-B (too-narrow, NOT gate-able): polysemous-surface + single-
+         sense gloss returned 58/178, almost all false positives (FP-24);
+         stays a native-judgment surface.
+     Phase-0 maintainer-side check; NO new JA-NN gate (the too-narrow
+     direction needs sense judgment; DIR-A is a regression mirror).
+     Cross-ref: procedure-manual F.60; N5Improvement Section-10 anti-item
+     (2026-06-09); AUDIT-COVERAGE-2026-06-09.md.
+============================================================
+
+FP-24. Polysemous-surface substring does NOT require a multi-sense gloss
+       (added 2026-06-09, F.60 DIR-B validation)
+       ============================================================
+       SHAPE: a check that flags "single-sense gloss on a pattern whose
+       surface form contains a polysemous particle" floods with false
+       positives, because most such matches are SUBSTRING coincidences,
+       not genuine multi-function patterns.
+
+       FALSE-POSITIVE TRIGGER: DIR-B returned 58/178 N5 patterns — e.g.
+       しか〜ない ("only"), など ("etc."), 何 ("what"), だれ ("who"),
+       から〜まで ("from X to Y") — all correctly mono-sense; their names
+       merely contain し / な / か / と as substrings.
+
+       RULE: the gloss-coverage too-narrow direction is native-judgment
+       only. Do NOT auto-flag a single-sense gloss as a defect on
+       surface-form grounds. Only DIR-A (gloss sense-segments > #examples)
+       is a clean 0-return regression signal. Cross-ref: A93;
+       procedure-manual F.60.
+================================================================================
